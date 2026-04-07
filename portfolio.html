@@ -1,0 +1,1010 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>HeartlessN3ko — Skye Vernon</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300&family=Bebas+Neue&display=swap');
+
+:root {
+  --bg: #06060a;
+  --bg2: #0c0c14;
+  --bg3: #12121e;
+  --neon: #ff69b4;
+  --neon2: #7b4fff;
+  --hot: #ff3e6c;
+  --ice: #42f5e8;
+  --text: #d4dce8;
+  --dim: #5a6478;
+  --border: rgba(200,245,66,0.12);
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'Syne', sans-serif;
+  overflow-x: hidden;
+}
+
+/* NOISE OVERLAY */
+body::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+  pointer-events: none;
+  z-index: 999;
+  opacity: 0.4;
+}
+
+/* SCANLINES */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 2px,
+    rgba(0,0,0,0.15) 2px,
+    rgba(0,0,0,0.15) 4px
+  );
+  pointer-events: none;
+  z-index: 998;
+}
+
+/* ─── HERO ─── */
+.hero {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 0 48px 64px;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 60% 50% at 80% 20%, rgba(123,79,255,0.18) 0%, transparent 60%),
+    radial-gradient(ellipse 40% 60% at 10% 80%, rgba(200,245,66,0.08) 0%, transparent 50%),
+    radial-gradient(ellipse 30% 40% at 60% 70%, rgba(255,62,108,0.1) 0%, transparent 50%);
+}
+
+.hero-grid {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(200,245,66,0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(200,245,66,0.04) 1px, transparent 1px);
+  background-size: 60px 60px;
+}
+
+.hero-tag {
+  font-family: 'DM Mono', monospace;
+  font-size: 11px;
+  color: var(--neon);
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  margin-bottom: 24px;
+  opacity: 0.7;
+  position: relative;
+}
+
+.hero-name {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(72px, 14vw, 180px);
+  line-height: 0.88;
+  color: #fff;
+  position: relative;
+  letter-spacing: 2px;
+}
+
+.hero-name .accent {
+  color: var(--neon);
+  display: block;
+  -webkit-text-stroke: 2px var(--neon);
+  color: transparent;
+}
+
+.hero-name .solid {
+  display: block;
+  color: #fff;
+}
+
+.hero-handle {
+  font-family: 'DM Mono', monospace;
+  font-size: 13px;
+  color: var(--neon2);
+  letter-spacing: 3px;
+  margin-top: 20px;
+  position: relative;
+}
+
+.hero-roles {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-top: 32px;
+  position: relative;
+}
+
+.role-tag {
+  font-family: 'DM Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 2px;
+  padding: 6px 14px;
+  border: 1px solid var(--border);
+  color: var(--dim);
+  text-transform: uppercase;
+}
+
+.role-tag.hot { border-color: rgba(255,62,108,0.4); color: var(--hot); }
+.role-tag.ice { border-color: rgba(66,245,232,0.3); color: var(--ice); }
+.role-tag.neon { border-color: rgba(200,245,66,0.4); color: var(--neon); }
+
+.hero-scroll {
+  position: absolute;
+  bottom: 64px;
+  right: 48px;
+  font-family: 'DM Mono', monospace;
+  font-size: 10px;
+  color: var(--dim);
+  letter-spacing: 3px;
+  writing-mode: vertical-rl;
+  text-transform: uppercase;
+}
+
+/* ─── LAYOUT ─── */
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 48px;
+}
+
+section {
+  padding: 100px 0;
+  border-top: 1px solid var(--border);
+}
+
+.sec-label {
+  font-family: 'DM Mono', monospace;
+  font-size: 10px;
+  color: var(--neon);
+  letter-spacing: 5px;
+  text-transform: uppercase;
+  margin-bottom: 48px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.sec-label::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(90deg, var(--border), transparent);
+  max-width: 300px;
+}
+
+h2 {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(36px, 5vw, 64px);
+  color: #fff;
+  line-height: 1;
+  margin-bottom: 32px;
+  letter-spacing: 1px;
+}
+
+p {
+  font-size: 16px;
+  color: var(--text);
+  line-height: 1.75;
+  max-width: 680px;
+  font-weight: 400;
+}
+
+/* ─── ABOUT ─── */
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: start;
+}
+
+.stat-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.stat-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  padding: 16px 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.stat-item:last-child { border-bottom: none; }
+
+.stat-key {
+  font-family: 'DM Mono', monospace;
+  font-size: 11px;
+  color: var(--dim);
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.stat-val {
+  font-size: 15px;
+  font-weight: 600;
+  color: #fff;
+  text-align: right;
+}
+
+.stat-val.neon { color: var(--neon); }
+.stat-val.hot { color: var(--hot); }
+.stat-val.ice { color: var(--ice); }
+
+/* ─── CREDITS ─── */
+.credits-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1px;
+  background: var(--border);
+  margin-top: 48px;
+}
+
+.credit-card {
+  background: var(--bg2);
+  padding: 32px 28px;
+  position: relative;
+  overflow: hidden;
+  transition: background 0.3s;
+}
+
+.credit-card:hover { background: var(--bg3); }
+
+.credit-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 2px;
+}
+
+.credit-card.sony::before { background: var(--hot); }
+.credit-card.disney::before { background: var(--ice); }
+.credit-card.nick::before { background: var(--neon); }
+.credit-card.indie::before { background: var(--neon2); }
+
+.credit-co {
+  font-family: 'DM Mono', monospace;
+  font-size: 10px;
+  color: var(--dim);
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+}
+
+.credit-title {
+  font-size: 17px;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 8px;
+  line-height: 1.3;
+}
+
+.credit-role {
+  font-size: 13px;
+  color: var(--dim);
+  font-family: 'DM Mono', monospace;
+}
+
+/* ─── MUSIC ─── */
+.music-feature {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
+  align-items: center;
+  margin-top: 48px;
+  padding: 40px;
+  border: 1px solid var(--border);
+  background: var(--bg2);
+  position: relative;
+  overflow: hidden;
+}
+
+.music-feature::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--hot), var(--neon2));
+}
+
+.music-label {
+  font-family: 'DM Mono', monospace;
+  font-size: 10px;
+  color: var(--hot);
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  margin-bottom: 16px;
+}
+
+.music-title {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 42px;
+  color: #fff;
+  line-height: 1;
+  margin-bottom: 8px;
+}
+
+.music-artist {
+  font-size: 15px;
+  color: var(--dim);
+  font-family: 'DM Mono', monospace;
+  letter-spacing: 2px;
+  margin-bottom: 24px;
+}
+
+.music-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-family: 'DM Mono', monospace;
+  font-size: 12px;
+  color: var(--neon);
+  text-decoration: none;
+  letter-spacing: 2px;
+  border: 1px solid rgba(200,245,66,0.3);
+  padding: 10px 20px;
+  transition: all 0.2s;
+}
+
+.music-link:hover {
+  background: rgba(200,245,66,0.08);
+  border-color: var(--neon);
+}
+
+.music-waveform {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 3px;
+  height: 80px;
+}
+
+.wave-bar {
+  width: 4px;
+  background: linear-gradient(180deg, var(--hot), var(--neon2));
+  border-radius: 2px;
+  animation: wave 1.2s ease-in-out infinite;
+}
+
+@keyframes wave {
+  0%, 100% { transform: scaleY(0.3); }
+  50% { transform: scaleY(1); }
+}
+
+/* ─── PROJECTS ─── */
+.project-block {
+  margin-bottom: 2px;
+  background: var(--bg2);
+  border: 1px solid var(--border);
+  position: relative;
+  overflow: hidden;
+}
+
+.project-block::before {
+  content: '';
+  position: absolute;
+  left: 0; top: 0; bottom: 0;
+  width: 3px;
+}
+
+.project-block.rk::before { background: var(--neon); }
+.project-block.tr::before { background: var(--neon2); }
+.project-block.bp::before { background: var(--hot); }
+
+.project-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 36px 40px 28px 44px;
+  cursor: pointer;
+}
+
+.project-name {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 32px;
+  color: #fff;
+  letter-spacing: 1px;
+  line-height: 1;
+}
+
+.project-sub {
+  font-family: 'DM Mono', monospace;
+  font-size: 11px;
+  color: var(--dim);
+  letter-spacing: 2px;
+  margin-top: 6px;
+}
+
+.project-status {
+  font-family: 'DM Mono', monospace;
+  font-size: 10px;
+  padding: 5px 12px;
+  letter-spacing: 2px;
+  border: 1px solid;
+}
+
+.project-status.live { color: var(--neon); border-color: rgba(200,245,66,0.4); }
+.project-status.dev { color: var(--hot); border-color: rgba(255,62,108,0.4); }
+.project-status.concept { color: var(--neon2); border-color: rgba(123,79,255,0.4); }
+
+.project-body {
+  padding: 0 40px 36px 44px;
+}
+
+.project-body p {
+  font-size: 15px;
+  margin-bottom: 24px;
+  max-width: 100%;
+}
+
+.project-stats {
+  display: flex;
+  gap: 32px;
+  flex-wrap: wrap;
+  margin-bottom: 24px;
+}
+
+.ps {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.ps-num {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 36px;
+  color: var(--neon);
+  line-height: 1;
+}
+
+.ps-num.hot { color: var(--hot); }
+.ps-num.ice { color: var(--ice); }
+.ps-num.neon2 { color: var(--neon2); }
+
+.ps-label {
+  font-family: 'DM Mono', monospace;
+  font-size: 9px;
+  color: var(--dim);
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.tag-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.tag {
+  font-family: 'DM Mono', monospace;
+  font-size: 10px;
+  color: var(--dim);
+  border: 1px solid var(--border);
+  padding: 4px 10px;
+  letter-spacing: 1px;
+}
+
+/* ─── SKILLS ─── */
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1px;
+  background: var(--border);
+  margin-top: 48px;
+}
+
+.skill-block {
+  background: var(--bg2);
+  padding: 32px;
+}
+
+.skill-icon {
+  font-family: 'DM Mono', monospace;
+  font-size: 10px;
+  color: var(--neon);
+  letter-spacing: 3px;
+  margin-bottom: 16px;
+}
+
+.skill-title {
+  font-size: 16px;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 16px;
+}
+
+.skill-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.skill-list li {
+  font-family: 'DM Mono', monospace;
+  font-size: 12px;
+  color: var(--dim);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.skill-list li::before {
+  content: '→';
+  color: var(--neon);
+  font-size: 10px;
+}
+
+/* ─── CTA ─── */
+.cta-section {
+  text-align: center;
+  padding: 120px 48px;
+  position: relative;
+  overflow: hidden;
+}
+
+.cta-bg {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse 60% 80% at 50% 50%, rgba(123,79,255,0.12) 0%, transparent 70%);
+}
+
+.cta-section h2 {
+  font-size: clamp(48px, 8vw, 100px);
+  margin-bottom: 24px;
+  position: relative;
+}
+
+.cta-section h2 span { color: var(--neon); }
+
+.cta-section p {
+  margin: 0 auto 40px;
+  text-align: center;
+  position: relative;
+}
+
+.cta-email {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  font-family: 'DM Mono', monospace;
+  font-size: 14px;
+  color: var(--neon);
+  text-decoration: none;
+  border: 1px solid rgba(200,245,66,0.4);
+  padding: 16px 32px;
+  letter-spacing: 2px;
+  position: relative;
+  transition: all 0.3s;
+}
+
+.cta-email:hover {
+  background: rgba(200,245,66,0.08);
+  border-color: var(--neon);
+  box-shadow: 0 0 40px rgba(200,245,66,0.15);
+}
+
+.cta-links {
+  display: flex;
+  justify-content: center;
+  gap: 24px;
+  margin-top: 24px;
+  flex-wrap: wrap;
+  position: relative;
+}
+
+.cta-link {
+  font-family: 'DM Mono', monospace;
+  font-size: 11px;
+  color: var(--dim);
+  text-decoration: none;
+  letter-spacing: 2px;
+  transition: color 0.2s;
+}
+
+.cta-link:hover { color: var(--text); }
+
+/* ─── FOOTER ─── */
+footer {
+  border-top: 1px solid var(--border);
+  padding: 32px 48px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.footer-id {
+  font-family: 'DM Mono', monospace;
+  font-size: 10px;
+  color: var(--dim);
+  letter-spacing: 3px;
+}
+
+.footer-id span { color: var(--neon); }
+
+/* ─── RESPONSIVE ─── */
+@media (max-width: 768px) {
+  .hero { padding: 0 24px 48px; }
+  .container { padding: 0 24px; }
+  .about-grid { grid-template-columns: 1fr; gap: 48px; }
+  .credits-grid { grid-template-columns: 1fr 1fr; }
+  .music-feature { grid-template-columns: 1fr; }
+  .skills-grid { grid-template-columns: 1fr; }
+  .project-header { flex-direction: column; gap: 16px; }
+  footer { flex-direction: column; gap: 16px; text-align: center; }
+}
+
+@media (max-width: 480px) {
+  .credits-grid { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+
+<!-- ─── HERO ─── -->
+<div class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-grid"></div>
+
+  <div class="hero-tag" style="position:relative">// PORTFOLIO — 2026</div>
+
+  <div class="hero-name" style="position:relative">
+    <span class="accent">Skye</span>
+    <span class="solid">Vernon</span>
+  </div>
+
+  <div class="hero-handle" style="position:relative">@HeartlessN3ko</div>
+
+  <div class="hero-roles" style="position:relative">
+    <span class="role-tag hot">Game Developer</span>
+    <span class="role-tag neon">Systems Designer</span>
+    <span class="role-tag ice">Composer</span>
+    <span class="role-tag">World Builder</span>
+    <span class="role-tag">Portland, OR</span>
+  </div>
+
+  <div class="hero-scroll">Scroll ↓</div>
+</div>
+
+<!-- ─── ABOUT ─── -->
+<section>
+  <div class="container">
+    <div class="sec-label">// 01 — About</div>
+    <div class="about-grid">
+      <div>
+        <h2>I Build Things Because I Have To.</h2>
+        <p>
+          Indie game developer, systems designer, and composer with 20+ years in music production
+          and commercial game credits. I design, build, and ship complete systems — code, sound, and world — 
+          as a solo developer. Currently building toward a small indie studio focused on deep, 
+          meaningful game experiences.
+        </p>
+        <br>
+        <p style="font-size: 15px; color: var(--text);">
+          39 years old. Black trans woman. I bring that perspective into everything I make — 
+          the worlds I build, the systems I design, and the communities I create for.
+        </p>
+        <br>
+        <p style="font-size: 14px; color: var(--dim);">
+          I use AI tools the way a good producer uses gear — strategically, intentionally, 
+          and always in service of the work. AI handles what it's good at. 
+          The vision, the design, the soul of the project stays mine.
+        </p>
+        <br>
+        <p style="color: var(--dim); font-size: 14px;">
+          Revenue share over upfront pay. Small tight crew over big loud teams.
+          If you make things because you have to, we'll get along fine.
+        </p>
+      </div>
+      <div class="stat-stack">
+        <div class="stat-item">
+          <span class="stat-key">Experience</span>
+          <span class="stat-val neon">20+ Years</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-key">Base</span>
+          <span class="stat-val">Portland, OR</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-key">Commercial Credits</span>
+          <span class="stat-val hot">Sony · Disney · Nickelodeon</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-key">Current Status</span>
+          <span class="stat-val neon">Building · Recruiting</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-key">Studio Model</span>
+          <span class="stat-val ice">Revenue Share</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-key">GitHub</span>
+          <span class="stat-val" style="font-family:'DM Mono',monospace;font-size:12px">HeartlessN3ko</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── CREDITS ─── -->
+<section>
+  <div class="container">
+    <div class="sec-label">// 02 — Credits</div>
+    <h2>Commercial Work</h2>
+    <p>Music production credits on major media properties, plus indie game soundtracks and original compositions spanning electronic, RPG, and genre-hybrid production.</p>
+
+    <div class="credits-grid">
+      <div class="credit-card sony">
+        <div class="credit-co">Sony Music</div>
+        <div class="credit-title">Freelance Songwriter & Demo Producer</div>
+        <div class="credit-role">// Artist development · Demo production</div>
+      </div>
+      <div class="credit-card disney">
+        <div class="credit-co">Disney</div>
+        <div class="credit-title">Music Production Credit</div>
+        <div class="credit-role">// Composer · Production</div>
+      </div>
+      <div class="credit-card nick">
+        <div class="credit-co">Nickelodeon / Viacom</div>
+        <div class="credit-title">Petpet Park — Game Composer</div>
+        <div class="credit-role">// Pukapookka Island · Mystimar Glenn</div>
+      </div>
+      <div class="credit-card indie">
+        <div class="credit-co">Indie / Original</div>
+        <div class="credit-title">Mobile RPG Soundtracks</div>
+        <div class="credit-role">// Original game music · Electronic · RPG</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── MUSIC ─── -->
+<section>
+  <div class="container">
+    <div class="sec-label">// 03 — Featured Music</div>
+
+    <div class="music-feature">
+      <div>
+        <div class="music-label">// Nickelodeon / Viacom · Petpet Park</div>
+        <div class="music-title">Petpet Park</div>
+        <div class="music-artist">Game Composer · Commercial Credit</div>
+        <p style="font-size: 14px; color: var(--dim); margin-bottom: 24px; max-width: 100%;">
+          Composed original music for Petpet Park, an online game published by Nickelodeon/Viacom 
+          based on the Neopets property. Two tracks shipped as part of the game's official soundtrack.
+        </p>
+        <div style="display:flex; flex-direction:column; gap:10px;">
+          <a class="music-link" href="https://www.youtube.com/watch?v=ydHFIkkVMSY&list=PLnalbFFWac1GTQIPg-ssFl1KeVQnLCwA2&index=9" target="_blank">
+            ▶ PUKAPOOKKA ISLAND
+          </a>
+          <a class="music-link" href="https://www.youtube.com/watch?v=iBAaFIZFr10&list=PLnalbFFWac1GTQIPg-ssFl1KeVQnLCwA2&index=4" target="_blank">
+            ▶ MYSTIMAR GLENN
+          </a>
+        </div>
+      </div>
+      <div class="music-waveform">
+        <!-- animated waveform bars -->
+        <div class="wave-bar" style="height:20%;animation-delay:0s"></div>
+        <div class="wave-bar" style="height:60%;animation-delay:0.1s"></div>
+        <div class="wave-bar" style="height:40%;animation-delay:0.2s"></div>
+        <div class="wave-bar" style="height:80%;animation-delay:0.3s"></div>
+        <div class="wave-bar" style="height:35%;animation-delay:0.4s"></div>
+        <div class="wave-bar" style="height:90%;animation-delay:0.5s"></div>
+        <div class="wave-bar" style="height:50%;animation-delay:0.6s"></div>
+        <div class="wave-bar" style="height:70%;animation-delay:0.7s"></div>
+        <div class="wave-bar" style="height:30%;animation-delay:0.8s"></div>
+        <div class="wave-bar" style="height:85%;animation-delay:0.9s"></div>
+        <div class="wave-bar" style="height:45%;animation-delay:1.0s"></div>
+        <div class="wave-bar" style="height:65%;animation-delay:1.1s"></div>
+        <div class="wave-bar" style="height:25%;animation-delay:0.15s"></div>
+        <div class="wave-bar" style="height:75%;animation-delay:0.25s"></div>
+        <div class="wave-bar" style="height:55%;animation-delay:0.35s"></div>
+        <div class="wave-bar" style="height:40%;animation-delay:0.45s"></div>
+        <div class="wave-bar" style="height:95%;animation-delay:0.55s"></div>
+        <div class="wave-bar" style="height:30%;animation-delay:0.65s"></div>
+        <div class="wave-bar" style="height:70%;animation-delay:0.75s"></div>
+        <div class="wave-bar" style="height:50%;animation-delay:0.85s"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── PROJECTS ─── -->
+<section>
+  <div class="container">
+    <div class="sec-label">// 04 — Projects</div>
+    <h2>What I Ship</h2>
+
+    <!-- REALM KNIGHTS -->
+    <div class="project-block rk" style="margin-bottom: 2px;">
+      <div class="project-header">
+        <div>
+          <div class="project-name">Realm Knights</div>
+          <div class="project-sub">// DISCORD RPG · NODE.JS · MONGODB · RAILWAY</div>
+        </div>
+        <div class="project-status live">LIVE</div>
+      </div>
+      <div class="project-body">
+        <p>
+          A fully custom Discord-based RPG built from scratch — no engine, no framework. 
+          Complete turn-based combat, 30+ classes across 7 tiers, 100+ unique skills, 
+          a full dungeon system, economy, quest board, and active players. 
+          Designed, balanced, and shipped solo through multiple patch cycles.
+        </p>
+        <div class="project-stats">
+          <div class="ps"><span class="ps-num">30+</span><span class="ps-label">Classes</span></div>
+          <div class="ps"><span class="ps-num hot">100+</span><span class="ps-label">Unique Skills</span></div>
+          <div class="ps"><span class="ps-num ice">7</span><span class="ps-label">Class Tiers</span></div>
+          <div class="ps"><span class="ps-num neon2">1</span><span class="ps-label">Developer</span></div>
+        </div>
+        <div class="tag-row">
+          <span class="tag">Node.js</span>
+          <span class="tag">discord.js v14</span>
+          <span class="tag">MongoDB Atlas</span>
+          <span class="tag">Railway</span>
+          <span class="tag">Systems Design</span>
+          <span class="tag">Economy Design</span>
+          <span class="tag">Dungeon Design</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- TR3A -->
+    <div class="project-block tr" style="margin-bottom: 2px;">
+      <div class="project-header">
+        <div>
+          <div class="project-name">The Realm: Third Age</div>
+          <div class="project-sub">// AI LIVE WORLD · PYTHON · SUPABASE · ANTHROPIC API</div>
+        </div>
+        <div class="project-status live">LIVE — BETA</div>
+      </div>
+      <div class="project-body">
+        <p>
+          A fully autonomous AI-driven roleplay world running on Discord. Three interconnected bots, 
+          60+ NPC entities with distinct voices and factional behavior, a two-tier travel system 
+          across an eight-sector city, and a dynamic ambient world engine — all built solo in 14 days.
+        </p>
+        <div class="project-stats">
+          <div class="ps"><span class="ps-num">3</span><span class="ps-label">Live Bots</span></div>
+          <div class="ps"><span class="ps-num hot">60+</span><span class="ps-label">NPC Entities</span></div>
+          <div class="ps"><span class="ps-num ice">75+</span><span class="ps-label">Item Catalog</span></div>
+          <div class="ps"><span class="ps-num neon2">14</span><span class="ps-label">Days to Deploy</span></div>
+        </div>
+        <div class="tag-row">
+          <span class="tag">Python 3.13</span>
+          <span class="tag">discord.py</span>
+          <span class="tag">Supabase</span>
+          <span class="tag">Anthropic API</span>
+          <span class="tag">Railway</span>
+          <span class="tag">NPC Engine</span>
+          <span class="tag">World Design</span>
+          <span class="tag">Lore Systems</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- BATTLE PETS -->
+    <div class="project-block bp">
+      <div class="project-header">
+        <div>
+          <div class="project-name">Battle Pets</div>
+          <div class="project-sub">// MOBILE GAME · REACT NATIVE · NODE.JS · MONGODB</div>
+        </div>
+        <div class="project-status dev">IN DEVELOPMENT</div>
+      </div>
+      <div class="project-body">
+        <p>
+          A creature-raising battle game where your playstyle shapes what your monster becomes. 
+          Stat-driven visual morphology, async and real-time PvP, a modular asset system, 
+          and original music and sound design. Targeting iOS and Android via Expo. 
+          Actively recruiting collaborators.
+        </p>
+        <div class="tag-row">
+          <span class="tag">React Native</span>
+          <span class="tag">Expo</span>
+          <span class="tag">Node.js</span>
+          <span class="tag">MongoDB Atlas</span>
+          <span class="tag">Game Design</span>
+          <span class="tag">Original Music</span>
+          <span class="tag">Recruiting</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ─── SKILLS ─── -->
+<section>
+  <div class="container">
+    <div class="sec-label">// 05 — Skills</div>
+    <h2>What I Bring</h2>
+
+    <div class="skills-grid">
+      <div class="skill-block">
+        <div class="skill-icon">// DESIGN</div>
+        <div class="skill-title">Game & Systems Design</div>
+        <ul class="skill-list">
+          <li>Economy & progression architecture</li>
+          <li>Class & skill tree design</li>
+          <li>Dungeon & boss mechanics</li>
+          <li>Lore & world building</li>
+          <li>Player retention systems</li>
+          <li>Game Design Documentation</li>
+        </ul>
+      </div>
+      <div class="skill-block">
+        <div class="skill-icon">// DEV</div>
+        <div class="skill-title">Development</div>
+        <ul class="skill-list">
+          <li>Node.js / JavaScript</li>
+          <li>Python 3</li>
+          <li>MongoDB Atlas / Mongoose</li>
+          <li>Supabase / PostgreSQL</li>
+          <li>React Native / Expo</li>
+          <li>Railway · GitHub · REST APIs</li>
+        </ul>
+      </div>
+      <div class="skill-block">
+        <div class="skill-icon">// AUDIO</div>
+        <div class="skill-title">Music & Audio</div>
+        <ul class="skill-list">
+          <li>Ableton Live (certified)</li>
+          <li>Recording engineering</li>
+          <li>Mastering</li>
+          <li>Electronic / RPG composition</li>
+          <li>Sound design & SFX</li>
+          <li>Commercial songwriting</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── CTA ─── -->
+<div class="cta-section">
+  <div class="cta-bg"></div>
+  <h2 style="position:relative">Let's Build<br><span>Something Real.</span></h2>
+  <p style="position:relative">
+    Open to collaboration, revenue share partnerships, and studio formation. 
+    If you build because you have to — reach out.
+  </p>
+  <a class="cta-email" href="mailto:sky3vernon@gmail.com" style="position:relative">
+    ✉ SKY3VERNON@GMAIL.COM
+  </a>
+  <div class="cta-links">
+    <a class="cta-link" href="https://github.com/HeartlessN3ko" target="_blank">// GitHub</a>
+    <a class="cta-link" href="https://youtube.com/@ChaosDesigned" target="_blank">// YouTube</a>
+    <a class="cta-link" href="https://heartlessn3ko.itch.io" target="_blank">// itch.io</a>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-id"><span>// HeartlessN3ko</span> — Skye Vernon — Portland, OR</div>
+  <div class="footer-id" style="font-size:9px">Built 2026</div>
+</footer>
+
+</body>
+</html>
