@@ -5,33 +5,173 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Explore Lore — The Realm: Third Age</title>
 <link rel="stylesheet" href="../styles.css">
+<style>
+.lore-console { display: grid; grid-template-columns: 330px minmax(0, 1fr); gap: 1px; background: var(--line); box-shadow: var(--shadow); }
+.archive-index, .archive-view { background: var(--panel); }
+.archive-index { padding: 22px; }
+.archive-view { padding: 26px; }
+.archive-meta { display: flex; justify-content: space-between; gap: 16px; color: var(--dim); font-family: 'DM Mono', monospace; font-size: 11px; letter-spacing: 1.2px; text-transform: uppercase; margin-bottom: 18px; }
+.archive-stage { display: grid; grid-template-columns: minmax(0, 1.08fr) minmax(320px, 0.92fr); gap: 24px; align-items: stretch; }
+.image-frame { min-height: 520px; border: 1px solid var(--line); background: #020507 center / cover no-repeat; position: relative; overflow: hidden; }
+.image-frame::after { content: attr(data-label); position: absolute; left: 18px; bottom: 16px; padding: 8px 10px; border: 1px solid rgba(109,231,255,0.34); background: rgba(3,6,9,0.72); color: var(--cyan); font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: 1.4px; text-transform: uppercase; }
+.copy-panel { display: flex; flex-direction: column; justify-content: space-between; gap: 20px; }
+.copy-panel h2 { font-size: clamp(42px, 5vw, 70px); }
+.quote { border-left: 2px solid var(--cyan); padding: 14px 0 14px 18px; color: #dcecf1; font-size: 16px; line-height: 1.65; }
+.quote cite { display: block; margin-top: 10px; color: var(--cyan); font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: 1.5px; text-transform: uppercase; font-style: normal; }
+.lore-body { display: grid; gap: 12px; }
+.lore-body p { margin: 0; color: #adbec5; }
+.archive-actions { display: flex; justify-content: space-between; gap: 12px; margin-top: 22px; }
+.artifact-strip { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin-top: 22px; }
+.artifact { min-height: 92px; border: 1px solid rgba(109,231,255,0.18); background: #020507 center / cover no-repeat; cursor: pointer; opacity: 0.68; position: relative; }
+.artifact.active { opacity: 1; border-color: var(--cyan); box-shadow: 0 0 0 1px rgba(109,231,255,0.18); }
+.artifact span { position: absolute; inset: auto 8px 7px; color: var(--text); font-family: 'DM Mono', monospace; font-size: 9px; letter-spacing: 1px; text-transform: uppercase; text-shadow: 0 2px 8px #000; }
+.video-placeholder { min-height: 520px; display: grid; place-items: center; border: 1px solid var(--line); background: radial-gradient(circle at 50% 50%, rgba(109,231,255,0.18), transparent 34%), linear-gradient(135deg, rgba(255,51,71,0.08), rgba(109,231,255,0.07)), #020507; }
+.video-card { width: min(520px, 90%); padding: 32px; border: 1px solid var(--line-strong); background: rgba(3,6,9,0.76); text-align: center; }
+.video-card strong { display: block; font-family: 'Bebas Neue', sans-serif; font-size: 64px; letter-spacing: 2px; }
+.video-card span { color: var(--cyan); font-family: 'DM Mono', monospace; font-size: 11px; letter-spacing: 2px; text-transform: uppercase; }
+@media (max-width: 1050px) { .lore-console, .archive-stage { grid-template-columns: 1fr; } .artifact-strip { grid-template-columns: repeat(2, 1fr); } .image-frame, .video-placeholder { min-height: 360px; } }
+</style>
 </head>
 <body>
 <header class="site-header">
   <a class="brand" href="../"><span class="brand-sigil"></span><span class="brand-title">THE REALM: THIRD AGE</span></a>
   <nav class="nav"><a href="../">Apply</a><a href="../intake/">Character Intake</a><a class="active" href="./">Explore Lore</a><a href="../rules/">Rules</a><a class="enter" href="../waiting/">Status</a></nav>
 </header>
-<section class="hero compact"><div class="container"><div class="hero-kicker">SRX Orientation Archive // Discord Linked</div><h1>Explore the Lore.</h1><p class="hero-text">Read this while your application is pending. Completion is tracked for <span data-discord-user>Discord required</span>, so Discord onboarding can stay lighter later.</p><span class="account-chip">Logged in as: <span data-discord-user>Discord required</span></span></div></section>
-<main class="section"><div class="container handbook"><aside class="handbook-list" id="chapterList"></aside><section class="handbook-main"><div class="media-card"><div class="media-image" id="slideImage"></div><div class="media-body"><div class="kicker" id="slideKicker">Chapter 01</div><h2 id="slideTitle">Welcome To The Realm</h2><p id="slideText"></p><div class="slide-controls"><button class="btn ghost" type="button" id="prevSlide">Previous</button><button class="btn" type="button" id="nextSlide">Next</button></div></div></div><div class="status-box" id="slideStatus">SRX ARCHIVE // Use Next to advance through the orientation chapters. The final chapter is reserved for the KLING/Filmora presentation.</div></section></div></main>
+
+<section class="hero compact">
+  <div class="container">
+    <div class="hero-kicker">SRX Orientation Archive // Discord Linked</div>
+    <h1>Explore the Lore.</h1>
+    <p class="hero-text">Read this while your application is pending. Completion is tracked for <span data-discord-user>Discord required</span>, so Discord onboarding can stay lighter later.</p>
+    <span class="account-chip">Logged in as: <span data-discord-user>Discord required</span></span>
+  </div>
+</section>
+
+<main class="section">
+  <div class="container lore-console">
+    <aside class="archive-index">
+      <div class="kicker">SRX Archive Index</div>
+      <div class="handbook-list" id="chapterList"></div>
+    </aside>
+    <section class="archive-view">
+      <div class="archive-meta"><span id="slideKicker">Chapter 01</span><span id="slideSource">SRX Orientation Archive</span></div>
+      <div class="archive-stage" id="archiveStage">
+        <div class="image-frame" id="slideImage" data-label="Archive Visual"></div>
+        <div class="copy-panel">
+          <div>
+            <h2 id="slideTitle">Welcome To The Realm</h2>
+            <blockquote class="quote" id="slideQuote"></blockquote>
+            <div class="lore-body" id="slideText"></div>
+          </div>
+          <div>
+            <div class="archive-actions"><button class="btn ghost" type="button" id="prevSlide">Previous</button><button class="btn" type="button" id="nextSlide">Next</button></div>
+            <div class="status-box" id="slideStatus">SRX ARCHIVE // Use Next to advance through the orientation chapters.</div>
+          </div>
+        </div>
+      </div>
+      <div class="artifact-strip" id="artifactStrip"></div>
+    </section>
+  </div>
+</main>
+
 <footer class="footer"><div><span>SRX</span> // Lore archive</div><div>World orientation while application is pending</div></footer>
 <script src="../auth.js"></script>
 <script>
 requireRealmLogin();
+const asset = 'https://raw.githubusercontent.com/HeartlessN3ko/realm-assets/main/';
 const slides = [
-  { title: 'Welcome To The Realm', sub: 'Overview and what to expect', image: 'https://raw.githubusercontent.com/HeartlessN3ko/realm-assets/main/locations/onboarding_room.png', text: 'You are not yet in Terra. This orientation is delivered before transfer, while SRX prepares your identity record, safety profile, and dimensional intake packet. If approved, your first true arrival happens inside Discord at Gateway Station.' },
-  { title: 'The Nexus Realm', sub: 'The dimension between realities', image: 'https://raw.githubusercontent.com/HeartlessN3ko/realm-assets/main/locations/aria_interviewroom.png', text: 'The Nexus Realm occupies a unique position between countless realities. Throughout history, weakened dimensional boundaries allowed fragments of foreign worlds, civilizations, and individuals to cross into Terra. Some arrived accidentally. Others were brought intentionally. Many never knew they crossed at all.' },
-  { title: 'Terra And Midgar', sub: 'The world and your starting city', image: 'https://raw.githubusercontent.com/HeartlessN3ko/realm-assets/main/locations/dorm_lobby.png', text: 'Terra is the primary inhabited world of the Nexus Realm. Ancient ruins stand beside modern cities. Advanced technology exists alongside forgotten magic. For most refugees and applicants, the journey begins in Midgar under SRX supervision.' },
-  { title: 'The Rift Events', sub: 'History, instability, and survival', image: 'https://raw.githubusercontent.com/HeartlessN3ko/realm-assets/main/locations/dorm_smoking_area.png', text: 'For thousands of years, Rift Events occurred without warning. Mountains appeared overnight. Cities vanished. Foreign civilizations emerged with no understanding of where they had arrived. These disasters shaped the Age of Mythology, the First Age, and the political powers of the Second Age.' },
-  { title: 'The Third Age', sub: 'The Rift has been stabilized', image: 'https://raw.githubusercontent.com/HeartlessN3ko/realm-assets/main/locations/player_dorm.png', text: 'For the first time in recorded history, SRX detects collapsing dimensions and establishes controlled evacuation corridors before total collapse occurs. Refugees arrive through secured gateway facilities instead of catastrophic world mergers.' },
-  { title: 'Your Role', sub: 'Purpose, choices, and consequences', image: 'https://raw.githubusercontent.com/HeartlessN3ko/realm-assets/main/locations/dorm_bar_cafe.png', text: 'Your identity can be preserved. Your abilities can be cataloged. Your future is no longer determined by chance alone. What you choose to build after arrival becomes part of Terra history.' },
-  { title: 'Orientation Reel', sub: 'Final video chapter', image: 'https://raw.githubusercontent.com/HeartlessN3ko/realm-assets/main/locations/onboarding_room.png', text: 'This final chapter is reserved for the KLING and Filmora orientation video. It should recap the Realm, show the portal transition, and end with the question: do you want to come to our Realm?' }
+  {
+    title: 'Pre-Transfer Inspection', short: 'Before the portal', source: 'SRX Directive 7-11', image: asset + 'logos/SRX-Logo-New.png', label: 'SRX Refugee Orientation',
+    artifacts: [asset + 'logos/SRX-Logo-New.png', asset + 'logos/srx-oracle-logo.png', asset + 'reference/old-redacted-doc.png', asset + 'reference/old-redacted-doc2.png'],
+    quote: 'A refugee does not arrive at the gate by accident. By the time they see the light, the system has already decided they can survive the crossing.', cite: 'Archivist Maelin Orr, Gateway Station Orientation Notes',
+    text: ['This inspection occurs before your character enters Terra. SRX is not interviewing someone already safe in Midgar; it is preparing a person from a collapsing, unstable, or unreachable dimension for transfer.', 'The website application creates the out-of-character record staff can review. The in-character arrival begins later, inside Discord, when Oracle opens the Gateway Station intake thread.']
+  },
+  {
+    title: 'The Nexus Realm', short: 'Between realities', source: 'Dimensional Cosmology Primer', image: asset + 'maps/old-map-of-terra.png', label: 'Old Terra Survey Map',
+    artifacts: [asset + 'maps/old-map-of-terra.png', asset + 'maps/topography-map-of-terra.png', asset + 'maps/region-map-of-terra.png', asset + 'maps/city-map-of-terra.png'],
+    quote: 'Terra was never a closed world. It is a shoreline where realities wash up, break apart, and sometimes learn to live together.', cite: 'Dr. Elara Voss, Lecture on Rift Migration',
+    text: ['The Nexus Realm occupies a rare position between countless realities. For most of history, dimensional boundaries weakened without warning, allowing fragments of foreign worlds, civilizations, creatures, and people to cross into Terra.', 'Some arrivals were accidental. Some were intentional. Many did not understand they had crossed until generations later, when their descendants called Terra home.']
+  },
+  {
+    title: 'Terra', short: 'World of arrivals', source: 'Republic Cartographic Office', image: asset + 'maps/region-map-of-terra.png', label: 'Regional Territory Map',
+    artifacts: [asset + 'maps/region-map-of-terra.png', asset + 'maps/map-of-country-terrotories..png', asset + 'maps/topography-map-of-terra.png', asset + 'maps/city-map-of-terra.png'],
+    quote: 'No census of Terra is ever final. The land changes, the borders adjust, and the people keep arriving.', cite: 'Professor Ilyen Marr, Second Age Civic Histories',
+    text: ['Terra is the primary inhabited world of the Nexus Realm and the largest known center of modern civilization. Ancient ruins stand beside megacities. Advanced technology operates next to traditions that predate written history.', 'Centuries of Rift migration created a world where species, magic systems, governments, religions, machines, and surviving cultures exist in uncomfortable proximity. Diversity is not a theme here. It is infrastructure.']
+  },
+  {
+    title: 'The Age Of Mythology', short: 'First collapses', source: 'Redacted Historical Fragments', image: asset + 'reference/old-redacted-doc.png', label: 'Recovered Mythology Record',
+    artifacts: [asset + 'reference/old-redacted-doc.png', asset + 'reference/old-redacted-doc2.png', asset + 'maps/old-map-of-terra.png', asset + 'maps/topography-map-of-terra.png'],
+    quote: 'The oldest maps are wrong in the same way eyewitnesses are wrong: not because they lied, but because the world changed before the ink dried.', cite: 'Anonymous SRX marginalia, recovered archive scan',
+    text: ['The first recorded dimensional collapses reshaped Terra without warning. Entire landscapes appeared. Foreign cities found themselves under unfamiliar skies. Survivors fought, adapted, merged, vanished, or became myth.', 'This unstable period became known as the Age of Mythology: an era where reality itself could not be trusted and the foundations of later civilization were forced into being.']
+  },
+  {
+    title: 'The First And Second Ages', short: 'Heroes into institutions', source: 'Shinra Civic Archive', image: asset + 'logos/shinra-gunmetal-logo.png', label: 'Shinra State Mark',
+    artifacts: [asset + 'logos/shinra-gunmetal-logo.png', asset + 'reference/old-redacted-doc2.png', asset + 'maps/map-of-country-terrotories..png', asset + 'maps/region-map-of-terra.png'],
+    quote: 'Heroes ended wars. Institutions decided what counted as peace afterward.', cite: 'Kaelis Venn, restricted academy transcript',
+    text: ['The First Age belonged to heroes, scholars, conquerors, inventors, explorers, and guardians who stabilized fractured civilizations and defeated threats born from the early Rift chaos.', 'The Second Age belonged to the descendants, survivors, immortal holdouts, noble houses, military orders, corporations, and governments that inherited those victories. Their uneasy peace shaped the political world new arrivals enter today.']
+  },
+  {
+    title: 'Midgar City', short: 'Your starting point', source: 'Midgar Municipal Survey', image: asset + 'maps/midgar-overhead.png', label: 'Midgar Overhead Survey',
+    artifacts: [asset + 'maps/midgar-overhead.png', asset + 'maps/midgar-blueprint.png', asset + 'maps/midgar-railmap.png', asset + 'maps/midgar-map-erorr.png'],
+    quote: 'Midgar is not the center of Terra. It only behaves like it is.', cite: 'Luma Reed, Adventurers Guild orientation briefing',
+    text: ['Most approved arrivals begin in Midgar, a city of sectors, transit lines, corporate jurisdictions, old neighborhoods, hidden sublevels, and carefully controlled public narratives.', 'For the newcomer, Midgar is a starting point: dense, loud, supervised, full of opportunity, and only marginally less dangerous than whatever world they just escaped.']
+  },
+  {
+    title: 'Sectors And Movement', short: 'How the city breathes', source: 'Transit Authority Packet GS-D', image: asset + 'maps/midgar-railmap.png', label: 'Midgar Rail Map',
+    artifacts: [asset + 'maps/midgar-railmap.png', asset + 'maps/sector-1-midgar.png', asset + 'maps/sector-3-map.png', asset + 'maps/sector-7-map.png'],
+    quote: 'A city that large is not navigated. It is negotiated, checkpoint by checkpoint.', cite: 'Captain Rho Vantor, Public Security training audio',
+    text: ['Midgar movement is structured around stations, sector routes, arrival points, restricted elevators, and authority gates. The systems are not only practical; they are political.', 'Your character may eventually travel across sectors, but the opening experience begins narrow by design. SRX wants to know who you are before the city does.']
+  },
+  {
+    title: 'SRX Corporation', short: 'Gateway authority', source: 'SRX Public Mandate', image: asset + 'logos/srx-nexus-logo.png', label: 'SRX Nexus Division',
+    artifacts: [asset + 'logos/srx-nexus-logo.png', asset + 'logos/srx-oracle-logo.png', asset + 'logos/srx-aria-logo.png', asset + 'logos/srx-resonancelogo.png'],
+    quote: 'SRX exists because compassion without containment becomes catastrophe. Containment without compassion becomes tyranny.', cite: 'Director Arthas Raiku, Third Age policy address',
+    text: ['SRX manages portal detection, refugee intake, public safety, dimensional stabilization, classification records, and the Limiter Protocol. It is protective, bureaucratic, powerful, and not always gentle.', 'During intake, SRX records identity, screens threats, dampens dangerous abilities, confiscates unsafe gear, and assigns an initial place in the system. Whether your character trusts that system is a roleplay question. Whether they pass through it is not optional.']
+  },
+  {
+    title: 'People Of Midgar', short: 'Demographics and pressure', source: 'Demographic Intelligence Sheet', image: asset + 'reference/midgar-demographics.png', label: 'Midgar Demographics',
+    artifacts: [asset + 'reference/midgar-demographics.png', asset + 'reference/midgar-stats-demo.png', asset + 'reference/midgar-infascture-stats.png', asset + 'reference/shinra-tower-info-shots.png'],
+    quote: 'Every statistic in Midgar has a face behind it, and most of those faces have learned not to look up when the tower lights pass over them.', cite: 'Jeanna Pyrowolf-Raiku, private relief memo',
+    text: ['Midgar is not a clean showroom. It is a living city full of workers, refugees, soldiers, vendors, officials, criminals, families, old grudges, new arrivals, and people trying to survive the machinery above them.', 'Demographics matter because NPCs are not decoration. They react from where they stand: sector, class, faction, risk, memory, and what your character gives them reason to believe.']
+  },
+  {
+    title: 'The Third Age', short: 'Stabilized Rift System', source: 'SRX Stabilization Report', image: asset + 'reference/midgar-infascture-stats.png', label: 'Infrastructure And Stabilization',
+    artifacts: [asset + 'reference/midgar-infascture-stats.png', asset + 'reference/shinra-tower-info-shots.png', asset + 'logos/SRX-Logo-New.png', asset + 'maps/city-map-of-terra.png'],
+    quote: 'The Third Age did not begin when the Rift opened. It began when someone finally built a door.', cite: 'SRX Oracle training corpus, approved excerpt',
+    text: ['The Third Age begins with the Stabilized Rift System. Instead of allowing realities to collide unpredictably, SRX detects collapsing dimensions and establishes controlled evacuation corridors.', 'New landmasses and population events can now be redirected, documented, and contained. It is an achievement of staggering scale, and a warning: the world is still changing. It is simply changing under supervision.']
+  },
+  {
+    title: 'Your Place In History', short: 'Arrival as consequence', source: 'Gateway Station Closing Address', image: asset + 'maps/city-map-of-terra.png', label: 'Terra City Orientation',
+    artifacts: [asset + 'maps/city-map-of-terra.png', asset + 'maps/midgar-overhead.png', asset + 'logos/SRX-Logo-New.png', asset + 'reference/midgar-stats-demo.png'],
+    quote: 'A file is not a future. It is only proof that someone survived long enough to be counted.', cite: 'A.R.I.A-L field note, intake chamber 7',
+    text: ['Your character is among the first generation to arrive under the Stabilized Rift System. Their arrival can be recorded. Their identity can be preserved. Their abilities can be cataloged.', 'What they become afterward is the point of the story. The Realm begins with processing, but it does not end there.']
+  },
+  {
+    title: 'Orientation Reel', short: 'Final video placeholder', source: 'Kling / Filmora Assembly Slot', video: true,
+    artifacts: [asset + 'logos/SRX-Logo-New.png', asset + 'maps/midgar-overhead.png', asset + 'reference/shinra-tower-info-shots.png', asset + 'logos/srx-aria-logo.png'],
+    quote: 'When the reel ends, the question is not whether the Realm is safe. The question is whether you are still willing to step through.', cite: 'SRX Gateway narration draft',
+    text: ['This final chapter is reserved for the video you are building. It should recap the Nexus Realm, Terra, the Rift Events, SRX, Midgar, and the emotional shift from application to arrival.', 'After the applicant is approved, the bot can DM the Discord invite and guide them to community questions, server information, and the official in-character intake.']
+  }
 ];
 let index = 0;
-const list = document.getElementById('chapterList'), title = document.getElementById('slideTitle'), text = document.getElementById('slideText'), kicker = document.getElementById('slideKicker'), image = document.getElementById('slideImage'), status = document.getElementById('slideStatus');
-function renderList(){ list.innerHTML = slides.map((s,i)=>`<a class="handbook-item ${i===index?'active':''}" href="#" data-slide="${i}"><span class="chapter-num">${String(i+1).padStart(2,'0')}</span><span><strong>${s.title}</strong><span>${s.sub}</span></span></a>`).join(''); list.querySelectorAll('a').forEach(a => a.addEventListener('click', e => { e.preventDefault(); index = Number(a.dataset.slide); render(); })); }
-function render(){ const s = slides[index]; kicker.textContent = `Chapter ${String(index+1).padStart(2,'0')}`; title.textContent = s.title; text.textContent = s.text; image.style.backgroundImage = `linear-gradient(180deg, rgba(3,6,9,0.02), rgba(3,6,9,0.78)), url('${s.image}')`; if(index === slides.length - 1){ markLoreCompleted(); status.textContent = 'SRX ARCHIVE // Lore onboarding marked complete for this Discord account. Final video placeholder remains ready for the Filmora/KLING cut.'; } else { status.textContent = 'SRX ARCHIVE // Use Next to continue. Applicants can read this while staff reviews their character packet.'; } renderList(); }
-document.getElementById('prevSlide').addEventListener('click', () => { index = Math.max(0, index - 1); render(); });
-document.getElementById('nextSlide').addEventListener('click', () => { index = Math.min(slides.length - 1, index + 1); render(); });
+let artifactIndex = 0;
+const list = document.getElementById('chapterList');
+const title = document.getElementById('slideTitle');
+const text = document.getElementById('slideText');
+const quote = document.getElementById('slideQuote');
+const kicker = document.getElementById('slideKicker');
+const source = document.getElementById('slideSource');
+const stage = document.getElementById('archiveStage');
+const image = document.getElementById('slideImage');
+const status = document.getElementById('slideStatus');
+const artifactStrip = document.getElementById('artifactStrip');
+function renderList(){ list.innerHTML = slides.map((s,i)=>`<a class="handbook-item ${i===index?'active':''}" href="#" data-slide="${i}"><span class="chapter-num">${String(i+1).padStart(2,'0')}</span><span><strong>${s.title}</strong><span>${s.short}</span></span></a>`).join(''); list.querySelectorAll('a').forEach(a => a.addEventListener('click', e => { e.preventDefault(); index = Number(a.dataset.slide); artifactIndex = 0; render(); })); }
+function renderArtifacts(s){ artifactStrip.innerHTML = (s.artifacts || []).map((url,i)=>`<button class="artifact ${i===artifactIndex?'active':''}" type="button" data-artifact="${i}" style="background-image:linear-gradient(180deg, transparent, rgba(0,0,0,0.74)), url('${url}')"><span>Artifact ${String(i+1).padStart(2,'0')}</span></button>`).join(''); artifactStrip.querySelectorAll('button').forEach(btn => btn.addEventListener('click', () => { artifactIndex = Number(btn.dataset.artifact); render(); })); }
+function render(){ const s = slides[index]; const activeImage = (s.artifacts && s.artifacts[artifactIndex]) || s.image; kicker.textContent = `Chapter ${String(index+1).padStart(2,'0')}`; source.textContent = s.source; title.textContent = s.title; quote.innerHTML = `${s.quote}<cite>${s.cite}</cite>`; text.innerHTML = s.text.map(p => `<p>${p}</p>`).join(''); if(s.video){ stage.querySelector('.image-frame')?.remove(); if(!stage.querySelector('.video-placeholder')) { stage.insertAdjacentHTML('afterbegin', `<div class="video-placeholder"><div class="video-card"><strong>VIDEO SLOT</strong><span>Final KLING / Filmora Orientation Reel</span></div></div>`); } } else { stage.querySelector('.video-placeholder')?.remove(); if(!stage.querySelector('.image-frame')) { stage.insertAdjacentHTML('afterbegin', `<div class="image-frame" id="slideImage" data-label="Archive Visual"></div>`); } const frame = stage.querySelector('.image-frame'); frame.style.backgroundImage = `linear-gradient(180deg, rgba(3,6,9,0.02), rgba(3,6,9,0.72)), url('${activeImage || s.image}')`; frame.dataset.label = s.label || 'Archive Visual'; }
+  if(index === slides.length - 1){ markLoreCompleted(); status.textContent = 'SRX ARCHIVE // Lore onboarding marked complete. Replace this final slot with the finished video when ready.'; } else { status.textContent = 'SRX ARCHIVE // Use Next to continue. Select artifacts below to inspect related maps, marks, and documents.'; }
+  renderArtifacts(s); renderList(); }
+document.getElementById('prevSlide').addEventListener('click', () => { index = Math.max(0, index - 1); artifactIndex = 0; render(); });
+document.getElementById('nextSlide').addEventListener('click', () => { index = Math.min(slides.length - 1, index + 1); artifactIndex = 0; render(); });
 render();
 </script>
 </body>
