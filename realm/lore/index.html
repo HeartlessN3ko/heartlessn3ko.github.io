@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Explore Lore — The Realm: Third Age</title>
+<link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+<header class="site-header">
+  <a class="brand" href="../"><span class="brand-sigil"></span><span class="brand-title">THE REALM: THIRD AGE</span></a>
+  <nav class="nav"><a href="../">Apply</a><a href="../intake/">Character Intake</a><a class="active" href="./">Explore Lore</a><a href="../rules/">Rules</a><a class="enter" href="../waiting/">Status</a></nav>
+</header>
+
+<section class="hero compact">
+  <div class="container">
+    <div class="hero-kicker">SRX Orientation Archive // Learn The World</div>
+    <h1>Explore the Lore.</h1>
+    <p class="hero-text">Read this while your application is pending. These chapters explain the Nexus Realm, Terra, the Rift Events, the Third Age, and why your arrival matters.</p>
+  </div>
+</section>
+
+<main class="section">
+  <div class="container handbook">
+    <aside class="handbook-list" id="chapterList"></aside>
+    <section class="handbook-main">
+      <div class="media-card">
+        <div class="media-image" id="slideImage"></div>
+        <div class="media-body">
+          <div class="kicker" id="slideKicker">Chapter 01</div>
+          <h2 id="slideTitle">Welcome To The Realm</h2>
+          <p id="slideText"></p>
+          <div class="slide-controls">
+            <button class="btn ghost" type="button" id="prevSlide">Previous</button>
+            <button class="btn" type="button" id="nextSlide">Next</button>
+          </div>
+        </div>
+      </div>
+      <div class="status-box" id="slideStatus">SRX ARCHIVE // Use Next to advance through the orientation chapters. The final chapter is reserved for the KLING/Filmora presentation.</div>
+    </section>
+  </div>
+</main>
+
+<footer class="footer"><div><span>SRX</span> // Lore archive</div><div>World orientation while application is pending</div></footer>
+<script>
+const slides = [
+  {
+    title: 'Welcome To The Realm',
+    sub: 'Overview and what to expect',
+    image: 'https://raw.githubusercontent.com/HeartlessN3ko/realm-assets/main/locations/onboarding_room.png',
+    text: 'You are not yet in Terra. This orientation is delivered before transfer, while SRX prepares your identity record, safety profile, and dimensional intake packet. If approved, your first true arrival happens inside Discord at Gateway Station.'
+  },
+  {
+    title: 'The Nexus Realm',
+    sub: 'The dimension between realities',
+    image: 'https://raw.githubusercontent.com/HeartlessN3ko/realm-assets/main/locations/aria_interviewroom.png',
+    text: 'The Nexus Realm occupies a unique position between countless realities. Throughout history, weakened dimensional boundaries allowed fragments of foreign worlds, civilizations, and individuals to cross into Terra. Some arrived accidentally. Others were brought intentionally. Many never knew they crossed at all.'
+  },
+  {
+    title: 'Terra And Midgar',
+    sub: 'The world and your starting city',
+    image: 'https://raw.githubusercontent.com/HeartlessN3ko/realm-assets/main/locations/dorm_lobby.png',
+    text: 'Terra is the primary inhabited world of the Nexus Realm. Ancient ruins stand beside modern cities. Advanced technology exists alongside forgotten magic. For most refugees and applicants, the journey begins in Midgar under SRX supervision.'
+  },
+  {
+    title: 'The Rift Events',
+    sub: 'History, instability, and survival',
+    image: 'https://raw.githubusercontent.com/HeartlessN3ko/realm-assets/main/locations/dorm_smoking_area.png',
+    text: 'For thousands of years, Rift Events occurred without warning. Mountains appeared overnight. Cities vanished. Foreign civilizations emerged with no understanding of where they had arrived. These disasters shaped the Age of Mythology, the First Age, and the political powers of the Second Age.'
+  },
+  {
+    title: 'The Third Age',
+    sub: 'The Rift has been stabilized',
+    image: 'https://raw.githubusercontent.com/HeartlessN3ko/realm-assets/main/locations/player_dorm.png',
+    text: 'For the first time in recorded history, SRX detects collapsing dimensions and establishes controlled evacuation corridors before total collapse occurs. Refugees arrive through secured gateway facilities instead of catastrophic world mergers.'
+  },
+  {
+    title: 'Your Role',
+    sub: 'Purpose, choices, and consequences',
+    image: 'https://raw.githubusercontent.com/HeartlessN3ko/realm-assets/main/locations/dorm_bar_cafe.png',
+    text: 'Your identity can be preserved. Your abilities can be cataloged. Your future is no longer determined by chance alone. What you choose to build after arrival becomes part of Terra history.'
+  },
+  {
+    title: 'Orientation Reel',
+    sub: 'Final video chapter',
+    image: 'https://raw.githubusercontent.com/HeartlessN3ko/realm-assets/main/locations/onboarding_room.png',
+    text: 'This final chapter is reserved for the KLING and Filmora orientation video. It should recap the Realm, show the portal transition, and end with the question: do you want to come to our Realm?'
+  }
+];
+let index = 0;
+const list = document.getElementById('chapterList');
+const title = document.getElementById('slideTitle');
+const text = document.getElementById('slideText');
+const kicker = document.getElementById('slideKicker');
+const image = document.getElementById('slideImage');
+const status = document.getElementById('slideStatus');
+function renderList(){ list.innerHTML = slides.map((s,i)=>`<a class="handbook-item ${i===index?'active':''}" href="#" data-slide="${i}"><span class="chapter-num">${String(i+1).padStart(2,'0')}</span><span><strong>${s.title}</strong><span>${s.sub}</span></span></a>`).join(''); list.querySelectorAll('a').forEach(a => a.addEventListener('click', e => { e.preventDefault(); index = Number(a.dataset.slide); render(); })); }
+function render(){ const s = slides[index]; kicker.textContent = `Chapter ${String(index+1).padStart(2,'0')}`; title.textContent = s.title; text.textContent = s.text; image.style.backgroundImage = `linear-gradient(180deg, rgba(3,6,9,0.02), rgba(3,6,9,0.78)), url('${s.image}')`; status.textContent = index === slides.length - 1 ? 'SRX ARCHIVE // Final video chapter placeholder. Replace with embedded Filmora/KLING cut when ready.' : 'SRX ARCHIVE // Use Next to continue. Applicants can read this while staff reviews their character packet.'; renderList(); }
+document.getElementById('prevSlide').addEventListener('click', () => { index = Math.max(0, index - 1); render(); });
+document.getElementById('nextSlide').addEventListener('click', () => { index = Math.min(slides.length - 1, index + 1); render(); });
+render();
+</script>
+</body>
+</html>
