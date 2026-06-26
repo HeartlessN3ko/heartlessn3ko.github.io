@@ -25,17 +25,144 @@
 <footer class="footer"><div><span>SRX</span> // Application intake</div><div>Manual approval before Discord invite</div></footer>
 <script src="../auth.js"></script>
 <script>
-const auth = requireRealmLogin();
-const form = document.getElementById('realmForm');
+/* ── Real wiring: Discord OAuth → Supabase Storage → REST insert ── */
+
+const DRAFT_KEY = 'realm-intake-draft-v2';
+const MAX_FILES = 5;
+const MAX_BYTES = 8 * 1024 * 1024;
+
+const form      = document.getElementById('realmForm');
 const statusBox = document.getElementById('statusBox');
-const key = 'realm-intake-draft-v2';
-function syncDiscord(){ const current = getRealmAuth(); if(current) document.getElementById('discordField').value = current.discordUsername; }
-function collect(){ const data = {}; new FormData(form).forEach((v,k)=>{ if(typeof v === 'string') data[k]=v; }); data.updatedAt = new Date().toISOString(); const current = getRealmAuth(); if(current) { data.discordUsername = current.discordUsername; data.discordId = current.discordId; } return data; }
-function save(){ localStorage.setItem(key, JSON.stringify(collect())); }
-try { const saved = JSON.parse(localStorage.getItem(key) || '{}'); Object.entries(saved).forEach(([k,v]) => { if(form.elements[k] && typeof v === 'string') form.elements[k].value = v; }); } catch(e) {}
-syncDiscord(); window.addEventListener('realm-status-change', syncDiscord); setTimeout(syncDiscord, 50);
-document.getElementById('saveDraft').addEventListener('click', () => { save(); statusBox.textContent = 'SRX ORACLE // Draft saved in this browser.'; });
-form.addEventListener('submit', (event) => { event.preventDefault(); save(); markApplicationSubmitted(); statusBox.textContent = 'SRX ORACLE // Submitted / pending. Redirecting to status check.'; setTimeout(() => { window.location.href = '../waiting/'; }, 900); });
+let uploadedUrls = [];   // confirmed Storage URLs
+let uploading    = 0;    // in-flight upload count
+
+// ── Init ──────────────────────────────────────────────────────────────────────
+const auth = requireRealmLogin();   // shows gate + absorbs OAuth params
+
+function syncDiscord() {
+  const a = getRealmAuth();
+  if (a) document.getElementById('discordField').value = a.discordUsername;
+}
+syncDiscord();
+
+// Restore saved draft
+try {
+  const saved = JSON.parse(localStorage.getItem(DRAFT_KEY) || '{}');
+  Object.entries(saved).forEach(([k, v]) => {
+    if (form.elements[k] && typeof v === 'string') form.elements[k].value = v;
+  });
+} catch (_) {}
+
+// ── Draft save ────────────────────────────────────────────────────────────────
+function collectDraft() {
+  const data = {};
+  new FormData(form).forEach((v, k) => { if (typeof v === 'string') data[k] = v; });
+  return data;
+}
+document.getElementById('saveDraft').addEventListener('click', () => {
+  localStorage.setItem(DRAFT_KEY, JSON.stringify(collectDraft()));
+  statusBox.textContent = 'SRX ORACLE // Draft saved in this browser.';
+});
+
+// ── Reference image upload ────────────────────────────────────────────────────
+const refInput = form.elements['references'];
+refInput.addEventListener('change', async () => {
+  const a = getRealmAuth();
+  if (!a) { statusBox.textContent = 'SRX ORACLE // Connect Discord before uploading images.'; return; }
+
+  const files = Array.from(refInput.files).slice(0, MAX_FILES - uploadedUrls.length);
+  for (const file of files) {
+    if (!file.type.startsWith('image/')) continue;
+    if (file.size > MAX_BYTES) {
+      statusBox.textContent = `SRX ORACLE // ${file.name} exceeds 8 MB — skipped.`;
+      continue;
+    }
+    uploading++;
+    statusBox.textContent = `SRX ORACLE // Uploading ${file.name}…`;
+    try {
+      const url = await uploadRefImage(file, a.discordId);
+      uploadedUrls.push(url);
+      statusBox.textContent = `SRX ORACLE // ${uploadedUrls.length} image(s) uploaded.`;
+    } catch (err) {
+      statusBox.textContent = `SRX ORACLE // Upload failed for ${file.name}: ${err.message}`;
+    } finally {
+      uploading--;
+    }
+  }
+  refInput.value = '';
+});
+
+// ── Submit ────────────────────────────────────────────────────────────────────
+form.addEventListener('submit', async (event) => {
+  event.preventDefault();
+
+  const a = getRealmAuth();
+  if (!a) { statusBox.textContent = 'SRX ORACLE // Discord account not connected.'; return; }
+  if (uploading > 0) { statusBox.textContent = 'SRX ORACLE // Please wait — images are still uploading.'; return; }
+
+  const btn = form.querySelector('button[type="submit"]');
+  btn.disabled = true;
+  statusBox.textContent = 'SRX ORACLE // Transmitting dossier…';
+
+  const fd = new FormData(form);
+  const s  = k => (fd.get(k) || '').trim();
+
+  const payload = {
+    discord_id:           a.discordId,
+    discord_username:     a.discordUsername,
+    preferred_name:       s('preferred'),
+    timezone:             s('timezone'),
+    expected_activity:    s('activity'),
+    writing_sample:       s('sample'),
+    character_name:       s('characterName'),
+    aliases:              s('aliases'),
+    pronouns:             s('pronouns'),
+    species:              s('species'),
+    age:                  s('age'),
+    home_world:           s('homeworld'),
+    place_of_origin:      s('origin'),
+    occupation:           s('occupation'),
+    concept:              s('concept'),
+    world_fate:           s('world'),
+    portal_arrival:       s('portal'),
+    what_lost:            s('lost'),
+    hope:                 s('hope'),
+    first_emotion:        s('emotion'),
+    height:               s('height'),
+    build:                s('build'),
+    skin:                 s('skin'),
+    hair:                 s('hair'),
+    eyes:                 s('eyes'),
+    clothing:             s('clothes'),
+    notable_features:     s('features'),
+    appearance_paragraph: s('appearance'),
+    reference_urls:       uploadedUrls,
+    power_estimate:       s('power'),
+    ability_type:         s('abilityType'),
+    ability_use:          s('abilityUse'),
+    ability_limits:       s('abilityLimits'),
+    gear_list:            s('gear'),
+    gear_notes:           s('gearNotes'),
+    secrets:              s('secrets'),
+    content_limits:       s('limits'),
+    agreements_accepted:  true,
+    status:               'pending',
+  };
+
+  try {
+    await insertApplication(payload);
+    localStorage.removeItem(DRAFT_KEY);
+    statusBox.textContent = 'SRX ORACLE // Dossier received. Redirecting to status check.';
+    setTimeout(() => { window.location.href = '../waiting/'; }, 1200);
+  } catch (err) {
+    btn.disabled = false;
+    if (err.code === 409) {
+      statusBox.textContent = 'SRX ORACLE // A pending application already exists for this Discord account. You will receive a DM when it is reviewed.';
+    } else {
+      statusBox.textContent = 'SRX ORACLE // Submission failed: ' + err.message + '. Please try again.';
+    }
+  }
+});
 </script>
 </body>
 </html>

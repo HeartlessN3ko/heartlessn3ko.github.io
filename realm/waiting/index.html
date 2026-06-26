@@ -13,10 +13,47 @@
 <footer class="footer"><div><span>SRX</span> // Applicant status</div><div>Discord ID lookup required for production</div></footer>
 <script src="../auth.js"></script>
 <script>
-requireRealmLogin();
-function cardState(id, state) { const card = document.getElementById(id); card.classList.remove('good','warn','bad'); if(state) card.classList.add(state); }
-function renderStatus(){ const s = getRealmStatus(); document.getElementById('applicationStatus').textContent = statusLabel(s.applicationStatus); document.getElementById('applicationMeta').textContent = s.submittedAt ? `Submitted ${new Date(s.submittedAt).toLocaleString()}` : 'No packet submitted from this browser.'; document.getElementById('loreStatus').textContent = s.loreCompleted ? 'READ' : 'NOT READ'; document.getElementById('rulesStatus').textContent = s.rulesCompleted ? 'ACKNOWLEDGED' : 'NOT ACKNOWLEDGED'; document.getElementById('inviteStatus').textContent = s.inviteSent ? 'SENT' : 'NOT SENT'; cardState('applicationCard', s.applicationStatus === 'approved' || s.applicationStatus === 'imported' ? 'good' : s.applicationStatus === 'pending' || s.applicationStatus === 'needs_revision' ? 'warn' : s.applicationStatus === 'rejected' ? 'bad' : ''); cardState('loreCard', s.loreCompleted ? 'good' : 'warn'); cardState('rulesCard', s.rulesCompleted ? 'good' : 'warn'); cardState('inviteCard', s.inviteSent ? 'good' : 'warn'); document.getElementById('statusBox').textContent = `SRX ORACLE // ${statusLabel(s.applicationStatus)}. Lore: ${s.loreCompleted ? 'complete' : 'incomplete'}. Rules: ${s.rulesCompleted ? 'complete' : 'incomplete'}. Invite DM: ${s.inviteSent ? 'sent' : 'not sent'}.`; }
-renderStatus(); window.addEventListener('realm-status-change', renderStatus);
+requireRealmLogin({ public: true });
+
+function cardState(id, state) {
+  const card = document.getElementById(id);
+  card.classList.remove('good', 'warn', 'bad');
+  if (state) card.classList.add(state);
+}
+
+function renderStatus() {
+  const auth = getRealmAuth();
+
+  if (!auth) {
+    document.getElementById('applicationStatus').textContent = 'NOT CONNECTED';
+    document.getElementById('applicationMeta').textContent   = 'Connect Discord on the intake form to link your application.';
+    document.getElementById('statusBox').textContent = 'SRX ORACLE // No Discord account connected in this browser.';
+    cardState('applicationCard', '');
+    return;
+  }
+
+  // Show username
+  document.querySelectorAll('[data-discord-user]').forEach(el => {
+    el.textContent = auth.discordUsername;
+  });
+
+  // Application status is managed by SRX Command — notification is via Discord DM.
+  // We show a static "pending" view; the bot DM is the authoritative status channel.
+  document.getElementById('applicationStatus').textContent = 'SUBMITTED / PENDING';
+  document.getElementById('applicationMeta').textContent   =
+    `Linked to ${auth.discordUsername}. Submitted from this browser — SRX Command will DM you on Discord with the result.`;
+  document.getElementById('loreStatus').textContent  = 'SEE LORE PAGE';
+  document.getElementById('rulesStatus').textContent = 'SEE RULES PAGE';
+  document.getElementById('inviteStatus').textContent = 'PENDING APPROVAL';
+  cardState('applicationCard', 'warn');
+  cardState('loreCard', '');
+  cardState('rulesCard', '');
+  cardState('inviteCard', 'warn');
+  document.getElementById('statusBox').textContent =
+    `SRX ORACLE // Application on file for ${auth.discordUsername}. Keep Discord DMs open from server members. Result delivered by bot DM once reviewed.`;
+}
+
+renderStatus();
 </script>
 </body>
 </html>
