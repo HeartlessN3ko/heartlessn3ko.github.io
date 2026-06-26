@@ -3,717 +3,118 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>The Realm: Third Age — SRX Orientation</title>
-<style>
-@import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Mono:wght@300;400;500&family=Bebas+Neue&display=swap');
-
-:root {
-  --bg: #05070a;
-  --bg-2: #0b1116;
-  --panel: rgba(13, 20, 27, 0.88);
-  --panel-2: rgba(18, 27, 35, 0.82);
-  --line: rgba(126, 229, 255, 0.18);
-  --line-strong: rgba(126, 229, 255, 0.36);
-  --text: #edf7fb;
-  --muted: #93a7af;
-  --dim: #53656d;
-  --cyan: #73e8ff;
-  --red: #ff4e64;
-  --amber: #ffcf7b;
-  --green: #84f1bd;
-  --shadow: 0 24px 80px rgba(0, 0, 0, 0.42);
-}
-
-* { box-sizing: border-box; }
-html { scroll-behavior: smooth; }
-body {
-  margin: 0;
-  background: var(--bg);
-  color: var(--text);
-  font-family: Syne, system-ui, sans-serif;
-  overflow-x: hidden;
-}
-body::before {
-  content: "";
-  position: fixed;
-  inset: 0;
-  pointer-events: none;
-  z-index: 5;
-  background:
-    linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255,255,255,0.018) 1px, transparent 1px);
-  background-size: 100% 4px, 64px 64px;
-  mix-blend-mode: screen;
-  opacity: 0.24;
-}
-a { color: inherit; }
-button, input, textarea, select { font: inherit; }
-
-.shell {
-  min-height: 100vh;
-  background:
-    radial-gradient(circle at 82% 18%, rgba(115,232,255,0.14), transparent 28%),
-    radial-gradient(circle at 8% 72%, rgba(255,78,100,0.09), transparent 32%),
-    linear-gradient(180deg, #05070a 0%, #071016 42%, #080a0d 100%);
-}
-.header {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  z-index: 20;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 28px;
-  padding: 18px 32px;
-  background: rgba(5, 7, 10, 0.76);
-  border-bottom: 1px solid var(--line);
-  backdrop-filter: blur(18px);
-}
-.brand {
-  display: flex;
-  align-items: baseline;
-  gap: 12px;
-  white-space: nowrap;
-}
-.brand-mark {
-  font-family: 'Bebas Neue', sans-serif;
-  font-size: 34px;
-  letter-spacing: 1px;
-  line-height: 1;
-}
-.brand-sub {
-  font-family: 'DM Mono', monospace;
-  font-size: 10px;
-  color: var(--cyan);
-  letter-spacing: 2px;
-  text-transform: uppercase;
-}
-.nav {
-  display: flex;
-  align-items: center;
-  gap: 22px;
-  font-family: 'DM Mono', monospace;
-  font-size: 11px;
-  letter-spacing: 1.4px;
-  text-transform: uppercase;
-  color: var(--muted);
-}
-.nav a { text-decoration: none; transition: color 160ms ease; }
-.nav a:hover { color: var(--text); }
-.discord-link {
-  border: 1px solid var(--line-strong);
-  color: var(--cyan);
-  padding: 10px 14px;
-  text-decoration: none;
-  font-family: 'DM Mono', monospace;
-  font-size: 11px;
-  letter-spacing: 1.4px;
-  text-transform: uppercase;
-  background: rgba(115,232,255,0.06);
-}
-
-.hero {
-  min-height: 94vh;
-  display: grid;
-  align-items: end;
-  padding: 120px 32px 62px;
-  position: relative;
-  isolation: isolate;
-  overflow: hidden;
-}
-.hero::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  z-index: -2;
-  background:
-    linear-gradient(90deg, rgba(5,7,10,0.92) 0%, rgba(5,7,10,0.62) 42%, rgba(5,7,10,0.2) 100%),
-    linear-gradient(0deg, rgba(5,7,10,0.96) 0%, rgba(5,7,10,0.15) 52%, rgba(5,7,10,0.7) 100%),
-    url('https://raw.githubusercontent.com/HeartlessN3ko/realm-assets/main/locations/onboarding_room.png') center / cover no-repeat;
-  filter: saturate(1.06) contrast(1.08);
-}
-.hero::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  z-index: -1;
-  background:
-    linear-gradient(90deg, rgba(115,232,255,0.16) 1px, transparent 1px),
-    linear-gradient(rgba(115,232,255,0.1) 1px, transparent 1px);
-  background-size: 84px 84px;
-  mask-image: linear-gradient(90deg, black, transparent 74%);
-  opacity: 0.26;
-}
-.hero-inner {
-  width: min(1180px, 100%);
-  margin: 0 auto;
-}
-.handbook-id {
-  font-family: 'DM Mono', monospace;
-  font-size: 12px;
-  color: var(--cyan);
-  letter-spacing: 2.5px;
-  text-transform: uppercase;
-  margin-bottom: 22px;
-}
-h1 {
-  font-family: 'Bebas Neue', sans-serif;
-  font-size: clamp(74px, 10vw, 156px);
-  line-height: 0.86;
-  letter-spacing: 1px;
-  margin: 0;
-  max-width: 920px;
-  text-shadow: 0 12px 50px rgba(0,0,0,0.75);
-}
-.hero-copy {
-  display: grid;
-  grid-template-columns: minmax(0, 680px) 320px;
-  gap: 46px;
-  align-items: end;
-  margin-top: 26px;
-}
-.hero-copy p {
-  margin: 0;
-  color: #d5e6ec;
-  font-size: 18px;
-  line-height: 1.72;
-}
-.hero-actions { display: flex; gap: 12px; flex-wrap: wrap; }
-.btn {
-  border: 1px solid var(--line-strong);
-  background: rgba(115,232,255,0.09);
-  color: var(--text);
-  padding: 13px 18px;
-  font-family: 'DM Mono', monospace;
-  font-size: 12px;
-  letter-spacing: 1.6px;
-  text-transform: uppercase;
-  text-decoration: none;
-  cursor: pointer;
-  transition: transform 160ms ease, border-color 160ms ease, background 160ms ease;
-}
-.btn:hover { transform: translateY(-2px); border-color: var(--cyan); background: rgba(115,232,255,0.15); }
-.btn.red { border-color: rgba(255,78,100,0.48); background: rgba(255,78,100,0.1); color: #ffd6dc; }
-.btn.ghost { background: rgba(5,7,10,0.28); color: var(--muted); }
-
-main { background: linear-gradient(180deg, #05070a, #081017 50%, #05070a); }
-.section {
-  padding: 96px 32px;
-  border-top: 1px solid var(--line);
-}
-.container { width: min(1180px, 100%); margin: 0 auto; }
-.section-head {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(280px, 420px);
-  gap: 56px;
-  align-items: end;
-  margin-bottom: 42px;
-}
-.kicker {
-  font-family: 'DM Mono', monospace;
-  color: var(--red);
-  font-size: 11px;
-  letter-spacing: 3px;
-  text-transform: uppercase;
-  margin-bottom: 16px;
-}
-h2 {
-  margin: 0;
-  font-family: 'Bebas Neue', sans-serif;
-  font-size: clamp(46px, 6vw, 82px);
-  line-height: 0.94;
-  letter-spacing: 1px;
-}
-.section-head p, .lore-panel p, .review-panel p {
-  color: var(--muted);
-  line-height: 1.75;
-  font-size: 15px;
-  margin: 0;
-}
-
-.lore-grid {
-  display: grid;
-  grid-template-columns: 0.92fr 1.08fr;
-  gap: 1px;
-  background: var(--line);
-  box-shadow: var(--shadow);
-}
-.lore-image {
-  min-height: 520px;
-  background:
-    linear-gradient(180deg, rgba(5,7,10,0.08), rgba(5,7,10,0.78)),
-    url('https://raw.githubusercontent.com/HeartlessN3ko/realm-assets/main/locations/aria_interviewroom.png') center / cover no-repeat;
-}
-.lore-panel {
-  background: var(--panel);
-  padding: 38px;
-}
-.chapter {
-  padding: 22px 0;
-  border-bottom: 1px solid var(--line);
-}
-.chapter:first-child { padding-top: 0; }
-.chapter:last-child { border-bottom: 0; padding-bottom: 0; }
-.chapter h3 {
-  margin: 0 0 10px;
-  font-size: 21px;
-  color: var(--text);
-}
-.chapter p + p { margin-top: 12px; }
-
-.intake-layout {
-  display: grid;
-  grid-template-columns: 280px minmax(0, 1fr);
-  gap: 24px;
-  align-items: start;
-}
-.progress-rail {
-  position: sticky;
-  top: 88px;
-  background: var(--panel);
-  border: 1px solid var(--line);
-  padding: 20px;
-}
-.rail-title {
-  font-family: 'DM Mono', monospace;
-  color: var(--cyan);
-  font-size: 11px;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  margin-bottom: 16px;
-}
-.rail-step {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  color: var(--muted);
-  font-family: 'DM Mono', monospace;
-  font-size: 11px;
-  padding: 10px 0;
-  border-top: 1px solid rgba(126,229,255,0.1);
-}
-.rail-dot {
-  width: 9px;
-  height: 9px;
-  border: 1px solid var(--line-strong);
-  background: rgba(115,232,255,0.1);
-}
-.rail-step.active { color: var(--text); }
-.rail-step.active .rail-dot { background: var(--cyan); border-color: var(--cyan); box-shadow: 0 0 18px rgba(115,232,255,0.7); }
-
-.form-card {
-  background: var(--panel);
-  border: 1px solid var(--line);
-  box-shadow: var(--shadow);
-  padding: 28px;
-}
-.form-section {
-  padding: 26px 0;
-  border-top: 1px solid var(--line);
-}
-.form-section:first-child { border-top: 0; padding-top: 0; }
-.form-section h3 {
-  margin: 0 0 18px;
-  font-size: 24px;
-}
-.fields {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 16px;
-}
-.field { display: flex; flex-direction: column; gap: 8px; }
-.field.full { grid-column: 1 / -1; }
-label {
-  font-family: 'DM Mono', monospace;
-  color: #b8cad1;
-  font-size: 11px;
-  letter-spacing: 1.1px;
-  text-transform: uppercase;
-}
-input, textarea, select {
-  width: 100%;
-  color: var(--text);
-  background: rgba(5, 7, 10, 0.6);
-  border: 1px solid rgba(126,229,255,0.18);
-  padding: 12px 13px;
-  outline: none;
-  border-radius: 0;
-}
-textarea { min-height: 116px; resize: vertical; line-height: 1.55; }
-input:focus, textarea:focus, select:focus { border-color: var(--cyan); box-shadow: 0 0 0 2px rgba(115,232,255,0.08); }
-.file-zone {
-  border: 1px dashed rgba(126,229,255,0.34);
-  background: rgba(115,232,255,0.045);
-  padding: 18px;
-}
-.file-zone input { border: 0; padding: 0; background: transparent; }
-.check-row {
-  display: grid;
-  gap: 12px;
-  margin-top: 20px;
-}
-.check-row label {
-  display: flex;
-  align-items: flex-start;
-  gap: 10px;
-  color: var(--muted);
-  text-transform: none;
-  letter-spacing: 0;
-  line-height: 1.5;
-  font-family: Syne, system-ui, sans-serif;
-  font-size: 14px;
-}
-.check-row input { width: 16px; min-width: 16px; margin-top: 2px; }
-
-.orientation-band {
-  display: grid;
-  grid-template-columns: 1.1fr 0.9fr;
-  gap: 1px;
-  background: var(--line);
-  box-shadow: var(--shadow);
-}
-.video-frame {
-  min-height: 410px;
-  background:
-    linear-gradient(180deg, rgba(5,7,10,0.08), rgba(5,7,10,0.8)),
-    url('https://raw.githubusercontent.com/HeartlessN3ko/realm-assets/main/locations/dorm_lobby.png') center / cover no-repeat;
-  display: grid;
-  place-items: center;
-  padding: 28px;
-}
-.play-sigil {
-  width: min(440px, 100%);
-  border: 1px solid rgba(126,229,255,0.34);
-  background: rgba(5,7,10,0.66);
-  padding: 28px;
-  text-align: center;
-  backdrop-filter: blur(12px);
-}
-.play-sigil strong {
-  display: block;
-  font-family: 'Bebas Neue', sans-serif;
-  font-size: 50px;
-  letter-spacing: 1px;
-}
-.play-sigil span {
-  display: block;
-  font-family: 'DM Mono', monospace;
-  color: var(--cyan);
-  font-size: 11px;
-  letter-spacing: 2px;
-  margin-top: 8px;
-  text-transform: uppercase;
-}
-.review-panel {
-  background: var(--panel);
-  padding: 34px;
-}
-.status-box {
-  margin-top: 22px;
-  border: 1px solid var(--line);
-  background: rgba(5,7,10,0.45);
-  padding: 18px;
-  font-family: 'DM Mono', monospace;
-  color: var(--muted);
-  font-size: 12px;
-  line-height: 1.7;
-  min-height: 92px;
-}
-.footer {
-  padding: 34px 32px;
-  border-top: 1px solid var(--line);
-  display: flex;
-  justify-content: space-between;
-  gap: 20px;
-  color: var(--dim);
-  font-family: 'DM Mono', monospace;
-  font-size: 10px;
-  letter-spacing: 1.5px;
-  text-transform: uppercase;
-}
-.footer span { color: var(--cyan); }
-
-@media (max-width: 900px) {
-  .header { position: static; align-items: flex-start; flex-direction: column; padding: 18px 22px; }
-  .nav { width: 100%; overflow-x: auto; padding-bottom: 4px; }
-  .hero { padding: 72px 22px 44px; min-height: 88vh; }
-  .hero-copy, .section-head, .lore-grid, .intake-layout, .orientation-band { grid-template-columns: 1fr; }
-  .progress-rail { position: static; }
-  .section { padding: 70px 22px; }
-  .fields { grid-template-columns: 1fr; }
-  .lore-image, .video-frame { min-height: 320px; }
-  .footer { flex-direction: column; }
-}
-</style>
+<title>The Realm: Third Age — Apply First</title>
+<link rel="stylesheet" href="styles.css">
 </head>
 <body>
-<div class="shell">
-  <header class="header">
-    <div class="brand">
-      <div class="brand-mark">THE REALM</div>
-      <div class="brand-sub">Third Age</div>
-    </div>
-    <nav class="nav" aria-label="Primary navigation">
-      <a href="#basics">Realm Basics</a>
-      <a href="#intake">Character Intake</a>
-      <a href="#orientation">Orientation</a>
-      <a href="#enter">Enter</a>
-    </nav>
-    <a class="discord-link" href="#intake" id="discordButton">Connect Discord</a>
-  </header>
+<header class="site-header">
+  <a class="brand" href="./" aria-label="The Realm home">
+    <span class="brand-sigil"></span>
+    <span class="brand-title">THE REALM: THIRD AGE</span>
+  </a>
+  <nav class="nav" aria-label="Realm navigation">
+    <a class="active" href="./">Apply</a>
+    <a href="intake/">Character Intake</a>
+    <a href="lore/">Explore Lore</a>
+    <a href="rules/">Rules</a>
+    <a class="enter" href="waiting/">Status</a>
+  </nav>
+</header>
 
-  <section class="hero">
-    <div class="hero-inner">
-      <div class="handbook-id">SRX Refugee Orientation Handbook // Revision 3.126</div>
-      <h1>Welcome to your new home.</h1>
-      <div class="hero-copy">
-        <p>If you are reading this document, your successful relocation to Terra has been confirmed. Your previous world is no longer considered stable. You are now recognized as a protected resident of the Republic of Shinra under the Dimensional Refugee Integration Initiative.</p>
-        <div class="hero-actions">
-          <a class="btn" href="#basics">Begin Orientation</a>
-          <a class="btn ghost" href="#intake">Character Intake</a>
-        </div>
-      </div>
+<section class="hero">
+  <div class="container">
+    <div class="hero-kicker">SRX Pre-Transfer Inspection // External Dimension Relay</div>
+    <h1>Before you enter the Realm.</h1>
+    <p class="hero-text">All recruits, refugees, wanderers, and problem-shaped miracles begin here. Submit your player and character packet first. While SRX reviews your file, you can explore the world lore and rules before Discord onboarding opens.</p>
+    <div class="actions">
+      <a class="btn" href="intake/">Start Character Intake</a>
+      <a class="btn ghost" href="lore/">Explore The Lore</a>
     </div>
-  </section>
-</div>
+    <p class="portal-note" style="max-width:620px;margin-top:28px">SRX NOTICE // This inspection occurs before transfer. You are not yet in Terra. Approval authorizes Discord invite delivery, community questions, final rules review, and arrival into the Gateway Station intake thread.</p>
+  </div>
+</section>
 
 <main>
-  <section class="section" id="basics">
+  <section class="section">
     <div class="container">
       <div class="section-head">
         <div>
-          <div class="kicker">Realm Basics</div>
-          <h2>The Nexus Realm does not behave like a single universe.</h2>
+          <div class="kicker">Recruitment Funnel</div>
+          <h2>Every road leads through the same gate.</h2>
         </div>
-        <p>Terra sits between countless realities. Cultures, species, technologies, and magic systems have crossed into this world for centuries. Diversity is not unusual here. It is the foundation modern civilization was built on.</p>
+        <p>Whether someone finds The Realm through Discord discovery, Facebook groups, another server, TikTok, or a personal invite, the website is the first official step. That keeps character review, rules, lore, and Discord access consistent.</p>
       </div>
-      <div class="lore-grid">
-        <div class="lore-image" role="img" aria-label="SRX intake chamber"></div>
-        <div class="lore-panel">
-          <article class="chapter">
-            <h3>The Nexus Realm</h3>
-            <p>Dimensional boundaries have weakened throughout recorded history, allowing fragments of foreign worlds, civilizations, and individuals to cross into Terra. Some arrived accidentally. Others were brought here intentionally. Many never knew they crossed at all.</p>
-          </article>
-          <article class="chapter">
-            <h3>Terra</h3>
-            <p>Ancient ruins stand beside modern cities. Advanced technology exists alongside forgotten magic. Species once separated by impossible distances now call the same neighborhoods home.</p>
-            <p>For most refugees, your journey begins in Midgar.</p>
-          </article>
-          <article class="chapter">
-            <h3>The Rift Events</h3>
-            <p>Entire civilizations and landscapes once appeared without warning. The Age of Mythology gave way to the First Age, then the Second Age: eras of heroes, governments, institutions, and uneasy peace.</p>
-          </article>
-          <article class="chapter">
-            <h3>The Third Age</h3>
-            <p>For the first time in recorded history, the Rift has been stabilized. SRX detects collapsing dimensions and establishes controlled evacuation corridors before total collapse occurs.</p>
-          </article>
-          <article class="chapter">
-            <h3>Your Place In History</h3>
-            <p>Your arrival has been recorded. Your identity has been preserved. Your abilities have been cataloged. What you build from this moment forward will become part of Terra's history.</p>
-          </article>
+      <div class="timeline">
+        <div class="step">
+          <div class="step-index">01</div>
+          <div><h3>Apply on the website</h3><p>Discord login, player info, writing sample, character concept, appearance, abilities, gear, and boundaries.</p></div>
+          <div class="step-status">Required first</div>
+        </div>
+        <div class="step">
+          <div class="step-index">02</div>
+          <div><h3>Manual staff review</h3><p>HeartlessN3ko reviews the character, power balance, writing fit, and lore fit. Approval is not automatic.</p></div>
+          <div class="step-status">Human approval</div>
+        </div>
+        <div class="step">
+          <div class="step-index">03</div>
+          <div><h3>Read while waiting</h3><p>Applicants can explore Realm basics, Terra history, SRX rules, and the orientation reel while their packet is pending.</p></div>
+          <div class="step-status">Optional prep</div>
+        </div>
+        <div class="step">
+          <div class="step-index">04</div>
+          <div><h3>Bot DM with result</h3><p>Approved players receive a Discord invite and next steps. Rejected or revision-needed applicants receive notes.</p></div>
+          <div class="step-status">Discord DM</div>
+        </div>
+        <div class="step">
+          <div class="step-index">05</div>
+          <div><h3>Discord community questions</h3><p>They join, answer community questions for tags and access, read server information, then begin official in-world onboarding.</p></div>
+          <div class="step-status">Server entry</div>
+        </div>
+        <div class="step">
+          <div class="step-index">06</div>
+          <div><h3>Arrive in The Realm</h3><p>The player clicks Welcome to The Realm, starts Oracle intake, and is dropped into the Gateway Station intake thread as a new arrival.</p></div>
+          <div class="step-status">In character</div>
         </div>
       </div>
     </div>
   </section>
 
-  <section class="section" id="intake">
+  <section class="section">
     <div class="container">
       <div class="section-head">
         <div>
-          <div class="kicker">Application Packet</div>
-          <h2>Character profile intake before the gates open.</h2>
+          <div class="kicker">Start Here</div>
+          <h2>The application comes before the handbook.</h2>
         </div>
-        <p>This application gathers the practical details before Discord onboarding, so Oracle and ARIA-L can treat the in-server intake as an in-world scene instead of a clipboard exercise.</p>
+        <p>The page order is intentionally practical: get the character packet submitted first, then give players lore and rules to read while they wait for approval. Less friction, cleaner queue, fewer lost applicants.</p>
       </div>
-      <div class="intake-layout">
-        <aside class="progress-rail" aria-label="Application sections">
-          <div class="rail-title">SRX Packet Index</div>
-          <div class="rail-step active"><span class="rail-dot"></span>Player</div>
-          <div class="rail-step"><span class="rail-dot"></span>Character</div>
-          <div class="rail-step"><span class="rail-dot"></span>Arrival</div>
-          <div class="rail-step"><span class="rail-dot"></span>Appearance</div>
-          <div class="rail-step"><span class="rail-dot"></span>Abilities</div>
-          <div class="rail-step"><span class="rail-dot"></span>Gear</div>
-          <div class="rail-step"><span class="rail-dot"></span>Secrets</div>
-        </aside>
-        <form class="form-card" id="realmForm">
-          <div class="form-section">
-            <h3>Player Information</h3>
-            <div class="fields">
-              <div class="field"><label for="discord">Discord username</label><input id="discord" name="discord" placeholder="Discord login will lock this later"></div>
-              <div class="field"><label for="preferred">Preferred name</label><input id="preferred" name="preferred" required></div>
-              <div class="field"><label for="timezone">Timezone</label><select id="timezone" name="timezone"><option>Pacific</option><option>Mountain</option><option>Central</option><option>Eastern</option><option>GMT / UTC</option><option>UK</option><option>Central Europe</option><option>Australia</option><option>Other</option></select></div>
-              <div class="field"><label for="activity">Expected activity</label><select id="activity" name="activity"><option>A few times per week</option><option>Daily</option><option>Weekly</option><option>Occasional</option><option>Unsure</option></select></div>
-              <div class="field full"><label for="sample">Writing sample</label><textarea id="sample" name="sample" placeholder="A short RP sample in first or third person." required></textarea></div>
-            </div>
-          </div>
-
-          <div class="form-section">
-            <h3>Character Core</h3>
-            <div class="fields">
-              <div class="field"><label for="characterName">Character name</label><input id="characterName" name="characterName" required></div>
-              <div class="field"><label for="aliases">Aliases</label><input id="aliases" name="aliases"></div>
-              <div class="field"><label for="pronouns">Pronouns</label><input id="pronouns" name="pronouns" required></div>
-              <div class="field"><label for="species">Species / race</label><input id="species" name="species" required></div>
-              <div class="field"><label for="age">Age</label><input id="age" name="age" required></div>
-              <div class="field"><label for="homeworld">Home world / dimension</label><input id="homeworld" name="homeworld" required></div>
-              <div class="field full"><label for="concept">Core concept</label><textarea id="concept" name="concept" placeholder="1-2 sentence character summary." required></textarea></div>
-            </div>
-          </div>
-
-          <div class="form-section">
-            <h3>Arrival Setup</h3>
-            <div class="fields">
-              <div class="field full"><label for="world">What happened to your world?</label><textarea id="world" name="world" required></textarea></div>
-              <div class="field full"><label for="portal">How did your character reach the SRX portal?</label><textarea id="portal" name="portal" required></textarea></div>
-              <div class="field"><label for="lost">What did they lose?</label><textarea id="lost" name="lost" required></textarea></div>
-              <div class="field"><label for="hope">What are they hoping to find?</label><textarea id="hope" name="hope" required></textarea></div>
-              <div class="field full"><label for="emotion">First emotional state</label><select id="emotion" name="emotion"><option>Afraid</option><option>Angry</option><option>Numb</option><option>Defiant</option><option>Curious</option><option>Relieved</option><option>Grieving</option><option>Disoriented</option><option>Guarded</option><option>Other</option></select></div>
-            </div>
-          </div>
-
-          <div class="form-section">
-            <h3>Appearance And References</h3>
-            <div class="fields">
-              <div class="field"><label for="height">Height</label><input id="height" name="height" required></div>
-              <div class="field"><label for="build">Build</label><input id="build" name="build" required></div>
-              <div class="field"><label for="skin">Skin tone / surface</label><input id="skin" name="skin" required></div>
-              <div class="field"><label for="hair">Hair</label><input id="hair" name="hair"></div>
-              <div class="field"><label for="eyes">Eyes</label><input id="eyes" name="eyes"></div>
-              <div class="field"><label for="clothes">Usual clothing</label><input id="clothes" name="clothes" required></div>
-              <div class="field full"><label for="appearance">AI-readable appearance paragraph</label><textarea id="appearance" name="appearance" required></textarea></div>
-              <div class="field full file-zone"><label for="references">Visual reference upload</label><input id="references" name="references" type="file" accept="image/png,image/jpeg,image/webp" multiple></div>
-            </div>
-          </div>
-
-          <div class="form-section">
-            <h3>Abilities And Gear</h3>
-            <div class="fields">
-              <div class="field"><label for="power">Starting power estimate</label><select id="power" name="power"><option>Low</option><option>Moderate</option><option>High</option><option>Exceptional</option><option>Godlike</option><option>Unknown</option></select></div>
-              <div class="field"><label for="abilityType">Primary ability type</label><select id="abilityType" name="abilityType"><option>Magic</option><option>Technology</option><option>Physical</option><option>Psychic</option><option>Divine</option><option>Demonic</option><option>Biological</option><option>Weapon-based</option><option>Utility</option><option>Other</option></select></div>
-              <div class="field full"><label for="abilities">Abilities, limits, weaknesses, and SRX monitoring notes</label><textarea id="abilities" name="abilities"></textarea></div>
-              <div class="field full"><label for="gear">Gear surrender list</label><textarea id="gear" name="gear" placeholder="Item name, type, function, visible when equipped, returned after intake."></textarea></div>
-            </div>
-          </div>
-
-          <div class="form-section">
-            <h3>Staff-Only Secrets</h3>
-            <div class="fields">
-              <div class="field full"><label for="secrets">Hidden backstory, secret motives, hidden powers, GM hooks</label><textarea id="secrets" name="secrets"></textarea></div>
-              <div class="field full"><label for="limits">Content limits</label><textarea id="limits" name="limits" required></textarea></div>
-            </div>
-            <div class="check-row">
-              <label><input type="checkbox" required> I confirm this character is my submission.</label>
-              <label><input type="checkbox" required> I understand staff may request revisions before approval.</label>
-            </div>
-            <div class="hero-actions" style="margin-top:22px">
-              <button class="btn" type="submit">Submit Application</button>
-              <button class="btn ghost" type="button" id="saveDraft">Save Draft</button>
-            </div>
-          </div>
-        </form>
-      </div>
-    </div>
-  </section>
-
-  <section class="section" id="orientation">
-    <div class="container">
-      <div class="section-head">
-        <div>
-          <div class="kicker">SRX Presentation</div>
-          <h2>The Rift has been stabilized.</h2>
-        </div>
-        <p>This area is ready for the KLING and Filmora orientation video. Until the final cut is attached, the page presents the chapter sequence and consent checks that will gate the final handoff.</p>
-      </div>
-      <div class="orientation-band">
-        <div class="video-frame">
-          <div class="play-sigil">
-            <strong>ORIENTATION REEL</strong>
-            <span>Nexus Realm // Terra // Rift Events // Third Age</span>
-          </div>
-        </div>
-        <div class="review-panel">
-          <h3>Final Acknowledgements</h3>
-          <p>You are among the first generation to arrive under the Stabilized Rift System. Your arrival has been recorded. Your identity has been preserved. Your future is no longer determined by chance.</p>
-          <div class="check-row" id="enter">
-            <label><input type="checkbox" id="ackLore"> I understand The Realm is an SRX-controlled Midgar setting.</label>
-            <label><input type="checkbox" id="ackRp"> I understand this is collaborative roleplay.</label>
-            <label><input type="checkbox" id="ackAi"> I understand NPCs and systems may respond dynamically.</label>
-          </div>
-          <div class="hero-actions" style="margin-top:22px">
-            <button class="btn red" id="enterRealm" type="button">Yes, Enter The Realm</button>
-            <button class="btn ghost" id="notYet" type="button">Not Yet</button>
-          </div>
-          <div class="status-box" id="statusBox">SRX ORACLE // Awaiting Discord authentication, submitted application, orientation completion, and final consent.</div>
-        </div>
+      <div class="grid-3">
+        <article class="card">
+          <div class="num">01</div>
+          <h3>Character Intake</h3>
+          <p>Full profile worksheet with upload controls for references and a writing sample for review.</p>
+          <div class="actions"><a class="btn wide" href="intake/">Open Intake</a></div>
+        </article>
+        <article class="card">
+          <div class="num">02</div>
+          <h3>Explore Lore</h3>
+          <p>Slide-based Realm Basics covering the Nexus Realm, Terra, Rift Events, the Third Age, and Midgar.</p>
+          <div class="actions"><a class="btn wide ghost" href="lore/">Read Lore</a></div>
+        </article>
+        <article class="card">
+          <div class="num">03</div>
+          <h3>Rules & Directives</h3>
+          <p>Player expectations, safety, collaboration rules, content limits, and SRX onboarding notes.</p>
+          <div class="actions"><a class="btn wide ghost" href="rules/">Review Rules</a></div>
+        </article>
       </div>
     </div>
   </section>
 </main>
 
 <footer class="footer">
-  <div><span>THE REALM: THIRD AGE</span> // SRX Refugee Orientation Handbook</div>
-  <div>GitHub Pages prototype // Supabase + Discord handoff pending</div>
+  <div><span>SRX</span> // Safety. Order. Purpose.</div>
+  <div>Website prototype // Discord OAuth, Supabase storage, and bot DM approval pending</div>
 </footer>
-
-<script>
-const statusBox = document.getElementById('statusBox');
-const form = document.getElementById('realmForm');
-const draftKey = 'realm-intake-draft-v1';
-
-function collectForm() {
-  const data = {};
-  new FormData(form).forEach((value, key) => {
-    if (typeof value === 'string') data[key] = value;
-  });
-  data.updatedAt = new Date().toISOString();
-  return data;
-}
-
-function restoreDraft() {
-  try {
-    const saved = JSON.parse(localStorage.getItem(draftKey) || '{}');
-    Object.entries(saved).forEach(([key, value]) => {
-      const field = form.elements[key];
-      if (field && typeof value === 'string') field.value = value;
-    });
-  } catch (error) {
-    console.warn('Draft restore failed', error);
-  }
-}
-
-form.addEventListener('submit', (event) => {
-  event.preventDefault();
-  localStorage.setItem(draftKey, JSON.stringify(collectForm()));
-  statusBox.textContent = 'SRX ORACLE // Application packet staged locally. Backend import will submit this to Supabase and notify staff review.';
-  document.getElementById('orientation').scrollIntoView({ behavior: 'smooth' });
-});
-
-document.getElementById('saveDraft').addEventListener('click', () => {
-  localStorage.setItem(draftKey, JSON.stringify(collectForm()));
-  statusBox.textContent = 'SRX ORACLE // Draft saved in this browser.';
-});
-
-document.getElementById('discordButton').addEventListener('click', () => {
-  statusBox.textContent = 'SRX ORACLE // Discord OAuth endpoint will connect here once Supabase Auth is configured.';
-});
-
-document.getElementById('enterRealm').addEventListener('click', () => {
-  const ready = ['ackLore', 'ackRp', 'ackAi'].every(id => document.getElementById(id).checked);
-  if (!ready) {
-    statusBox.textContent = 'SRX ORACLE // Final acknowledgements incomplete.';
-    return;
-  }
-  statusBox.textContent = 'SRX ORACLE // Consent recorded. Production backend will grant Undocumented and route you to arrivals-intake.';
-});
-
-document.getElementById('notYet').addEventListener('click', () => {
-  statusBox.textContent = 'SRX ORACLE // Progress retained. The gate remains closed until you choose to proceed.';
-});
-
-restoreDraft();
-</script>
 </body>
 </html>
