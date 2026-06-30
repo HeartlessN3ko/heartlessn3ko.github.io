@@ -16,6 +16,29 @@ function srxAsset(path, alt) {
 window.SRX_PUBLIC_ARCHIVE = {
   updated: "June 29, 2026",
   currentEra: "Third Age, 3120 CE",
+  directories: [
+    {
+      id: "knowledge",
+      label: "Realm Knowledge",
+      description: "World history, locations, factions, institutions, and public civic records.",
+      href: "knowledge/",
+      image: srxAsset("maps/region-map-of-terra.png", "Regional map of Terra."),
+    },
+    {
+      id: "bios",
+      label: "Public Biographies",
+      description: "Public-facing lives and legacies of notable people recorded by SRX.",
+      href: "bios/",
+      image: srxAsset("npc/arthas-raiku.png", "Official portrait of President Arthas Raiku."),
+    },
+    {
+      id: "dossiers",
+      label: "SRX Dossiers",
+      description: "Structured personnel extracts, memorial files, and restricted record notices.",
+      href: "dossiers/",
+      image: srxAsset("logos/SRX-Logo-New.png", "SRX public archive mark."),
+    },
+  ],
   categories: [
     {
       id: "realm-overview",
@@ -51,6 +74,7 @@ window.SRX_PUBLIC_ARCHIVE = {
   records: [
     {
       id: "the-realm",
+      directories: ["knowledge"],
       category: "realm-overview",
       title: "The Realm",
       subtitle: "A multiverse convergence centered on Terra",
@@ -81,13 +105,14 @@ window.SRX_PUBLIC_ARCHIVE = {
     },
     {
       id: "third-age",
+      directories: ["knowledge"],
       category: "realm-overview",
       title: "The Third Age",
       subtitle: "The present era of recovery, control, and renewed expansion",
       classification: "Public Record",
       image: srxAsset(
-        "reference/midgar-demographics.png",
-        "SRX demographic display for Midgar and the current age."
+        "oracle/historical/02-sector0-construction-ifield.png",
+        "Sector 0 reconstruction and I-Field expansion during the transition toward the Third Age."
       ),
       summary:
         "The Third Age opens in 3120 CE after reconstruction, political consolidation, and the formal rise of the Shinra Kingdom.",
@@ -111,6 +136,7 @@ window.SRX_PUBLIC_ARCHIVE = {
     },
     {
       id: "midgar",
+      directories: ["knowledge"],
       category: "atlas",
       title: "Midgar",
       subtitle: "Capital of the Shinra Kingdom",
@@ -141,6 +167,7 @@ window.SRX_PUBLIC_ARCHIVE = {
     },
     {
       id: "gateway-station",
+      directories: ["knowledge"],
       category: "atlas",
       title: "Gateway Station",
       subtitle: "The interdimensional intake threshold for Midgar",
@@ -171,6 +198,7 @@ window.SRX_PUBLIC_ARCHIVE = {
     },
     {
       id: "shinra-tower",
+      directories: ["knowledge"],
       category: "atlas",
       title: "Shinra Tower",
       subtitle: "Seat of the Kingdom and headquarters of SRX",
@@ -201,6 +229,7 @@ window.SRX_PUBLIC_ARCHIVE = {
     },
     {
       id: "residential-district",
+      directories: ["knowledge"],
       category: "atlas",
       title: "Residential District",
       subtitle: "Sector 5 civilian housing and refugee resettlement zone",
@@ -231,13 +260,14 @@ window.SRX_PUBLIC_ARCHIVE = {
     },
     {
       id: "cameron-city",
+      directories: ["knowledge"],
       category: "atlas",
       title: "Cameron City",
       subtitle: "RIA capital and rival sovereign center",
       classification: "Limited Public Briefing",
       image: srxAsset(
-        "maps/map-of-country-terrotories..png",
-        "Territory map showing the political region surrounding Cameron City."
+        "oracle/grand-library-seed/05-brochure-cameron-city.png",
+        "SRX database visual survey of Cameron City."
       ),
       summary:
         "Cameron City is the capital of the Realm Inspection Agency and the strongest formal counterweight to Shinra power.",
@@ -261,13 +291,14 @@ window.SRX_PUBLIC_ARCHIVE = {
     },
     {
       id: "eternium-site",
+      directories: ["knowledge"],
       category: "atlas",
       title: "Tartan Crater / Eternium Deposit",
       subtitle: "The known major Eternium site and final Second Age flashpoint",
       classification: "Restricted Historical Summary",
       image: srxAsset(
-        "reference/old-redacted-doc.png",
-        "Redacted SRX historical record associated with the Eternium site."
+        "oracle/historical/08-battle-for-eternium-excavation.png",
+        "Eternium excavation front during the Battle for Eternium."
       ),
       summary:
         "Tartan Crater houses the Realm's only known major deposit of Eternium, a crystalline ore capable of channeling extraordinary magical potential.",
@@ -291,6 +322,7 @@ window.SRX_PUBLIC_ARCHIVE = {
     },
     {
       id: "srx",
+      directories: ["knowledge"],
       category: "factions",
       title: "SRX",
       subtitle: "Shinra Robotics and Xenogenetics",
@@ -321,6 +353,7 @@ window.SRX_PUBLIC_ARCHIVE = {
     },
     {
       id: "shinra-kingdom",
+      directories: ["knowledge"],
       category: "factions",
       title: "Shinra Kingdom",
       subtitle: "The governing body of Midgar and its surrounding territories",
@@ -351,14 +384,13 @@ window.SRX_PUBLIC_ARCHIVE = {
     },
     {
       id: "ria",
+      directories: ["knowledge"],
       category: "factions",
       title: "RIA",
       subtitle: "Realm Inspection Agency",
       classification: "Limited Public Briefing",
-      image: srxAsset(
-        "maps/map-of-country-terrotories..png",
-        "Territory map used to contextualize RIA sovereign ground."
-      ),
+      image: null,
+      imageStatus: "No public image assigned in the SRX database.",
       summary:
         "The RIA is the historic counterweight to Shinra power and remains the dominant force in Cameron City.",
       body: [
@@ -381,14 +413,13 @@ window.SRX_PUBLIC_ARCHIVE = {
     },
     {
       id: "weyr-of-dragonlords",
+      directories: ["knowledge"],
       category: "factions",
       title: "Weyr of Dragonlords",
       subtitle: "Independent order seated at DragonsKeep",
       classification: "Limited Public Briefing",
-      image: srxAsset(
-        "maps/topography-map-of-terra.png",
-        "Topographic archive map used to locate DragonsKeep and surrounding waters."
-      ),
+      image: null,
+      imageStatus: "No public image assigned in the SRX database.",
       summary:
         "The Weyr of Dragonlords is an independent order bonded to dragon souls and seated outside Kingdom authority at DragonsKeep.",
       body: [
@@ -411,6 +442,7 @@ window.SRX_PUBLIC_ARCHIVE = {
     },
     {
       id: "arthas-raiku",
+      directories: ["bios", "dossiers"],
       category: "dossiers",
       title: "Arthas Raiku",
       subtitle: "President of the Shinra Kingdom",
@@ -441,14 +473,13 @@ window.SRX_PUBLIC_ARCHIVE = {
     },
     {
       id: "alexander-raiku",
+      directories: ["bios", "dossiers"],
       category: "dossiers",
       title: "Alexander Raiku",
       subtitle: "Vice President and civilian administrator",
       classification: "Approved Public Extract",
-      image: srxAsset(
-        "logos/shinra-gunmetal-logo.png",
-        "Shinra Kingdom crest displayed with Alexander Raiku's public record."
-      ),
+      image: null,
+      imageStatus: "No public image assigned in the SRX database.",
       summary:
         "Alexander Raiku governs the civilian branch of the Shinra Kingdom and remains one of the principal surviving architects of its reconstruction era.",
       body: [
@@ -471,13 +502,14 @@ window.SRX_PUBLIC_ARCHIVE = {
     },
     {
       id: "zoey-cinclaire",
+      directories: ["bios", "dossiers"],
       category: "dossiers",
       title: "Zoey Cinclaire",
       subtitle: "Founding Turks member and memorialized reconstruction leader",
       classification: "Memorial Record",
       image: srxAsset(
-        "reference/shinra-tower-info-shots.png",
-        "Shinra Tower archive display associated with Zoey Cinclaire's memorial record."
+        "oracle/personnel/portraits/zoey-cinclaire-city.png",
+        "Zoey Cinclaire in Midgar, matched to her SRX dossier portrait archive."
       ),
       summary:
         "Zoey Cinclaire remains one of the most remembered names from the reconstruction generation of SRX personnel.",
@@ -501,14 +533,13 @@ window.SRX_PUBLIC_ARCHIVE = {
     },
     {
       id: "xeria-silveredge",
+      directories: ["dossiers"],
       category: "dossiers",
       title: "Xeria Silveredge",
       subtitle: "Restricted abstract: deep-cover SRX operative",
       classification: "Restricted Abstract",
-      image: srxAsset(
-        "npc/Ayame.png",
-        "Official SRX portrait associated with Xeria Silveredge."
-      ),
+      image: null,
+      imageStatus: "Portrait sealed. Database record is Class S - Top Secret.",
       summary:
         "SRX records acknowledge Xeria Silveredge as one of the organization's most significant intelligence operatives, though most of her file remains sealed.",
       body: [
@@ -531,13 +562,14 @@ window.SRX_PUBLIC_ARCHIVE = {
     },
     {
       id: "great-rift",
+      directories: ["knowledge"],
       category: "historical-record",
       title: "The Great Rift",
       subtitle: "The world-breaking convergence that changed Terra forever",
       classification: "Public Historical Record",
       image: srxAsset(
-        "maps/topography-map-of-terra.png",
-        "Topographic map of Terra used for historical context."
+        "maps/old-map-of-terra.png",
+        "Historic Terra survey map used in Great Rift studies."
       ),
       summary:
         "Around 120 CE, the Rift destabilized the Nexus and permanently reshaped Terra by dragging beings, landscapes, and histories across realities.",
@@ -561,13 +593,14 @@ window.SRX_PUBLIC_ARCHIVE = {
     },
     {
       id: "treaty-of-ceasefire",
+      directories: ["knowledge"],
       category: "historical-record",
       title: "Treaty of Ceasefire",
       subtitle: "The agreement that ended the SRX-RIA war",
       classification: "Public Historical Record",
       image: srxAsset(
-        "reference/old-redacted-doc2.png",
-        "Redacted historical document used to contextualize the ceasefire record."
+        "oracle/historical/09-treaty-of-ceasefire.png",
+        "Treaty of Ceasefire signing ceremony from the SRX historical photo database."
       ),
       summary:
         "Signed in 3088 CE, the Treaty of Ceasefire ended the ten-year war between SRX and the RIA and began the Second Age.",
@@ -591,13 +624,14 @@ window.SRX_PUBLIC_ARCHIVE = {
     },
     {
       id: "battle-for-eternium",
+      directories: ["knowledge"],
       category: "historical-record",
       title: "Battle for Eternium",
       subtitle: "A defining late Second Age conflict with sealed internal details",
       classification: "Restricted Historical Summary",
       image: srxAsset(
-        "reference/old-redacted-doc.png",
-        "Redacted SRX historical record associated with the Eternium conflict."
+        "oracle/historical/08-battle-for-eternium-excavation.png",
+        "Eternium excavation front during the Battle for Eternium."
       ),
       summary:
         "The Battle for Eternium is remembered across the Realm as a major conflict that unfolded between 3098 and 3108 CE around the known deposit in Tartanalia.",

@@ -407,6 +407,79 @@
 .archive-detail-empty p { margin: 0; font-size: 12px; }
 .archive-image-missing { opacity: 0.35; filter: grayscale(1); }
 
+.archive-directory-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1px;
+  background: var(--line);
+  box-shadow: var(--shadow);
+}
+
+.archive-directory-card {
+  display: grid;
+  grid-template-rows: 230px 1fr;
+  min-width: 0;
+  background: var(--panel);
+  color: inherit;
+  text-decoration: none;
+}
+
+.archive-directory-card img { width: 100%; height: 230px; object-fit: cover; }
+.archive-directory-card > div { padding: 24px; }
+.archive-directory-card span,
+.record-open-label {
+  color: var(--cyan);
+  font-family: 'DM Mono', monospace;
+  font-size: 9px;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+}
+.archive-directory-card h2 { margin-top: 10px; font-size: 42px; }
+.archive-directory-card strong { color: var(--cyan); font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: 1px; text-transform: uppercase; }
+.archive-directory-card:hover { background: rgba(109, 231, 255, 0.055); }
+.archive-directory-card:hover strong { color: var(--text); }
+
+.archive-search-results[hidden] { display: none; }
+.archive-record-card { text-decoration: none; }
+.record-open-label { display: block; padding: 0 13px 14px; }
+.archive-record-no-image { display: grid; place-items: center; padding: 24px; background: repeating-linear-gradient(135deg, rgba(109,231,255,.025) 0 8px, transparent 8px 16px), #05090c; }
+.archive-record-no-image span { color: var(--dim); font-family: 'DM Mono', monospace; font-size: 10px; line-height: 1.6; text-align: center; text-transform: uppercase; }
+
+.directory-main,
+.record-main { padding-top: 118px; min-height: 100vh; }
+.record-breadcrumb { display: flex; gap: 10px; margin-bottom: 30px; color: var(--dim); font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: 1px; text-transform: uppercase; }
+.record-breadcrumb a { color: var(--cyan); text-decoration: none; }
+.archive-directory-page .archive-heading h1 { margin: 0; font-size: clamp(54px, 7vw, 94px); }
+.archive-directory-page .archive-heading p { max-width: 650px; }
+.directory-counter { border: 1px solid var(--line); padding: 18px 24px; text-align: right; }
+.directory-counter strong { display: block; color: var(--cyan); font: 54px/1 'Bebas Neue', sans-serif; }
+.directory-counter span { color: var(--dim); font: 9px 'DM Mono', monospace; letter-spacing: 1px; text-transform: uppercase; }
+.directory-record-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); margin-top: 22px; }
+
+.record-header { display: flex; justify-content: space-between; gap: 30px; align-items: end; padding-bottom: 28px; border-bottom: 1px solid var(--line); }
+.record-header > div > span { color: var(--red); font: 10px 'DM Mono', monospace; letter-spacing: 1.5px; text-transform: uppercase; }
+.record-header h1 { margin-top: 12px; font-size: clamp(62px, 9vw, 120px); }
+.record-header p { margin: 12px 0 0; color: #d9e7ec; }
+.record-code { color: var(--dim); font: 10px 'DM Mono', monospace; letter-spacing: 1px; }
+.record-layout { display: grid; grid-template-columns: minmax(320px, .82fr) minmax(0, 1.18fr); gap: 42px; margin-top: 34px; align-items: start; }
+.record-media { margin: 0; border: 1px solid var(--line); background: var(--panel); }
+.record-media img { display: block; width: 100%; max-height: 720px; object-fit: cover; object-position: top; }
+.record-media figcaption { padding: 12px 14px; color: var(--dim); font: 9px/1.5 'DM Mono', monospace; letter-spacing: .7px; text-transform: uppercase; }
+.record-media-empty { min-height: 420px; display: grid; place-items: center; align-content: center; gap: 12px; border: 1px solid var(--line); background: repeating-linear-gradient(135deg, rgba(109,231,255,.025) 0 10px, transparent 10px 20px), var(--panel); text-align: center; padding: 30px; }
+.record-media-empty span { color: var(--red); font: 9px 'DM Mono', monospace; letter-spacing: 1.5px; }
+.record-media-empty strong { max-width: 270px; font: 16px/1.6 'DM Mono', monospace; }
+.record-copy { min-width: 0; }
+.record-summary { margin-top: 0; color: var(--text); font-size: 20px; }
+.record-copy > p:not(.record-summary) { font-size: 15px; }
+.record-copy section { margin-top: 28px; padding-top: 24px; border-top: 1px solid var(--line); }
+.record-copy section h2, .record-related h2 { font-size: 36px; }
+.record-copy li { margin-bottom: 10px; color: var(--muted); line-height: 1.6; }
+.record-copy code { color: var(--cyan); overflow-wrap: anywhere; }
+.record-related { margin-top: 44px; padding-top: 30px; border-top: 1px solid var(--line); }
+.record-related > div { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 18px; }
+.record-related a { border: 1px solid var(--line); padding: 10px 13px; color: var(--cyan); text-decoration: none; font: 10px 'DM Mono', monospace; text-transform: uppercase; }
+.record-not-found { min-height: 60vh; display: grid; align-content: center; justify-items: start; }
+
 .orientation-reel-section {
   background: linear-gradient(135deg, rgba(255, 51, 71, 0.045), rgba(109, 231, 255, 0.055));
 }
@@ -481,6 +554,9 @@
   .archive-hero-status { margin-top: 22px; }
   .archive-detail { grid-column: auto; }
   .orientation-video-slot { min-height: 300px; }
+  .archive-directory-grid,
+  .directory-record-grid { grid-template-columns: 1fr; }
+  .record-layout { grid-template-columns: 1fr; }
 }
 
 @media (max-width: 620px) {
@@ -511,4 +587,8 @@
   .archive-detail { padding: 14px; }
   .archive-record-card h3 { font-size: 18px; }
   .orientation-reel-section { padding-left: 16px; padding-right: 16px; }
+  .directory-main,
+  .record-main { padding: 46px 16px; }
+  .record-header { align-items: start; flex-direction: column; }
+  .record-media-empty { min-height: 280px; }
 }
