@@ -43,12 +43,12 @@ body.gated { overflow: hidden; }
   position: fixed;
   inset: 0 0 auto;
   z-index: 30;
-  height: 68px;
+  height: 78px;
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 24px;
-  padding: 0 28px;
+  padding: 0 32px;
   background: rgba(3, 6, 9, 0.82);
   border-bottom: 1px solid var(--line-strong);
   backdrop-filter: blur(16px);
@@ -56,17 +56,17 @@ body.gated { overflow: hidden; }
 .brand {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 16px;
   min-width: max-content;
   text-decoration: none;
 }
 .brand-lockup {
   display: grid;
-  gap: 2px;
+  gap: 3px;
 }
 .brand-sigil {
-  width: 28px;
-  height: 28px;
+  width: 36px;
+  height: 36px;
   border: 1px solid var(--line-strong);
   transform: rotate(45deg);
   position: relative;
@@ -80,27 +80,36 @@ body.gated { overflow: hidden; }
 .brand-sigil::after { inset: 10px; background: rgba(109,231,255,0.18); }
 .brand-title {
   font-family: 'Bebas Neue', sans-serif;
-  font-size: 28px;
-  letter-spacing: 4px;
-  line-height: 1;
+  font-size: 42px;
+  letter-spacing: 5px;
+  line-height: 0.78;
 }
 .brand-subtitle {
   color: var(--muted);
   font-family: 'DM Mono', monospace;
-  font-size: 8px;
-  letter-spacing: 1.15px;
+  font-size: 9px;
+  letter-spacing: 1.3px;
   line-height: 1;
   text-transform: uppercase;
 }
 .nav {
   display: flex;
   align-items: center;
-  gap: clamp(14px, 3vw, 48px);
+  gap: clamp(13px, 2.4vw, 38px);
+  margin-left: auto;
   font-family: 'DM Mono', monospace;
-  font-size: 12px;
-  letter-spacing: 1.8px;
+  font-size: 10px;
+  letter-spacing: 1.55px;
   text-transform: uppercase;
   color: #becbd0;
+}
+.nav::before {
+  content: "";
+  width: 1px;
+  height: 34px;
+  margin-right: clamp(6px, 0.8vw, 14px);
+  flex: 0 0 auto;
+  background: var(--line-strong);
 }
 .nav a { text-decoration: none; transition: color 160ms ease; }
 .nav a:hover, .nav a.active { color: var(--cyan); }
@@ -346,9 +355,10 @@ input:focus, textarea:focus, select:focus { border-color: var(--cyan); box-shado
 
 @media (max-width: 940px) {
   .site-header { position: static; height: auto; flex-direction: column; align-items: flex-start; padding: 18px 22px; }
-  .nav { width: 100%; overflow-x: auto; padding-bottom: 4px; }
-  .brand-title { font-size: 25px; }
-  .brand-subtitle { font-size: 7px; }
+  .nav { width: 100%; margin-left: 0; overflow-x: auto; padding-bottom: 4px; font-size: 9px; }
+  .nav::before { display: none; }
+  .brand-title { font-size: 36px; }
+  .brand-subtitle { font-size: 8px; }
   .hero { min-height: 72vh; padding: 70px 22px 44px; }
   .hero::after { right: -12vw; top: 20vh; width: 58vw; }
   .section { padding: 58px 22px; }
