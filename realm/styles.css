@@ -60,10 +60,6 @@ body.gated { overflow: hidden; }
   min-width: max-content;
   text-decoration: none;
 }
-.brand-lockup {
-  display: grid;
-  gap: 3px;
-}
 .brand-sigil {
   width: 36px;
   height: 36px;
@@ -80,18 +76,12 @@ body.gated { overflow: hidden; }
 .brand-sigil::after { inset: 10px; background: rgba(109,231,255,0.18); }
 .brand-title {
   font-family: 'Bebas Neue', sans-serif;
-  font-size: 42px;
-  letter-spacing: 5px;
-  line-height: 0.78;
-}
-.brand-subtitle {
-  color: var(--muted);
-  font-family: 'DM Mono', monospace;
-  font-size: 9px;
-  letter-spacing: 1.3px;
+  font-size: 38px;
+  letter-spacing: 2.4px;
   line-height: 1;
   text-transform: uppercase;
 }
+.brand-title-full { white-space: nowrap; }
 .nav {
   display: flex;
   align-items: center;
@@ -357,8 +347,8 @@ input:focus, textarea:focus, select:focus { border-color: var(--cyan); box-shado
   .site-header { position: static; height: auto; flex-direction: column; align-items: flex-start; padding: 18px 22px; }
   .nav { width: 100%; margin-left: 0; overflow-x: auto; padding-bottom: 4px; font-size: 9px; }
   .nav::before { display: none; }
-  .brand-title { font-size: 36px; }
-  .brand-subtitle { font-size: 8px; }
+  .brand-title { font-size: 32px; letter-spacing: 1.8px; line-height: 0.92; }
+  .brand-title-full { max-width: min(76vw, 430px); white-space: normal; }
   .hero { min-height: 72vh; padding: 70px 22px 44px; }
   .hero::after { right: -12vw; top: 20vh; width: 58vw; }
   .section { padding: 58px 22px; }
