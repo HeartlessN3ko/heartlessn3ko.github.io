@@ -14,8 +14,8 @@ function srxAsset(path, alt) {
 }
 
 window.SRX_PUBLIC_ARCHIVE = {
-  updated: "June 29, 2026",
-  currentEra: "Third Age, 3120 CE",
+  updated: "June 30, 2026",
+  currentEra: "3120 CE",
   directories: [
     {
       id: "knowledge",
@@ -51,7 +51,7 @@ window.SRX_PUBLIC_ARCHIVE = {
       id: "realm-overview",
       label: "Realm Overview",
       description:
-        "Public-facing records on Terra, the Rift, Midgar, and the current age.",
+        "Public-facing records on Terra, the Rift, Midgar, and present-day life.",
     },
     {
       id: "atlas",
@@ -105,32 +105,32 @@ window.SRX_PUBLIC_ARCHIVE = {
         ["World Center", "Terra"],
         ["Capital Power", "Midgar City"],
         ["Arrival Authority", "SRX"],
-        ["Current Era", "Third Age, 3120 CE"],
+        ["Current Year", "3120 CE"],
       ],
       highlights: [
         "Terra natives travel normally; interdimensional arrivals are processed.",
         "SRX controls entry, registration, and limiter assignment inside Midgar.",
         "The Realm contains old civilizations, modern states, and post-Rift hybrid societies.",
       ],
-      related: ["third-age", "gateway-station", "midgar"],
+      related: ["terra-3120", "gateway-station", "midgar"],
       source: "data/lore/world_lore.md",
     },
     {
-      id: "third-age",
+      id: "terra-3120",
       directories: ["knowledge"],
       category: "realm-overview",
-      title: "The Third Age",
-      subtitle: "The present era of recovery, control, and renewed expansion",
+      title: "Terra in 3120 CE",
+      subtitle: "Recovery, consolidation, and renewed expansion",
       classification: "Public Record",
       image: srxAsset(
         "oracle/historical/02-sector0-construction-ifield.png",
-        "Sector 0 reconstruction and I-Field expansion during the transition toward the Third Age."
+        "Sector 0 reconstruction and I-Field expansion in modern Midgar."
       ),
       summary:
-        "The Third Age opens in 3120 CE after reconstruction, political consolidation, and the formal rise of the Shinra Kingdom.",
+        "By 3120 CE, reconstruction, political consolidation, and the formal rise of the Shinra Kingdom have reshaped life across Midgar.",
       body: [
-        "The Realm has already survived the Great Rift, the long reconstruction that followed, the SRX-RIA war, and the Battle for Eternium. The Third Age inherits all of that history at once.",
-        "Publicly, the age is defined by stabilization, controlled arrivals, renewed institutional power, and a sense that the world is finally organized enough to be studied instead of merely survived.",
+        "The Realm has survived the Great Rift, the long reconstruction that followed, the SRX-RIA war, and the Battle for Eternium. Those events continue to shape the institutions and borders of 3120 CE.",
+        "Modern public life is defined by stabilization, controlled arrivals, renewed institutional power, and a sense that the world is finally organized enough to be studied instead of merely survived.",
       ],
       facts: [
         ["Current Year", "3120 CE"],
@@ -140,7 +140,7 @@ window.SRX_PUBLIC_ARCHIVE = {
       ],
       highlights: [
         "Infrastructure is rebuilt, but trust is not fully restored.",
-        "The Third Age follows the reconstruction period and formalizes the Kingdom.",
+        "The reconstructed state has consolidated around the Shinra Kingdom.",
         "Public memory of the Battle for Eternium remains strong even where details are sealed.",
       ],
       related: ["shinra-kingdom", "srx", "battle-for-eternium"],
@@ -306,7 +306,7 @@ window.SRX_PUBLIC_ARCHIVE = {
       directories: ["knowledge"],
       category: "atlas",
       title: "Tartan Crater / Eternium Deposit",
-      subtitle: "The known major Eternium site and final Second Age flashpoint",
+      subtitle: "The known major Eternium site and a decisive historic flashpoint",
       classification: "Restricted Historical Summary",
       image: srxAsset(
         "oracle/historical/08-battle-for-eternium-excavation.png",
@@ -316,7 +316,7 @@ window.SRX_PUBLIC_ARCHIVE = {
         "Tartan Crater houses the Realm's only known major deposit of Eternium, a crystalline ore capable of channeling extraordinary magical potential.",
       body: [
         "The deposit formed beneath Tartanalia after millennia of sustained magical use. Once the region's barrier fell, the site became strategically visible and politically impossible to ignore.",
-        "The public knows the Battle for Eternium as a defining conflict of the late Second Age. The full military story remains sealed, but the site still carries the weight of what happened there.",
+        "The public knows the Battle for Eternium as a defining conflict of the early 3100s. The full military story remains sealed, but the site still carries the weight of what happened there.",
       ],
       facts: [
         ["Region", "Tartanalia, northern Tartan Islands"],
@@ -378,7 +378,7 @@ window.SRX_PUBLIC_ARCHIVE = {
         "The Shinra Kingdom is the state structure around Midgar, with SRX functioning as its military-technological arm.",
       body: [
         "The Kingdom evolved out of the former Republic of Shinra during reconstruction. The presidency is passed by succession rather than election, binding bloodline, continuity, and state command into one chain of authority.",
-        "In the public sphere, the Kingdom projects order, restoration, and confidence. Beneath that surface, it still carries the political residue of the Second Age.",
+        "In the public sphere, the Kingdom projects order, restoration, and confidence. Beneath that surface, it still carries the political residue of war and reconstruction.",
       ],
       facts: [
         ["Capital", "Midgar City"],
@@ -527,7 +527,7 @@ window.SRX_PUBLIC_ARCHIVE = {
         "Zoey Cinclaire remains one of the most remembered names from the reconstruction generation of SRX personnel.",
       body: [
         "Originally a founding Turks recruit, she later moved through urban development, acting command responsibilities, and major reconstruction-era leadership.",
-        "By the opening of the Third Age she was already gone, but her memorial status inside Shinra Tower keeps her name alive in the institutional memory of Midgar.",
+        "Following her death in 3118 CE, her memorial status inside Shinra Tower has kept her name alive in the institutional memory of Midgar.",
       ],
       facts: [
         ["Status", "Deceased, 3118 CE"],
@@ -537,7 +537,7 @@ window.SRX_PUBLIC_ARCHIVE = {
       ],
       highlights: [
         "Associated with diplomacy, leadership, and public-facing SRX coordination.",
-        "Memorialized as part of the generation that prepared Midgar for the Third Age.",
+        "Memorialized as part of the generation that rebuilt and stabilized Midgar.",
         "One of the most accessible faces of older SRX history for new arrivals.",
       ],
       related: ["shinra-tower", "alexander-raiku", "midgar"],
@@ -600,7 +600,7 @@ window.SRX_PUBLIC_ARCHIVE = {
         "It seeded the long instability later remembered in war and reconstruction.",
         "No official record claims to know why it happened.",
       ],
-      related: ["the-realm", "third-age", "battle-for-eternium"],
+      related: ["the-realm", "terra-3120", "battle-for-eternium"],
       source: "data/lore/world_lore.md",
     },
     {
@@ -615,7 +615,7 @@ window.SRX_PUBLIC_ARCHIVE = {
         "Treaty of Ceasefire signing ceremony from the SRX historical photo database."
       ),
       summary:
-        "Signed in 3088 CE, the Treaty of Ceasefire ended the ten-year war between SRX and the RIA and began the Second Age.",
+        "Signed in 3088 CE, the Treaty of Ceasefire ended the ten-year war between SRX and the RIA and established the present ceasefire.",
       body: [
         "The treaty did not create friendship. It created a framework strong enough to stop mutual destruction and allow the Realm to keep rebuilding.",
         "Much of modern geopolitics still sits inside the space that treaty carved out: guarded peace, rival sovereignty, and permanent suspicion across the line.",
@@ -624,7 +624,7 @@ window.SRX_PUBLIC_ARCHIVE = {
         ["Date", "3088 CE"],
         ["Primary Parties", "SRX and RIA"],
         ["Historic Outcome", "End of ten-year war"],
-        ["Era Marker", "Beginning of the Second Age"],
+        ["Political Outcome", "Present SRX-RIA ceasefire"],
       ],
       highlights: [
         "The treaty still structures present relations.",
@@ -639,7 +639,7 @@ window.SRX_PUBLIC_ARCHIVE = {
       directories: ["knowledge"],
       category: "historical-record",
       title: "Battle for Eternium",
-      subtitle: "A defining late Second Age conflict with sealed internal details",
+      subtitle: "A defining conflict with sealed internal details",
       classification: "Restricted Historical Summary",
       image: srxAsset(
         "oracle/historical/08-battle-for-eternium-excavation.png",
@@ -649,7 +649,7 @@ window.SRX_PUBLIC_ARCHIVE = {
         "The Battle for Eternium is remembered across the Realm as a major conflict that unfolded between 3098 and 3108 CE around the known deposit in Tartanalia.",
       body: [
         "Public records acknowledge its scale and its importance. They do not disclose the full operational or internal details that drove the conflict from within SRX.",
-        "Even in redacted form, the battle marks the end of one political order and the beginning of another. Much of the Third Age is built in its shadow.",
+        "Even in redacted form, the battle marks the end of one political order and the beginning of another. The institutions of 3120 CE were built in its shadow.",
       ],
       facts: [
         ["Conflict Window", "3098-3108 CE"],
@@ -660,9 +660,9 @@ window.SRX_PUBLIC_ARCHIVE = {
       highlights: [
         "The public knows enough to remember it, not enough to narrate it fully.",
         "Eternium remains one of the most politically loaded materials in the archive.",
-        "Late Second Age and early reconstruction records repeatedly orbit this event.",
+        "Military and early reconstruction records repeatedly orbit this event.",
       ],
-      related: ["eternium-site", "third-age", "srx"],
+      related: ["eternium-site", "terra-3120", "srx"],
       source: "data/srx_database/locations/ETERNIUM.md",
     },
   ],
