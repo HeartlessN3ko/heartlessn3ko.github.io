@@ -40,13 +40,14 @@ function initArchiveHome() {
   const realmMap = archive.records.find((record) => record.id === "the-realm");
   document.getElementById("archive-featured").innerHTML =
     featuredRecord(arthas, "primary") + featuredRecord(realmMap, "secondary");
-  document.getElementById("archive-directories").innerHTML = archive.directories.map((directory) => {
+  const directorySelect = document.getElementById("archive-directory-select");
+  directorySelect.insertAdjacentHTML("beforeend", archive.directories.map((directory) => {
     const count = archive.records.filter((record) => record.directories.includes(directory.id)).length;
-    return `<a class="archive-directory-card" href="${directory.href}">
-      <img src="${directory.image.remote}" alt="${directory.image.alt}">
-      <div><span>${String(count).padStart(2, "0")} indexed records</span><h2>${directory.label}</h2><p>${directory.description}</p><strong>Enter directory</strong></div>
-    </a>`;
-  }).join("");
+    return `<option value="${directory.href}">${directory.label} (${count})</option>`;
+  }).join(""));
+  directorySelect.addEventListener("change", () => {
+    if (directorySelect.value) window.location.href = directorySelect.value;
+  });
 
   const input = document.getElementById("archive-search");
   const results = document.getElementById("archive-search-results");

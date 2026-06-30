@@ -38,6 +38,13 @@ window.SRX_PUBLIC_ARCHIVE = {
       href: "dossiers/",
       image: srxAsset("logos/SRX-Logo-New.png", "SRX public archive mark."),
     },
+    {
+      id: "alerts",
+      label: "Wanted & Alerts",
+      description: "Public safety notices and restricted threat records acknowledged by SRX.",
+      href: "alerts/",
+      image: srxAsset("logos/srx-oracle-logo.png", "SRX Oracle public safety archive mark."),
+    },
   ],
   categories: [
     {
@@ -69,6 +76,11 @@ window.SRX_PUBLIC_ARCHIVE = {
       label: "Historical Record",
       description:
         "Locked milestones, public memory, and events that still shape present policy.",
+    },
+    {
+      id: "wanted",
+      label: "Wanted & Alerts",
+      description: "Threat notices and public-safety records indexed by SRX.",
     },
   ],
   records: [
