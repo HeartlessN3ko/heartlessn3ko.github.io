@@ -19,11 +19,27 @@ function recordCard(record) {
   </a>`;
 }
 
+function featuredRecord(record, rank) {
+  return `<a class="archive-featured-record ${rank}" href="${recordUrl(record.id)}">
+    ${cardMedia(record)}
+    <div class="archive-featured-copy">
+      <span>${rank === "primary" ? "Featured Entry" : "Secondary Entry"} // ${record.classification}</span>
+      <h2>${record.title}</h2>
+      <p>${record.summary}</p>
+      <strong>Open full record</strong>
+    </div>
+  </a>`;
+}
+
 function initArchiveHome() {
   const archive = window.SRX_PUBLIC_ARCHIVE;
   document.getElementById("archive-last-updated").textContent = archive.updated;
   document.getElementById("archive-current-era").textContent = archive.currentEra;
   document.getElementById("archive-record-count").textContent = archive.records.length;
+  const arthas = archive.records.find((record) => record.id === "arthas-raiku");
+  const realmMap = archive.records.find((record) => record.id === "the-realm");
+  document.getElementById("archive-featured").innerHTML =
+    featuredRecord(arthas, "primary") + featuredRecord(realmMap, "secondary");
   document.getElementById("archive-directories").innerHTML = archive.directories.map((directory) => {
     const count = archive.records.filter((record) => record.directories.includes(directory.id)).length;
     return `<a class="archive-directory-card" href="${directory.href}">
