@@ -511,6 +511,8 @@
 .record-copy > p:not(.record-summary) { font-size: 15px; }
 .record-copy section { margin-top: 28px; padding-top: 24px; border-top: 1px solid var(--line); }
 .record-copy section h2, .record-related h2 { font-size: 36px; }
+.record-copy section p { font-size: 15px; }
+.record-section-facts { margin-top: 18px; }
 .record-copy li { margin-bottom: 10px; color: var(--muted); line-height: 1.6; }
 .record-copy code { color: var(--cyan); overflow-wrap: anywhere; }
 .record-related { margin-top: 44px; padding-top: 30px; border-top: 1px solid var(--line); }

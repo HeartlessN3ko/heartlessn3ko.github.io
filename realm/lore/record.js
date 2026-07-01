@@ -21,11 +21,21 @@ function initRecord() {
   document.title = `${record.title} - SRX Public Archive`;
   const facts = record.facts.map(([label, value]) => `<div class="archive-fact"><span>${label}</span><strong>${value}</strong></div>`).join("");
   const body = record.body.map((paragraph) => `<p>${paragraph}</p>`).join("");
+  const sections = (record.sections || []).map((section) => {
+    const paragraphs = (section.paragraphs || []).map((paragraph) => `<p>${paragraph}</p>`).join("");
+    const sectionFacts = (section.facts || []).length
+      ? `<div class="archive-facts record-section-facts">${section.facts.map(([label, value]) => `<div class="archive-fact"><span>${label}</span><strong>${value}</strong></div>`).join("")}</div>`
+      : "";
+    const bullets = (section.notes || []).length
+      ? `<ul>${section.notes.map((note) => `<li>${note}</li>`).join("")}</ul>`
+      : "";
+    return `<section class="record-section"><h2>${section.title}</h2>${paragraphs}${sectionFacts}${bullets}</section>`;
+  }).join("");
   const notes = record.highlights.map((note) => `<li>${note}</li>`).join("");
   const related = record.related.map(recordById).filter(Boolean).map((item) => `<a href="?id=${encodeURIComponent(item.id)}">${item.title}</a>`).join("");
   mount.innerHTML = `<nav class="record-breadcrumb"><a href="../">Public Archive</a><span>/</span><span>${record.title}</span></nav>
     <header class="record-header"><div><span>${record.classification}</span><h1>${record.title}</h1><p>${record.subtitle}</p></div><div class="record-code">SRX-PA-${record.id.toUpperCase()}</div></header>
-    <div class="record-layout"><div>${recordMedia(record)}</div><article class="record-copy"><p class="record-summary">${record.summary}</p><div class="archive-facts">${facts}</div>${body}<section><h2>Archive Notes</h2><ul>${notes}</ul></section></article></div>
+    <div class="record-layout"><div>${recordMedia(record)}</div><article class="record-copy"><p class="record-summary">${record.summary}</p><div class="archive-facts">${facts}</div>${body}${sections}<section><h2>Archive Notes</h2><ul>${notes}</ul></section></article></div>
     <section class="record-related"><h2>Related Records</h2><div>${related || "No related public records."}</div></section>`;
 }
 

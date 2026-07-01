@@ -430,14 +430,70 @@ window.SRX_PUBLIC_ARCHIVE = {
       directories: ["people"], category: "people", title: "Arthas Raiku", subtitle: "President of the Shinra Kingdom",
       classification: "Executive Public Record",
       image: srxAsset("npc/arthas-raiku.png", "Official portrait of President Arthas Raiku."),
-      summary: "Arthas Raiku is President of the Shinra Kingdom and commander-in-chief of Shinra Robotics and Xenogenetics.",
+      summary: "Arthas Raiku is the eighteen-year-old President of the Shinra Kingdom, commander-in-chief of Shinra Robotics and Xenogenetics, and the youngest executive to hold unified authority over Midgar's government and defense.",
       body: [
-        "Born in Midgar in 3102 CE, Raiku entered office in 3120 CE at eighteen years of age, becoming the youngest president in recorded Shinra history.",
-        "His office combines head-of-state authority with direct command of SRX. Civilian administration remains under Vice President Alexander Raiku.",
-        "The current administration has emphasized continuity of defense, Gateway operations, reconstruction policy, and the integration of government with critical infrastructure.",
+        "Born in Midgar in 3102 CE, Raiku inherited two established lines of service: the Raiku executive line and the Pyrowolf clan. He assumed the presidency in 3120 CE following the transfer of authority from Alexander Raiku.",
+        "His accession placed the civilian crown, SRX military command, and the Kingdom's critical infrastructure beneath one executive office. Alexander Raiku remained Vice President to preserve continuity within the civilian government.",
       ],
-      facts: [["Born", "3102 CE"], ["Office Assumed", "3120 CE"], ["Current Office", "President"], ["Command", "SRX commander-in-chief"]],
-      highlights: ["Youngest recorded Shinra president.", "Holds both state and military authority.", "Operates from Shinra Tower, Floor 70."],
+      facts: [
+        ["Full Name", "Arthas Raiku"],
+        ["Born", "3102 CE, Midgar"],
+        ["Age", "18"],
+        ["Species", "Werewolf / angelic hybrid"],
+        ["Current Office", "President of the Shinra Kingdom"],
+        ["Military Office", "Commander-in-chief of SRX"],
+        ["Office Assumed", "3120 CE"],
+        ["Executive Seat", "Shinra Tower, Floor 70"],
+      ],
+      sections: [
+        {
+          title: "Lineage and Household",
+          paragraphs: [
+            "Arthas is the son of Alexander Raiku and Jeanna Pyrowolf. His paternal line connects him to Sephiroth Raiku, founder of SRX, and Xanos Ariada of the Pyrowolf line. The resulting heritage combines angelic and werewolf traits recorded across both families.",
+            "The succession was not presented as an interruption of Alexander Raiku's government. It was structured as a division of responsibility: Arthas assumed the presidency and military command while Alexander retained the civilian portfolio as Vice President.",
+          ],
+          facts: [["Father", "Alexander Raiku"], ["Mother", "Jeanna Pyrowolf"], ["Paternal Grandfather", "Sephiroth Raiku"], ["Paternal Grandmother", "Xanos Ariada"]],
+        },
+        {
+          title: "Succession and Authority",
+          paragraphs: [
+            "Raiku entered office after twelve years of post-Eternium reconstruction. His accession completed the transfer from Alexander's reconstruction government to an administration centered on permanent institutional continuity.",
+            "The presidency carries command authority over SRX, the Gateway, the Limiter Protocol, Midgar's strategic defenses, and executive coordination with department leadership. Civilian departments continue to report through the Vice President while remaining subject to presidential authority.",
+          ],
+          notes: ["Youngest president in recorded Shinra history.", "First six months of service fall within 3120 CE.", "Department heads report through the unified executive command structure."],
+        },
+        {
+          title: "Executive Assessment",
+          paragraphs: [
+            "Authorized leadership assessments describe Raiku as precise, controlled, and strongly committed to inherited institutional systems. He demonstrates confidence beyond what is ordinarily expected from a first-year executive and relies heavily on established protocol.",
+            "His governing style differs from Alexander Raiku's diplomatic emphasis. Arthas places greater weight on command integrity, military efficiency, and consistency of enforcement. This has produced a stable early administration, though it also leaves less tolerance for improvisation outside formal procedure.",
+          ],
+          facts: [["Decision Style", "Clinical and protocol-led"], ["Primary Priority", "Institutional continuity"], ["Command Emphasis", "Integrity and military efficiency"], ["Civilian Counterpart", "Vice President Alexander Raiku"]],
+        },
+        {
+          title: "Government and Foreign Relations",
+          paragraphs: [
+            "The Raiku administration inherited a stable Midgar, a functioning ceasefire with the Realm Inspection Agency, and formal relations with several autonomous powers. The President's office coordinates with Barron Nevermore on matters governed by the SRX-RIA treaty.",
+            "Recognized foreign and autonomous contacts include the DeathShade Citadel leadership and Yakumo Kaoryu in her capacity as an independent dimensional partner. These relationships remain diplomatic arrangements rather than extensions of Shinra command.",
+          ],
+          facts: [["RIA Counterpart", "Barron J. Nevermore"], ["Autonomous Ally", "DeathShade Citadel"], ["Dimensional Partner", "Yakumo Kaoryu"], ["Treaty Basis", "3088 CE Treaty of Ceasefire"]],
+        },
+        {
+          title: "Administrative Context, 3120 CE",
+          paragraphs: [
+            "At the time of accession, Terra's recorded population exceeded three billion, SRX had been consolidated as the Kingdom's military authority, and the principal reconstruction program following the Battle for Eternium had concluded.",
+            "The administration's immediate responsibilities include Gateway security, maintenance of Midgar's defensive systems, continuity of the RIA ceasefire, and coordination between SRX operations and civilian government.",
+          ],
+          notes: ["Internal stability is assessed as high.", "The Gateway remains critical national infrastructure.", "Alexander Raiku's continued service provides the administration's principal continuity anchor."],
+        },
+      ],
+      highlights: [
+        "Youngest recorded Shinra president.",
+        "Holds both state and military authority.",
+        "Succeeded Alexander Raiku under the Kingdom's designated succession system.",
+        "Commands SRX, Gateway security, and Midgar's strategic defense structure.",
+        "Operates from Shinra Tower, Floor 70.",
+      ],
       related: ["shinra-kingdom", "srx", "alexander-raiku", "shinra-tower"], source: "data/srx_database/dossiers/ARTHAS_RAIKU_DOSSIER.md",
     },
     {
@@ -490,12 +546,45 @@ window.SRX_PUBLIC_ARCHIVE = {
       classification: "Declassified Executive History", ...noImage("Historic portrait awaits authenticated transfer to the public archive."),
       summary: "Sephiroth Raiku founded the organization that became Shinra Robotics and Xenogenetics and directed its early expansion in Midgar.",
       body: [
-        "Born Sephiroth Makai, he survived displacement and conflict in Silvermoon before entering the protection and training of the Silveredge household.",
-        "Raiku organized Shinra Resurrected X in 3078 CE from the remains of an earlier Shin-Ra government. Working with Chaz Asheline and the first command circle, he developed the organization into a major source of defense, employment, and technical capacity.",
-        "His presidency established structures later inherited by the Shinra state. Individual experimental programs and final wartime operations remain outside this declassified history.",
+        "Born Sephiroth Makai around 3060 CE, he survived displacement and conflict before entering the protection and training of the Silveredge household.",
+        "He founded Shinra Resurrected X in 3078 CE and adopted the Raiku name as the organization entered open conflict with the Realm Inspection Agency.",
       ],
-      facts: [["Known Names", "Sephiroth Makai; Sephiroth Raiku"], ["Historic Office", "Founder and President"], ["Organization Founded", "Shinra Resurrected X"], ["Founding Year", "3078 CE"]],
-      highlights: ["Established the first SRX command structure.", "Expanded Shinra employment and industry in Midgar.", "Several operational files remain classified."],
+      facts: [["Born", "c. 3060 CE"], ["Birth Name", "Sephiroth Makai"], ["Public Name", "Sephiroth Raiku"], ["Historic Office", "Founder and President"], ["Organization Founded", "Shinra Resurrected X"], ["Founding Year", "3078 CE"], ["Treaty Service", "SRX signatory, 3088 CE"], ["Official Status", "Fallen during the Battle for Eternium"]],
+      sections: [
+        {
+          title: "Early Life",
+          paragraphs: [
+            "Sephiroth was born to Lucia, a mortal woman, and Xeno Makai, a High Guardian Angel. Following his mother's death, he was raised in concealment for approximately eight years before returning to the mortal world.",
+            "His early life crossed Silvermoon, the Demon Realm, and the protection network maintained by the Silveredge family. Those years established the alliances and survival disciplines that later shaped the first SRX command circle.",
+          ],
+          facts: [["Father", "Xeno Makai"], ["Mother", "Lucia"], ["Early Affiliation", "Silveredge family"], ["Recorded Origin", "Silvermoon region"]],
+        },
+        {
+          title: "Founding of SRX",
+          paragraphs: [
+            "In 3078 CE, Sephiroth founded Shinra Resurrected X as an organized resistance to RIA expansion and coercive authority. He took the Raiku name at the organization's founding.",
+            "The organization developed from a resistance command into a permanent Midgar institution with military, intelligence, technical, and civil capacity. Chaz Asheline and the earliest command personnel were central to that expansion.",
+          ],
+          facts: [["Original Name", "Shinra Resurrected X"], ["Headquarters", "Midgar"], ["Initial Purpose", "Organized resistance"], ["Senior Contemporary", "Chaz M. Asheline"]],
+        },
+        {
+          title: "The SRX-RIA War",
+          paragraphs: [
+            "Sephiroth led SRX through the ten-year conflict with the Realm Inspection Agency from 3078 to 3088 CE. The campaign established SRX as a major military and political power on Terra.",
+            "In 3088 CE, Sephiroth represented SRX in the Treaty of Ceasefire with Barron Nevermore. The treaty ended open war and established the durable, if uneasy, relationship that continues between the two institutions.",
+          ],
+          facts: [["Conflict", "SRX-RIA War"], ["Conflict Span", "3078-3088 CE"], ["RIA Signatory", "Barron J. Nevermore"], ["Settlement", "Treaty of Ceasefire"]],
+        },
+        {
+          title: "Later Service and Legacy",
+          paragraphs: [
+            "After the ceasefire, SRX expanded its dimensional research, portal operations, and recruitment network. Sephiroth's administration also established records and command structures inherited by later Shinra governments.",
+            "The official record places his fall during the Battle for Eternium, fought from 3098 to 3108 CE. His body was not recovered. Details concerning his final operations and restricted research programs remain absent from this public release.",
+          ],
+          facts: [["Later Period", "Gateway expansion and institutional growth"], ["Final Conflict", "Battle for Eternium"], ["Conflict Span", "3098-3108 CE"], ["Recovery Status", "Body not recovered"]],
+        },
+      ],
+      highlights: ["Founded the organization that became Shinra Robotics and Xenogenetics.", "Led SRX through the 3078-3088 war.", "Signed the Treaty of Ceasefire for SRX.", "Established command structures inherited by the modern Shinra state."],
       related: ["srx", "srx-ria-war", "shinra-kingdom"], source: "The Realm Historical Archive/Rp Post/seph bio.txt",
     },
   ],
