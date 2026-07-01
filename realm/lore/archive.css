@@ -633,6 +633,12 @@
   .record-main { padding: 46px 16px; }
   .record-header { align-items: start; flex-direction: column; }
   .record-media-empty { min-height: 280px; }
+  .record-summary { font-size: 22px; line-height: 1.55; }
+  .record-copy > p:not(.record-summary),
+  .record-copy section p { font-size: 17px; line-height: 1.7; }
+  .record-copy li { font-size: 16px; line-height: 1.7; }
+  .record-copy .archive-fact span { font-size: 10px; }
+  .record-copy .archive-fact strong { font-size: 13px; line-height: 1.55; }
   .archive-featured-section { padding-top: 34px; }
   .archive-featured-record.primary .archive-record-thumb { height: 300px; }
 }

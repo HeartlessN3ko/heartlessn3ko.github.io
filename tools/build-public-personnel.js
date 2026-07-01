@@ -105,6 +105,7 @@ const replaceExistingSources = new Set([
 const records = [];
 const identities = new Set();
 const publicIdentityOverrides = {
+  "data/srx_database/dossiers/ALEXANDER_RAIKU_DOSSIER.md": { image: "main-npcs-portaits/Alexander-Raiku.png" },
   "data/srx_database/dossiers/XERIA_SILVEREDGE_DOSSIER.md": { id: "ayame-silveredge", title: "Ayame Silveredge" },
 };
 
@@ -120,7 +121,8 @@ function addRecord(name, content, source, imagePath = "") {
   const facts = sections.flatMap((section) => section.facts).filter(([key, value], index, all) => value && !/unknown|not documented|presumed/i.test(value) && all.findIndex(([other]) => other.toLowerCase() === key.toLowerCase()) === index).slice(0, 12);
   const role = facts.find(([key]) => /title|position|role|occupation|personnel type|current office/i.test(key))?.[1];
   const service = sections.find((section) => /service|leadership|biographical/i.test(section.title));
-  const publicImage = imagePath && fs.existsSync(path.join(publicAssetsRoot, imagePath)) ? imagePath.replaceAll(path.sep, "/") : null;
+  const resolvedImagePath = identityOverride?.image || imagePath;
+  const publicImage = resolvedImagePath && fs.existsSync(path.join(publicAssetsRoot, resolvedImagePath)) ? resolvedImagePath.replaceAll(path.sep, "/") : null;
   let usefulSections = sections.filter((section) => !/identification|physical description/i.test(section.title)).slice(0, 8);
   if (!usefulSections.length && sections.length) {
     usefulSections = [{ ...sections[0], title: "Archived Identification" }];

@@ -473,10 +473,11 @@ window.SRX_PUBLIC_ARCHIVE = {
         {
           title: "Government and Foreign Relations",
           paragraphs: [
-            "The Raiku administration inherited a stable Midgar, a functioning ceasefire with the Realm Inspection Agency, and formal relations with several autonomous powers. The President's office coordinates with Barron Nevermore on matters governed by the SRX-RIA treaty.",
+            "The Raiku administration inherited a stable Midgar, a functioning ceasefire with the Realm Inspection Agency, and formal relations with several autonomous powers. Treaty obligations continue through established institutional channels.",
+            "Barron Nevermore has not been seen publicly or remained in direct contact for approximately fifteen years. He is not recorded as deceased; his present location and activities remain unknown.",
             "Recognized foreign and autonomous contacts include the DeathShade Citadel leadership and Yakumo Kaoryu in her capacity as an independent dimensional partner. These relationships remain diplomatic arrangements rather than extensions of Shinra command.",
           ],
-          facts: [["RIA Counterpart", "Barron J. Nevermore"], ["Autonomous Ally", "DeathShade Citadel"], ["Dimensional Partner", "Yakumo Kaoryu"], ["Treaty Basis", "3088 CE Treaty of Ceasefire"]],
+          facts: [["RIA Counterpart", "Barron J. Nevermore - out of contact approximately 15 years"], ["Recorded Status", "Not declared deceased"], ["Autonomous Ally", "DeathShade Citadel"], ["Dimensional Partner", "Yakumo Kaoryu"], ["Treaty Basis", "3088 CE Treaty of Ceasefire"]],
         },
         {
           title: "Administrative Context, 3120 CE",

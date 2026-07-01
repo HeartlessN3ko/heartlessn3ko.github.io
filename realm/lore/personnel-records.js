@@ -11,8 +11,8 @@
     "title": "Alexander Raiku",
     "subtitle": "Government Leadership, Civilian Administration",
     "classification": "Authorized Personnel Record",
-    "imagePath": null,
-    "imageStatus": "No authenticated public portrait is currently assigned.",
+    "imagePath": "main-npcs-portaits/Alexander-Raiku.png",
+    "imageStatus": null,
     "summary": "Alexander Raiku is recorded in the SRX Personnel Archive as Government Leadership, Civilian Administration.",
     "body": [],
     "facts": [
@@ -1378,8 +1378,8 @@
     "title": "Lilith (Nightwind → Darkhaven)",
     "subtitle": "SRX personnel archive record",
     "classification": "Authorized Personnel Record",
-    "imagePath": null,
-    "imageStatus": "No authenticated public portrait is currently assigned.",
+    "imagePath": "oracle/personnel/portraits/lilith-darkhaven-nightwind.png",
+    "imageStatus": null,
     "summary": "The SRX Personnel Archive maintains an authorized service record for Lilith (Nightwind → Darkhaven).",
     "body": [
       "| Field | Value | |---|---| | Birth Era | First Age | | Original House | House Nightwind (Elven) | | Current House | House Darkhaven (Vampire) | | Family Status | Matriarch of reformed Darkhaven clan (half-elf/vampire hybrid faction) | | Known Associates | Sephiroth Raiku (turned into vampire by Lilith; fought alongside her); Kallisti DeCairn (served with her) |"
@@ -1504,8 +1504,8 @@
     "title": "Madara Hiroshima",
     "subtitle": "SRX personnel archive record",
     "classification": "Authorized Personnel Record",
-    "imagePath": null,
-    "imageStatus": "No authenticated public portrait is currently assigned.",
+    "imagePath": "oracle/notices/madara-hiroshima-wanted-poster.png",
+    "imageStatus": null,
     "summary": "The SRX Personnel Archive maintains an authorized service record for Madara Hiroshima.",
     "body": [],
     "facts": [
@@ -2739,8 +2739,8 @@
     "title": "Yakumo Kaoryu",
     "subtitle": "Interdimensional being, supernatural ally",
     "classification": "Authorized Personnel Record",
-    "imagePath": null,
-    "imageStatus": "No authenticated public portrait is currently assigned.",
+    "imagePath": "oracle/personnel/portraits/yakumo-kaoryu.png",
+    "imageStatus": null,
     "summary": "Yakumo Kaoryu is recorded in the SRX Personnel Archive as Interdimensional being, supernatural ally.",
     "body": [],
     "facts": [
