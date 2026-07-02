@@ -36,10 +36,10 @@ function initArchiveHome() {
   document.getElementById("archive-last-updated").textContent = archive.updated;
   document.getElementById("archive-current-era").textContent = archive.currentEra;
   document.getElementById("archive-record-count").textContent = archive.records.length;
-  const arthas = archive.records.find((record) => record.id === "arthas-raiku");
   const realmMap = archive.records.find((record) => record.id === "the-realm");
+  const continentalSurvey = archive.records.find((record) => record.id === "continental-survey");
   document.getElementById("archive-featured").innerHTML =
-    featuredRecord(arthas, "primary") + featuredRecord(realmMap, "secondary");
+    featuredRecord(realmMap, "primary") + featuredRecord(continentalSurvey, "secondary");
   const directorySelect = document.getElementById("archive-directory-select");
   directorySelect.insertAdjacentHTML("beforeend", archive.directories.map((directory) => {
     const count = archive.records.filter((record) => record.directories.includes(directory.id)).length;

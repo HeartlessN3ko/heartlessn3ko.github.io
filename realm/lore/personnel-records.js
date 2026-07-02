@@ -13,7 +13,7 @@
     "classification": "Authorized Personnel Record",
     "imagePath": "main-npcs-portaits/Alexander-Raiku.png",
     "imageStatus": null,
-    "summary": "Alexander Raiku is recorded in the SRX Destination Archive as Government Leadership, Civilian Administration.",
+    "summary": "Alexander Raiku is recorded in the SRX Information Archive as Government Leadership, Civilian Administration.",
     "body": [],
     "facts": [
       [
@@ -115,7 +115,7 @@
             "Vice President of the Shinra Kingdom"
           ],
           [
-            "Secondary Title (SA era)",
+            "Secondary Title (approximately twenty years ago)",
             "President of the Republic of Shinra"
           ],
           [
@@ -170,7 +170,7 @@
           ]
         ],
         "notes": [
-          "Zoey Cinclaire (romantic connection, SA era)",
+          "Zoey Cinclaire (romantic connection, approximately twenty years ago)",
           "Xeria Silveredge/Ayame (diplomatic and security partnership)",
           "Sephiroth Raiku (father)",
           "Arthas Raiku (son)",
@@ -198,7 +198,7 @@
     "classification": "Authorized Personnel Record",
     "imagePath": null,
     "imageStatus": "No authenticated public portrait is currently assigned.",
-    "summary": "Chaz M. Asheline is recorded in the SRX Destination Archive as Founding Member, Scientific R&D Director.",
+    "summary": "Chaz M. Asheline is recorded in the SRX Information Archive as Founding Member, Scientific R&D Director.",
     "body": [],
     "facts": [
       [
@@ -366,7 +366,7 @@
     "classification": "Authorized Personnel Record",
     "imagePath": null,
     "imageStatus": "No authenticated public portrait is currently assigned.",
-    "summary": "Dalton Tobi Rogers is recorded in the SRX Destination Archive as Turk Member (Gen 4) / Field Operative.",
+    "summary": "Dalton Tobi Rogers is recorded in the SRX Information Archive as Turk Member (Gen 4) / Field Operative.",
     "body": [],
     "facts": [
       [
@@ -497,7 +497,7 @@
     "classification": "Authorized Personnel Record",
     "imagePath": null,
     "imageStatus": "No authenticated public portrait is currently assigned.",
-    "summary": "Drakath Everlasting Amaranth is recorded in the SRX Destination Archive as The One That Was Never Meant To Be Born.",
+    "summary": "Drakath Everlasting Amaranth is recorded in the SRX Information Archive as The One That Was Never Meant To Be Born.",
     "body": [],
     "facts": [
       [
@@ -614,7 +614,7 @@
           ],
           [
             "Secondary",
-            "SRX (SA-era operational partnership)"
+            "SRX (approximately twenty years ago operational partnership)"
           ],
           [
             "Allied",
@@ -655,7 +655,7 @@
           "Kaitlyn Deathshade (First Queen; co-parent of Tamashii)",
           "Tamashii Everlasting Deathshade (daughter; age ~12)",
           "Kelborn DeathShade (brother-in-law/family connection)",
-          "Zoey Cinclaire (fiancée, engaged SA era; relationship evolved into co-parental structure)",
+          "Zoey Cinclaire (fiancée, engaged approximately twenty years ago; relationship evolved into co-parental structure)",
           "Sephiroth Raiku (commanding officer / war ally)",
           "Tamashii Deathshade (field team coordination; noted positive synergy)",
           "Zoey Cinclaire (DECEASED ~3118 CE; unresolved fae inheritance complications)"
@@ -704,7 +704,7 @@
     "classification": "Authorized Personnel Record",
     "imagePath": null,
     "imageStatus": "No authenticated public portrait is currently assigned.",
-    "summary": "Drake M. Strider is recorded in the SRX Destination Archive as Lead Engineer, Scientific R&D Director.",
+    "summary": "Drake M. Strider is recorded in the SRX Information Archive as Lead Engineer, Scientific R&D Director.",
     "body": [],
     "facts": [
       [
@@ -863,7 +863,7 @@
           ],
           [
             "Project Status",
-            "XENO project and other SA-era initiatives presumed ongoing; no completion announcements in public record"
+            "XENO project and other approximately twenty years ago initiatives presumed ongoing; no completion announcements in public record"
           ]
         ],
         "notes": []
@@ -890,7 +890,7 @@
     "classification": "Authorized Personnel Record",
     "imagePath": null,
     "imageStatus": "No authenticated public portrait is currently assigned.",
-    "summary": "Enishi Yukishiro is recorded in the SRX Destination Archive as Founding-Era Operative (Gen 1).",
+    "summary": "Enishi Yukishiro is recorded in the SRX Information Archive as Founding-Era Operative (Gen 1).",
     "body": [],
     "facts": [
       [
@@ -1018,7 +1018,7 @@
     "classification": "Authorized Personnel Record",
     "imagePath": null,
     "imageStatus": "No authenticated public portrait is currently assigned.",
-    "summary": "Lenta Iona Cierra Kagamine is recorded in the SRX Destination Archive as Turks Member, Investigative Affairs.",
+    "summary": "Lenta Iona Cierra Kagamine is recorded in the SRX Information Archive as Turks Member, Investigative Affairs.",
     "body": [],
     "facts": [
       [
@@ -1139,7 +1139,7 @@
           "Activated and recruited as first Turks generation member (alongside Zoey Cinclaire)",
           "Participated in all major Turks operations throughout SA",
           "Underwent sustained damage during combat mission; sent to SRX R&D for repairs",
-          "Status during SA-era absence: Nonoperational pending repair completion",
+          "Status during approximately twenty years ago absence: Nonoperational pending repair completion",
           "Stairway to Heaven operation: ORACLE uplink specialist; Red-eye sensor stream lead",
           "Received bio-mechanical nano skin upgrade during Stairway to Heaven era"
         ]
@@ -1172,7 +1172,7 @@
           "Short attention span; easily bored; prone to distraction",
           "When Focused: Completely different person — defensive, situationally aware, capable fighter",
           "Robotic augmentations create \"near-unstoppable force of power and speed\" when fully charged",
-          "Scheduled for exoskeleton upgrade next quarter (SA era; current status unknown)",
+          "Scheduled for exoskeleton upgrade next quarter (approximately twenty years ago; current status unknown)",
           "Comedic malfunction tendency: Behavior degrades in amusing ways when systems glitch",
           "Social engagement: Unusual high charm score for android suggests either sophisticated AI or deliberate personality modeling",
           "Tactical awareness: Low when routine, exceptional when mission-focused (binary mode switch)"
@@ -1201,7 +1201,7 @@
           ],
           [
             "Operational Role",
-            "Likely continued in Turks or specialized operations role, though reduced from SA-era prominence"
+            "Likely continued in Turks or specialized operations role, though reduced from approximately twenty years ago prominence"
           ]
         ],
         "notes": []
@@ -1222,7 +1222,7 @@
     "classification": "Authorized Personnel Record",
     "imagePath": null,
     "imageStatus": "No authenticated public portrait is currently assigned.",
-    "summary": "The SRX Destination Archive maintains an authorized historical record for Libro Edgar.",
+    "summary": "The SRX Information Archive maintains an authorized historical record for Libro Edgar.",
     "body": [],
     "facts": [
       [
@@ -1285,7 +1285,7 @@
           ],
           [
             "Birth Date",
-            "Approximately 3076 CE (age 22 at SA era 3098 CE)"
+            "Approximately 3076 CE (age 22 at approximately twenty years ago 3098 CE)"
           ],
           [
             "Family",
@@ -1407,7 +1407,7 @@
     "classification": "Authorized Personnel Record",
     "imagePath": "oracle/personnel/portraits/lilith-darkhaven-nightwind.png",
     "imageStatus": null,
-    "summary": "The SRX Destination Archive maintains an authorized historical record for Lilith (Nightwind → Darkhaven).",
+    "summary": "The SRX Information Archive maintains an authorized historical record for Lilith (Nightwind → Darkhaven).",
     "body": [
       "| Field | Value | |---|---| | Birth Era | First Age | | Original House | House Nightwind (Elven) | | Current House | House Darkhaven (Vampire) | | Family Status | Matriarch of reformed Darkhaven clan (half-elf/vampire hybrid faction) | | Known Associates | Sephiroth Raiku (turned into vampire by Lilith; fought alongside her); Kallisti DeCairn (served with her) |"
     ],
@@ -1533,7 +1533,7 @@
     "classification": "Authorized Personnel Record",
     "imagePath": "oracle/notices/madara-hiroshima-wanted-poster.png",
     "imageStatus": null,
-    "summary": "The SRX Destination Archive maintains an authorized historical record for Madara Hiroshima.",
+    "summary": "The SRX Information Archive maintains an authorized historical record for Madara Hiroshima.",
     "body": [],
     "facts": [
       [
@@ -1676,7 +1676,7 @@
     "classification": "Authorized Personnel Record",
     "imagePath": null,
     "imageStatus": "No authenticated public portrait is currently assigned.",
-    "summary": "Misaki Anya Promethiae is recorded in the SRX Destination Archive as Turks Member, Investigative Affairs.",
+    "summary": "Misaki Anya Promethiae is recorded in the SRX Information Archive as Turks Member, Investigative Affairs.",
     "body": [],
     "facts": [
       [
@@ -1786,7 +1786,7 @@
           ],
           [
             "XP (Experience Points)",
-            "100,000 (high for SA-era operative)"
+            "100,000 (high for approximately twenty years ago operative)"
           ]
         ],
         "notes": [
@@ -1879,7 +1879,7 @@
     "classification": "Authorized Personnel Record",
     "imagePath": null,
     "imageStatus": "No authenticated public portrait is currently assigned.",
-    "summary": "Nico Takahashi is recorded in the SRX Destination Archive as Personal Guardian, Protection Specialist.",
+    "summary": "Nico Takahashi is recorded in the SRX Information Archive as Personal Guardian, Protection Specialist.",
     "body": [],
     "facts": [
       [
@@ -1993,13 +1993,18 @@
       "people"
     ],
     "category": "people",
-    "title": "Odinashi Ren",
-    "subtitle": "SRX personnel archive record",
+    "title": "Ren Odinashi",
+    "subtitle": "Ageless ice wielder, pilot, and Kantonian ally",
     "classification": "Authorized Personnel Record",
-    "imagePath": null,
+    "imagePath": "archive/ren-odinashi.webp",
     "imageStatus": "No authenticated public portrait is currently assigned.",
-    "summary": "The SRX Destination Archive maintains an authorized historical record for Odinashi Ren.",
-    "body": [],
+    "summary": "Ren Odinashi is an ageless ice wielder from Wofre Ingras whose long record connects Valhalla aviation, the old Dark Order network, and the present strategic alliance with SRX.",
+    "body": [
+      "Ren was born in Wofre Ingras and developed normally until approximately age seven. A near-fatal blizzard triggered his ice abilities; his aging later ceased at the physical appearance of seventeen.",
+      "Roughly twenty years ago, Ren served as a pilot and air-support specialist using the VA-314 stealth helicopter. His record places him within Rephiam Congurion's Valhalla weapons and technology network.",
+      "After the AMTRAC operation, Ren withdrew from the Dark Order and moved into an allied relationship with SRX. The old affiliation is historical and does not represent his present loyalty.",
+      "Modern records retain Ren as an active allied operative with Kantonian ties, extensive aviation experience, and thousands of years of life behind a permanently youthful appearance."
+    ],
     "facts": [
       [
         "Full Name",
@@ -2069,7 +2074,7 @@
           ],
           [
             "Current Residence",
-            "UNKNOWN (post-SA status unconfirmed)"
+            "Unconfirmed in the current record"
           ],
           [
             "Nationality",
@@ -2102,15 +2107,15 @@
             "SRX Strategic Alliance (Resolved operative)"
           ],
           [
-            "Historical (SA era)",
+            "Historical (approximately twenty years ago)",
             "The Dark Order (Direct operative — resolved)"
           ],
           [
-            "Associated (SA era)",
+            "Associated (approximately twenty years ago)",
             "Rephiam Congurion / Valhalla weapons supply network (operational detail; resolved)"
           ],
           [
-            "Associated (SA era)",
+            "Associated (approximately twenty years ago)",
             "DeathShade Citadel (Member affiliate; current status aligned with SRX alliance)"
           ],
           [
@@ -2167,7 +2172,7 @@
           ],
           [
             "Assessment",
-            "Post-SA transition completed successfully; reliable allied partner with proven commitment to SRX alliance framework"
+            "Historical transition completed successfully; reliable allied partner with proven commitment to the SRX alliance framework"
           ]
         ],
         "notes": []
@@ -2186,10 +2191,15 @@
     "title": "Rephiam Congurion",
     "subtitle": "Military Commander, Infrastructure Operator, Weapons Supplier",
     "classification": "Authorized Personnel Record",
-    "imagePath": null,
+    "imagePath": "archive/rephiam-congurion.webp",
     "imageStatus": "No authenticated public portrait is currently assigned.",
-    "summary": "Rephiam Congurion is recorded in the SRX Destination Archive as Military Commander, Infrastructure Operator, Weapons Supplier.",
-    "body": [],
+    "summary": "Rephiam Congurion is the ruler and military administrator of Kantonia, an independent western technological power allied with SRX.",
+    "body": [
+      "Rephiam emerged from Valhalla's weapons and technology network roughly twenty years ago. His record connects him to experimental aircraft, nanobot systems, automated defenses, and the military infrastructure that preceded modern Kantonia.",
+      "He later established Kantonia as an independent military state on Cubax Island. The C.O.S.C.O. mainframe now supports the country's grid, vehicle materialization, satellite mapping, security systems, and automated Sentinel air patrols.",
+      "Kantonia maintains a formal strategic alliance with SRX while preserving its own government, territory, military, and technological priorities. Older Dark Order supply relationships were dissolved and do not represent Rephiam's present policy.",
+      "Rephiam remains a highly controlled and calculating commander whose public authority rests on military administration, infrastructure management, and technological independence."
+    ],
     "facts": [
       [
         "Full Name",
@@ -2220,7 +2230,7 @@
         "Male"
       ],
       [
-        "Age (SA Era)",
+        "Recorded Age (approximately twenty years ago)",
         "19 years old"
       ],
       [
@@ -2247,7 +2257,7 @@
         "facts": [
           [
             "Birth Date",
-            "Approximately 3079 CE (SA-era age 19 noted at 3098 CE)"
+            "Approximately 3079 CE (recorded as age 19 roughly twenty years ago)"
           ],
           [
             "Current Residence",
@@ -2273,16 +2283,16 @@
             "SRX Strategic Alliance (Formal partner)"
           ],
           [
-            "Historical (SA era)",
+            "Historical (approximately twenty years ago)",
             "The Dark Order (Technology/Weapons supplier — operational detail, resolved)"
           ],
           [
             "Relationship to Dark Order",
-            "Rephiam was Ren Odinashi's superior in Valhalla supply chain; provided technology, weapons, and operational support to Dark Order missions (including AMTRAC operation). Post-SA, this operational relationship was dissolved as Rephiam formalised alliance with SRX."
+            "Rephiam was Ren Odinashi's superior in the Valhalla supply chain and provided technology, weapons, and operational support to Dark Order missions, including AMTRAC. That relationship was later dissolved as Rephiam formalized an alliance with SRX."
           ],
           [
             "Current Status with Dark Order",
-            "Dissolved post-SA; no active affiliation"
+            "Dissolved; no active affiliation"
           ]
         ],
         "notes": []
@@ -2311,12 +2321,12 @@
         "paragraphs": [],
         "facts": [],
         "notes": [
-          "Derrick (SA-era Kantonia resident)",
-          "Kalona (SA-era Kantonia resident)",
-          "Chase (SA-era Kantonia resident)",
-          "Kiro (SA-era Kantonia resident; also Dark Order operative)",
-          "Stark (SA-era Kantonia resident)",
-          "Cory (SA-era Kantonia resident)",
+          "Derrick (historic Kantonian resident)",
+          "Kalona (historic Kantonian resident)",
+          "Chase (historic Kantonian resident)",
+          "Kiro (historic Kantonian resident; also a Dark Order operative)",
+          "Stark (historic Kantonian resident)",
+          "Cory (historic Kantonian resident)",
           "Multiple unidentified facility personnel at \"The Shack\"",
           "Ren Odinashi (subordinate in supply chain; primary contact point)",
           "Madara Hiroshima (AMTRAC commander; weapons client)",
@@ -2364,7 +2374,7 @@
     "classification": "Authorized Personnel Record",
     "imagePath": null,
     "imageStatus": "No authenticated public portrait is currently assigned.",
-    "summary": "Tamashii Everlasting Deathshade (formal title) is recorded in the SRX Destination Archive as Turks Leader, Investigative Affairs.",
+    "summary": "Tamashii Everlasting Deathshade (formal title) is recorded in the SRX Information Archive as Turks Leader, Investigative Affairs.",
     "body": [],
     "facts": [
       [
@@ -2468,7 +2478,7 @@
           ],
           [
             "Period of Service",
-            "3102 CE – 3108 CE (peak operational period, SA era)"
+            "3102 CE – 3108 CE (peak operational period, approximately twenty years ago)"
           ],
           [
             "Joined SRX",
@@ -2503,7 +2513,7 @@
           ],
           [
             "Authority",
-            "Direct reporting to Sephiroth Raiku (SA era)"
+            "Direct reporting to Sephiroth Raiku (approximately twenty years ago)"
           ]
         ],
         "notes": []
@@ -2595,7 +2605,7 @@
     "classification": "Authorized Personnel Record",
     "imagePath": "npc/Ayame.png",
     "imageStatus": null,
-    "summary": "Ayame Silveredge is recorded in the SRX Destination Archive as Deep Cover Intelligence Operative, Special Forces (ANBU Corps).",
+    "summary": "Ayame Silveredge is recorded in the SRX Information Archive as Deep Cover Intelligence Operative, Special Forces (ANBU Corps).",
     "body": [],
     "facts": [
       [
@@ -2701,7 +2711,7 @@
           ],
           [
             "Period of Service",
-            "~3098 CE to present (20+ years SA-era service documented)"
+            "~3098 CE to present (20+ years approximately twenty years ago service documented)"
           ],
           [
             "Joined SRX",
@@ -2768,7 +2778,7 @@
     "classification": "Authorized Personnel Record",
     "imagePath": "oracle/personnel/portraits/yakumo-kaoryu.png",
     "imageStatus": null,
-    "summary": "Yakumo Kaoryu is recorded in the SRX Destination Archive as Interdimensional being, supernatural ally.",
+    "summary": "Yakumo Kaoryu is recorded in the SRX Information Archive as Interdimensional being, supernatural ally.",
     "body": [],
     "facts": [
       [
@@ -2987,7 +2997,7 @@
     "classification": "Authorized Personnel Record",
     "imagePath": "oracle/personnel/portraits/zoey-cinclaire-city.png",
     "imageStatus": null,
-    "summary": "Zoey Cinclaire is recorded in the SRX Destination Archive as Turks Member, Urban Development, Acting Director.",
+    "summary": "Zoey Cinclaire is recorded in the SRX Information Archive as Turks Member, Urban Development, Acting Director.",
     "body": [],
     "facts": [
       [
@@ -3118,7 +3128,7 @@
           ],
           [
             "Historical",
-            "Enemy faction (SA-era defection; faction unspecified)"
+            "Enemy faction (approximately twenty years ago defection; faction unspecified)"
           ],
           [
             "Allied",
@@ -3207,7 +3217,7 @@
     "classification": "Public Historical Record",
     "imagePath": null,
     "imageStatus": "No authenticated public portrait is currently assigned.",
-    "summary": "The SRX Destination Archive maintains an authorized historical record for Almao.",
+    "summary": "The SRX Information Archive maintains an authorized historical record for Almao.",
     "body": [],
     "facts": [
       [
@@ -3268,7 +3278,7 @@
     "classification": "Public Historical Record",
     "imagePath": null,
     "imageStatus": "No authenticated public portrait is currently assigned.",
-    "summary": "Ayla Kyrissean is recorded in the SRX Destination Archive as Dragonlord; Mistress of Dragons.",
+    "summary": "Ayla Kyrissean is recorded in the SRX Information Archive as Dragonlord; Mistress of Dragons.",
     "body": [],
     "facts": [
       [
@@ -3329,7 +3339,7 @@
     "classification": "Public Historical Record",
     "imagePath": "oracle/personnel/portraits/barron-nevermore-gala.png",
     "imageStatus": null,
-    "summary": "Barron J. Nevermore is recorded in the SRX Destination Archive as Co-founder and historic commander of the Realm Inspection Agency.",
+    "summary": "Barron J. Nevermore is recorded in the SRX Information Archive as Co-founder and historic commander of the Realm Inspection Agency.",
     "body": [
       "Nevermore remained a field commander long after becoming a national leader. Public records connect him to the defense of Cameron City, joint containment operations in Cerium, interdimensional threat responses, and the coalition that opposed the weaponization of Eternium.",
       "His reputation was built as much on direct intervention as command. Surviving accounts consistently describe a marksman, pilot, and tactical leader who entered crises personally and expected the same discipline from his officers."
@@ -3457,7 +3467,7 @@
     "classification": "Public Historical Record",
     "imagePath": "oracle/personnel/portraits/chasiel-roelhaiphar-gala.png",
     "imageStatus": null,
-    "summary": "Chasiel Roelhaiphar is recorded in the SRX Destination Archive as Seraph.",
+    "summary": "Chasiel Roelhaiphar is recorded in the SRX Information Archive as Seraph.",
     "body": [],
     "facts": [
       [
@@ -3532,7 +3542,7 @@
     "classification": "Public Historical Record",
     "imagePath": null,
     "imageStatus": "No authenticated public portrait is currently assigned.",
-    "summary": "The SRX Destination Archive maintains an authorized historical record for Denath.",
+    "summary": "The SRX Information Archive maintains an authorized historical record for Denath.",
     "body": [],
     "facts": [
       [
@@ -3593,7 +3603,7 @@
     "classification": "Public Historical Record",
     "imagePath": null,
     "imageStatus": "No authenticated public portrait is currently assigned.",
-    "summary": "The SRX Destination Archive maintains an authorized historical record for Kyra.",
+    "summary": "The SRX Information Archive maintains an authorized historical record for Kyra.",
     "body": [],
     "facts": [
       [
@@ -3658,7 +3668,7 @@
     "classification": "Public Historical Record",
     "imagePath": "oracle/personnel/portraits/meiori-nevermore-gala.png",
     "imageStatus": null,
-    "summary": "Meiori Nevermore is recorded in the SRX Destination Archive as RIA executive officer and field operative.",
+    "summary": "Meiori Nevermore is recorded in the SRX Information Archive as RIA executive officer and field operative.",
     "body": [],
     "facts": [
       [
@@ -3721,7 +3731,7 @@
     "classification": "Public Historical Record",
     "imagePath": "oracle/personnel/portraits/meka-alyis-gala.png",
     "imageStatus": null,
-    "summary": "The SRX Destination Archive maintains an authorized historical record for Meka Alyis.",
+    "summary": "The SRX Information Archive maintains an authorized historical record for Meka Alyis.",
     "body": [],
     "facts": [
       [
@@ -3783,7 +3793,7 @@
     "classification": "Public Historical Record",
     "imagePath": "oracle/personnel/portraits/nexa-rei-gala.png",
     "imageStatus": null,
-    "summary": "Nexa Rei is recorded in the SRX Destination Archive as Mistress of the Weyr of Dragonlords.",
+    "summary": "Nexa Rei is recorded in the SRX Information Archive as Mistress of the Weyr of Dragonlords.",
     "body": [
       "Nexa Rei appears throughout SRX's oldest surviving records as a Dragonlord, territorial sovereign, and neutral arbiter among powers that rarely accepted one another's authority. Her humanoid presentation and the dragon consciousness identified as Rei occupy one body and express distinct temperaments.",
       "Nexa is consistently described as diplomatic, measured, and capable of long planning. Rei is the more primal guardian: territorial, immediate, and intensely protective of the Keep, its dragons, and those accepted beneath its law. Archive witnesses identified shifts through changes in voice, posture, and eye color, though SRX does not claim a complete medical or spiritual explanation for the union."
@@ -3917,7 +3927,7 @@
     "classification": "Public Historical Record",
     "imagePath": null,
     "imageStatus": "No authenticated public portrait is currently assigned.",
-    "summary": "The SRX Destination Archive maintains an authorized historical record for Pernos Kail.",
+    "summary": "The SRX Information Archive maintains an authorized historical record for Pernos Kail.",
     "body": [
       "Kail survived the major factional struggles surrounding SRX's rise and remained recognizable to leaders from multiple houses. His public reputation emphasized strategic patience, formal courtesy, and an ability to read danger before it became visible to the room around him.",
       "SRX files contain references to forces and private objectives associated with his later rule. Their scale and purpose were never established well enough for public release and are not repeated as fact here."
@@ -4043,7 +4053,7 @@
     "classification": "Public Historical Record",
     "imagePath": null,
     "imageStatus": "No authenticated public portrait is currently assigned.",
-    "summary": "Sabrine of DragonsKeep is recorded in the SRX Destination Archive as Lady Seneschal of DragonsKeep.",
+    "summary": "Sabrine of DragonsKeep is recorded in the SRX Information Archive as Lady Seneschal of DragonsKeep.",
     "body": [],
     "facts": [
       [
@@ -4104,7 +4114,7 @@
     "classification": "Public Historical Record",
     "imagePath": null,
     "imageStatus": "No authenticated public portrait is currently assigned.",
-    "summary": "Soren Lyte is recorded in the SRX Destination Archive as Ancient vampire; former warrior and wanderer.",
+    "summary": "Soren Lyte is recorded in the SRX Information Archive as Ancient vampire; former warrior and wanderer.",
     "body": [],
     "facts": [
       [
@@ -4210,7 +4220,7 @@
     "classification": "Public Historical Record",
     "imagePath": null,
     "imageStatus": "No authenticated public portrait is currently assigned.",
-    "summary": "The SRX Destination Archive maintains an authorized historical record for Traga Seisen.",
+    "summary": "The SRX Information Archive maintains an authorized historical record for Traga Seisen.",
     "body": [],
     "facts": [
       [
@@ -4271,7 +4281,7 @@
     "classification": "Authorized Personnel Record",
     "imagePath": null,
     "imageStatus": "No authenticated public portrait is currently assigned.",
-    "summary": "KYO KUSANAGIXII is recorded in the SRX Destination Archive as Director of SOLDIER Department.",
+    "summary": "KYO KUSANAGIXII is recorded in the SRX Information Archive as Director of SOLDIER Department.",
     "body": [],
     "facts": [
       [
@@ -4367,7 +4377,7 @@
     "classification": "Authorized Personnel Record",
     "imagePath": null,
     "imageStatus": "No authenticated public portrait is currently assigned.",
-    "summary": "The SRX Destination Archive maintains an authorized historical record for NEO KORTEZ.",
+    "summary": "The SRX Information Archive maintains an authorized historical record for NEO KORTEZ.",
     "body": [],
     "facts": [
       [
@@ -4435,7 +4445,7 @@
     "classification": "Authorized Personnel Record",
     "imagePath": null,
     "imageStatus": "No authenticated public portrait is currently assigned.",
-    "summary": "The SRX Destination Archive maintains an authorized historical record for NIGHT SHADEZENISA (Zenisa Nightshade).",
+    "summary": "The SRX Information Archive maintains an authorized historical record for NIGHT SHADEZENISA (Zenisa Nightshade).",
     "body": [],
     "facts": [
       [
@@ -4507,7 +4517,7 @@
     "classification": "Authorized Personnel Record",
     "imagePath": null,
     "imageStatus": "No authenticated public portrait is currently assigned.",
-    "summary": "The SRX Destination Archive maintains an authorized historical record for RENO NIGHTBLADE.",
+    "summary": "The SRX Information Archive maintains an authorized historical record for RENO NIGHTBLADE.",
     "body": [],
     "facts": [
       [
@@ -4575,7 +4585,7 @@
     "classification": "Authorized Personnel Record",
     "imagePath": null,
     "imageStatus": "No authenticated public portrait is currently assigned.",
-    "summary": "The SRX Destination Archive maintains an authorized historical record for REIZ DARKHEART.",
+    "summary": "The SRX Information Archive maintains an authorized historical record for REIZ DARKHEART.",
     "body": [],
     "facts": [
       [
@@ -4643,7 +4653,7 @@
     "classification": "Authorized Personnel Record",
     "imagePath": null,
     "imageStatus": "No authenticated public portrait is currently assigned.",
-    "summary": "The SRX Destination Archive maintains an authorized historical record for SAGE RAVENDAWN.",
+    "summary": "The SRX Information Archive maintains an authorized historical record for SAGE RAVENDAWN.",
     "body": [],
     "facts": [
       [
@@ -4711,7 +4721,7 @@
     "classification": "Authorized Personnel Record",
     "imagePath": null,
     "imageStatus": "No authenticated public portrait is currently assigned.",
-    "summary": "THE GOD CERBERUS (Cerberus Amon) is recorded in the SRX Destination Archive as The God Cerberus.",
+    "summary": "THE GOD CERBERUS (Cerberus Amon) is recorded in the SRX Information Archive as The God Cerberus.",
     "body": [],
     "facts": [
       [
@@ -4783,7 +4793,7 @@
     "classification": "Authorized Personnel Record",
     "imagePath": null,
     "imageStatus": "No authenticated public portrait is currently assigned.",
-    "summary": "The SRX Destination Archive maintains an authorized historical record for ASCH GRAYHEART.",
+    "summary": "The SRX Information Archive maintains an authorized historical record for ASCH GRAYHEART.",
     "body": [],
     "facts": [
       [
@@ -4863,7 +4873,7 @@
     "classification": "Authorized Personnel Record",
     "imagePath": null,
     "imageStatus": "No authenticated public portrait is currently assigned.",
-    "summary": "The SRX Destination Archive maintains an authorized historical record for FIREBRAND KUROSAI.",
+    "summary": "The SRX Information Archive maintains an authorized historical record for FIREBRAND KUROSAI.",
     "body": [],
     "facts": [
       [
@@ -4955,11 +4965,11 @@
     ],
     "category": "people",
     "title": "PERCULIOUS SWAIN",
-    "subtitle": "SRX Special Ops (SA era organizational chart)",
+    "subtitle": "SRX Special Ops (approximately twenty years ago organizational chart)",
     "classification": "Authorized Personnel Record",
     "imagePath": null,
     "imageStatus": "No authenticated public portrait is currently assigned.",
-    "summary": "PERCULIOUS SWAIN is recorded in the SRX Destination Archive as SRX Special Ops (SA era organizational chart).",
+    "summary": "PERCULIOUS SWAIN is recorded in the SRX Information Archive as SRX Special Ops (approximately twenty years ago organizational chart).",
     "body": [],
     "facts": [
       [
@@ -4972,7 +4982,7 @@
       ],
       [
         "Title",
-        "SRX Special Ops (SA era organizational chart)"
+        "SRX Special Ops (approximately twenty years ago organizational chart)"
       ],
       [
         "Archive Assessment",
@@ -4994,7 +5004,7 @@
           ],
           [
             "Title",
-            "SRX Special Ops (SA era organizational chart)"
+            "SRX Special Ops (approximately twenty years ago organizational chart)"
           ],
           [
             "Physical Description",
@@ -5031,11 +5041,11 @@
     ],
     "category": "people",
     "title": "XAVIER SPICEY",
-    "subtitle": "SRX Special Ops (SA era organizational chart)",
+    "subtitle": "SRX Special Ops (approximately twenty years ago organizational chart)",
     "classification": "Authorized Personnel Record",
     "imagePath": null,
     "imageStatus": "No authenticated public portrait is currently assigned.",
-    "summary": "XAVIER SPICEY is recorded in the SRX Destination Archive as SRX Special Ops (SA era organizational chart).",
+    "summary": "XAVIER SPICEY is recorded in the SRX Information Archive as SRX Special Ops (approximately twenty years ago organizational chart).",
     "body": [],
     "facts": [
       [
@@ -5048,7 +5058,7 @@
       ],
       [
         "Title",
-        "SRX Special Ops (SA era organizational chart)"
+        "SRX Special Ops (approximately twenty years ago organizational chart)"
       ],
       [
         "Archive Assessment",
@@ -5070,7 +5080,7 @@
           ],
           [
             "Title",
-            "SRX Special Ops (SA era organizational chart)"
+            "SRX Special Ops (approximately twenty years ago organizational chart)"
           ],
           [
             "Physical Description",
@@ -5111,7 +5121,7 @@
     "classification": "Authorized Personnel Record",
     "imagePath": null,
     "imageStatus": "No authenticated public portrait is currently assigned.",
-    "summary": "The SRX Destination Archive maintains an authorized historical record for DR. ELARA VOSS.",
+    "summary": "The SRX Information Archive maintains an authorized historical record for DR. ELARA VOSS.",
     "body": [],
     "facts": [
       [
@@ -5187,7 +5197,7 @@
     "classification": "Authorized Personnel Record",
     "imagePath": null,
     "imageStatus": "No authenticated public portrait is currently assigned.",
-    "summary": "The SRX Destination Archive maintains an authorized historical record for MAGNUS KADE.",
+    "summary": "The SRX Information Archive maintains an authorized historical record for MAGNUS KADE.",
     "body": [],
     "facts": [
       [
@@ -5255,7 +5265,7 @@
     "classification": "Authorized Personnel Record",
     "imagePath": null,
     "imageStatus": "No authenticated public portrait is currently assigned.",
-    "summary": "The SRX Destination Archive maintains an authorized historical record for KAEL ARCTURUS.",
+    "summary": "The SRX Information Archive maintains an authorized historical record for KAEL ARCTURUS.",
     "body": [],
     "facts": [
       [
@@ -5331,7 +5341,7 @@
     "classification": "Authorized Personnel Record",
     "imagePath": null,
     "imageStatus": "No authenticated public portrait is currently assigned.",
-    "summary": "The SRX Destination Archive maintains an authorized historical record for JEANNA PLUMBA (Jeanna Pyrowolf).",
+    "summary": "The SRX Information Archive maintains an authorized historical record for JEANNA PLUMBA (Jeanna Pyrowolf).",
     "body": [],
     "facts": [
       [
@@ -5423,7 +5433,7 @@
     "classification": "Authorized Personnel Record",
     "imagePath": null,
     "imageStatus": "No authenticated public portrait is currently assigned.",
-    "summary": "The SRX Destination Archive maintains an authorized historical record for SERA HALCYON.",
+    "summary": "The SRX Information Archive maintains an authorized historical record for SERA HALCYON.",
     "body": [],
     "facts": [
       [
@@ -5491,7 +5501,7 @@
     "classification": "Authorized Personnel Record",
     "imagePath": null,
     "imageStatus": "No authenticated public portrait is currently assigned.",
-    "summary": "CAPTAIN RHO VANTOR is recorded in the SRX Destination Archive as Captain.",
+    "summary": "CAPTAIN RHO VANTOR is recorded in the SRX Information Archive as Captain.",
     "body": [],
     "facts": [
       [
@@ -5567,7 +5577,7 @@
     "classification": "Authorized Personnel Record",
     "imagePath": null,
     "imageStatus": "No authenticated public portrait is currently assigned.",
-    "summary": "The SRX Destination Archive maintains an authorized historical record for SERENA SILVERFANG (Selena).",
+    "summary": "The SRX Information Archive maintains an authorized historical record for SERENA SILVERFANG (Selena).",
     "body": [],
     "facts": [
       [
@@ -5671,7 +5681,7 @@
     "classification": "Authorized Personnel Record",
     "imagePath": null,
     "imageStatus": "No authenticated public portrait is currently assigned.",
-    "summary": "The SRX Destination Archive maintains an authorized historical record for LETHAL SERENITY (Serenity Vale) — GEN 1.",
+    "summary": "The SRX Information Archive maintains an authorized historical record for LETHAL SERENITY (Serenity Vale) — GEN 1.",
     "body": [],
     "facts": [
       [
