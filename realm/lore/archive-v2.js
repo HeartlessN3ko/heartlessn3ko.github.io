@@ -233,7 +233,7 @@ window.SRX_PUBLIC_ARCHIVE = {
       id: "gateway-station",
       directories: ["places", "institutions"], category: "places", title: "Gateway Station", subtitle: "Midgar interdimensional arrival facility",
       classification: "Open Arrival Record",
-      image: srxAsset("locations/onboarding_room.png", "SRX arrival-processing hall within the Gateway intake system."),
+      image: srxAsset("archive/gateway-station-registration.webp", "A routine identity-registration queue for mixed-species arrivals at Gateway Station."),
       summary: "Gateway Station registers and processes interdimensional arrivals entering the Shinra Kingdom through the stabilized Rift corridor.",
       body: [
         "The public intake hall is located within the Sector 0 complex. Arrival processing includes identity registration, medical examination, ability assessment, monitor issuance, and assignment under the Limiter Protocol.",
