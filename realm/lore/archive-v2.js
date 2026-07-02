@@ -1,4 +1,4 @@
-const SRX_ARCHIVE_ASSET_BASE = "https://raw.githubusercontent.com/HeartlessN3ko/realm-assets/main/";
+﻿const SRX_ARCHIVE_ASSET_BASE = "https://raw.githubusercontent.com/HeartlessN3ko/realm-assets/main/";
 
 function srxAsset(path, alt) {
   return {
@@ -500,7 +500,7 @@ window.SRX_PUBLIC_ARCHIVE = {
     {
       id: "alexander-raiku",
       directories: ["people"], category: "people", title: "Alexander Raiku", subtitle: "Vice President and former President of Shinra",
-      classification: "Executive Public Record", ...noImage("Official portrait awaits authenticated transfer to the public archive."),
+      classification: "Executive Public Record", ...noImage("Official portrait awaits authenticated transfer to the destination archive."),
       summary: "Alexander Raiku directs the civilian government and is one of the longest-serving executives in modern Shinra history.",
       body: [
         "Born in 3080 CE, Raiku served as President of the Republic of Shinra through reconstruction and the political transition that followed the Battle for Eternium.",
@@ -544,7 +544,7 @@ window.SRX_PUBLIC_ARCHIVE = {
     {
       id: "sephiroth-raiku",
       directories: ["people", "history"], category: "people", title: "Sephiroth Raiku", subtitle: "Founder of SRX and early Shinra executive",
-      classification: "Declassified Executive History", ...noImage("Historic portrait awaits authenticated transfer to the public archive."),
+      classification: "Declassified Executive History", ...noImage("Historic portrait awaits authenticated transfer to the destination archive."),
       summary: "Sephiroth Raiku founded the organization that became Shinra Robotics and Xenogenetics and directed its early expansion in Midgar.",
       body: [
         "Born Sephiroth Makai around 3060 CE, he survived displacement and conflict before entering the protection and training of the Silveredge household.",

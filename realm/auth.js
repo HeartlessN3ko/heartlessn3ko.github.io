@@ -26,11 +26,11 @@ function _saveRealmAuth(sessionToken) {
   const payload = _decodeSessionPayload(sessionToken);
   if (!payload || payload.v !== 1 || !/^\d{15,20}$/.test(payload.sub || '') ||
       !payload.exp || payload.exp * 1000 <= Date.now()) {
-    throw new Error('invalid session');
+    throw new Error('invalid identity seal');
   }
   const auth = {
     discordId: payload.sub,
-    discordUsername: payload.name || 'Discord user',
+    discordUsername: payload.name || 'External identity',
     sessionToken,
     expiresAt: payload.exp * 1000,
     loggedInAt: new Date().toISOString(),
@@ -51,7 +51,7 @@ function _decodeSessionPayload(token) {
 function updateLoginLabels(auth) {
   if (!auth) auth = getRealmAuth();
   document.querySelectorAll('[data-discord-user]').forEach(el => {
-    el.textContent = auth ? auth.discordUsername : 'Discord required';
+    el.textContent = auth ? auth.discordUsername : 'identity unverified';
   });
 }
 
@@ -71,7 +71,7 @@ function requireRealmLogin(options = {}) {
       localStorage.removeItem(REALM_AUTH_KEY);
       sessionStorage.removeItem('oauth_nonce');
       history.replaceState({}, '', location.pathname);
-      _showAlert('OAuth state mismatch — possible CSRF. Please try again.', 'error');
+      _showAlert('Identity-seal verification failed. Begin the anchoring sequence again.', 'error');
     } else {
       try {
         const auth = _saveRealmAuth(sessionToken);
@@ -82,14 +82,14 @@ function requireRealmLogin(options = {}) {
       } catch {
         localStorage.removeItem(REALM_AUTH_KEY);
         history.replaceState({}, '', location.pathname);
-        _showAlert('Discord session was invalid. Please connect again.', 'error');
+        _showAlert('The returning identity seal could not be verified. Re-establish the anchor.', 'error');
       }
     }
   }
 
   if (oauthError) {
     history.replaceState({}, '', location.pathname);
-    _showAlert('Discord sign-in failed: ' + oauthError.replace(/_/g, ' ') + '. Please try again.');
+    _showAlert('External identity link failed: ' + oauthError.replace(/_/g, ' ') + '. Re-establish the anchor.');
   }
 
   // ── 2. Check existing session ────────────────────────────────────────────────
@@ -110,12 +110,12 @@ function _showLoginGate() {
   gate.className = 'login-gate';
   gate.innerHTML = `
     <div class="login-panel">
-      <div class="kicker">Discord Required</div>
-      <h2>Connect your account before proceeding.</h2>
-      <p>Your application must be linked to your Discord so SRX Command can deliver the result by DM.</p>
+      <div class="kicker">Identity Anchor Required</div>
+      <h2>Establish continuity before proceeding.</h2>
+      <p>SRX must bind this relay to a stable identity from your current reality. The anchor prevents duplicate records and keeps your transfer authorization reachable if the dimensional signal fails.</p>
       <div class="actions">
-        <button class="btn" id="srx-oauth-btn">Connect Discord</button>
-        <a class="btn ghost" href="../">Return Home</a>
+        <button class="btn" id="srx-oauth-btn">Establish Identity Anchor</button>
+        <a class="btn ghost" href="../">Return to Transfer Notice</a>
       </div>
       <div class="status-box" id="srx-gate-status"></div>
     </div>`;
@@ -155,7 +155,7 @@ async function uploadRefImage(file) {
   });
   if (!res.ok) {
     const err = await res.json().catch(() => ({}));
-    throw new Error(err.error || `upload HTTP ${res.status}`);
+    throw new Error(err.error || `visual record transfer rejected (${res.status})`);
   }
   return (await res.json()).url;
 }
@@ -186,7 +186,7 @@ async function fetchApplicationStatus() {
 
 async function _codexFetch(path, options = {}) {
   const auth = getRealmAuth();
-  if (!auth) throw new Error('Discord session expired; reconnect your account');
+  if (!auth) throw new Error('Identity anchor expired; establish it again');
   const headers = new Headers(options.headers || {});
   headers.set('Authorization', `Bearer ${auth.sessionToken}`);
   const res = await fetch(CODEX_API + path, { ...options, headers });
@@ -202,12 +202,12 @@ function markRulesCompleted()       {}
 
 function statusLabel(value) {
   return ({
-    not_started:    'NOT STARTED',
-    pending:        'SUBMITTED / PENDING',
-    needs_revision: 'NEEDS REVISION',
-    revision:       'NEEDS REVISION',
-    approved:       'APPROVED',
-    rejected:       'REJECTED',
-    imported:       'IMPORTED',
+    not_started:    'UNREGISTERED',
+    pending:        'UNDER COMMAND REVIEW',
+    needs_revision: 'CLARIFICATION REQUIRED',
+    revision:       'CLARIFICATION REQUIRED',
+    approved:       'TRANSFER AUTHORIZED',
+    rejected:       'TRANSFER DECLINED',
+    imported:       'RECORD RECOVERED',
   })[value] || String(value || 'UNKNOWN').toUpperCase();
 }

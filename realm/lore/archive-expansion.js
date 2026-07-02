@@ -1,4 +1,4 @@
-// Public archive expansion derived from the SRX Oracle database and consolidated lore.
+﻿// Public archive expansion derived from the SRX Oracle database and consolidated lore.
 (() => {
   const base = "https://raw.githubusercontent.com/HeartlessN3ko/realm-assets/main/";
   const image = (path, alt) => ({ path, alt, remote: base + encodeURI(path) });
@@ -106,7 +106,7 @@
     },
     {
       id: "council-of-elders", directories: ["institutions"], category: "institutions", title: "Council of Elders", subtitle: "Stewards of Everlasting City and Ai Codian memory", classification: "Foreign Institutional Record", image: null, imageStatus: unavailable,
-      summary: "The Council of Elders preserves Ai Codian knowledge and governs Everlasting City through cultural, scholarly, and political authority.", body: ["The Council mediates among Ai Codian subtypes, protects sacred records, and advises on Source Code phenomena beyond ordinary scientific understanding.", "Its public posture is custodial rather than expansionist. Internal votes, membership, and restricted doctrine remain outside the SRX public archive."], facts: [["Seat", "Everlasting City"], ["Authority", "Cultural, scholarly, and political"], ["Primary Duty", "Preservation and mediation"], ["Current Status", "Recognized"]], highlights: ["The Council represents a civilization older than modern state systems."], related: ["ai-codians", "grand-library", "calders-rest"], source: "data/srx_database/factions/COUNCIL_OF_ELDERS.md",
+      summary: "The Council of Elders preserves Ai Codian knowledge and governs Everlasting City through cultural, scholarly, and political authority.", body: ["The Council mediates among Ai Codian subtypes, protects sacred records, and advises on Source Code phenomena beyond ordinary scientific understanding.", "Its public posture is custodial rather than expansionist. Internal votes, membership, and restricted doctrine remain outside the SRX destination archive."], facts: [["Seat", "Everlasting City"], ["Authority", "Cultural, scholarly, and political"], ["Primary Duty", "Preservation and mediation"], ["Current Status", "Recognized"]], highlights: ["The Council represents a civilization older than modern state systems."], related: ["ai-codians", "grand-library", "calders-rest"], source: "data/srx_database/factions/COUNCIL_OF_ELDERS.md",
     },
     {
       id: "order-black-flame", directories: ["institutions", "history"], category: "institutions", title: "Order of the Black Flame", subtitle: "Dispersed assassin and occult tradition", classification: "Public Historical Extract", image: null, imageStatus: unavailable,
