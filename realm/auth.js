@@ -1,24 +1,51 @@
 /* SRX CODEX — Auth & Supabase helpers
    Shared across all realm/ pages. */
 
-const SUPABASE_URL = 'https://escdlctsclmpevktgcin.supabase.co';
-const ANON_KEY     = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImVzY2RsY3RzY2xtcGV2a3RnY2luIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzM5ODg1MjEsImV4cCI6MjA4OTU2NDUyMX0.sO-HTPk8JHZQaibHG2UVdzXXtId_hqLwHtWJlD2uzVo';
 const OAUTH_FN     = 'https://escdlctsclmpevktgcin.supabase.co/functions/v1/discord-oauth';
-const BUCKET       = 'application-refs';
+const CODEX_API    = 'https://escdlctsclmpevktgcin.supabase.co/functions/v1/codex-intake';
 
-const REALM_AUTH_KEY = 'realm-discord-auth-v1';
+const REALM_AUTH_KEY = 'realm-discord-auth-v2';
 
 // ── Identity ──────────────────────────────────────────────────────────────────
 
 function getRealmAuth() {
-  try { return JSON.parse(localStorage.getItem(REALM_AUTH_KEY) || 'null'); }
-  catch { return null; }
+  try {
+    const auth = JSON.parse(localStorage.getItem(REALM_AUTH_KEY) || 'null');
+    if (!auth || !auth.sessionToken || !auth.expiresAt || auth.expiresAt <= Date.now()) {
+      localStorage.removeItem(REALM_AUTH_KEY);
+      return null;
+    }
+    return auth;
+  } catch {
+    localStorage.removeItem(REALM_AUTH_KEY);
+    return null;
+  }
 }
 
-function _saveRealmAuth(discordId, discordUsername) {
-  const auth = { discordId, discordUsername, loggedInAt: new Date().toISOString() };
+function _saveRealmAuth(sessionToken) {
+  const payload = _decodeSessionPayload(sessionToken);
+  if (!payload || payload.v !== 1 || !/^\d{15,20}$/.test(payload.sub || '') ||
+      !payload.exp || payload.exp * 1000 <= Date.now()) {
+    throw new Error('invalid session');
+  }
+  const auth = {
+    discordId: payload.sub,
+    discordUsername: payload.name || 'Discord user',
+    sessionToken,
+    expiresAt: payload.exp * 1000,
+    loggedInAt: new Date().toISOString(),
+  };
   localStorage.setItem(REALM_AUTH_KEY, JSON.stringify(auth));
   return auth;
+}
+
+function _decodeSessionPayload(token) {
+  try {
+    const part = String(token || '').split('.')[0];
+    const base64 = part.replace(/-/g, '+').replace(/_/g, '/') + '='.repeat((4 - part.length % 4) % 4);
+    const bytes = Uint8Array.from(atob(base64), c => c.charCodeAt(0));
+    return JSON.parse(new TextDecoder().decode(bytes));
+  } catch { return null; }
 }
 
 function updateLoginLabels(auth) {
@@ -33,22 +60,30 @@ function updateLoginLabels(auth) {
 function requireRealmLogin(options = {}) {
   // ── 1. Absorb OAuth callback params ─────────────────────────────────────────
   const params        = new URLSearchParams(location.search);
-  const incomingId    = params.get('discord_id');
-  const incomingUser  = params.get('discord_username');
-  const incomingState = params.get('state') || '';
+  const fragment      = new URLSearchParams(location.hash.replace(/^#/, ''));
+  const sessionToken  = fragment.get('session');
+  const incomingState = fragment.get('state') || '';
   const oauthError    = params.get('oauth_error');
 
-  if (incomingId && incomingUser) {
-    // Verify CSRF nonce if we stored one
+  if (sessionToken) {
     const storedNonce = sessionStorage.getItem('oauth_nonce');
-    if (storedNonce && storedNonce !== incomingState) {
-      _showAlert('OAuth state mismatch — possible CSRF. Please try again.', 'error');
-    } else {
-      const auth = _saveRealmAuth(incomingId, incomingUser);
+    if (!storedNonce || storedNonce !== incomingState) {
+      localStorage.removeItem(REALM_AUTH_KEY);
       sessionStorage.removeItem('oauth_nonce');
       history.replaceState({}, '', location.pathname);
-      updateLoginLabels(auth);
-      return auth;
+      _showAlert('OAuth state mismatch — possible CSRF. Please try again.', 'error');
+    } else {
+      try {
+        const auth = _saveRealmAuth(sessionToken);
+        sessionStorage.removeItem('oauth_nonce');
+        history.replaceState({}, '', location.pathname);
+        updateLoginLabels(auth);
+        return auth;
+      } catch {
+        localStorage.removeItem(REALM_AUTH_KEY);
+        history.replaceState({}, '', location.pathname);
+        _showAlert('Discord session was invalid. Please connect again.', 'error');
+      }
     }
   }
 
@@ -90,6 +125,7 @@ function _showLoginGate() {
 }
 
 function _startOAuth() {
+  localStorage.removeItem(REALM_AUTH_KEY);
   const nonce = _randomNonce();
   sessionStorage.setItem('oauth_nonce', nonce);
   location.href = `${OAUTH_FN}?action=login&state=${encodeURIComponent(nonce)}`;
@@ -111,45 +147,51 @@ function _showAlert(msg, type) {
 
 // ── Storage upload ────────────────────────────────────────────────────────────
 
-async function uploadRefImage(file, discordId) {
-  const ext  = (file.name.split('.').pop() || 'jpg').toLowerCase();
-  const ts   = Date.now();
-  const rand = Math.random().toString(36).slice(2, 8);
-  const path = `${discordId}/${ts}_${rand}.${ext}`;
-
-  const res = await fetch(`${SUPABASE_URL}/storage/v1/object/${BUCKET}/${path}`, {
+async function uploadRefImage(file) {
+  const res = await _codexFetch('?action=upload', {
     method:  'POST',
-    headers: {
-      'Authorization': `Bearer ${ANON_KEY}`,
-      'Content-Type':  file.type || 'application/octet-stream',
-    },
+    headers: { 'Content-Type': file.type || 'application/octet-stream' },
     body: file,
   });
   if (!res.ok) {
     const err = await res.json().catch(() => ({}));
     throw new Error(err.error || `upload HTTP ${res.status}`);
   }
-  return `${SUPABASE_URL}/storage/v1/object/public/${BUCKET}/${path}`;
+  return (await res.json()).url;
 }
 
 // ── Supabase REST insert ──────────────────────────────────────────────────────
 
 async function insertApplication(payload) {
-  const res = await fetch(`${SUPABASE_URL}/rest/v1/character_applications`, {
+  const res = await _codexFetch('?action=submit', {
     method:  'POST',
-    headers: {
-      'apikey':        ANON_KEY,
-      'Authorization': `Bearer ${ANON_KEY}`,
-      'Content-Type':  'application/json',
-      'Prefer':        'return=minimal',
-    },
-    body: JSON.stringify(payload),
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ application: payload }),
   });
   if (res.status === 409) throw Object.assign(new Error('duplicate'), { code: 409 });
   if (!res.ok) {
     const err = await res.json().catch(() => ({}));
-    throw new Error(err.message || `HTTP ${res.status}`);
+    throw new Error(err.error || `HTTP ${res.status}`);
   }
+}
+
+async function fetchApplicationStatus() {
+  const res = await _codexFetch('?action=status', { method: 'POST' });
+  if (!res.ok) {
+    const err = await res.json().catch(() => ({}));
+    throw new Error(err.error || `HTTP ${res.status}`);
+  }
+  return res.json();
+}
+
+async function _codexFetch(path, options = {}) {
+  const auth = getRealmAuth();
+  if (!auth) throw new Error('Discord session expired; reconnect your account');
+  const headers = new Headers(options.headers || {});
+  headers.set('Authorization', `Bearer ${auth.sessionToken}`);
+  const res = await fetch(CODEX_API + path, { ...options, headers });
+  if (res.status === 401) localStorage.removeItem(REALM_AUTH_KEY);
+  return res;
 }
 
 // ── Legacy stubs (kept so lore/rules pages don't break) ──────────────────────
@@ -163,6 +205,7 @@ function statusLabel(value) {
     not_started:    'NOT STARTED',
     pending:        'SUBMITTED / PENDING',
     needs_revision: 'NEEDS REVISION',
+    revision:       'NEEDS REVISION',
     approved:       'APPROVED',
     rejected:       'REJECTED',
     imported:       'IMPORTED',

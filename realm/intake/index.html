@@ -11,7 +11,7 @@
   <a class="brand" href="../"><span class="brand-sigil"></span><span class="brand-title brand-title-full">Shinra Robotics &amp; Xenogenetics</span></a>
   <nav class="nav"><a href="../">Apply</a><a class="active" href="./">Character Intake</a><a href="../lore/">Public Archive</a><a href="../rules/">Rules</a><a class="enter" href="../waiting/">Status</a></nav>
 </header>
-<section class="hero compact"><div class="container"><div class="hero-kicker">SRX Application Packet // Discord Linked</div><h1>Character Intake.</h1><p class="hero-text">This packet is attached to <span data-discord-user>Discord required</span>. In production, Discord OAuth locks your user ID before anything can be submitted.</p><span class="account-chip">Logged in as: <span data-discord-user>Discord required</span></span></div></section>
+<section class="hero compact"><div class="container"><div class="hero-kicker">SRX Application Packet // Discord Linked</div><h1>Character Intake.</h1><p class="hero-text">This packet is attached to <span data-discord-user>Discord required</span>. Discord OAuth securely locks your identity before anything can be submitted.</p><span class="account-chip">Logged in as: <span data-discord-user>Discord required</span></span></div></section>
 <main class="section"><div class="container form-shell"><aside class="progress-card"><div class="kicker">Packet Progress</div><div class="progress-row"><span class="progress-dot">01</span><span>Player</span></div><div class="progress-row"><span class="progress-dot">02</span><span>Character</span></div><div class="progress-row"><span class="progress-dot">03</span><span>Arrival</span></div><div class="progress-row"><span class="progress-dot">04</span><span>Appearance</span></div><div class="progress-row"><span class="progress-dot">05</span><span>Abilities</span></div><div class="progress-row"><span class="progress-dot">06</span><span>Gear</span></div><div class="progress-row"><span class="progress-dot">07</span><span>Secrets</span></div><p class="portal-note">Manual approval required. Approved applicants receive the Discord invite and onboarding instructions by bot DM.</p></aside>
 <form class="form-card" id="realmForm">
 <section class="form-section"><h3>Player Information</h3><div class="fields"><div class="field"><label>Discord username</label><input name="discord" id="discordField" readonly required></div><div class="field"><label>Preferred name</label><input name="preferred" required></div><div class="field"><label>Timezone</label><select name="timezone"><option>Pacific</option><option>Mountain</option><option>Central</option><option>Eastern</option><option>GMT / UTC</option><option>UK</option><option>Central Europe</option><option>Australia</option><option>Other</option></select></div><div class="field"><label>Expected activity</label><select name="activity"><option>A few times per week</option><option>Daily</option><option>Weekly</option><option>Occasional</option><option>Unsure</option></select></div><div class="field full"><label>Writing sample</label><textarea name="sample" placeholder="A short RP sample in first or third person." required></textarea></div></div></section>
@@ -20,12 +20,12 @@
 <section class="form-section"><h3>Appearance And References</h3><div class="fields"><div class="field"><label>Height</label><input name="height" required></div><div class="field"><label>Build</label><input name="build" required></div><div class="field"><label>Skin tone / surface</label><input name="skin" required></div><div class="field"><label>Hair</label><input name="hair"></div><div class="field"><label>Eyes</label><input name="eyes"></div><div class="field"><label>Usual clothing</label><input name="clothes" required></div><div class="field full"><label>Notable features</label><textarea name="features"></textarea></div><div class="field full"><label>AI-readable appearance paragraph</label><textarea name="appearance" placeholder="Plain description NPCs can perceive." required></textarea></div><div class="field full file-zone"><label>Visual reference upload</label><input name="references" type="file" accept="image/png,image/jpeg,image/webp" multiple></div></div></section>
 <section class="form-section"><h3>Abilities</h3><div class="fields"><div class="field"><label>Starting power estimate</label><select name="power"><option>Low</option><option>Moderate</option><option>High</option><option>Exceptional</option><option>Godlike</option><option>Unknown</option></select></div><div class="field"><label>Primary ability type</label><select name="abilityType"><option>Magic</option><option>Technology</option><option>Physical</option><option>Psychic</option><option>Divine</option><option>Demonic</option><option>Biological</option><option>Weapon-based</option><option>Utility</option><option>Other</option></select></div><div class="field full"><label>Combat and noncombat use</label><textarea name="abilityUse"></textarea></div><div class="field full"><label>Limits, weaknesses, safety concerns, and SRX dampening notes</label><textarea name="abilityLimits"></textarea></div></div></section>
 <section class="form-section"><h3>Gear Surrender</h3><div class="fields"><div class="field full"><label>Starting gear list</label><textarea name="gear" placeholder="Item name, type, appearance, function, limitations, visible when equipped, return after intake?"></textarea></div><div class="field full"><label>NPC observation notes for visible gear</label><textarea name="gearNotes"></textarea></div></div></section>
-<section class="form-section"><h3>Staff-Only Secrets</h3><div class="fields"><div class="field full"><label>Hidden backstory, motives, powers, and GM hooks</label><textarea name="secrets"></textarea></div><div class="field full"><label>Content limits</label><textarea name="limits" required></textarea></div></div><div class="checks"><label><input type="checkbox" required> I confirm this character is my submission.</label><label><input type="checkbox" required> I understand this packet requires manual review before Discord onboarding.</label></div><div class="actions"><button class="btn" type="submit">Submit For Review</button><button class="btn ghost" type="button" id="saveDraft">Save Draft</button></div><div class="status-box" id="statusBox">SRX ORACLE // Draft not submitted. Production writes this to Supabase under your Discord user ID.</div></section>
+<section class="form-section"><h3>Staff-Only Secrets</h3><div class="fields"><div class="field full"><label>Hidden backstory, motives, powers, and GM hooks</label><textarea name="secrets"></textarea></div><div class="field full"><label>Content limits</label><textarea name="limits" required></textarea></div></div><div class="checks"><label><input type="checkbox" required> I confirm this character is my submission.</label><label><input type="checkbox" required> I understand this packet requires manual review before Discord onboarding.</label></div><div class="actions"><button class="btn" type="submit">Submit For Review</button><button class="btn ghost" type="button" id="saveDraft">Save Draft</button></div><div class="status-box" id="statusBox">SRX ORACLE // Draft not submitted. Your secured Discord session controls all dossier writes.</div></section>
 </form></div></main>
 <footer class="footer"><div><span>SRX</span> // Application intake</div><div>Manual approval before Discord invite</div></footer>
 <script src="../auth.js"></script>
 <script>
-/* ── Real wiring: Discord OAuth → Supabase Storage → REST insert ── */
+/* ── Real wiring: signed Discord OAuth session → secured intake API ── */
 
 const DRAFT_KEY = 'realm-intake-draft-v2';
 const MAX_FILES = 5;
@@ -80,7 +80,7 @@ refInput.addEventListener('change', async () => {
     uploading++;
     statusBox.textContent = `SRX ORACLE // Uploading ${file.name}…`;
     try {
-      const url = await uploadRefImage(file, a.discordId);
+      const url = await uploadRefImage(file);
       uploadedUrls.push(url);
       statusBox.textContent = `SRX ORACLE // ${uploadedUrls.length} image(s) uploaded.`;
     } catch (err) {
@@ -108,8 +108,6 @@ form.addEventListener('submit', async (event) => {
   const s  = k => (fd.get(k) || '').trim();
 
   const payload = {
-    discord_id:           a.discordId,
-    discord_username:     a.discordUsername,
     preferred_name:       s('preferred'),
     timezone:             s('timezone'),
     expected_activity:    s('activity'),
@@ -146,7 +144,6 @@ form.addEventListener('submit', async (event) => {
     secrets:              s('secrets'),
     content_limits:       s('limits'),
     agreements_accepted:  true,
-    status:               'pending',
   };
 
   try {
