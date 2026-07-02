@@ -6,7 +6,7 @@ function recordMedia(record) {
   if (!record.image) {
     return `<div class="record-media-empty"><span>IMAGE STATUS</span><strong>${record.imageStatus || "No public image on file"}</strong></div>`;
   }
-  return `<figure class="record-media"><img src="${record.image.remote}" alt="${record.image.alt}"><figcaption>${record.image.alt}</figcaption></figure>`;
+  return `<figure class="record-media"><div class="record-media-label">${record.title}</div><img src="${record.image.remote}" alt="${record.image.alt}"><figcaption>${record.image.alt}</figcaption></figure>`;
 }
 
 function initRecord() {

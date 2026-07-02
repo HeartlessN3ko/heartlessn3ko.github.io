@@ -500,7 +500,8 @@
 .record-header p { margin: 12px 0 0; color: #d9e7ec; }
 .record-code { color: var(--dim); font: 10px 'DM Mono', monospace; letter-spacing: 1px; }
 .record-layout { display: grid; grid-template-columns: minmax(320px, .82fr) minmax(0, 1.18fr); gap: 42px; margin-top: 34px; align-items: start; }
-.record-media { margin: 0; border: 1px solid var(--line); background: var(--panel); }
+.record-media { position: relative; margin: 0; border: 1px solid var(--line); background: var(--panel); }
+.record-media-label { position: absolute; z-index: 1; top: 12px; left: 12px; max-width: calc(100% - 24px); padding: 7px 10px; border: 1px solid rgba(109, 231, 255, .38); background: rgba(3, 6, 9, .82); color: var(--text); font: 11px/1.35 'DM Mono', monospace; letter-spacing: 1px; text-transform: uppercase; box-shadow: 0 8px 24px rgba(0, 0, 0, .32); }
 .record-media img { display: block; width: 100%; max-height: 720px; object-fit: cover; object-position: top; }
 .record-media figcaption { padding: 12px 14px; color: var(--dim); font: 9px/1.5 'DM Mono', monospace; letter-spacing: .7px; text-transform: uppercase; }
 .record-media-empty { min-height: 420px; display: grid; place-items: center; align-content: center; gap: 12px; border: 1px solid var(--line); background: repeating-linear-gradient(135deg, rgba(109,231,255,.025) 0 10px, transparent 10px 20px), var(--panel); text-align: center; padding: 30px; }

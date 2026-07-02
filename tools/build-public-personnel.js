@@ -1,13 +1,17 @@
 const fs = require("fs");
 const path = require("path");
 
-const databaseRoot = process.argv[2];
+const inputRoot = process.argv[2];
 const outputFile = process.argv[3];
 const archiveFile = process.argv[4];
 const publicAssetsRoot = process.argv[5];
-if (!databaseRoot || !outputFile || !archiveFile || !publicAssetsRoot) {
-  throw new Error("Usage: node build-public-personnel.js <dossiers-root> <output-file> <archive-file> <public-assets-root>");
+if (!inputRoot || !outputFile || !archiveFile || !publicAssetsRoot) {
+  throw new Error("Usage: node build-public-personnel.js <srx-database-root-or-dossiers-root> <output-file> <archive-file> <public-assets-root>");
 }
+
+const databaseRoot = path.basename(inputRoot).toLowerCase() === "dossiers" ? path.dirname(inputRoot) : inputRoot;
+const dossiersRoot = path.join(databaseRoot, "dossiers");
+const profilesRoot = path.join(databaseRoot, "profiles");
 
 function slug(value) {
   return value.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
@@ -30,7 +34,7 @@ function clean(value) {
 
 const blockedText = /\bclassified\b|class\s*[0-4s]|top secret|secret clearance|clearance level|special notes|alert|vulnerab|risk factor|recommend(?:ed|ation)?|psychological|project xeno|project genesis|sleeper agent|active persona|current location classified|combat capabilit|power assessment|weakness|forum|thread|player|roleplay|\brp\b|canon|website|game mechanic/i;
 const blockedHeading = /abilit|power|weapon|equipment|clearance|access history|special note|alert|metadata|searchable tag|psychological|combat|threat|classified|operation|mission|incident|investigation|encounter/i;
-const allowedHeading = /identification|physical description|biographical data|service record|leadership assessment|operational context|military & government authority|organizational affiliation|personality assessment|known relationship|known contact|current status|3120 ce status|historical service|founding|public history/i;
+const allowedHeading = /identification|physical description|biographical data|service record|leadership assessment|operational context|military & government authority|organizational affiliation|personality assessment|known relationship|known contact|known affiliation|current status|3120 ce status|historical service|founding|public history|dragonskeep gala record|archive context/i;
 const blockedKey = /clearance|salary|weight|cup|risk|status recommendation|classified|threat|weapon|ability|power|vulnerab|psychological|special note|metadata/i;
 
 function frontmatter(content, key) {
@@ -41,11 +45,12 @@ function frontmatter(content, key) {
 
 function fullName(content, fallback) {
   const dossier = content.match(/^#\s+SRX PERSONNEL DOSSIER:\s*(.+)$/mi);
+  const profile = content.match(/^#\s+SRX PUBLIC PROFILE:\s*(.+)$/mi);
   const named = content.match(/^\*\*Full Name:\*\*\s*(.+)$/mi);
   const tableNamed = content.match(/^\|\s*\*\*Full Name\*\*\s*\|\s*([^|]+)\|/mi);
   const heading = content.match(/^#\s+(.+)$/m);
   const genericHeading = /^SRX PERSONNEL DOSSIER$/i.test(clean(heading?.[1] || "")) ? "" : heading?.[1];
-  return clean(named?.[1] || tableNamed?.[1] || dossier?.[1] || genericHeading || fallback);
+  return clean(named?.[1] || tableNamed?.[1] || dossier?.[1] || profile?.[1] || genericHeading || fallback);
 }
 
 function parseSections(content) {
@@ -119,10 +124,11 @@ function addRecord(name, content, source, imagePath = "") {
   if (!id || (!replacesStub && (existingIds.has(id) || existingSources.has(source))) || identities.has(identity)) return;
   const sections = parseSections(content).map(parsePublicSection).filter(Boolean);
   const facts = sections.flatMap((section) => section.facts).filter(([key, value], index, all) => value && !/unknown|not documented|presumed/i.test(value) && all.findIndex(([other]) => other.toLowerCase() === key.toLowerCase()) === index).slice(0, 12);
-  const role = facts.find(([key]) => /title|position|role|occupation|personnel type|current office/i.test(key))?.[1];
+  const role = facts.find(([key]) => /title|position|role|occupation|personnel type|current office|known office|known title/i.test(key))?.[1];
   const service = sections.find((section) => /service|leadership|biographical/i.test(section.title));
   const resolvedImagePath = identityOverride?.image || imagePath;
   const publicImage = resolvedImagePath && fs.existsSync(path.join(publicAssetsRoot, resolvedImagePath)) ? resolvedImagePath.replaceAll(path.sep, "/") : null;
+  const isPublicProfile = source.includes("/profiles/");
   let usefulSections = sections.filter((section) => !/identification|physical description/i.test(section.title)).slice(0, 8);
   if (!usefulSections.length && sections.length) {
     usefulSections = [{ ...sections[0], title: "Archived Identification" }];
@@ -132,11 +138,11 @@ function addRecord(name, content, source, imagePath = "") {
     directories: ["people"],
     category: "people",
     title: publicName,
-    subtitle: role || "SRX personnel archive record",
-    classification: "Authorized Personnel Record",
+    subtitle: role || (isPublicProfile ? "SRX public historical profile" : "SRX personnel archive record"),
+    classification: isPublicProfile ? "Public Historical Record" : "Authorized Personnel Record",
     imagePath: publicImage,
     imageStatus: publicImage ? null : "No authenticated public portrait is currently assigned.",
-    summary: role ? `${publicName} is recorded in the SRX Personnel Archive as ${role}.` : `The SRX Personnel Archive maintains an authorized service record for ${publicName}.`,
+    summary: role ? `${publicName} is recorded in the SRX Public Archive as ${role}.` : `The SRX Public Archive maintains an authorized historical record for ${publicName}.`,
     body: service?.paragraphs?.slice(0, 2) || [],
     facts: facts.length >= 4 ? facts : [["Archive Status", "Record retained"], ["Release", "Authorized public extract"], ["Source", "SRX Personnel Archive"], ["Detail Status", usefulSections.length ? "Substantive record" : "Limited surviving record"]],
     sections: usefulSections,
@@ -147,14 +153,22 @@ function addRecord(name, content, source, imagePath = "") {
   identities.add(identity);
 }
 
-for (const filename of fs.readdirSync(databaseRoot).filter((name) => name.endsWith("_DOSSIER.md"))) {
-  const fullPath = path.join(databaseRoot, filename);
+for (const filename of fs.readdirSync(dossiersRoot).filter((name) => name.endsWith("_DOSSIER.md"))) {
+  const fullPath = path.join(dossiersRoot, filename);
   const content = fs.readFileSync(fullPath, "utf8");
   addRecord(fullName(content, filename.replace(/_DOSSIER\.md$/i, "").replaceAll("_", " ")), content, `data/srx_database/dossiers/${filename}`, frontmatter(content, "image"));
 }
 
+if (fs.existsSync(profilesRoot)) {
+  for (const filename of fs.readdirSync(profilesRoot).filter((name) => name.endsWith(".md"))) {
+    const fullPath = path.join(profilesRoot, filename);
+    const content = fs.readFileSync(fullPath, "utf8");
+    addRecord(fullName(content, filename.replace(/\.md$/i, "").replaceAll("_", " ")), content, `data/srx_database/profiles/${filename}`, frontmatter(content, "image"));
+  }
+}
+
 for (const filename of ["GENERATION_2_DOSSIERS.md", "GENERATION_5_DOSSIERS.md", "GENERATION_6_DOSSIERS.md", "MINIMAL_DOSSIERS.md"]) {
-  const fullPath = path.join(databaseRoot, filename);
+  const fullPath = path.join(dossiersRoot, filename);
   const content = fs.readFileSync(fullPath, "utf8");
   const entries = [...content.matchAll(/^#{2,3}\s+(.+)$/gm)];
   entries.forEach((entry, index) => {

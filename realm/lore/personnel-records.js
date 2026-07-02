@@ -13,7 +13,7 @@
     "classification": "Authorized Personnel Record",
     "imagePath": "main-npcs-portaits/Alexander-Raiku.png",
     "imageStatus": null,
-    "summary": "Alexander Raiku is recorded in the SRX Personnel Archive as Government Leadership, Civilian Administration.",
+    "summary": "Alexander Raiku is recorded in the SRX Public Archive as Government Leadership, Civilian Administration.",
     "body": [],
     "facts": [
       [
@@ -198,7 +198,7 @@
     "classification": "Authorized Personnel Record",
     "imagePath": null,
     "imageStatus": "No authenticated public portrait is currently assigned.",
-    "summary": "Chaz M. Asheline is recorded in the SRX Personnel Archive as Founding Member, Scientific R&D Director.",
+    "summary": "Chaz M. Asheline is recorded in the SRX Public Archive as Founding Member, Scientific R&D Director.",
     "body": [],
     "facts": [
       [
@@ -366,7 +366,7 @@
     "classification": "Authorized Personnel Record",
     "imagePath": null,
     "imageStatus": "No authenticated public portrait is currently assigned.",
-    "summary": "Dalton Tobi Rogers is recorded in the SRX Personnel Archive as Turk Member (Gen 4) / Field Operative.",
+    "summary": "Dalton Tobi Rogers is recorded in the SRX Public Archive as Turk Member (Gen 4) / Field Operative.",
     "body": [],
     "facts": [
       [
@@ -497,7 +497,7 @@
     "classification": "Authorized Personnel Record",
     "imagePath": null,
     "imageStatus": "No authenticated public portrait is currently assigned.",
-    "summary": "Drakath Everlasting Amaranth is recorded in the SRX Personnel Archive as The One That Was Never Meant To Be Born.",
+    "summary": "Drakath Everlasting Amaranth is recorded in the SRX Public Archive as The One That Was Never Meant To Be Born.",
     "body": [],
     "facts": [
       [
@@ -704,7 +704,7 @@
     "classification": "Authorized Personnel Record",
     "imagePath": null,
     "imageStatus": "No authenticated public portrait is currently assigned.",
-    "summary": "Drake M. Strider is recorded in the SRX Personnel Archive as Lead Engineer, Scientific R&D Director.",
+    "summary": "Drake M. Strider is recorded in the SRX Public Archive as Lead Engineer, Scientific R&D Director.",
     "body": [],
     "facts": [
       [
@@ -890,7 +890,7 @@
     "classification": "Authorized Personnel Record",
     "imagePath": null,
     "imageStatus": "No authenticated public portrait is currently assigned.",
-    "summary": "Enishi Yukishiro is recorded in the SRX Personnel Archive as Founding-Era Operative (Gen 1).",
+    "summary": "Enishi Yukishiro is recorded in the SRX Public Archive as Founding-Era Operative (Gen 1).",
     "body": [],
     "facts": [
       [
@@ -1018,7 +1018,7 @@
     "classification": "Authorized Personnel Record",
     "imagePath": null,
     "imageStatus": "No authenticated public portrait is currently assigned.",
-    "summary": "Lenta Iona Cierra Kagamine is recorded in the SRX Personnel Archive as Turks Member, Investigative Affairs.",
+    "summary": "Lenta Iona Cierra Kagamine is recorded in the SRX Public Archive as Turks Member, Investigative Affairs.",
     "body": [],
     "facts": [
       [
@@ -1222,7 +1222,7 @@
     "classification": "Authorized Personnel Record",
     "imagePath": null,
     "imageStatus": "No authenticated public portrait is currently assigned.",
-    "summary": "The SRX Personnel Archive maintains an authorized service record for Libro Edgar.",
+    "summary": "The SRX Public Archive maintains an authorized historical record for Libro Edgar.",
     "body": [],
     "facts": [
       [
@@ -1330,6 +1330,33 @@
         "notes": []
       },
       {
+        "title": "KNOWN AFFILIATIONS",
+        "paragraphs": [],
+        "facts": [
+          [
+            "Primary (Criminal)",
+            "Order of the Black Flame / Dark Order (Technical specialist; weapons developer)"
+          ],
+          [
+            "Secondary (Criminal)",
+            "Madara Hiroshima (recruiter; operational supervisor)"
+          ],
+          [
+            "Tertiary (Criminal)",
+            "Jason Aquilus Riddick (AMTRAC field commander; operational coordination)"
+          ],
+          [
+            "Previous Affiliation",
+            "Roman assassin order (abandoned; left behind)"
+          ],
+          [
+            "Enemies",
+            "SRX (target of intelligence theft assignment; security breach attempt), RIA (law enforcement)"
+          ]
+        ],
+        "notes": []
+      },
+      {
         "title": "PERSONALITY ASSESSMENT",
         "paragraphs": [],
         "facts": [],
@@ -1380,7 +1407,7 @@
     "classification": "Authorized Personnel Record",
     "imagePath": "oracle/personnel/portraits/lilith-darkhaven-nightwind.png",
     "imageStatus": null,
-    "summary": "The SRX Personnel Archive maintains an authorized service record for Lilith (Nightwind → Darkhaven).",
+    "summary": "The SRX Public Archive maintains an authorized historical record for Lilith (Nightwind → Darkhaven).",
     "body": [
       "| Field | Value | |---|---| | Birth Era | First Age | | Original House | House Nightwind (Elven) | | Current House | House Darkhaven (Vampire) | | Family Status | Matriarch of reformed Darkhaven clan (half-elf/vampire hybrid faction) | | Known Associates | Sephiroth Raiku (turned into vampire by Lilith; fought alongside her); Kallisti DeCairn (served with her) |"
     ],
@@ -1506,7 +1533,7 @@
     "classification": "Authorized Personnel Record",
     "imagePath": "oracle/notices/madara-hiroshima-wanted-poster.png",
     "imageStatus": null,
-    "summary": "The SRX Personnel Archive maintains an authorized service record for Madara Hiroshima.",
+    "summary": "The SRX Public Archive maintains an authorized historical record for Madara Hiroshima.",
     "body": [],
     "facts": [
       [
@@ -1649,7 +1676,7 @@
     "classification": "Authorized Personnel Record",
     "imagePath": null,
     "imageStatus": "No authenticated public portrait is currently assigned.",
-    "summary": "Misaki Anya Promethiae is recorded in the SRX Personnel Archive as Turks Member, Investigative Affairs.",
+    "summary": "Misaki Anya Promethiae is recorded in the SRX Public Archive as Turks Member, Investigative Affairs.",
     "body": [],
     "facts": [
       [
@@ -1852,7 +1879,7 @@
     "classification": "Authorized Personnel Record",
     "imagePath": null,
     "imageStatus": "No authenticated public portrait is currently assigned.",
-    "summary": "Nico Takahashi is recorded in the SRX Personnel Archive as Personal Guardian, Protection Specialist.",
+    "summary": "Nico Takahashi is recorded in the SRX Public Archive as Personal Guardian, Protection Specialist.",
     "body": [],
     "facts": [
       [
@@ -1971,7 +1998,7 @@
     "classification": "Authorized Personnel Record",
     "imagePath": null,
     "imageStatus": "No authenticated public portrait is currently assigned.",
-    "summary": "The SRX Personnel Archive maintains an authorized service record for Odinashi Ren.",
+    "summary": "The SRX Public Archive maintains an authorized historical record for Odinashi Ren.",
     "body": [],
     "facts": [
       [
@@ -2161,7 +2188,7 @@
     "classification": "Authorized Personnel Record",
     "imagePath": null,
     "imageStatus": "No authenticated public portrait is currently assigned.",
-    "summary": "Rephiam Congurion is recorded in the SRX Personnel Archive as Military Commander, Infrastructure Operator, Weapons Supplier.",
+    "summary": "Rephiam Congurion is recorded in the SRX Public Archive as Military Commander, Infrastructure Operator, Weapons Supplier.",
     "body": [],
     "facts": [
       [
@@ -2337,7 +2364,7 @@
     "classification": "Authorized Personnel Record",
     "imagePath": null,
     "imageStatus": "No authenticated public portrait is currently assigned.",
-    "summary": "Tamashii Everlasting Deathshade (formal title) is recorded in the SRX Personnel Archive as Turks Leader, Investigative Affairs.",
+    "summary": "Tamashii Everlasting Deathshade (formal title) is recorded in the SRX Public Archive as Turks Leader, Investigative Affairs.",
     "body": [],
     "facts": [
       [
@@ -2568,7 +2595,7 @@
     "classification": "Authorized Personnel Record",
     "imagePath": "npc/Ayame.png",
     "imageStatus": null,
-    "summary": "Ayame Silveredge is recorded in the SRX Personnel Archive as Deep Cover Intelligence Operative, Special Forces (ANBU Corps).",
+    "summary": "Ayame Silveredge is recorded in the SRX Public Archive as Deep Cover Intelligence Operative, Special Forces (ANBU Corps).",
     "body": [],
     "facts": [
       [
@@ -2741,7 +2768,7 @@
     "classification": "Authorized Personnel Record",
     "imagePath": "oracle/personnel/portraits/yakumo-kaoryu.png",
     "imageStatus": null,
-    "summary": "Yakumo Kaoryu is recorded in the SRX Personnel Archive as Interdimensional being, supernatural ally.",
+    "summary": "Yakumo Kaoryu is recorded in the SRX Public Archive as Interdimensional being, supernatural ally.",
     "body": [],
     "facts": [
       [
@@ -2960,7 +2987,7 @@
     "classification": "Authorized Personnel Record",
     "imagePath": "oracle/personnel/portraits/zoey-cinclaire-city.png",
     "imageStatus": null,
-    "summary": "Zoey Cinclaire is recorded in the SRX Personnel Archive as Turks Member, Urban Development, Acting Director.",
+    "summary": "Zoey Cinclaire is recorded in the SRX Public Archive as Turks Member, Urban Development, Acting Director.",
     "body": [],
     "facts": [
       [
@@ -3170,6 +3197,1070 @@
     "source": "data/srx_database/dossiers/ZOEY_CINCLAIRE_DOSSIER.md"
   },
   {
+    "id": "almao",
+    "directories": [
+      "people"
+    ],
+    "category": "people",
+    "title": "Almao",
+    "subtitle": "SRX public historical profile",
+    "classification": "Public Historical Record",
+    "imagePath": null,
+    "imageStatus": "No authenticated public portrait is currently assigned.",
+    "summary": "The SRX Public Archive maintains an authorized historical record for Almao.",
+    "body": [],
+    "facts": [
+      [
+        "Full Name",
+        "Almao"
+      ],
+      [
+        "Nature",
+        "Young dragon"
+      ],
+      [
+        "Known Mentor",
+        "Nexa Rei"
+      ],
+      [
+        "Known Parent / Father Figure",
+        "Soren Lyte"
+      ]
+    ],
+    "sections": [
+      {
+        "title": "PUBLIC HISTORY",
+        "paragraphs": [
+          "Almao was placed in Nexa Rei's care while still young and was raised within DragonsKeep. Gala-era observations describe a rapidly developing dragon capable of humanoid movement, telepathic speech, steam breath, and partial draconic manifestation."
+        ],
+        "facts": [],
+        "notes": []
+      },
+      {
+        "title": "DRAGONSKEEP GALA RECORD",
+        "paragraphs": [
+          "Approximately fifteen years ago, Almao attended the reopening of the Keep and encountered Soren Lyte after a long separation. The reunion was tense, but Almao withdrew rather than violate Nexa's peace. The decision is preserved as an early public example of discipline overtaking instinct."
+        ],
+        "facts": [],
+        "notes": []
+      },
+      {
+        "title": "CURRENT STATUS",
+        "paragraphs": [
+          "No death record is held for Almao. SRX does not infer his present stage of development, relationship with the Weyr, or contact with Soren Lyte."
+        ],
+        "facts": [],
+        "notes": []
+      }
+    ],
+    "highlights": [],
+    "related": [],
+    "source": "data/srx_database/profiles/ALMAO.md"
+  },
+  {
+    "id": "ayla-kyrissean",
+    "directories": [
+      "people"
+    ],
+    "category": "people",
+    "title": "Ayla Kyrissean",
+    "subtitle": "Dragonlord; Mistress of Dragons",
+    "classification": "Public Historical Record",
+    "imagePath": null,
+    "imageStatus": "No authenticated public portrait is currently assigned.",
+    "summary": "Ayla Kyrissean is recorded in the SRX Public Archive as Dragonlord; Mistress of Dragons.",
+    "body": [],
+    "facts": [
+      [
+        "Archive Status",
+        "Record retained"
+      ],
+      [
+        "Release",
+        "Authorized public extract"
+      ],
+      [
+        "Source",
+        "SRX Personnel Archive"
+      ],
+      [
+        "Detail Status",
+        "Substantive record"
+      ]
+    ],
+    "sections": [
+      {
+        "title": "PUBLIC HISTORY",
+        "paragraphs": [
+          "Ayla Kyrissean is recorded as a Dragonlord and recognized equal within Nexa Rei's Weyr. Surviving descriptions identify an auburn-haired humanoid form and a scarlet dragon manifestation, alongside established skill with sword and bow."
+        ],
+        "facts": [],
+        "notes": []
+      },
+      {
+        "title": "DRAGONSKEEP GALA RECORD",
+        "paragraphs": [
+          "Ayla attended the Gala approximately fifteen years ago and was received by Nexa without ceremony, a detail SRX interprets as evidence of established standing rather than distance. Her presence reinforced the event's function as a gathering of sovereign and ancient powers."
+        ],
+        "facts": [],
+        "notes": []
+      },
+      {
+        "title": "CURRENT STATUS",
+        "paragraphs": [
+          "No death record is held for Ayla Kyrissean. Her present role within the Weyr is not independently verified."
+        ],
+        "facts": [],
+        "notes": []
+      }
+    ],
+    "highlights": [],
+    "related": [],
+    "source": "data/srx_database/profiles/AYLA_KYRISSEAN.md"
+  },
+  {
+    "id": "barron-j-nevermore",
+    "directories": [
+      "people"
+    ],
+    "category": "people",
+    "title": "Barron J. Nevermore",
+    "subtitle": "Co-founder and historic commander of the Realm Inspection Agency",
+    "classification": "Public Historical Record",
+    "imagePath": "oracle/personnel/portraits/barron-nevermore-gala.png",
+    "imageStatus": null,
+    "summary": "Barron J. Nevermore is recorded in the SRX Public Archive as Co-founder and historic commander of the Realm Inspection Agency.",
+    "body": [
+      "Nevermore remained a field commander long after becoming a national leader. Public records connect him to the defense of Cameron City, joint containment operations in Cerium, interdimensional threat responses, and the coalition that opposed the weaponization of Eternium.",
+      "His reputation was built as much on direct intervention as command. Surviving accounts consistently describe a marksman, pilot, and tactical leader who entered crises personally and expected the same discipline from his officers."
+    ],
+    "facts": [
+      [
+        "Full Name",
+        "Barron J. Nevermore"
+      ],
+      [
+        "Known Office",
+        "Co-founder and historic commander of the Realm Inspection Agency"
+      ],
+      [
+        "Origin",
+        "New York City, Earth"
+      ],
+      [
+        "Public Standing",
+        "Historic head of state, military commander, treaty signatory"
+      ],
+      [
+        "Current Record",
+        "Out of public view and direct SRX contact for approximately fifteen years; not declared deceased"
+      ],
+      [
+        "Primary Institution",
+        "Realm Inspection Agency"
+      ],
+      [
+        "Historic Co-Founder",
+        "Pernos Kail"
+      ],
+      [
+        "Treaty Counterpart",
+        "Sephiroth Raiku"
+      ],
+      [
+        "Spouse in Last Confirmed Public Record",
+        "Meiori Nevermore"
+      ],
+      [
+        "Known Associate",
+        "Chasiel Roelhaiphar"
+      ]
+    ],
+    "sections": [
+      {
+        "title": "PUBLIC HISTORY",
+        "paragraphs": [
+          "Barron Nevermore entered Realm history before SRX existed. After helping destroy the conquest-minded organization known as the Alliance, he and Pernos Kail established the Realm Inspection Agency as a permanent response to powers capable of overrunning cities, governments, and dimensional settlements.",
+          "More than forty years ago, Nevermore's confrontations with a young Sephiroth Raiku helped define the rivalry from which SRX emerged. The struggle became institutional, and the two organizations fought openly and covertly for roughly a decade. Neither side achieved a clean victory. The destruction instead forced both commanders toward negotiation.",
+          "More than thirty years ago, Nevermore signed the Treaty of Ceasefire for the RIA. The treaty ended the SRX-RIA war, recognized both organizations as sovereign powers, and created the guarded peace that still shapes relations between Midgar and Cameron City."
+        ],
+        "facts": [],
+        "notes": []
+      },
+      {
+        "title": "HISTORICAL SERVICE",
+        "paragraphs": [
+          "Nevermore remained a field commander long after becoming a national leader. Public records connect him to the defense of Cameron City, joint containment operations in Cerium, interdimensional threat responses, and the coalition that opposed the weaponization of Eternium.",
+          "His reputation was built as much on direct intervention as command. Surviving accounts consistently describe a marksman, pilot, and tactical leader who entered crises personally and expected the same discipline from his officers."
+        ],
+        "facts": [],
+        "notes": []
+      },
+      {
+        "title": "DRAGONSKEEP GALA RECORD",
+        "paragraphs": [
+          "Approximately fifteen years ago, Nevermore attended the DragonsKeep Gala with Meiori Nevermore. Before entering the Keep, the pair intercepted an armed Raider flight approaching the island. During the later attack on the Gala, Nevermore identified a timing device, cleared the surrounding guests, and removed it from the structure before detonation. The blast destroyed part of a balcony while the Keep remained standing.",
+          "The event also preserved evidence of his long associations with Nexa Rei, Chasiel Roelhaiphar, Pernos Kail, and the SRX command circle. The Gala record presents him not as a ceremonial official but as an experienced commander operating among peers who had known one another for decades."
+        ],
+        "facts": [],
+        "notes": []
+      },
+      {
+        "title": "KNOWN AFFILIATIONS",
+        "paragraphs": [],
+        "facts": [
+          [
+            "Primary Institution",
+            "Realm Inspection Agency"
+          ],
+          [
+            "Historic Co-Founder",
+            "Pernos Kail"
+          ],
+          [
+            "Treaty Counterpart",
+            "Sephiroth Raiku"
+          ],
+          [
+            "Spouse in Last Confirmed Public Record",
+            "Meiori Nevermore"
+          ],
+          [
+            "Known Associate",
+            "Chasiel Roelhaiphar"
+          ]
+        ],
+        "notes": []
+      },
+      {
+        "title": "CURRENT STATUS",
+        "paragraphs": [
+          "SRX has received no verified direct contact from Barron Nevermore for approximately fifteen years. He has largely vanished from public life. No authenticated death notice, succession declaration, or confirmed remains are held in the public archive.",
+          "The RIA continues to operate across Cameron City and its wider sphere of influence. SRX does not infer Nevermore's location, present duties, or private circumstances from the continued activity of the institution he founded."
+        ],
+        "facts": [],
+        "notes": []
+      }
+    ],
+    "highlights": [],
+    "related": [],
+    "source": "data/srx_database/profiles/BARRON_J_NEVERMORE.md"
+  },
+  {
+    "id": "chasiel-roelhaiphar",
+    "directories": [
+      "people"
+    ],
+    "category": "people",
+    "title": "Chasiel Roelhaiphar",
+    "subtitle": "Seraph",
+    "classification": "Public Historical Record",
+    "imagePath": "oracle/personnel/portraits/chasiel-roelhaiphar-gala.png",
+    "imageStatus": null,
+    "summary": "Chasiel Roelhaiphar is recorded in the SRX Public Archive as Seraph.",
+    "body": [],
+    "facts": [
+      [
+        "Full Name",
+        "Chasiel Roelhaiphar"
+      ],
+      [
+        "Known Title",
+        "Seraph"
+      ],
+      [
+        "Nature",
+        "Ancient celestial being"
+      ],
+      [
+        "Known Associations",
+        "Nexa Rei, Barron Nevermore, Meiori Nevermore"
+      ],
+      [
+        "Current Record",
+        "No death record; present activity unverified"
+      ]
+    ],
+    "sections": [
+      {
+        "title": "PUBLIC HISTORY",
+        "paragraphs": [
+          "Chasiel Roelhaiphar is recorded across conflicts separated by centuries. Accounts identify six manifested wings, unusual spiritual perception, and a long role as observer, guardian, and mentor. He is not recorded as belonging to SRX or RIA, though he worked beside members of both when circumstances required it.",
+          "His history with Nexa Rei extends far beyond modern institutional records. He also maintained a close friendship with Barron Nevermore and a paternal mentorship toward Meiori Nevermore. Relations with Sephiroth Raiku were strained by older conflicts, yet both repeatedly demonstrated the restraint expected of powers whose private enmity could endanger others."
+        ],
+        "facts": [],
+        "notes": []
+      },
+      {
+        "title": "DRAGONSKEEP GALA RECORD",
+        "paragraphs": [
+          "At the Gala approximately fifteen years ago, Chasiel arrived as a recognized peer rather than a subordinate guest. During the attack, he reached the Keep's roof, located the external threat, and maintained watch while Nexa/Rei secured the grounds.",
+          "He later assisted Nevermore with the timing-device crisis and provided celestial healing to Pernos Kail after a psychic assault. The record is frequently cited by SRX historians because it shows his characteristic method: observe first, intervene precisely, and use overwhelming capability only where necessary."
+        ],
+        "facts": [],
+        "notes": []
+      },
+      {
+        "title": "PERSONALITY ASSESSMENT",
+        "paragraphs": [
+          "Public accounts consistently describe a measured speaker with a warrior's calm and an ancient sense of responsibility. He placed unusual value on friendship and mentorship, particularly with those whose lives were brief beside his own."
+        ],
+        "facts": [],
+        "notes": []
+      },
+      {
+        "title": "CURRENT STATUS",
+        "paragraphs": [
+          "No authenticated death record is held for Chasiel Roelhaiphar. SRX retains his profile as an active historical identity, but does not publish assumptions about his present residence, family, or celestial obligations."
+        ],
+        "facts": [],
+        "notes": []
+      }
+    ],
+    "highlights": [],
+    "related": [],
+    "source": "data/srx_database/profiles/CHASIEL_ROELHAIPHAR.md"
+  },
+  {
+    "id": "denath",
+    "directories": [
+      "people"
+    ],
+    "category": "people",
+    "title": "Denath",
+    "subtitle": "SRX public historical profile",
+    "classification": "Public Historical Record",
+    "imagePath": null,
+    "imageStatus": "No authenticated public portrait is currently assigned.",
+    "summary": "The SRX Public Archive maintains an authorized historical record for Denath.",
+    "body": [],
+    "facts": [
+      [
+        "Full Name",
+        "Denath"
+      ],
+      [
+        "Known Name",
+        "Denath"
+      ],
+      [
+        "Historic Status",
+        "Suspected coordinator in the DragonsKeep Gala attack"
+      ],
+      [
+        "Last Confirmed Record",
+        "Escaped wounded from DragonsKeep"
+      ]
+    ],
+    "sections": [
+      {
+        "title": "PUBLIC HISTORY",
+        "paragraphs": [
+          "SRX's surviving file on Denath begins with the DragonsKeep Gala. He entered under false or compromised credentials and is believed to have coordinated a layered attack involving a timing device, armed accomplices, psychic interference, and an external sniper position."
+        ],
+        "facts": [],
+        "notes": []
+      },
+      {
+        "title": "DRAGONSKEEP GALA RECORD",
+        "paragraphs": [
+          "Denath planted or supervised the timing device later removed by Barron Nevermore. During the wider crisis he launched a psychic assault against Pernos Kail, killed two co-conspirators, and escaped after Traga Seisen disrupted the attack."
+        ],
+        "facts": [],
+        "notes": []
+      },
+      {
+        "title": "CURRENT STATUS",
+        "paragraphs": [
+          "Denath's employer, ultimate objective, and current location remain unknown. No death record is held. This public extract omits active investigative methods and unverified claims about later activity."
+        ],
+        "facts": [],
+        "notes": []
+      }
+    ],
+    "highlights": [],
+    "related": [],
+    "source": "data/srx_database/profiles/DENATH.md"
+  },
+  {
+    "id": "kyra",
+    "directories": [
+      "people"
+    ],
+    "category": "people",
+    "title": "Kyra",
+    "subtitle": "SRX public historical profile",
+    "classification": "Public Historical Record",
+    "imagePath": null,
+    "imageStatus": "No authenticated public portrait is currently assigned.",
+    "summary": "The SRX Public Archive maintains an authorized historical record for Kyra.",
+    "body": [],
+    "facts": [
+      [
+        "Full Name",
+        "Kyra"
+      ],
+      [
+        "Known Name",
+        "Kyra"
+      ],
+      [
+        "Alternate Record Name",
+        "Kelsey"
+      ],
+      [
+        "Origin",
+        "Earth arrival"
+      ],
+      [
+        "Known Associate",
+        "Pernos Kail"
+      ]
+    ],
+    "sections": [
+      {
+        "title": "PUBLIC HISTORY",
+        "paragraphs": [
+          "Kyra entered the Realm shortly before the DragonsKeep Gala and remained an observer among figures with much older histories. Surviving accounts describe bright green eyes, black hair, and unusual moving symbols visible across her back and leg."
+        ],
+        "facts": [],
+        "notes": []
+      },
+      {
+        "title": "DRAGONSKEEP GALA RECORD",
+        "paragraphs": [
+          "Kyra arrived with Pernos Kail, adapted quickly to the gathering, and maintained a watchful but social presence through the evening. She recognized Traga Seisen on arrival, suggesting connections not otherwise preserved in SRX's public record."
+        ],
+        "facts": [],
+        "notes": []
+      },
+      {
+        "title": "CURRENT STATUS",
+        "paragraphs": [
+          "No death record is held for Kyra. Her full identity, the nature of the symbols, and her present residence remain unverified."
+        ],
+        "facts": [],
+        "notes": []
+      }
+    ],
+    "highlights": [],
+    "related": [],
+    "source": "data/srx_database/profiles/KYRA_KELSEY.md"
+  },
+  {
+    "id": "meiori-nevermore",
+    "directories": [
+      "people"
+    ],
+    "category": "people",
+    "title": "Meiori Nevermore",
+    "subtitle": "RIA executive officer and field operative",
+    "classification": "Public Historical Record",
+    "imagePath": "oracle/personnel/portraits/meiori-nevermore-gala.png",
+    "imageStatus": null,
+    "summary": "Meiori Nevermore is recorded in the SRX Public Archive as RIA executive officer and field operative.",
+    "body": [],
+    "facts": [
+      [
+        "Full Name",
+        "Meiori Nevermore"
+      ],
+      [
+        "Former Name",
+        "Meiori Geraphyn"
+      ],
+      [
+        "Known Office",
+        "RIA executive officer and field operative"
+      ],
+      [
+        "Last Confirmed Public Record",
+        "DragonsKeep Gala, approximately fifteen years ago"
+      ]
+    ],
+    "sections": [
+      {
+        "title": "PUBLIC HISTORY",
+        "paragraphs": [
+          "Meiori Nevermore rose from field work and survival into the senior orbit of the Realm Inspection Agency. Public accounts describe a pilot, marksman, and close-quarters specialist whose precise movement and formal bearing concealed extensive operational experience.",
+          "Her history with Barron Nevermore developed through conflict, training, and eventual partnership. By the time of the DragonsKeep Gala she had taken the Nevermore name and appeared publicly beside him as an RIA executive rather than an unseen operative."
+        ],
+        "facts": [],
+        "notes": []
+      },
+      {
+        "title": "DRAGONSKEEP GALA RECORD",
+        "paragraphs": [
+          "Before the Gala, Meiori joined Barron in intercepting Raider aircraft approaching the island. She then entered the Keep in formal dress, participated in the diplomatic gathering, and responded immediately when Barron detected the later attack.",
+          "The event also records her warm relationship with Chasiel Roelhaiphar, who served as mentor and paternal figure, and her ability to move between RIA command, old personal ties, and the wider legendary circle without surrendering her own authority."
+        ],
+        "facts": [],
+        "notes": []
+      },
+      {
+        "title": "CURRENT STATUS",
+        "paragraphs": [
+          "No death record is held for Meiori Nevermore. SRX has not confirmed her present location, office, or continued contact with Barron Nevermore."
+        ],
+        "facts": [],
+        "notes": []
+      }
+    ],
+    "highlights": [],
+    "related": [],
+    "source": "data/srx_database/profiles/MEIORI_NEVERMORE.md"
+  },
+  {
+    "id": "meka-alyis",
+    "directories": [
+      "people"
+    ],
+    "category": "people",
+    "title": "Meka Alyis",
+    "subtitle": "SRX public historical profile",
+    "classification": "Public Historical Record",
+    "imagePath": "oracle/personnel/portraits/meka-alyis-gala.png",
+    "imageStatus": null,
+    "summary": "The SRX Public Archive maintains an authorized historical record for Meka Alyis.",
+    "body": [],
+    "facts": [
+      [
+        "Full Name",
+        "Meka Alyis"
+      ],
+      [
+        "Known Epithet",
+        "The Warrior"
+      ],
+      [
+        "Known Association",
+        "Alyis clan; former SRX involvement"
+      ],
+      [
+        "Current Record",
+        "No death record; present activity unverified"
+      ]
+    ],
+    "sections": [
+      {
+        "title": "PUBLIC HISTORY",
+        "paragraphs": [
+          "Meka Alyis appears in surviving records as an independent warrior whose history crossed SRX, the Alyis clan, and several of the Realm's oldest combat circles. Contemporary descriptions emphasize her red hair, formidable physical presence, and command of electrical energy.",
+          "Her reputation was severe, but not simple. At the DragonsKeep Gala approximately fifteen years ago, she moved to protect Sephiroth Raiku during the assassination attempt despite their antagonistic history. The action remains one of the clearest public examples of the old alliances that survived beneath rivalry."
+        ],
+        "facts": [],
+        "notes": []
+      },
+      {
+        "title": "DRAGONSKEEP GALA RECORD",
+        "paragraphs": [
+          "Meka attended under Nexa's peace decree and renewed contact with Pernos Kail and other historic figures. When the attack began, she formed part of the immediate protective response around the targeted guests."
+        ],
+        "facts": [],
+        "notes": []
+      },
+      {
+        "title": "CURRENT STATUS",
+        "paragraphs": [
+          "No death record is held for Meka Alyis. Her present allegiance, residence, and relationship to surviving members of the Alyis clan are not verified by SRX."
+        ],
+        "facts": [],
+        "notes": []
+      }
+    ],
+    "highlights": [],
+    "related": [],
+    "source": "data/srx_database/profiles/MEKA_ALYIS.md"
+  },
+  {
+    "id": "nexa-rei",
+    "directories": [
+      "people"
+    ],
+    "category": "people",
+    "title": "Nexa Rei",
+    "subtitle": "Mistress of the Weyr of Dragonlords",
+    "classification": "Public Historical Record",
+    "imagePath": "oracle/personnel/portraits/nexa-rei-gala.png",
+    "imageStatus": null,
+    "summary": "Nexa Rei is recorded in the SRX Public Archive as Mistress of the Weyr of Dragonlords.",
+    "body": [
+      "Nexa Rei appears throughout SRX's oldest surviving records as a Dragonlord, territorial sovereign, and neutral arbiter among powers that rarely accepted one another's authority. Her humanoid presentation and the dragon consciousness identified as Rei occupy one body and express distinct temperaments.",
+      "Nexa is consistently described as diplomatic, measured, and capable of long planning. Rei is the more primal guardian: territorial, immediate, and intensely protective of the Keep, its dragons, and those accepted beneath its law. Archive witnesses identified shifts through changes in voice, posture, and eye color, though SRX does not claim a complete medical or spiritual explanation for the union."
+    ],
+    "facts": [
+      [
+        "Full Name",
+        "Nexa Rei"
+      ],
+      [
+        "Known Title",
+        "Mistress of the Weyr of Dragonlords"
+      ],
+      [
+        "Historic Seat",
+        "DragonsKeep"
+      ],
+      [
+        "Nature",
+        "Dragonlord; dual-consciousness entity"
+      ],
+      [
+        "Last Confirmed Public Record",
+        "DragonsKeep Gala, approximately fifteen years ago"
+      ],
+      [
+        "Weyr Associate",
+        "Ayla Kyrissean"
+      ],
+      [
+        "Ancient Associate",
+        "Chasiel Roelhaiphar"
+      ],
+      [
+        "Protégé / Ward",
+        "Almao"
+      ],
+      [
+        "Historic Associate",
+        "Soren Lyte"
+      ],
+      [
+        "Known Diplomatic Contact",
+        "Barron J. Nevermore"
+      ],
+      [
+        "Estate Officer",
+        "Sabrine, Lady Seneschal"
+      ]
+    ],
+    "sections": [
+      {
+        "title": "BIOGRAPHICAL DATA",
+        "paragraphs": [
+          "Nexa Rei appears throughout SRX's oldest surviving records as a Dragonlord, territorial sovereign, and neutral arbiter among powers that rarely accepted one another's authority. Her humanoid presentation and the dragon consciousness identified as Rei occupy one body and express distinct temperaments.",
+          "Nexa is consistently described as diplomatic, measured, and capable of long planning. Rei is the more primal guardian: territorial, immediate, and intensely protective of the Keep, its dragons, and those accepted beneath its law. Archive witnesses identified shifts through changes in voice, posture, and eye color, though SRX does not claim a complete medical or spiritual explanation for the union."
+        ],
+        "facts": [],
+        "notes": []
+      },
+      {
+        "title": "PUBLIC HISTORY",
+        "paragraphs": [
+          "DragonsKeep was maintained as a sanctuary rather than a conventional court. Dragons were treated as citizens, visitors received protection under local law, and foreign governments entered only by invitation. Nexa's authority depended on diplomacy, personal loyalty, and the unmistakable fact that the sanctuary could defend itself.",
+          "Records connect her to Chasiel Roelhaiphar, Ayla Kyrissean, Soren Lyte, Almao, Barron Nevermore, and several old houses. Some associations predate SRX by centuries. The surviving archive is strongest on moments when those relationships crossed institutional history and weakest on the private life of the Weyr."
+        ],
+        "facts": [],
+        "notes": []
+      },
+      {
+        "title": "DRAGONSKEEP GALA RECORD",
+        "paragraphs": [
+          "Approximately fifteen years ago, Nexa reopened DragonsKeep for a formal gathering of rival factions. The invitation carried a peace decree, making the Keep neutral ground for RIA, SRX, the old houses, Dragonlords, and independent powers.",
+          "When an assassination attempt breached that peace, Rei surfaced and transformed before the assembled guests. The response protected the gathering and made clear that violence against anyone accepted into the Keep would be treated as violence against the sovereign sanctuary itself."
+        ],
+        "facts": [],
+        "notes": []
+      },
+      {
+        "title": "KNOWN RELATIONSHIPS",
+        "paragraphs": [],
+        "facts": [
+          [
+            "Weyr Associate",
+            "Ayla Kyrissean"
+          ],
+          [
+            "Ancient Associate",
+            "Chasiel Roelhaiphar"
+          ],
+          [
+            "Protégé / Ward",
+            "Almao"
+          ],
+          [
+            "Historic Associate",
+            "Soren Lyte"
+          ],
+          [
+            "Known Diplomatic Contact",
+            "Barron J. Nevermore"
+          ],
+          [
+            "Estate Officer",
+            "Sabrine, Lady Seneschal"
+          ]
+        ],
+        "notes": []
+      },
+      {
+        "title": "CURRENT STATUS",
+        "paragraphs": [
+          "No death record is held for Nexa Rei or the Rei consciousness. SRX's last fully authenticated public file is the DragonsKeep Gala record. The archive therefore preserves her as a living historical subject whose present location, court, and activities are not independently verified."
+        ],
+        "facts": [],
+        "notes": []
+      }
+    ],
+    "highlights": [],
+    "related": [],
+    "source": "data/srx_database/profiles/NEXA_REI.md"
+  },
+  {
+    "id": "pernos-kail",
+    "directories": [
+      "people"
+    ],
+    "category": "people",
+    "title": "Pernos Kail",
+    "subtitle": "SRX public historical profile",
+    "classification": "Public Historical Record",
+    "imagePath": null,
+    "imageStatus": "No authenticated public portrait is currently assigned.",
+    "summary": "The SRX Public Archive maintains an authorized historical record for Pernos Kail.",
+    "body": [
+      "Kail survived the major factional struggles surrounding SRX's rise and remained recognizable to leaders from multiple houses. His public reputation emphasized strategic patience, formal courtesy, and an ability to read danger before it became visible to the room around him.",
+      "SRX files contain references to forces and private objectives associated with his later rule. Their scale and purpose were never established well enough for public release and are not repeated as fact here."
+    ],
+    "facts": [
+      [
+        "Full Name",
+        "Pernos Kail"
+      ],
+      [
+        "Known Epithet",
+        "The Fox"
+      ],
+      [
+        "Historic Offices",
+        "King of Ixen Narod; co-founder of the Realm Inspection Agency"
+      ],
+      [
+        "Known Later Seat",
+        "Valhalla / Kantonia political sphere"
+      ],
+      [
+        "Current Record",
+        "No death record; present office and location unverified"
+      ],
+      [
+        "Co-Founder",
+        "Realm Inspection Agency"
+      ],
+      [
+        "Historic Realm",
+        "Ixen Narod"
+      ],
+      [
+        "Later Political Association",
+        "Valhalla / Kantonia"
+      ],
+      [
+        "Gala Companion",
+        "Kyra"
+      ],
+      [
+        "Known Associate",
+        "Chasiel Roelhaiphar"
+      ]
+    ],
+    "sections": [
+      {
+        "title": "PUBLIC HISTORY",
+        "paragraphs": [
+          "Pernos Kail was one of the architects of the Realm Inspection Agency and an old political power in his own right. His record joins royal authority, military organization, and the adaptive diplomacy that earned him the name \"The Fox.\"",
+          "Alongside Barron Nevermore, Kail helped establish the RIA after the fall of the Alliance. Later records place him in the transition from Ixen Narod to Valhalla's political order and connect him to the military power that eventually became associated with Kantonia."
+        ],
+        "facts": [],
+        "notes": []
+      },
+      {
+        "title": "HISTORICAL SERVICE",
+        "paragraphs": [
+          "Kail survived the major factional struggles surrounding SRX's rise and remained recognizable to leaders from multiple houses. His public reputation emphasized strategic patience, formal courtesy, and an ability to read danger before it became visible to the room around him.",
+          "SRX files contain references to forces and private objectives associated with his later rule. Their scale and purpose were never established well enough for public release and are not repeated as fact here."
+        ],
+        "facts": [],
+        "notes": []
+      },
+      {
+        "title": "DRAGONSKEEP GALA RECORD",
+        "paragraphs": [
+          "Approximately fifteen years ago, Kail attended the DragonsKeep Gala with Kyra. He entered under the peace decree, surrendered his sword at the gate, and renewed contact with Chasiel, Meiori, Barron, and Meka.",
+          "During the attack, Kail became the target of Denath's psychic assault. Traga Seisen broke the attack and Chasiel administered healing. The incident confirms both Kail's place among the gathering's principal figures and the degree to which the wider conspiracy targeted more than one faction."
+        ],
+        "facts": [],
+        "notes": []
+      },
+      {
+        "title": "KNOWN AFFILIATIONS",
+        "paragraphs": [],
+        "facts": [
+          [
+            "Co-Founder",
+            "Realm Inspection Agency"
+          ],
+          [
+            "Historic Realm",
+            "Ixen Narod"
+          ],
+          [
+            "Later Political Association",
+            "Valhalla / Kantonia"
+          ],
+          [
+            "Gala Companion",
+            "Kyra"
+          ],
+          [
+            "Known Associate",
+            "Chasiel Roelhaiphar"
+          ]
+        ],
+        "notes": []
+      },
+      {
+        "title": "CURRENT STATUS",
+        "paragraphs": [
+          "No authenticated death record is held for Pernos Kail. SRX has not verified his present title, command, location, or relationship to Kantonia's current institutions."
+        ],
+        "facts": [],
+        "notes": []
+      }
+    ],
+    "highlights": [],
+    "related": [],
+    "source": "data/srx_database/profiles/PERNOS_KAIL.md"
+  },
+  {
+    "id": "sabrine-of-dragonskeep",
+    "directories": [
+      "people"
+    ],
+    "category": "people",
+    "title": "Sabrine of DragonsKeep",
+    "subtitle": "Lady Seneschal of DragonsKeep",
+    "classification": "Public Historical Record",
+    "imagePath": null,
+    "imageStatus": "No authenticated public portrait is currently assigned.",
+    "summary": "Sabrine of DragonsKeep is recorded in the SRX Public Archive as Lady Seneschal of DragonsKeep.",
+    "body": [],
+    "facts": [
+      [
+        "Full Name",
+        "Sabrine of DragonsKeep"
+      ],
+      [
+        "Known Title",
+        "Lady Seneschal of DragonsKeep"
+      ],
+      [
+        "Known Office",
+        "Estate administration and sanctuary operations"
+      ],
+      [
+        "Current Record",
+        "No death record; present office unverified"
+      ]
+    ],
+    "sections": [
+      {
+        "title": "PUBLIC HISTORY",
+        "paragraphs": [
+          "Sabrine served as the principal administrative officer of DragonsKeep and maintained the sanctuary during Nexa Rei's prolonged absence. Surviving accounts describe an exacting, resourceful official responsible for village relations, household logistics, staff, accommodations, and the day-to-day continuity of a sovereign dragon sanctuary."
+        ],
+        "facts": [],
+        "notes": []
+      },
+      {
+        "title": "DRAGONSKEEP GALA RECORD",
+        "paragraphs": [
+          "Approximately fifteen years ago, Sabrine directed preparations for the DragonsKeep Gala: lodging, food service, guest movement, staff assignments, and the reopening of rooms that had stood unused. Her work made the peace gathering physically possible before any ruler or legendary guest entered the hall."
+        ],
+        "facts": [],
+        "notes": []
+      },
+      {
+        "title": "CURRENT STATUS",
+        "paragraphs": [
+          "No death record is held for Sabrine. SRX has not verified the present seneschal, staffing, or administrative structure of DragonsKeep."
+        ],
+        "facts": [],
+        "notes": []
+      }
+    ],
+    "highlights": [],
+    "related": [],
+    "source": "data/srx_database/profiles/SABRINE_DRAGONSKEEP.md"
+  },
+  {
+    "id": "soren-lyte",
+    "directories": [
+      "people"
+    ],
+    "category": "people",
+    "title": "Soren Lyte",
+    "subtitle": "Ancient vampire; former warrior and wanderer",
+    "classification": "Public Historical Record",
+    "imagePath": null,
+    "imageStatus": "No authenticated public portrait is currently assigned.",
+    "summary": "Soren Lyte is recorded in the SRX Public Archive as Ancient vampire; former warrior and wanderer.",
+    "body": [],
+    "facts": [
+      [
+        "Full Name",
+        "Soren Lyte"
+      ],
+      [
+        "Known Title",
+        "Ancient vampire; former warrior and wanderer"
+      ],
+      [
+        "Recorded Age at Gala",
+        "758 years"
+      ],
+      [
+        "Known Arms",
+        "Anabel and Ysabel"
+      ],
+      [
+        "Current Record",
+        "No death record; present activity unverified"
+      ],
+      [
+        "Ward / Son Figure",
+        "Almao"
+      ],
+      [
+        "Historic Ally",
+        "Nexa Rei"
+      ],
+      [
+        "Old Associate",
+        "Chasiel Roelhaiphar"
+      ],
+      [
+        "Known Associate",
+        "Barron J. Nevermore"
+      ]
+    ],
+    "sections": [
+      {
+        "title": "PUBLIC HISTORY",
+        "paragraphs": [
+          "Soren Lyte entered the modern archive already carrying centuries of warfare, travel, and accumulated obligation. He was known as a swordsman and flail fighter, though later records describe a man who had stepped away from constant battle and devoted most of his attention to an unnamed long-term task.",
+          "Lyte entrusted the young dragon Almao to Nexa Rei when he concluded that the places he traveled were no place for a child. The decision protected Almao and also created a lasting fracture between them. SRX's record does not simplify that relationship into either abandonment or sacrifice; both truths appear in the surviving accounts."
+        ],
+        "facts": [],
+        "notes": []
+      },
+      {
+        "title": "DRAGONSKEEP GALA RECORD",
+        "paragraphs": [
+          "Approximately fifteen years ago, Lyte returned to DragonsKeep after a long absence. He arrived travel-worn and without the legendary weapons stored at the Keep. His reunion with Almao was tense, but both chose restraint beneath Nexa's peace decree.",
+          "The record places Lyte among Nexa's old associates, familiar to Chasiel and known to Barron Nevermore. It also captures a figure conscious of the weight of his history and unwilling to force forgiveness from the ward he had left behind."
+        ],
+        "facts": [],
+        "notes": []
+      },
+      {
+        "title": "KNOWN RELATIONSHIPS",
+        "paragraphs": [],
+        "facts": [
+          [
+            "Ward / Son Figure",
+            "Almao"
+          ],
+          [
+            "Historic Ally",
+            "Nexa Rei"
+          ],
+          [
+            "Old Associate",
+            "Chasiel Roelhaiphar"
+          ],
+          [
+            "Known Associate",
+            "Barron J. Nevermore"
+          ]
+        ],
+        "notes": []
+      },
+      {
+        "title": "CURRENT STATUS",
+        "paragraphs": [
+          "No death record is held for Soren Lyte. His unnamed task, present residence, and custody of his historic weapons remain outside verified SRX knowledge."
+        ],
+        "facts": [],
+        "notes": []
+      }
+    ],
+    "highlights": [],
+    "related": [],
+    "source": "data/srx_database/profiles/SOREN_LYTE.md"
+  },
+  {
+    "id": "traga-seisen",
+    "directories": [
+      "people"
+    ],
+    "category": "people",
+    "title": "Traga Seisen",
+    "subtitle": "SRX public historical profile",
+    "classification": "Public Historical Record",
+    "imagePath": null,
+    "imageStatus": "No authenticated public portrait is currently assigned.",
+    "summary": "The SRX Public Archive maintains an authorized historical record for Traga Seisen.",
+    "body": [],
+    "facts": [
+      [
+        "Archive Status",
+        "Record retained"
+      ],
+      [
+        "Release",
+        "Authorized public extract"
+      ],
+      [
+        "Source",
+        "SRX Personnel Archive"
+      ],
+      [
+        "Detail Status",
+        "Substantive record"
+      ]
+    ],
+    "sections": [
+      {
+        "title": "PUBLIC HISTORY",
+        "paragraphs": [
+          "Traga Seisen emerged from a period of isolation to attend the DragonsKeep Gala. The archive identifies an exceptionally powerful warrior with electrical and psychic capabilities, but holds little reliable information about his earlier residence or political commitments."
+        ],
+        "facts": [],
+        "notes": []
+      },
+      {
+        "title": "DRAGONSKEEP GALA RECORD",
+        "paragraphs": [
+          "During the attack approximately fifteen years ago, Traga detected Denath's psychic assault on Pernos Kail and engaged the attacker directly at the mental level. His intervention broke the assault long enough for Chasiel to treat Kail."
+        ],
+        "facts": [],
+        "notes": []
+      },
+      {
+        "title": "CURRENT STATUS",
+        "paragraphs": [
+          "No death record is held for Traga Seisen. SRX has not verified his present location, objectives, or relationship to other members of the Seisen line."
+        ],
+        "facts": [],
+        "notes": []
+      }
+    ],
+    "highlights": [],
+    "related": [],
+    "source": "data/srx_database/profiles/TRAGA_SEISEN.md"
+  },
+  {
     "id": "kyo-kusanagixii",
     "directories": [
       "people"
@@ -3180,7 +4271,7 @@
     "classification": "Authorized Personnel Record",
     "imagePath": null,
     "imageStatus": "No authenticated public portrait is currently assigned.",
-    "summary": "KYO KUSANAGIXII is recorded in the SRX Personnel Archive as Director of SOLDIER Department.",
+    "summary": "KYO KUSANAGIXII is recorded in the SRX Public Archive as Director of SOLDIER Department.",
     "body": [],
     "facts": [
       [
@@ -3276,7 +4367,7 @@
     "classification": "Authorized Personnel Record",
     "imagePath": null,
     "imageStatus": "No authenticated public portrait is currently assigned.",
-    "summary": "The SRX Personnel Archive maintains an authorized service record for NEO KORTEZ.",
+    "summary": "The SRX Public Archive maintains an authorized historical record for NEO KORTEZ.",
     "body": [],
     "facts": [
       [
@@ -3344,7 +4435,7 @@
     "classification": "Authorized Personnel Record",
     "imagePath": null,
     "imageStatus": "No authenticated public portrait is currently assigned.",
-    "summary": "The SRX Personnel Archive maintains an authorized service record for NIGHT SHADEZENISA (Zenisa Nightshade).",
+    "summary": "The SRX Public Archive maintains an authorized historical record for NIGHT SHADEZENISA (Zenisa Nightshade).",
     "body": [],
     "facts": [
       [
@@ -3416,7 +4507,7 @@
     "classification": "Authorized Personnel Record",
     "imagePath": null,
     "imageStatus": "No authenticated public portrait is currently assigned.",
-    "summary": "The SRX Personnel Archive maintains an authorized service record for RENO NIGHTBLADE.",
+    "summary": "The SRX Public Archive maintains an authorized historical record for RENO NIGHTBLADE.",
     "body": [],
     "facts": [
       [
@@ -3484,7 +4575,7 @@
     "classification": "Authorized Personnel Record",
     "imagePath": null,
     "imageStatus": "No authenticated public portrait is currently assigned.",
-    "summary": "The SRX Personnel Archive maintains an authorized service record for REIZ DARKHEART.",
+    "summary": "The SRX Public Archive maintains an authorized historical record for REIZ DARKHEART.",
     "body": [],
     "facts": [
       [
@@ -3552,7 +4643,7 @@
     "classification": "Authorized Personnel Record",
     "imagePath": null,
     "imageStatus": "No authenticated public portrait is currently assigned.",
-    "summary": "The SRX Personnel Archive maintains an authorized service record for SAGE RAVENDAWN.",
+    "summary": "The SRX Public Archive maintains an authorized historical record for SAGE RAVENDAWN.",
     "body": [],
     "facts": [
       [
@@ -3620,7 +4711,7 @@
     "classification": "Authorized Personnel Record",
     "imagePath": null,
     "imageStatus": "No authenticated public portrait is currently assigned.",
-    "summary": "THE GOD CERBERUS (Cerberus Amon) is recorded in the SRX Personnel Archive as The God Cerberus.",
+    "summary": "THE GOD CERBERUS (Cerberus Amon) is recorded in the SRX Public Archive as The God Cerberus.",
     "body": [],
     "facts": [
       [
@@ -3692,7 +4783,7 @@
     "classification": "Authorized Personnel Record",
     "imagePath": null,
     "imageStatus": "No authenticated public portrait is currently assigned.",
-    "summary": "The SRX Personnel Archive maintains an authorized service record for ASCH GRAYHEART.",
+    "summary": "The SRX Public Archive maintains an authorized historical record for ASCH GRAYHEART.",
     "body": [],
     "facts": [
       [
@@ -3772,7 +4863,7 @@
     "classification": "Authorized Personnel Record",
     "imagePath": null,
     "imageStatus": "No authenticated public portrait is currently assigned.",
-    "summary": "The SRX Personnel Archive maintains an authorized service record for FIREBRAND KUROSAI.",
+    "summary": "The SRX Public Archive maintains an authorized historical record for FIREBRAND KUROSAI.",
     "body": [],
     "facts": [
       [
@@ -3868,7 +4959,7 @@
     "classification": "Authorized Personnel Record",
     "imagePath": null,
     "imageStatus": "No authenticated public portrait is currently assigned.",
-    "summary": "PERCULIOUS SWAIN is recorded in the SRX Personnel Archive as SRX Special Ops (SA era organizational chart).",
+    "summary": "PERCULIOUS SWAIN is recorded in the SRX Public Archive as SRX Special Ops (SA era organizational chart).",
     "body": [],
     "facts": [
       [
@@ -3944,7 +5035,7 @@
     "classification": "Authorized Personnel Record",
     "imagePath": null,
     "imageStatus": "No authenticated public portrait is currently assigned.",
-    "summary": "XAVIER SPICEY is recorded in the SRX Personnel Archive as SRX Special Ops (SA era organizational chart).",
+    "summary": "XAVIER SPICEY is recorded in the SRX Public Archive as SRX Special Ops (SA era organizational chart).",
     "body": [],
     "facts": [
       [
@@ -4020,7 +5111,7 @@
     "classification": "Authorized Personnel Record",
     "imagePath": null,
     "imageStatus": "No authenticated public portrait is currently assigned.",
-    "summary": "The SRX Personnel Archive maintains an authorized service record for DR. ELARA VOSS.",
+    "summary": "The SRX Public Archive maintains an authorized historical record for DR. ELARA VOSS.",
     "body": [],
     "facts": [
       [
@@ -4096,7 +5187,7 @@
     "classification": "Authorized Personnel Record",
     "imagePath": null,
     "imageStatus": "No authenticated public portrait is currently assigned.",
-    "summary": "The SRX Personnel Archive maintains an authorized service record for MAGNUS KADE.",
+    "summary": "The SRX Public Archive maintains an authorized historical record for MAGNUS KADE.",
     "body": [],
     "facts": [
       [
@@ -4164,7 +5255,7 @@
     "classification": "Authorized Personnel Record",
     "imagePath": null,
     "imageStatus": "No authenticated public portrait is currently assigned.",
-    "summary": "The SRX Personnel Archive maintains an authorized service record for KAEL ARCTURUS.",
+    "summary": "The SRX Public Archive maintains an authorized historical record for KAEL ARCTURUS.",
     "body": [],
     "facts": [
       [
@@ -4240,7 +5331,7 @@
     "classification": "Authorized Personnel Record",
     "imagePath": null,
     "imageStatus": "No authenticated public portrait is currently assigned.",
-    "summary": "The SRX Personnel Archive maintains an authorized service record for JEANNA PLUMBA (Jeanna Pyrowolf).",
+    "summary": "The SRX Public Archive maintains an authorized historical record for JEANNA PLUMBA (Jeanna Pyrowolf).",
     "body": [],
     "facts": [
       [
@@ -4332,7 +5423,7 @@
     "classification": "Authorized Personnel Record",
     "imagePath": null,
     "imageStatus": "No authenticated public portrait is currently assigned.",
-    "summary": "The SRX Personnel Archive maintains an authorized service record for SERA HALCYON.",
+    "summary": "The SRX Public Archive maintains an authorized historical record for SERA HALCYON.",
     "body": [],
     "facts": [
       [
@@ -4400,7 +5491,7 @@
     "classification": "Authorized Personnel Record",
     "imagePath": null,
     "imageStatus": "No authenticated public portrait is currently assigned.",
-    "summary": "CAPTAIN RHO VANTOR is recorded in the SRX Personnel Archive as Captain.",
+    "summary": "CAPTAIN RHO VANTOR is recorded in the SRX Public Archive as Captain.",
     "body": [],
     "facts": [
       [
@@ -4476,7 +5567,7 @@
     "classification": "Authorized Personnel Record",
     "imagePath": null,
     "imageStatus": "No authenticated public portrait is currently assigned.",
-    "summary": "The SRX Personnel Archive maintains an authorized service record for SERENA SILVERFANG (Selena).",
+    "summary": "The SRX Public Archive maintains an authorized historical record for SERENA SILVERFANG (Selena).",
     "body": [],
     "facts": [
       [
@@ -4580,7 +5671,7 @@
     "classification": "Authorized Personnel Record",
     "imagePath": null,
     "imageStatus": "No authenticated public portrait is currently assigned.",
-    "summary": "The SRX Personnel Archive maintains an authorized service record for LETHAL SERENITY (Serenity Vale) — GEN 1.",
+    "summary": "The SRX Public Archive maintains an authorized historical record for LETHAL SERENITY (Serenity Vale) — GEN 1.",
     "body": [],
     "facts": [
       [
