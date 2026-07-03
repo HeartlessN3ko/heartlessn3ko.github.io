@@ -27,6 +27,14 @@
 .hint { color:#6f8c94; font-size:.7rem; }
 .command-panel { margin-top:1rem; }
 .command-heading { display:flex; justify-content:space-between; align-items:start; gap:1rem; }
+.tag-reference { margin-top:1rem; padding:1rem; border:1px solid rgba(105,209,221,.16); background:rgba(5,13,19,.55); }
+.tag-reference h3 { margin:0 0 .35rem; }
+.tag-catalog { display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:.45rem; margin-top:.8rem; }
+.tag-catalog details { border:1px solid rgba(105,209,221,.14); padding:.6rem; background:rgba(255,255,255,.025); }
+.tag-catalog summary { cursor:pointer; display:grid; gap:.18rem; color:#dffcff; }
+.tag-catalog summary span { color:#6f9da5; font:600 .62rem monospace; text-transform:uppercase; }
+.tag-catalog p { color:#afc5ca; font-size:.75rem; }
+.tag-catalog pre { overflow:auto; padding:.55rem; background:#050b10; color:#8eeaf0; font-size:.66rem; }
 .review-grid { display:grid; grid-template-columns:repeat(7,minmax(62px,1fr)); gap:.4rem; }
 .review-grid label { font-size:.64rem; }
 .review-actions { display:flex; flex-wrap:wrap; gap:.55rem; margin-top:.8rem; }
