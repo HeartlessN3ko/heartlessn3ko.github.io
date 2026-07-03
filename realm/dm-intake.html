@@ -1,0 +1,642 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Arcade Mode Character — SRX CODEX</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* DM Arcade Tactical Theme Override */
+    .site-header { background: linear-gradient(135deg, #0a0e27 0%, #1a2847 100%); }
+    .header-sub { color: #00d4ff; font-weight: bold; letter-spacing: 2px; }
+    .step-pip { background: #1a2847; border: 2px solid #00d4ff; }
+    .step-pip.active { background: #00d4ff; }
+    .btn-primary { background: #00d4ff; color: #0a0e27; }
+    .btn-primary:hover { background: #00b0cc; }
+    .form-shell { border-color: #00d4ff; background: rgba(10, 14, 39, 0.8); }
+    .step-title { color: #00d4ff; }
+    .class-card {
+      border: 2px solid #1a4d4d;
+      padding: 1rem;
+      margin: 0.5rem 0;
+      cursor: pointer;
+      border-radius: 4px;
+      transition: all 0.3s;
+    }
+    .class-card:hover { border-color: #00d4ff; background: rgba(0, 212, 255, 0.05); }
+    .class-card.selected { border-color: #00d4ff; background: rgba(0, 212, 255, 0.1); }
+    .stats-display {
+      background: rgba(0, 212, 255, 0.08);
+      border: 1px solid #00d4ff;
+      padding: 1rem;
+      border-radius: 4px;
+      margin: 1rem 0;
+    }
+    .stat-bar {
+      display: flex;
+      justify-content: space-between;
+      margin: 0.5rem 0;
+      font-size: 0.9rem;
+    }
+    .stat-value { color: #00d4ff; font-weight: bold; }
+    .ability-item {
+      background: rgba(26, 77, 77, 0.5);
+      border-left: 3px solid #00d4ff;
+      padding: 0.75rem;
+      margin: 0.5rem 0;
+      border-radius: 2px;
+    }
+    .ability-item input[type="checkbox"] {
+      margin-right: 0.5rem;
+      cursor: pointer;
+    }
+    .custom-ability-form {
+      background: rgba(26, 77, 77, 0.3);
+      border: 1px dashed #00d4ff;
+      padding: 1rem;
+      margin: 1rem 0;
+      border-radius: 4px;
+    }
+    .form-field {
+      margin: 1rem 0;
+    }
+    .form-field label {
+      display: block;
+      color: #00d4ff;
+      font-weight: bold;
+      margin-bottom: 0.5rem;
+    }
+    .form-field input,
+    .form-field textarea,
+    .form-field select {
+      width: 100%;
+      padding: 0.75rem;
+      background: rgba(26, 77, 77, 0.5);
+      border: 1px solid #00d4ff;
+      color: #e0e0e0;
+      border-radius: 4px;
+      font-family: monospace;
+    }
+    .form-field textarea { min-height: 60px; resize: vertical; }
+    .btn-add-ability {
+      background: rgba(0, 212, 255, 0.2);
+      border: 1px solid #00d4ff;
+      color: #00d4ff;
+      padding: 0.75rem 1rem;
+      cursor: pointer;
+      border-radius: 4px;
+      transition: all 0.3s;
+    }
+    .btn-add-ability:hover {
+      background: rgba(0, 212, 255, 0.3);
+    }
+    .alert { color: #ff6b6b; }
+    .success-screen {
+      text-align: center;
+      padding: 2rem;
+    }
+    .big-check {
+      font-size: 4rem;
+      color: #00d4ff;
+      margin-bottom: 1rem;
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="srx-logo">SRX</div>
+    <div class="header-sub">CODEX // ARCADE MODE</div>
+    <nav class="header-nav">
+      <a href="index.html">Home</a>
+      <a href="public-info.html">Public Archive</a>
+      <a href="apply.html">Story Mode</a>
+      <a href="dm-intake.html" class="active">Arcade Mode</a>
+    </nav>
+  </header>
+
+  <!-- Success screen (hidden until submit) -->
+  <div id="success-screen" class="success-screen" style="display:none;">
+    <div class="big-check">⚔️</div>
+    <h2>CHARACTER REGISTERED</h2>
+    <p>Your tactical character has been created and is ready for Arcade Mode.</p>
+    <p>Join an active arcade instance in Discord, or wait for a GM to clear your character for Story Mode access.</p>
+    <p style="margin-top:1.5rem; display:flex; gap:1rem; justify-content:center; flex-wrap:wrap;">
+      <a href="dm-intake.html" class="btn-primary">Create Another</a>
+      <a href="index.html" class="btn-secondary">&larr; Return to Gate</a>
+    </p>
+  </div>
+
+  <!-- Main form -->
+  <div id="form-shell" class="form-shell">
+    <div id="alert-box" class="alert" style="display:none;"></div>
+
+    <div class="step-bar" id="step-bar">
+      <div class="step-pip active" id="pip-1"></div>
+      <div class="step-pip" id="pip-2"></div>
+      <div class="step-pip" id="pip-3"></div>
+      <div class="step-pip" id="pip-4"></div>
+    </div>
+    <div class="step-label" id="step-label">STEP 1 OF 4</div>
+
+    <!-- STEP 1: Discord Identity -->
+    <div class="step active" id="step-1">
+      <div class="step-title">DISCORD IDENTITY</div>
+      <div class="step-desc">Connect your Discord account. Your character will be linked to your account automatically.</div>
+
+      <div class="oauth-block" id="oauth-block">
+        <p>Connect your Discord account to begin creating your Arcade Mode character.<br>
+           We request <strong>identify</strong> (read your username &amp; ID) and
+           <strong>guilds.join</strong> (add you to our server so we can manage your character).</p>
+        <button class="btn-discord" id="btn-oauth">Connect Discord</button>
+        <div id="discord-connected" style="display:none;">
+          <div class="discord-id-row">
+            <span class="check">✓</span>
+            <span id="discord-username">Connected</span>
+          </div>
+          <button class="btn-primary" onclick="nextStep()" style="margin-top:1rem;">Proceed to Character Creator</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- STEP 2: Character Name & Class -->
+    <div class="step" id="step-2">
+      <div class="step-title">CHARACTER CREATOR</div>
+      <div class="step-desc">Name your character and select a class. Classes determine your base stats and available abilities.</div>
+
+      <div class="form-field">
+        <label for="char-name">Character Name</label>
+        <input type="text" id="char-name" placeholder="E.g., Kael Stormborn, Mira Shadowstep..." maxlength="50">
+      </div>
+
+      <div class="form-field">
+        <label>Select a Class</label>
+        <div id="class-list"></div>
+      </div>
+
+      <div id="stats-preview" class="stats-display" style="display:none;">
+        <strong>Base Stats (0-4 scale)</strong>
+        <div class="stat-bar">
+          <span>HP:</span>
+          <span class="stat-value" id="stat-hp">0</span>
+        </div>
+        <div class="stat-bar">
+          <span>Attack:</span>
+          <span class="stat-value" id="stat-attack">0</span>
+        </div>
+        <div class="stat-bar">
+          <span>Magic:</span>
+          <span class="stat-value" id="stat-magic">0</span>
+        </div>
+        <div class="stat-bar">
+          <span>Defense:</span>
+          <span class="stat-value" id="stat-defense">0</span>
+        </div>
+        <div class="stat-bar">
+          <span>Agility:</span>
+          <span class="stat-value" id="stat-agility">0</span>
+        </div>
+      </div>
+
+      <div style="margin-top: 1.5rem; display: flex; gap: 1rem;">
+        <button class="btn-secondary" onclick="prevStep()">Back</button>
+        <button class="btn-primary" onclick="nextStep()" id="btn-class-next" disabled>Next: Select Abilities</button>
+      </div>
+    </div>
+
+    <!-- STEP 3: Ability Selection / Creation -->
+    <div class="step" id="step-3">
+      <div class="step-title">SELECT ABILITIES</div>
+      <div class="step-desc">Choose abilities from your class, or create custom ones. Pick at least one ability.</div>
+
+      <div id="preset-abilities"></div>
+
+      <div style="margin-top: 2rem; padding-top: 2rem; border-top: 1px solid #00d4ff;">
+        <h3 style="color: #00d4ff; margin-bottom: 1rem;">CREATE CUSTOM ABILITY</h3>
+
+        <div class="custom-ability-form">
+          <div class="form-field">
+            <label for="custom-ability-name">Ability Name</label>
+            <input type="text" id="custom-ability-name" placeholder="E.g., Fireball, Backstab, Shield Bash..." maxlength="50">
+          </div>
+
+          <div class="form-field">
+            <label for="custom-ability-desc">Description</label>
+            <textarea id="custom-ability-desc" placeholder="What does this ability do? E.g., 'Deal fire damage in an area'"></textarea>
+          </div>
+
+          <div class="form-field">
+            <label for="custom-ability-effect">Effect (Optional)</label>
+            <input type="text" id="custom-ability-effect" placeholder="E.g., damage, heal, stun, buff_attack..." maxlength="50">
+          </div>
+
+          <button class="btn-add-ability" onclick="addCustomAbility()">+ Add Custom Ability</button>
+        </div>
+      </div>
+
+      <div id="selected-abilities" style="margin-top: 2rem;">
+        <h3 style="color: #00d4ff; margin-bottom: 1rem;">YOUR ABILITIES</h3>
+        <div id="abilities-summary"></div>
+      </div>
+
+      <div style="margin-top: 1.5rem; display: flex; gap: 1rem;">
+        <button class="btn-secondary" onclick="prevStep()">Back</button>
+        <button class="btn-primary" onclick="nextStep()" id="btn-abilities-next" disabled>Review & Submit</button>
+      </div>
+    </div>
+
+    <!-- STEP 4: Review & Submit -->
+    <div class="step" id="step-4">
+      <div class="step-title">REVIEW CHARACTER</div>
+      <div class="step-desc">Review your character before submission. You can edit at any step.</div>
+
+      <div style="background: rgba(26, 77, 77, 0.3); padding: 1.5rem; border-radius: 4px; margin: 1rem 0;">
+        <div style="margin: 1rem 0;">
+          <strong style="color: #00d4ff;">Name:</strong>
+          <span id="review-name"></span>
+        </div>
+        <div style="margin: 1rem 0;">
+          <strong style="color: #00d4ff;">Class:</strong>
+          <span id="review-class"></span>
+        </div>
+        <div style="margin: 1rem 0;">
+          <strong style="color: #00d4ff;">Abilities:</strong>
+          <div id="review-abilities" style="margin-top: 0.5rem; padding-left: 1rem;"></div>
+        </div>
+      </div>
+
+      <div style="margin-top: 1.5rem; display: flex; gap: 1rem;">
+        <button class="btn-secondary" onclick="prevStep()">Back</button>
+        <button class="btn-primary" onclick="submitCharacter()" id="btn-submit">REGISTER CHARACTER</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // ── State Management ────────────────────────────────────────
+    let characterData = {
+      discord_id: null,
+      discord_username: null,
+      character_name: null,
+      class_id: null,
+      class_name: null,
+      abilities: [], // array of { id, name, description, effect, source: 'preset' | 'custom' }
+      stats: {}
+    };
+
+    let currentStep = 1;
+    const totalSteps = 4;
+
+    // ── Realm Knights Class Data (extracted) ────────────────────
+    const REALM_KNIGHTS_CLASSES = {
+      Warrior: { hp: 120, attack: 15, magic: 0, physicalDefense: 12, magicDefense: 4, agility: 7, emoji: '⚔️' },
+      Mage: { hp: 80, attack: 5, magic: 20, physicalDefense: 4, magicDefense: 12, agility: 10, emoji: '🔮' },
+      Rogue: { hp: 95, attack: 18, magic: 0, physicalDefense: 8, magicDefense: 6, agility: 15, emoji: '🗡️' },
+      Thief: { hp: 90, attack: 16, magic: 0, physicalDefense: 7, magicDefense: 5, agility: 18, emoji: '🪙' },
+      Archer: { hp: 100, attack: 17, magic: 0, physicalDefense: 9, magicDefense: 6, agility: 13, emoji: '🏹' },
+    };
+
+    // Realm Knights Skills (sample per class)
+    const REALM_KNIGHTS_SKILLS = {
+      Warrior: [
+        { id: 'warrior_shield_bash', name: 'Shield Bash', description: 'Slam enemy with shield, deal damage and reduce their attack.', effect: 'damage_debuff', emoji: '🛡️' },
+        { id: 'warrior_battle_cry', name: 'Battle Cry', description: 'Boost your attack and intimidate the enemy.', effect: 'buff_attack', emoji: '📣' },
+        { id: 'warrior_titan_strike', name: 'Titan Strike', description: 'Channel all strength into one devastating blow.', effect: 'damage', emoji: '⚡' },
+      ],
+      Mage: [
+        { id: 'mage_arcane_bolt', name: 'Arcane Bolt', description: 'Fire a bolt of pure arcane energy, ignoring defense.', effect: 'damage', emoji: '🔵' },
+        { id: 'mage_frost_nova', name: 'Frost Nova', description: 'Freeze the enemy in place.', effect: 'stun', emoji: '❄️' },
+        { id: 'mage_meteor', name: 'Meteor', description: 'Call down a meteor for massive damage.', effect: 'damage', emoji: '☄️' },
+      ],
+      Rogue: [
+        { id: 'rogue_backstab', name: 'Backstab', description: 'Strike from the shadows with lethal precision.', effect: 'damage', emoji: '🗡️' },
+        { id: 'rogue_evasion', name: 'Evasion', description: 'Dodge incoming attacks.', effect: 'buff_defense', emoji: '💨' },
+        { id: 'rogue_assassinate', name: 'Assassinate', description: 'Eliminate a weakened target.', effect: 'damage', emoji: '☠️' },
+      ],
+      Thief: [
+        { id: 'thief_steal', name: 'Steal', description: 'Pilfer an item or gold from your target.', effect: 'utility', emoji: '💰' },
+        { id: 'thief_escape', name: 'Escape', description: 'Quickly leave the battlefield.', effect: 'utility', emoji: '🏃' },
+        { id: 'thief_ambush', name: 'Ambush', description: 'Strike first with the element of surprise.', effect: 'damage', emoji: '🎯' },
+      ],
+      Archer: [
+        { id: 'archer_power_shot', name: 'Power Shot', description: 'Launch a powerful arrow.', effect: 'damage', emoji: '🏹' },
+        { id: 'archer_multishot', name: 'Multishot', description: 'Fire multiple arrows at once.', effect: 'damage', emoji: '🎯' },
+        { id: 'archer_eagle_eye', name: 'Eagle Eye', description: 'Scout distant targets with precision.', effect: 'scan', emoji: '🦅' },
+      ],
+    };
+
+    // ── Utility: Stat Conversion ────────────────────────────────
+    function convertStat(rkValue, statName) {
+      const scales = { hp: 60, attack: 6.25, magic: 6.25, physicalDefense: 7.5, magicDefense: 7.5, agility: 5 };
+      const scale = scales[statName] || 10;
+      return Math.min(4, Math.max(0, Math.floor(rkValue / scale)));
+    }
+
+    // ── Discord OAuth ───────────────────────────────────────────
+    document.getElementById('btn-oauth').addEventListener('click', () => {
+      // Discord OAuth configuration
+      const DISCORD_CLIENT_ID = '1234567890123456789'; // REPLACE WITH YOUR BOT CLIENT ID
+      const REDIRECT_URI = encodeURIComponent(window.location.origin + '/realm/dm-intake-callback.html');
+      const SCOPE = 'identify%20guilds.join';
+      const STATE = generateRandomString(16); // CSRF protection
+
+      // Store state in sessionStorage for verification
+      sessionStorage.setItem('oauth_state', STATE);
+
+      // Redirect to Discord OAuth
+      window.location.href = `https://discord.com/api/oauth2/authorize?client_id=${DISCORD_CLIENT_ID}&redirect_uri=${REDIRECT_URI}&response_type=code&scope=${SCOPE}&state=${STATE}`;
+    });
+
+    // Generate random string for CSRF token
+    function generateRandomString(length) {
+      const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+      let result = '';
+      for (let i = 0; i < length; i++) {
+        result += chars.charAt(Math.floor(Math.random() * chars.length));
+      }
+      return result;
+    }
+
+    // Check if we're returning from OAuth callback
+    function handleOAuthCallback() {
+      const params = new URLSearchParams(window.location.search);
+      const code = params.get('code');
+      const state = params.get('state');
+
+      if (code) {
+        // Verify state matches
+        const storedState = sessionStorage.getItem('oauth_state');
+        if (state !== storedState) {
+          showAlert('OAuth state mismatch. Please try again.');
+          return;
+        }
+
+        // Exchange code for token via backend
+        fetch('/api/dm/oauth-callback', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ code })
+        })
+        .then(res => res.json())
+        .then(data => {
+          if (data.error) {
+            showAlert(data.error);
+            return;
+          }
+
+          // Store user info
+          characterData.discord_id = data.user.id;
+          characterData.discord_username = data.user.username + '#' + data.user.discriminator;
+
+          // Update UI
+          document.getElementById('oauth-block').style.display = 'none';
+          document.getElementById('discord-connected').style.display = 'block';
+          document.getElementById('discord-username').textContent = characterData.discord_username;
+
+          // Clear OAuth params from URL
+          window.history.replaceState({}, document.title, window.location.pathname);
+        })
+        .catch(err => showAlert('OAuth error: ' + err.message));
+      }
+    }
+
+    // Call on page load
+    document.addEventListener('DOMContentLoaded', () => {
+      handleOAuthCallback();
+    });
+
+    // ── Step Navigation ─────────────────────────────────────────
+    function nextStep() {
+      if (currentStep === 1 && !characterData.discord_id) {
+        showAlert('Connect Discord first.');
+        return;
+      }
+      if (currentStep === 2) {
+        if (!characterData.character_name || !characterData.class_id) {
+          showAlert('Enter character name and select a class.');
+          return;
+        }
+      }
+      if (currentStep === 3) {
+        if (characterData.abilities.length === 0) {
+          showAlert('Select or create at least one ability.');
+          return;
+        }
+      }
+
+      currentStep = Math.min(totalSteps, currentStep + 1);
+      updateSteps();
+    }
+
+    function prevStep() {
+      currentStep = Math.max(1, currentStep - 1);
+      updateSteps();
+    }
+
+    function updateSteps() {
+      // Hide all steps
+      for (let i = 1; i <= totalSteps; i++) {
+        document.getElementById(`step-${i}`).classList.remove('active');
+        document.getElementById(`pip-${i}`).classList.remove('active');
+      }
+      // Show current step
+      document.getElementById(`step-${currentStep}`).classList.add('active');
+      document.getElementById(`pip-${currentStep}`).classList.add('active');
+      document.getElementById('step-label').textContent = `STEP ${currentStep} OF ${totalSteps}`;
+
+      // Update review on step 4
+      if (currentStep === 4) {
+        updateReview();
+      }
+    }
+
+    // ── Step 2: Class Selection ─────────────────────────────────
+    function renderClasses() {
+      const container = document.getElementById('class-list');
+      container.innerHTML = '';
+      for (const [className, stats] of Object.entries(REALM_KNIGHTS_CLASSES)) {
+        const card = document.createElement('div');
+        card.className = 'class-card';
+        card.innerHTML = `
+          <strong>${stats.emoji} ${className}</strong><br>
+          <small>HP: ${stats.hp}, ATK: ${stats.attack}, MGC: ${stats.magic}, AGI: ${stats.agility}</small>
+        `;
+        card.addEventListener('click', () => selectClass(className, stats));
+        container.appendChild(card);
+      }
+    }
+
+    function selectClass(className, stats) {
+      characterData.class_id = className.toLowerCase();
+      characterData.class_name = className;
+      characterData.stats = {
+        hp: convertStat(stats.hp, 'hp'),
+        attack: convertStat(stats.attack, 'attack'),
+        magic: convertStat(stats.magic, 'magic'),
+        physicalDefense: convertStat(stats.physicalDefense, 'physicalDefense'),
+        magicDefense: convertStat(stats.magicDefense, 'magicDefense'),
+        agility: convertStat(stats.agility, 'agility'),
+      };
+
+      // Update UI
+      document.querySelectorAll('.class-card').forEach(c => c.classList.remove('selected'));
+      event.target.closest('.class-card').classList.add('selected');
+
+      // Show stats
+      document.getElementById('stats-preview').style.display = 'block';
+      document.getElementById('stat-hp').textContent = characterData.stats.hp;
+      document.getElementById('stat-attack').textContent = characterData.stats.attack;
+      document.getElementById('stat-magic').textContent = characterData.stats.magic;
+      document.getElementById('stat-defense').textContent = characterData.stats.physicalDefense;
+      document.getElementById('stat-agility').textContent = characterData.stats.agility;
+
+      // Enable next button
+      document.getElementById('btn-class-next').disabled = false;
+
+      // Render preset abilities for this class
+      renderPresetAbilities(className);
+
+      // Reset custom abilities
+      characterData.abilities = [];
+      updateAbilitiesSummary();
+    }
+
+    // ── Step 3: Ability Selection ────────────────────────────────
+    function renderPresetAbilities(className) {
+      const container = document.getElementById('preset-abilities');
+      container.innerHTML = '<h3 style="color: #00d4ff; margin-bottom: 1rem;">CLASS ABILITIES</h3>';
+
+      const abilities = REALM_KNIGHTS_SKILLS[className] || [];
+      abilities.forEach(ability => {
+        const label = document.createElement('label');
+        label.className = 'ability-item';
+        label.innerHTML = `
+          <input type="checkbox" value="${ability.id}" onchange="toggleAbility('${ability.id}', '${ability.name}', '${ability.description}', '${ability.effect}')">
+          <strong>${ability.emoji} ${ability.name}</strong><br>
+          <small>${ability.description}</small>
+        `;
+        container.appendChild(label);
+      });
+    }
+
+    function toggleAbility(id, name, description, effect) {
+      const isChecked = event.target.checked;
+      if (isChecked) {
+        characterData.abilities.push({ id, name, description, effect, source: 'preset' });
+      } else {
+        characterData.abilities = characterData.abilities.filter(a => a.id !== id);
+      }
+      updateAbilitiesSummary();
+    }
+
+    function addCustomAbility() {
+      const name = document.getElementById('custom-ability-name').value.trim();
+      const description = document.getElementById('custom-ability-desc').value.trim();
+      const effect = document.getElementById('custom-ability-effect').value.trim();
+
+      if (!name) {
+        showAlert('Ability name is required.');
+        return;
+      }
+
+      characterData.abilities.push({
+        id: `custom_${Date.now()}`,
+        name,
+        description,
+        effect,
+        source: 'custom'
+      });
+
+      // Clear form
+      document.getElementById('custom-ability-name').value = '';
+      document.getElementById('custom-ability-desc').value = '';
+      document.getElementById('custom-ability-effect').value = '';
+
+      updateAbilitiesSummary();
+      document.getElementById('btn-abilities-next').disabled = false;
+    }
+
+    function updateAbilitiesSummary() {
+      const summary = document.getElementById('abilities-summary');
+      summary.innerHTML = '';
+      if (characterData.abilities.length === 0) {
+        summary.innerHTML = '<small style="color: #888;">No abilities selected yet.</small>';
+      } else {
+        characterData.abilities.forEach(ability => {
+          const div = document.createElement('div');
+          div.className = 'ability-item';
+          div.innerHTML = `
+            <strong>${ability.name}</strong> ${ability.source === 'custom' ? '<small style="color: #00d4ff;">[CUSTOM]</small>' : ''}<br>
+            <small>${ability.description}</small>
+            ${ability.effect ? `<br><small style="color: #00d4ff;">Effect: ${ability.effect}</small>` : ''}
+          `;
+          summary.appendChild(div);
+        });
+      }
+      document.getElementById('btn-abilities-next').disabled = characterData.abilities.length === 0;
+    }
+
+    // ── Step 4: Review & Submit ─────────────────────────────────
+    function updateReview() {
+      document.getElementById('review-name').textContent = characterData.character_name;
+      document.getElementById('review-class').textContent = characterData.class_name;
+
+      const abilitiesReview = document.getElementById('review-abilities');
+      abilitiesReview.innerHTML = '';
+      characterData.abilities.forEach(ability => {
+        const div = document.createElement('div');
+        div.style.marginBottom = '0.5rem';
+        div.innerHTML = `<strong>${ability.name}</strong> — ${ability.description}`;
+        abilitiesReview.appendChild(div);
+      });
+    }
+
+    function submitCharacter() {
+      if (!characterData.discord_id) {
+        showAlert('Connect Discord first.');
+        return;
+      }
+
+      // POST character data to backend
+      fetch('/api/dm/characters', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(characterData)
+      })
+      .then(res => res.json())
+      .then(data => {
+        if (data.success) {
+          // Show success screen
+          document.getElementById('form-shell').style.display = 'none';
+          document.getElementById('success-screen').style.display = 'block';
+        } else {
+          showAlert(data.error || 'Submission failed');
+        }
+      })
+      .catch(err => showAlert('Network error: ' + err.message));
+    }
+
+    // ── Utilities ───────────────────────────────────────────────
+    function showAlert(message) {
+      const alertBox = document.getElementById('alert-box');
+      alertBox.textContent = message;
+      alertBox.style.display = 'block';
+      setTimeout(() => { alertBox.style.display = 'none'; }, 5000);
+    }
+
+    // ── Initialize ──────────────────────────────────────────────
+    document.addEventListener('DOMContentLoaded', () => {
+      renderClasses();
+    });
+
+    // Add CSS for step-bar (if not in style.css already)
+    const style = document.createElement('style');
+    style.textContent = `
+      .step { display: none; }
+      .step.active { display: block; }
+      .step-bar { display: flex; justify-content: center; gap: 1rem; margin-bottom: 2rem; }
+      .step-pip { width: 12px; height: 12px; border-radius: 50%; }
+    `;
+    document.head.appendChild(style);
+  </script>
+</body>
+</html>

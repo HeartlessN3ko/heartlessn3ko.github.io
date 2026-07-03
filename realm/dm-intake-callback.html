@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Authenticating...</title>
+  <style>
+    body {
+      background: #0a0e27;
+      color: #e0e0e0;
+      font-family: monospace;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      margin: 0;
+    }
+    .container {
+      text-align: center;
+      padding: 2rem;
+    }
+    .spinner {
+      border: 3px solid #00d4ff;
+      border-top: 3px solid transparent;
+      border-radius: 50%;
+      width: 40px;
+      height: 40px;
+      animation: spin 1s linear infinite;
+      margin: 0 auto 1rem;
+    }
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+    .error {
+      color: #ff6b6b;
+      margin-top: 1rem;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="spinner"></div>
+    <p>Processing Discord login...</p>
+    <div id="error" class="error" style="display:none;"></div>
+  </div>
+
+  <script>
+    async function handleCallback() {
+      const params = new URLSearchParams(window.location.search);
+      const code = params.get('code');
+      const error = params.get('error');
+
+      if (error) {
+        document.getElementById('error').textContent = 'Discord login failed: ' + error;
+        document.getElementById('error').style.display = 'block';
+        return;
+      }
+
+      if (!code) {
+        document.getElementById('error').textContent = 'No authorization code received.';
+        document.getElementById('error').style.display = 'block';
+        return;
+      }
+
+      try {
+        // Exchange code for token via backend
+        const response = await fetch('/api/dm/oauth-callback', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ code })
+        });
+
+        const data = await response.json();
+
+        if (data.error) {
+          document.getElementById('error').textContent = 'Authentication failed: ' + data.error;
+          document.getElementById('error').style.display = 'block';
+          return;
+        }
+
+        // Redirect back to form with callback params
+        const callbackUrl = window.location.href.split('?')[0].replace('dm-intake-callback.html', 'dm-intake.html');
+        window.location.href = callbackUrl + '?code=' + code;
+      } catch (err) {
+        document.getElementById('error').textContent = 'Network error: ' + err.message;
+        document.getElementById('error').style.display = 'block';
+      }
+    }
+
+    // Handle callback on page load
+    window.addEventListener('DOMContentLoaded', handleCallback);
+  </script>
+</body>
+</html>
