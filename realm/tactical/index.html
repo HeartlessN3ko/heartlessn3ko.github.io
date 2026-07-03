@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>SRX Tactical Registry</title>
+  <link rel="stylesheet" href="../styles.css">
+  <link rel="stylesheet" href="tactical.css">
+</head>
+<body class="tactical-page">
+  <header class="site-header">
+    <a class="brand" href="../"><span class="brand-sigil"></span><span class="brand-title brand-title-full">Shinra Robotics &amp; Xenogenetics</span></a>
+    <nav class="nav"><a href="../">Home Page</a><a href="../intake/">Application</a><a href="../lore/">SRX Information Archive</a><a class="active" href="./">Tactical Registry</a></nav>
+  </header>
+
+  <main class="section tactical-shell">
+    <div class="container">
+      <section class="tactical-hero">
+        <div><div class="kicker">Hard-Light Operations Registry</div><h1>Build the operative before the room fights back.</h1></div>
+        <p>Realm operatives and Arcade candidates use the same tactical laws. Identity, progression, and rewards remain separated until SRX Command authorizes a conversion.</p>
+      </section>
+      <div class="status-box" id="srx-alert" hidden></div>
+      <div class="identity-strip"><span>Identity anchor</span><strong data-discord-user>identity unverified</strong><button class="btn ghost" id="refresh">Refresh record</button></div>
+
+      <section class="registry-grid">
+        <article class="registry-panel" id="profile-panel">
+          <div class="panel-code">01 // ACTIVE RECORDS</div>
+          <h2>Tactical cards</h2>
+          <div id="profiles" class="card-stack"><p class="muted">Establishing secured relay…</p></div>
+        </article>
+
+        <article class="registry-panel">
+          <div class="panel-code">02 // PLAYER PROPOSAL</div>
+          <h2>Submit a class concept</h2>
+          <p class="muted">Describe the fantasy and limits. Command converts it into approved dice, effects, slots, and cooldowns.</p>
+          <form id="proposal-form">
+            <label>Play lane<select name="mode"><option value="realm">Realm // canon-linked</option><option value="arcade">Arcade // hosted campaign</option></select></label>
+            <label>Character name<input name="character_name" maxlength="100" required></label>
+            <label>Class identity and intended role<textarea name="concept" minlength="20" maxlength="12000" required placeholder="What should this character do well, and what should it cost them?"></textarea></label>
+            <label>Ability concepts <span class="hint">one per line</span><textarea name="abilities" required placeholder="Passive — …&#10;Basic — …&#10;Active — …&#10;Legendary — …"></textarea></label>
+            <label>Equipment and tool concepts<textarea name="equipment_notes" placeholder="Weapons, armor, gadgets, consumables, key tools…"></textarea></label>
+            <button class="btn" type="submit">Transmit proposal</button>
+          </form>
+          <div class="status-box" id="proposal-status">SRX COMMAND // Awaiting concept package.</div>
+        </article>
+      </section>
+
+      <section class="registry-panel command-panel" id="command-panel" hidden>
+        <div class="panel-code">COMMAND AUTHORITY // REVIEW QUEUE</div>
+        <div class="command-heading"><div><h2>Scale and publish tactical cards</h2><p class="muted">Only deterministic effect definitions are accepted. Published revisions never alter an active instance.</p></div><button class="btn ghost" id="load-queue">Reload queue</button></div>
+        <div id="command-queue" class="card-stack"></div>
+      </section>
+    </div>
+  </main>
+  <script src="../auth.js"></script>
+  <script src="tactical.js"></script>
+</body>
+</html>

@@ -126,7 +126,7 @@ function _showLoginGate() {
 
 function _startOAuth() {
   localStorage.removeItem(REALM_AUTH_KEY);
-  const nonce = _randomNonce();
+  const nonce = _randomNonce() + (location.pathname.includes('/tactical/') ? '.tactical' : '');
   sessionStorage.setItem('oauth_nonce', nonce);
   location.href = `${OAUTH_FN}?action=login&state=${encodeURIComponent(nonce)}`;
 }
