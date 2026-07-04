@@ -129,7 +129,7 @@
       summary: "Kantonia is an independent technological and military state on Cubax Island, built from the industrial and political legacy once identified with Valhalla City.", body: ["Valhalla City was recognized as an emerging technological power roughly twenty years ago. Its infrastructure emphasized automated systems, prototype weapons, stealth aircraft, nanotechnology, and heavily controlled military facilities.", "The modern Kantonian state remains independent of both Shinra and the RIA. Its relationship with SRX is strategic and allied, not subordinate.", "Its influence is visible through licensed manufacturing, export networks, and proving grounds beyond the capital region. Ferrow Yards and Drask Hollow demonstrate a state whose technology creates employment and reach while also placing local communities beside the risks of industrial testing.", "The C.O.S.C.O. mainframe supports grid control, vehicle materialization, satellite mapping, and automated Sentinel air patrols. This system is central to Kantonian infrastructure and security."], facts: [["Region", "Western Continent, Cubax Island"], ["Historic Center", "Valhalla City"], ["Current Executive", "Rephiam Congurion"], ["Identity", "Independent technological and military state"], ["Strategic Relationship", "SRX-allied"], ["Known External Sites", "Ferrow Yards and Drask Hollow"]], sections: [{title:"Military and Technology",paragraphs:["Valhalla's surviving record documents stealth aircraft, nanobot systems, experimental weapon development, automated security grids, and a military doctrine built around technological advantage and operational secrecy."],notes:["VA-314 stealth helicopters", "Advanced cloaking and nanobot systems", "C.O.S.C.O.-run grid infrastructure", "Automated Sentinel air patrols"]},{title:"Relations with Other Powers",paragraphs:["Kantonia maintains its own government, armed forces, and strategic priorities. Older connections to Valhalla-era covert networks do not describe its present policy under Rephiam Congurion.","Modern relations with SRX are allied. Historical ties to the RIA through Pernos Kail remain part of the record but do not place Kantonia under RIA authority."]}], highlights: ["Kantonia is treated as a major power in its own right, not an SRX dependency.", "Its old Valhalla history does not define its current alliances."], related: ["kantonia-frontier", "rephiam-congurion", "odinashi-ren", "pernos-kail", "continental-survey"], source: "data/srx_database/factions/VALHALLA_KANTONIA.md",
     },
     {
-      id: "silvermoon-city", directories: ["places", "history"], category: "places", title: "Silvermoon City", subtitle: "Elven sanctuary city of the eastern territories", classification: "Public Geographic Record", image: image("maps/region-map-of-terra.png", "Regional map locating the eastern territories of Terra."),
+      id: "silvermoon-city", directories: ["places", "history"], category: "places", title: "Silvermoon City", subtitle: "Elven sanctuary city of the eastern territories", classification: "Public Geographic Record", image: null, imageStatus: "No authenticated image specifically depicting Silvermoon City is currently assigned.",
       summary: "Silvermoon City is an elven cultural center whose sanctuary traditions shaped the Silveredge, Swiftwood, and Duskwood histories.", body: ["Hearth Law placed water and bread before questions of identity, allowing refugees and wanderers to recover before judgment.", "Silveredge Manor and Rei Swiftwood's tavern became important sites in the lives of people who later shaped SRX and RIA history."], facts: [["Region", "Eastern territories"], ["Culture", "Elven sanctuary tradition"], ["Historic House", "Silveredge"], ["Historic Refuge", "Rei's tavern"]], highlights: ["The city's history is larger than any one clan."], related: ["house-silveredge", "swiftwood-duskwood", "silveredge-manor", "eastern-territories"], source: "data/srx_database/locations/REGIONAL_ARCHIVE.md",
     },
     {
@@ -137,7 +137,7 @@
       summary: "Cerium City survived a catastrophic contamination of its food and water systems roughly fifteen to eighteen years ago.", body: ["The incident transformed civilians and forced a joint SRX-RIA containment operation. Agent Zero, Barron Nevermore, and Ayame/Xia Silveredge appear in the surviving response record.", "A nanobot cure and progressive zone clearing preserved the city. Lower Cerium retained its older network of clinics, informants, drainage routes, and black-market trade."], facts: [["Known Crisis", "Cerium bioweapon incident"], ["Relative Date", "Roughly 15-18 years ago"], ["Response", "Joint SRX-RIA operation"], ["Subdistrict", "Lower Cerium"]], highlights: ["Cerium is a living city, not only a disaster site."], related: ["lower-cerium", "ria", "srx", "ayame-silveredge"], source: "data/srx_database/locations/REGIONAL_ARCHIVE.md",
     },
     {
-      id: "junon-harbor", directories: ["places", "institutions"], category: "places", title: "Junon City and Harbor", subtitle: "Shinra's principal naval and cargo center", classification: "Public Geographic Record", image: image("maps/city-map-of-terra.png", "Public city and transit map of Terra."),
+      id: "junon-harbor", directories: ["places", "institutions"], category: "places", title: "Junon City and Harbor", subtitle: "Shinra's principal naval and cargo center", classification: "Public Geographic Record", image: null, imageStatus: "No authenticated image specifically depicting Junon City or its harbor is currently assigned.",
       summary: "Junon is a working naval city of cargo crews, weather offices, military lanes, and warning bells.", body: ["The harbor extends Midgar's reach across Terra through trade, vessel deployment, and coastal defense.", "Junon's reputation is functional rather than ornamental: ropes, ballast, engines, rain, and the disciplined movement of ships define the city."], facts: [["Authority", "Shinra naval administration"], ["Functions", "Naval operations and cargo trade"], ["Emergency System", "Harbor bell signals"], ["Strategic Role", "Kingdom maritime reach"]], highlights: ["Junon proves the Kingdom extends beyond Midgar."], related: ["midgar", "shinra-kingdom", "continental-survey"], source: "data/srx_database/locations/REGIONAL_ARCHIVE.md",
     },
     {
@@ -228,7 +228,7 @@
     source: "data/lore/core/world_lore.md; The Realm Historical Archive/History.txt"
   });
 
-  const legacyHouseIds = new Set(["house-silveredge", "house-swiftwood-duskwood", "house-darkblade", "house-darkhaven", "house-nightwind", "house-seisen", "dragonkin-rei-line", "raiku-makai-line"]);
+  const legacyHouseIds = new Set(["house-silveredge", "house-swiftwood-duskwood", "swiftwood-duskwood", "house-darkblade", "house-darkhaven", "house-nightwind", "house-seisen", "dragonkin-rei-line", "raiku-makai-line"]);
   window.SRX_PUBLIC_ARCHIVE.records = window.SRX_PUBLIC_ARCHIVE.records.filter((entry) => !legacyHouseIds.has(entry.id));
   window.SRX_PUBLIC_ARCHIVE.records.push({
     id: "legacy-houses-and-lineages", aliases: [...legacyHouseIds],
@@ -251,4 +251,32 @@
     related: ["silvermoon-city", "dragonskeep", "night-court", "grand-history-of-the-realm"],
     source: "data/srx_database/factions/LEGACY_HOUSES.md"
   });
+
+  // Exact-subject assets only. A record without a specific authenticated image
+  // remains unfilled rather than borrowing generic or merely adjacent artwork.
+  const exactImages = {
+    "dr-elara-voss": image("npc/Dr-elara-voss.png", "Official portrait of Dr. Elara Voss."),
+    "magnus-kade": image("npc/Magnus-Kade.png", "Official portrait of Magnus Kade."),
+    "kael-arcturus": image("npc/kael_arcturus.png", "Official portrait of Kael Arcturus."),
+    "jeanna-plumba-jeanna-pyrowolf": image("npc/jeanna-pyrowolf.png", "Official portrait of Jeanna Pyrowolf."),
+    "sera-halcyon": image("npc/sera-halcyon.png", "Official portrait of Sera Halcyon."),
+    "captain-rho-vantor": image("npc/Captain-Rho-Vantor.png", "Official portrait of Captain Rho Vantor."),
+    "weyr-of-dragonlords": image("locations/dragonskeep-cliffside.png", "Authenticated exterior view of DragonsKeep, seat of the Weyr.")
+  };
+  for (const record of window.SRX_PUBLIC_ARCHIVE.records) {
+    if (exactImages[record.id]) {
+      record.image = exactImages[record.id];
+      delete record.imageStatus;
+    }
+  }
+  const historicalCharacterImages = new Set([
+    "zoey-cinclaire", "lilith-nightwind-darkhaven", "barron-j-nevermore",
+    "chasiel-roelhaiphar", "meiori-nevermore", "meka-alyis", "nexa-rei"
+  ]);
+  for (const record of window.SRX_PUBLIC_ARCHIVE.records) {
+    if (historicalCharacterImages.has(record.id)) {
+      record.image = null;
+      record.imageStatus = "Historical reference images are retained internally. Public character art is pending a new Third Age AI-generated portrait.";
+    }
+  }
 })();
