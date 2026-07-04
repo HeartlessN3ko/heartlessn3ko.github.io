@@ -13,7 +13,7 @@ function noImage(status = "No authenticated public image is held for this record
 }
 
 window.SRX_PUBLIC_ARCHIVE = {
-  updated: "June 30, 2026",
+  updated: "July 4, 2026",
   currentEra: "3120 CE",
   directories: [
     {
@@ -292,7 +292,7 @@ window.SRX_PUBLIC_ARCHIVE = {
     {
       id: "tartan-crater",
       directories: ["places"], category: "places", title: "Tartan Crater", subtitle: "Known site of Terra's major Eternium deposit",
-      classification: "Controlled Geographic Summary", ...noImage("No current public survey image has been authenticated for unrestricted release."),
+      classification: "Controlled Geographic Summary", image: srxAsset("oracle/historical/08-battle-for-eternium-excavation.png", "Authenticated excavation image associated with the Eternium conflict zone."),
       summary: "Tartan Crater lies within Tartanalia and contains the only confirmed major deposit of Eternium known to modern SRX records.",
       body: [
         "Eternium forms where sustained magical activity alters the surrounding environment over thousands of years. Tartanalia's long Lunarian history produced the conditions required for the deposit beneath the crater.",
@@ -358,7 +358,7 @@ window.SRX_PUBLIC_ARCHIVE = {
     {
       id: "ria",
       directories: ["institutions"], category: "institutions", title: "Realm Inspection Agency", subtitle: "Sovereign agency headquartered in Cameron City",
-      classification: "Foreign Institutional Assessment", ...noImage(),
+      classification: "Foreign Institutional Assessment", image: srxAsset("institutions/ria-logo.jpg", "Historic emblem of the Realm Inspection Agency."),
       summary: "The Realm Inspection Agency is a sovereign security and research power founded to prevent conquest by transnational threats.",
       body: [
         "SRX records identify Barron J. Nevermore as the founder of the RIA after the destruction of the organization known as the Alliance. Pernos Kail appears elsewhere in the historical record, but SRX does not identify him as an RIA founder.",

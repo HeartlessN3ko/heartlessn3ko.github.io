@@ -1,5 +1,5 @@
 function recordById(id) {
-  return window.SRX_PUBLIC_ARCHIVE.records.find((record) => record.id === id);
+  return window.SRX_PUBLIC_ARCHIVE.records.find((record) => record.id === id || (record.aliases || []).includes(id));
 }
 
 function recordMedia(record) {
