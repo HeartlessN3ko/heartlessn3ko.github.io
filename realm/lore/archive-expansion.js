@@ -261,6 +261,7 @@
     "jeanna-plumba-jeanna-pyrowolf": image("npc/jeanna-pyrowolf.png", "Official portrait of Jeanna Pyrowolf."),
     "sera-halcyon": image("npc/sera-halcyon.png", "Official portrait of Sera Halcyon."),
     "captain-rho-vantor": image("npc/Captain-Rho-Vantor.png", "Official portrait of Captain Rho Vantor."),
+    "dragonskeep-gala": image("oracle/historical/dragonskeep-gala.png", "Authenticated group record from the DragonsKeep Gala."),
     "weyr-of-dragonlords": image("locations/dragonskeep-cliffside.png", "Authenticated exterior view of DragonsKeep, seat of the Weyr.")
   };
   for (const record of window.SRX_PUBLIC_ARCHIVE.records) {
@@ -270,8 +271,7 @@
     }
   }
   const historicalCharacterImages = new Set([
-    "zoey-cinclaire", "lilith-nightwind-darkhaven", "barron-j-nevermore",
-    "chasiel-roelhaiphar", "meiori-nevermore", "meka-alyis", "nexa-rei"
+    "zoey-cinclaire", "lilith-nightwind-darkhaven"
   ]);
   for (const record of window.SRX_PUBLIC_ARCHIVE.records) {
     if (historicalCharacterImages.has(record.id)) {
