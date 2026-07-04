@@ -3390,7 +3390,7 @@
       {
         "title": "PUBLIC HISTORY",
         "paragraphs": [
-          "Barron Nevermore entered Realm history before SRX existed. After helping destroy the conquest-minded organization known as the Alliance, he and Pernos Kail established the Realm Inspection Agency as a permanent response to powers capable of overrunning cities, governments, and dimensional settlements.",
+          "As far as SRX records show, Barron Nevermore entered Realm history before SRX existed and established the Realm Inspection Agency after helping destroy the conquest-minded Alliance. Pernos Kail appears in related historical records, but SRX does not identify him as an RIA founder.",
           "More than forty years ago, Nevermore's confrontations with a young Sephiroth Raiku helped define the rivalry from which SRX emerged. The struggle became institutional, and the two organizations fought openly and covertly for roughly a decade. Neither side achieved a clean victory. The destruction instead forced both commanders toward negotiation.",
           "More than thirty years ago, Nevermore signed the Treaty of Ceasefire for the RIA. The treaty ended the SRX-RIA war, recognized both organizations as sovereign powers, and created the guarded peace that still shapes relations between Midgar and Cameron City."
         ],
@@ -3425,7 +3425,7 @@
           ],
           [
             "Historic Co-Founder",
-            "Pernos Kail"
+            "Not independently verified"
           ],
           [
             "Treaty Counterpart",
@@ -3445,7 +3445,7 @@
       {
         "title": "CURRENT STATUS",
         "paragraphs": [
-          "SRX has received no verified direct contact from Barron Nevermore for approximately fifteen years. He has largely vanished from public life. No authenticated death notice, succession declaration, or confirmed remains are held in the destination archive.",
+          "As far as SRX knows, no verified direct contact has been received from Barron Nevermore for approximately fifteen years. This describes the limits of SRX intelligence, not Barron's definitive status or continuing story. No authenticated death notice, succession declaration, or confirmed remains are held in the destination archive.",
           "The RIA continues to operate across Cameron City and its wider sphere of influence. SRX does not infer Nevermore's location, present duties, or private circumstances from the continued activity of the institution he founded."
         ],
         "facts": [],
@@ -3978,8 +3978,8 @@
       {
         "title": "PUBLIC HISTORY",
         "paragraphs": [
-          "Pernos Kail was one of the architects of the Realm Inspection Agency and an old political power in his own right. His record joins royal authority, military organization, and the adaptive diplomacy that earned him the name \"The Fox.\"",
-          "Alongside Barron Nevermore, Kail helped establish the RIA after the fall of the Alliance. Later records place him in the transition from Ixen Narod to Valhalla's political order and connect him to the military power that eventually became associated with Kantonia."
+          "Pernos Kail appears in SRX's surviving archive as an old political power in his own right. The incomplete record joins royal authority, military organization, and the adaptive diplomacy that earned him the name \"The Fox.\"",
+          "SRX records place Kail near figures associated with the RIA and later in the transition from Ixen Narod to Valhalla's political order. They do not establish that he founded or helped establish the RIA, and they should not be read as defining his current story."
         ],
         "facts": [],
         "notes": []

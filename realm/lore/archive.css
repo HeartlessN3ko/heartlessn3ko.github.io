@@ -643,3 +643,4 @@
   .archive-featured-section { padding-top: 34px; }
   .archive-featured-record.primary .archive-record-thumb { height: 300px; }
 }
+.archive-intelligence-notice{display:grid;gap:.35rem;margin:1rem 0 1.5rem;padding:.85rem 1rem;border:1px solid rgba(99,210,255,.32);background:rgba(8,22,31,.72);color:var(--muted,#a9bbc4);font-size:.82rem;line-height:1.55}.archive-intelligence-notice strong{color:var(--cyan,#63d2ff);font-size:.68rem;letter-spacing:.16em}.archive-intelligence-notice span{max-width:78ch}

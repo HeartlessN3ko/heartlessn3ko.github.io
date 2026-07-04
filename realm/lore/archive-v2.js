@@ -361,12 +361,12 @@ window.SRX_PUBLIC_ARCHIVE = {
       classification: "Foreign Institutional Assessment", ...noImage(),
       summary: "The Realm Inspection Agency is a sovereign security and research power founded to prevent conquest by transnational threats.",
       body: [
-        "The RIA was founded by Barron J. Nevermore and Pernos Kail after the destruction of the organization known as the Alliance. Its established departments include technology, medicine, military operations, and espionage.",
+        "SRX records identify Barron J. Nevermore as the founder of the RIA after the destruction of the organization known as the Alliance. Pernos Kail appears elsewhere in the historical record, but SRX does not identify him as an RIA founder.",
         "The agency became the dominant organized power of its period and later fought a ten-year war with SRX. The Treaty of Ceasefire ended open conflict in 3088 CE.",
-        "The RIA remains active under Barron Nevermore from Cameron City. It is neither subordinate to Shinra nor designated an active enemy under the present treaty.",
+        "As far as SRX knows, the RIA remains active in Cameron City. SRX has not verified Barron Nevermore's present office, location, activities, or private circumstances.",
       ],
-      facts: [["Founded By", "Barron Nevermore and Pernos Kail"], ["Headquarters", "Cameron City"], ["Current Head", "Barron J. Nevermore"], ["Relation to Shinra", "Sovereign ceasefire partner"]],
-      highlights: ["The RIA predates SRX's rise to state power.", "The 3088 CE treaty remains in force.", "Internal RIA capabilities are not represented as confirmed fact without independent verification."],
+      facts: [["Founder in SRX Records", "Barron J. Nevermore"], ["Headquarters", "Cameron City"], ["Current Leadership", "Unverified by SRX"], ["Relation to Shinra", "Sovereign ceasefire partner"]],
+      highlights: ["The RIA predates SRX's rise to state power.", "The 3088 CE treaty remains in force.", "This is an incomplete SRX intelligence record, not authority over Barron or any legacy character's continuing story."],
       related: ["cameron-city", "treaty-of-ceasefire", "srx"], source: "data/srx_database/factions/RIA.md",
     },
     {

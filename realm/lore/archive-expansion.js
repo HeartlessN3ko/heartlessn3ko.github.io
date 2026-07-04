@@ -10,16 +10,16 @@
       classification: "Foreign Institutional Assessment", image: null, imageStatus: unavailable,
       summary: "The Realm Inspection Agency predates SRX and remains one of Terra's principal military, intelligence, and research powers.",
       body: [
-        "Barron J. Nevermore and Pernos Kail founded the RIA after the fall of the Alliance. Its original purpose was to prevent another organization from acquiring enough power to dominate the Realm.",
+        "SRX records identify Barron J. Nevermore as the founder of the RIA after the fall of the Alliance. Pernos Kail appears in later historical records as a prominent ally and political figure, but SRX does not identify him as an RIA founder.",
         "More than forty years ago, conflict between the RIA and the emerging SRX developed into a decade of war. The Treaty of Ceasefire, signed more than thirty years ago, recognized both institutions and ended open hostilities.",
         "RIA influence extends beyond Cameron City through garrisons, training grounds, logistics posts, trade arrangements, and intelligence stations. Communities within that reach describe the agency as protector, occupier, employer, regulator, or all four at once.",
       ],
-      facts: [["Founded By", "Barron J. Nevermore and Pernos Kail"], ["Headquarters", "Cameron City"], ["Institutional Status", "Active sovereign power"], ["Barron Nevermore", "Out of public view and direct SRX contact for approximately 15 years"], ["Treaty Status", "Ceasefire remains in force"]],
+      facts: [["Founder in SRX Records", "Barron J. Nevermore"], ["Headquarters", "Cameron City"], ["Institutional Status", "Active sovereign power"], ["Barron Nevermore", "Out of public view and direct SRX contact for approximately 15 years"], ["Treaty Status", "Ceasefire remains in force"]],
       sections: [
         { title: "Public Doctrine", paragraphs: ["RIA presents itself as a counterweight against conquest, uncontrolled weapons, and threats capable of overrunning local governments. Its critics point to checkpoints, tariffs, surveillance, and security arrangements that can look indistinguishable from political control."], notes: ["RIA is not subordinate to Shinra.", "Continued agency activity does not prove Barron Nevermore's current location or command role."] },
         { title: "Known Reach", paragraphs: ["The strongest documented RIA presence remains on the Wasteland Continent. Ashford Crossing, Redline Basin, Harrow's Landing, Rhydwen Post, and Whitmoor demonstrate that its logistical and intelligence network reaches beyond the capital."], facts: [["Capital", "Cameron City"], ["Training Center", "Redline Basin"], ["Trade Sphere", "Harrow's Landing"], ["Distant Outposts", "Rhydwen Post and Whitmoor"]] },
       ],
-      highlights: ["RIA remains active; Barron's present status is separate and unverified.", "The agency is treated as a sovereign counterpart, not a defeated enemy.", "Public opinion varies sharply by region."],
+      highlights: ["As far as SRX knows, the RIA remains active; Barron's present status is separate and unverified.", "This archive records SRX's limited knowledge and does not define Barron or any legacy character's current story.", "The agency is treated as a sovereign counterpart, not a defeated enemy."],
       related: ["barron-j-nevermore", "pernos-kail", "cameron-city", "treaty-of-ceasefire", "srx"], source: "data/srx_database/factions/RIA.md",
     },
     {

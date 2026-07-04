@@ -34,6 +34,7 @@ function initRecord() {
   const notes = record.highlights.map((note) => `<li>${note}</li>`).join("");
   const related = record.related.map(recordById).filter(Boolean).map((item) => `<a href="?id=${encodeURIComponent(item.id)}">${item.title}</a>`).join("");
   mount.innerHTML = `<nav class="record-breadcrumb"><a href="../">SRX Information Archive</a><span>/</span><span>${record.title}</span></nav>
+    <aside class="archive-intelligence-notice"><strong>SRX RECORD LIMITS</strong><span>Legacy personnel entries describe what SRX currently knows from incomplete historical files. They do not define a character's present status, private motives, or continuing story.</span></aside>
     <header class="record-header"><div><span>${record.classification}</span><h1>${record.title}</h1><p>${record.subtitle}</p></div><div class="record-code">SRX-PA-${record.id.toUpperCase()}</div></header>
     <div class="record-layout"><div>${recordMedia(record)}</div><article class="record-copy"><p class="record-summary">${record.summary}</p><div class="archive-facts">${facts}</div>${body}${sections}<section><h2>Archive Notes</h2><ul>${notes}</ul></section></article></div>
     <section class="record-related"><h2>Related Records</h2><div>${related || "No related public records."}</div></section>`;
