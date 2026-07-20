@@ -335,7 +335,7 @@
     document.getElementById('btn-oauth').addEventListener('click', () => {
       // Discord OAuth configuration
       const DISCORD_CLIENT_ID = '1234567890123456789'; // REPLACE WITH YOUR BOT CLIENT ID
-      const REDIRECT_URI = encodeURIComponent(window.location.origin + '/realm/dm-intake-callback.html');
+      const REDIRECT_URI = encodeURIComponent(window.location.origin + '/dm-intake-callback.html');
       const SCOPE = 'identify%20guilds.join';
       const STATE = generateRandomString(16); // CSRF protection
 
