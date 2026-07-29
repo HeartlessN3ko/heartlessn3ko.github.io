@@ -62,4 +62,12 @@
     button.textContent = '♥ Love this';
     card.append(button);
   });
+
+  document.querySelectorAll('footer').forEach((footer) => {
+    if (footer.querySelector('.social-links')) return;
+    const socialLinks = document.createElement('div');
+    socialLinks.className = 'social-links';
+    socialLinks.innerHTML = '<a href="https://www.tiktok.com/@HeartlessN3ko" rel="me external">♪ @HeartlessN3ko</a><a href="https://www.instagram.com/HeartlessN3ko" rel="me external">◎ @HeartlessN3ko</a><a href="https://www.youtube.com/@ChaosDesigned" rel="me external">▷ @ChaosDesigned</a><a href="/blog/feed.xml">RSS</a>';
+    footer.prepend(socialLinks);
+  });
 })();

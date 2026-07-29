@@ -68,6 +68,12 @@ main { width: min(100% - 40px, 1040px); margin: 0 auto; }
 .side-nav a.active, .side-nav a:hover { border-color: var(--divider); background: var(--surface); color: var(--text); }
 .side-nav span { opacity: .65; }
 .nav-symbol { width: 16px; color: var(--gold); text-align: center; }
+.follow-strip { display: flex; align-items: center; justify-content: space-between; gap: 20px; margin-top: 32px; padding: 22px 25px; border: 1px solid var(--divider); border-radius: 18px; background: var(--surface); box-shadow: var(--card-shadow); }
+.follow-strip h2 { margin: 0; font-size: 18px; letter-spacing: -.03em; }
+.follow-strip p { margin: 3px 0 0; color: var(--text-muted); font-size: 13px; }
+.follow-actions { display: flex; flex-wrap: wrap; gap: 8px; justify-content: flex-end; }
+.follow-actions a { padding: 7px 10px; border: 1px solid var(--divider); border-radius: 999px; color: var(--text); font-size: 12px; font-weight: 600; text-decoration: none; }
+.follow-actions a:hover { border-color: var(--pink); color: var(--pink); }
 
 .article-page { width: min(100% - 40px, 680px); padding: 34px 0 56px; }
 .back-link { display: inline-flex; align-items: center; gap: 7px; margin-bottom: 18px; color: var(--text-muted); font-size: 13px; text-decoration: none; }
@@ -99,5 +105,5 @@ footer { width: min(100% - 40px, 780px); margin: 0 auto; padding: 23px 0 38px; b
 footer p { margin: 0; }
 
 @keyframes fade-up { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
-@media (max-width: 720px) { .site-header { padding: 15px 0; } .site-header nav a { display: none; } .hero { align-items: flex-start; flex-direction: column; padding: 25px; } .hero-photo { width: 105px; height: 105px; flex-basis: 105px; } .home-grid { grid-template-columns: 1fr; } .sidebar { position: static; } .side-nav { grid-template-columns: repeat(2, minmax(0, 1fr)); } .article-card { padding: 31px 25px; } }
+@media (max-width: 720px) { .site-header { padding: 15px 0; } .site-header nav a { display: none; } .hero { align-items: flex-start; flex-direction: column; padding: 25px; } .hero-photo { width: 105px; height: 105px; flex-basis: 105px; } .home-grid { grid-template-columns: 1fr; } .sidebar { position: static; } .side-nav { grid-template-columns: repeat(2, minmax(0, 1fr)); } .follow-strip { align-items: flex-start; flex-direction: column; } .follow-actions { justify-content: flex-start; } .article-card { padding: 31px 25px; } }
 @media (max-width: 420px) { .site-header, main, footer { width: min(100% - 28px, 1040px); } .masthead { font-size: 15px; } .hero { padding: 21px; } .post-card { padding: 21px; } .post-card-meta { align-items: flex-start; flex-direction: column; gap: 6px; } }

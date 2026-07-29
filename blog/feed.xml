@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0">
+  <channel>
+    <title>Life of Skye</title>
+    <link>https://srxnexus.org/blog/</link>
+    <description>Researched opinions and observational commentary from Skye Vernon.</description>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 28 Jul 2026 00:00:00 -0700</lastBuildDate>
+    <item>
+      <title>Downtown Portland Doesn't Have a Destination Problem. It Has a Journey Problem.</title>
+      <link>https://srxnexus.org/blog/articles/downtown-portland-has-a-journey-problem/</link>
+      <guid isPermaLink="true">https://srxnexus.org/blog/articles/downtown-portland-has-a-journey-problem/</guid>
+      <pubDate>Tue, 28 Jul 2026 00:00:00 -0700</pubDate>
+      <description>Downtown has places worth visiting. The problem is how difficult Portland makes it to arrive, move around, stay, and get home.</description>
+    </item>
+    <item>
+      <title>A Place for Arguments With Receipts</title>
+      <link>https://srxnexus.org/blog/articles/a-place-for-arguments-with-receipts/</link>
+      <guid isPermaLink="true">https://srxnexus.org/blog/articles/a-place-for-arguments-with-receipts/</guid>
+      <pubDate>Tue, 28 Jul 2026 00:00:00 -0700</pubDate>
+      <description>An opening note on making researched arguments that readers can examine and discuss.</description>
+    </item>
+  </channel>
+</rss>
