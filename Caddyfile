@@ -15,6 +15,15 @@
     file_server
   }
 
+  # Railway's current plan has no additional custom-domain slot. Keep the
+  # independent publication available from the main domain in the meantime.
+  @publicationPath path /blog
+  redir @publicationPath /blog/
+  handle_path /blog/* {
+    root * /srv/blog
+    file_server
+  }
+
   # The Realm site used to live below /realm on GitHub Pages. Its files are
   # now the public root of srxnexus.org.
   handle {
