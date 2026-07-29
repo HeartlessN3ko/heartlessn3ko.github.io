@@ -33,7 +33,9 @@
 - Add the article under `articles/<lowercase-hyphenated-slug>/index.html`,
   then add its card at the top of `index.html`.
 - Include a byline, publication date, short dek, and source links near the
-  claims they support. Update `PUBLISHING.md` if the workflow changes.
+  claims they support. Use the `author-byline` markup with Skye’s portrait
+  beside her name, matching existing published articles. Update
+  `PUBLISHING.md` if the workflow changes.
 - Run `git diff --check`, verify internal `/blog/` links, commit, push `main`,
   wait for Railway, and verify the public page before reporting the work
   complete.

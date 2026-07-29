@@ -45,6 +45,8 @@ footer p { margin: 0; }
 .article h1 { font-size: clamp(2.35rem, 6vw, 4.5rem); }
 .dek { margin: 21px 0 0; color: #3c4851; font: 1.22rem/1.55 var(--serif); }
 .byline { margin: 25px 0 0; color: var(--muted); font-size: .9rem; }
+.author-byline { display: inline-flex; align-items: center; gap: .5rem; color: var(--ink); font-weight: 700; }
+.author-byline img { width: 2rem; height: 2rem; border: 1px solid var(--line); border-radius: 50%; object-fit: cover; object-position: center top; }
 .article-content { font: 1.14rem/1.78 var(--serif); }
 .article-content h2 { margin: 2.2em 0 .55em; font-size: 1.75rem; }
 .article-content p { margin: 0 0 1.3em; }
