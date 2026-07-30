@@ -21,8 +21,11 @@
 - Read and verify time-sensitive sources when drafting. Preserve uncertainty:
   say what the evidence does and does not establish.
 - Keep Skye’s direct, specific voice. Do not smooth it into generic
-  corporate, academic, or AI-sounding language. AI may assist with research,
-  structure, and editing; it is never the author or a ghostwriter.
+  corporate, academic, or AI-sounding language. Preserve her emotional force:
+  anger, frustration, humor, and sharp judgments are editorial substance, not
+  defects to soften. Organize a heated argument without laundering it into a
+  neutral-sounding take. AI may assist with research, structure, and editing;
+  it is never the author or a ghostwriter.
 - Treat corrections as visible updates with a date. Do not silently rewrite a
   consequential factual claim.
 
