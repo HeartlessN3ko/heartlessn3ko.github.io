@@ -1,5 +1,8 @@
 # Publishing a new article
 
+Read `VOICE_GUIDE.md` before turning Skye's source text into a draft. Preserve
+the original source and run the guide's final voice audit before publication.
+
 1. Copy `articles/a-place-for-arguments-with-receipts/index.html` into a new
    lowercase, hyphenated folder under `articles/`.
 2. Update the page title, description, date, byline, eyebrow, heading, dek,

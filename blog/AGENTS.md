@@ -1,5 +1,8 @@
 # Blog editorial rules
 
+Before drafting or revising any article from Skye's notes, read and follow
+`VOICE_GUIDE.md`. It is the controlling guide for preserving her voice.
+
 ## Publication and author
 
 - This is Skye Vernon’s independent publication. Credit published articles as
@@ -39,6 +42,8 @@
   claims they support. Use the `author-byline` markup with Skye’s portrait
   beside her name, matching existing published articles. Update
   `PUBLISHING.md` if the workflow changes.
+- Run the final voice audit in `VOICE_GUIDE.md` before presenting a draft and
+  again before publishing an approved revision.
 - Run `git diff --check`, verify internal `/blog/` links, commit, push `main`,
   wait for Railway, and verify the public page before reporting the work
   complete.
