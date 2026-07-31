@@ -51,16 +51,47 @@
   document.querySelectorAll('.article-page').forEach((page) => {
     const articleHeader = page.querySelector(':scope > .article-header');
     const content = page.querySelector(':scope > .article-content');
-    if (!articleHeader || !content) return;
-    const card = document.createElement('article');
-    card.className = 'article-card';
-    page.insertBefore(card, articleHeader);
-    card.append(articleHeader, content);
-    const button = document.createElement('span');
-    button.className = 'love-button';
-    button.setAttribute('aria-label', 'Love this article');
-    button.textContent = '♥ Love this';
-    card.append(button);
+    if (articleHeader && content) {
+      const card = document.createElement('article');
+      card.className = 'article-card';
+      page.insertBefore(card, articleHeader);
+      card.append(articleHeader, content);
+      const button = document.createElement('span');
+      button.className = 'love-button';
+      button.setAttribute('aria-label', 'Love this article');
+      button.textContent = '♥ Love this';
+      card.append(button);
+    }
+
+    const match = window.location.pathname.match(/\/blog\/articles\/([a-z0-9-]+)\/?$/);
+    if (!match || page.querySelector('[data-comments-root]')) return;
+
+    const comments = document.createElement('section');
+    comments.className = 'comments-section';
+    comments.dataset.commentsRoot = '';
+    comments.dataset.articleSlug = match[1];
+    comments.setAttribute('aria-labelledby', 'comments-heading');
+    comments.innerHTML = [
+      '<div class="comments-heading-row">',
+      '  <div>',
+      '    <p class="comments-kicker">Reader discussion</p>',
+      '    <h2 id="comments-heading">Join the conversation</h2>',
+      '  </div>',
+      '  <span class="comment-count" data-comment-count aria-live="polite">Loading...</span>',
+      '</div>',
+      '<p class="comments-intro">Challenge the argument, add evidence, or bring another angle. Critique ideas, not people.</p>',
+      '<div class="comments-loading" data-comments-loading role="status">Loading comments...</div>',
+      '<div data-comments-app hidden></div>'
+    ].join('');
+    page.append(comments);
+
+    if (!document.querySelector('script[data-comments-script]')) {
+      const script = document.createElement('script');
+      script.src = '/blog/comments.js';
+      script.defer = true;
+      script.dataset.commentsScript = '';
+      document.head.append(script);
+    }
   });
 
   document.querySelectorAll('footer').forEach((footer) => {

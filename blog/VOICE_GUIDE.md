@@ -114,6 +114,38 @@ AI often writes a punch line where Skye gave a mechanism. Keep the mechanism.
 The explanation of what happens before and after a viral post is more valuable
 than a clever sentence declaring what virality is.
 
+## Watch the rhythm, not only the vocabulary
+
+AI accent can survive after the obvious words are removed. A draft may use
+Skye's vocabulary and still sound generated because every sentence has been
+balanced, catalogued, and polished into the same workshopped rhythm.
+
+During revision, look specifically for:
+
+- Antithesis added by the editor: "not X, but Y," "X is one thing; Y is
+  another," or "it is not that A; it is B." If Skye did not frame the thought
+  that way, state the accusation directly.
+- Suspiciously tidy lists. AI gravitates toward three examples and clean,
+  escalating catalogs. Keep the number and disorder of examples in Skye's
+  source. When research adds examples, choose what is necessary rather than
+  what creates a satisfying rhythm.
+- A mic-drop sentence at the end of every paragraph. Do not manufacture a
+  quotable fragment simply because the paragraph appears to need a closer.
+  Some paragraphs can run into the next thought, stop awkwardly, repeat
+  themselves, or end on the concrete example.
+- Perfectly symmetrical concessions such as "It does not need to be
+  expensive, but it does need to be polished." Real speech is often more
+  lopsided. Keep Skye's actual emphasis instead of balancing both sides.
+- Sweeping "more than ever," "everyone," "nobody," and "the possibilities are
+  endless" claims. Source them, narrow them to observation, or remove them.
+- An overly regular short-long-short cadence. Read several paragraphs
+  together. Preserve run-ons, asides, fragments, abrupt turns, profanity, and
+  deliberate repetition when they belong to Skye.
+
+Do not mechanically ban every contrast, list, or short sentence. Skye uses
+some of them naturally. The test is provenance: did the shape come from her
+source, or did the editor manufacture it while "tightening" the draft?
+
 ## Do not add generic examples
 
 Use examples Skye gave. Do not invent demographic niches, hypothetical fans,
@@ -176,6 +208,11 @@ Before presenting or publishing an article, ask:
 
 - Does this sound as angry, amused, hurt, or excited as the source?
 - Did I replace any of Skye's explanations with a tidy slogan?
+- Did I add a "not X, but Y" reversal that was absent from her source?
+- Did I turn messy examples into a suspiciously neat list or rule of three?
+- Are too many paragraphs ending with polished mic-drop fragments?
+- Did I balance a sentence so perfectly that it stopped sounding spoken?
+- Did I add an unsupported absolute or "more than ever" claim?
 - Did I invent a pull quote?
 - Did I add examples, niches, numbers, or metaphors she never supplied?
 - Does the piece read as one developing thought or as a list of content cards?

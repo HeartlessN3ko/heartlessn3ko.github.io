@@ -1,0 +1,17 @@
+name = "life-of-skye-comments"
+main = "src/index.js"
+compatibility_date = "2026-07-30"
+workers_dev = true
+
+[vars]
+ALLOWED_ORIGINS = "https://srxnexus.org,https://www.srxnexus.org"
+TURNSTILE_SITE_KEY = "0x4AAAAAAECSrrzYFMPVFslJ"
+
+[[d1_databases]]
+binding = "DB"
+database_name = "life-of-skye-comments"
+database_id = "4be47891-3a38-4f7f-bd2f-b92a5a14bef7"
+
+[[routes]]
+pattern = "comments.srxnexus.org"
+custom_domain = true

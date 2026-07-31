@@ -16,6 +16,22 @@ the original source and run the guide's final voice audit before publication.
 5. Test the article locally, then commit and push it. The Railway service will
    deploy the repository automatically.
 
+## Reader comments
+
+Every URL under `articles/<slug>/` receives the first-party discussion section
+from `site.js` and `comments.js`; article files do not need to duplicate that
+markup. The browser sends comment requests to `https://comments.srxnexus.org`.
+
+The backend lives in `comments-worker/` and uses Cloudflare Workers, D1, and
+Turnstile. It stores display names and comment text, but never raw IP addresses
+or email addresses. A daily one-way network fingerprint exists only for spam
+limits and duplicate-report prevention.
+
+Moderation is available at `https://comments.srxnexus.org/moderate`. The
+moderation key is a Cloudflare Worker secret and must never be committed.
+Author replies created there are published as `Skye Vernon` with an Author
+badge.
+
 ## When the permanent title is chosen
 
 Replace `Independent Research & Commentary` and the working description in the
