@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Article Video Studio · Life of Skye</title>
+  <link rel="stylesheet" href="/static/app.css">
+  <script src="/static/app.js" defer></script>
+</head>
+<body>
+  <header class="site-header">
+    <div><span class="heart">♥</span><span class="brand">Life of Skye</span><span class="product">Article Video Studio</span></div>
+    <span class="private-pill">Private · local only</span>
+  </header>
+  <main>
+    <section class="intro">
+      <p class="eyebrow">ARTICLE → 60-SECOND VIDEO</p>
+      <h1>Keep the argument. Cut the reading time.</h1>
+      <p>Choose a published article, review the five-part narration, and export a vertical video with real quotations, highlights, captions, and your blog link.</p>
+    </section>
+
+    <section class="panel setup-panel">
+      <div class="field article-field">
+        <label for="article-select">Published article</label>
+        <select id="article-select"><option>Loading articles…</option></select>
+        <a id="article-link" href="#" target="_blank" rel="noreferrer">Open full article ↗</a>
+      </div>
+      <div class="field voice-field">
+        <label for="voice-select">Temporary narration voice</label>
+        <div class="voice-row">
+          <select id="voice-select" disabled><option>Checking Voicebox…</option></select>
+          <button id="start-voicebox" class="secondary" type="button" hidden>Start Voicebox</button>
+        </div>
+        <p id="voice-status" class="status-line">Checking the local Voicebox API…</p>
+      </div>
+    </section>
+
+    <section id="warning-box" class="warning" hidden></section>
+
+    <section class="workflow-heading">
+      <div>
+        <p class="eyebrow">YOUR 60-SECOND ARC</p>
+        <h2>Five beats, each tied to the article</h2>
+      </div>
+      <div class="meter"><strong id="word-count">0 words</strong><span id="time-estimate">about 0 seconds</span></div>
+    </section>
+
+    <section id="segments" class="segments" aria-live="polite"></section>
+
+    <section class="panel export-panel">
+      <label class="approval"><input id="approved" type="checkbox"><span>I reviewed the narration, opposition, quotations, and highlighted words. This is the version I want rendered.</span></label>
+      <div class="disclosure">
+        <strong>Before posting:</strong> turn on TikTok’s “AI-generated content” label for synthetic narration. The exported caption also discloses Voicebox narration.
+      </div>
+      <button id="export-button" class="primary" type="button" disabled>Generate 60-second MP4</button>
+      <p class="fine-print">Voicebox is running on CPU. A full narration may take 6–10 minutes. Nothing is uploaded automatically.</p>
+    </section>
+
+    <section id="job-panel" class="panel job-panel" hidden aria-live="polite">
+      <div class="job-copy"><strong id="job-message">Preparing export…</strong><span id="job-percent">0%</span></div>
+      <div class="progress-track"><span id="job-progress"></span></div>
+      <p id="job-error" class="job-error" hidden></p>
+      <div id="downloads" class="downloads" hidden></div>
+    </section>
+
+    <section id="recent-panel" class="recent-panel" hidden>
+      <p class="eyebrow">RECENT LOCAL EXPORTS</p>
+      <div id="recent-exports" class="recent-exports"></div>
+    </section>
+  </main>
+  <footer>Local creator tool for Skye Vernon · It exports files; it never posts them.</footer>
+</body>
+</html>
