@@ -111,7 +111,14 @@ def _draw_highlighted_quote(
         x += token_width
 
 
-def render_scene(article: dict, segment: dict, index: int, destination: Path, portrait_path: Path) -> None:
+def render_scene(
+    article: dict,
+    segment: dict,
+    index: int,
+    destination: Path,
+    portrait_path: Path,
+    total_scenes: int = 5,
+) -> None:
     image = Image.new("RGB", (WIDTH, HEIGHT), BG)
     glow = Image.new("RGBA", image.size, (0, 0, 0, 0))
     glow_draw = ImageDraw.Draw(glow)
@@ -123,7 +130,7 @@ def render_scene(article: dict, segment: dict, index: int, destination: Path, po
 
     draw.text((72, 62), "♥", font=_font("bold", 31), fill=PINK)
     draw.text((112, 65), "LIFE OF SKYE", font=_font("bold", 27), fill=TEXT)
-    draw.text((WIDTH - 175, 67), f"{index + 1} / 5", font=_font("bold", 25), fill=MUTED)
+    draw.text((WIDTH - 190, 67), f"{index + 1} / {total_scenes}", font=_font("bold", 25), fill=MUTED)
 
     draw.rounded_rectangle((66, 145, 960, 276), radius=30, fill=SURFACE, outline="#372b3c", width=2)
     draw.text((100, 174), segment["kind"], font=_font("bold", 27), fill=PINK)
@@ -225,6 +232,7 @@ def render_video(
     *,
     article: dict,
     segments: list[dict],
+    visuals: list[dict],
     audio_files: list[Path],
     output_dir: Path,
     portrait_path: Path,
@@ -248,29 +256,33 @@ def render_video(
     padding = max(0.0, 60.0 - spoken_total)
 
     scene_files = []
-    for index, segment in enumerate(segments):
-        update(68 + index * 3, f"Building highlighted article scene {index + 1} of {len(segments)}")
+    for index, visual in enumerate(visuals):
+        segment = segments[visual["segment_index"]]
+        scene_data = {"kind": segment["kind"], **visual}
+        update(68 + int(index * 12 / len(visuals)), f"Building source quote {index + 1} of {len(visuals)}")
         scene = output_dir / f"scene-{index + 1}.png"
-        render_scene(article, segment, index, scene, portrait_path)
+        render_scene(article, scene_data, index, scene, portrait_path, len(visuals))
         scene_files.append(scene)
 
+    segment_durations = [duration / speed + (padding if index == len(segments) - 1 else 0.35) for index, duration in enumerate(raw_durations)]
+    # Keep visual pacing consistent even when a spoken beat is much longer than
+    # another. The ordered cut list still tracks the argument, but no quote is
+    # allowed to sit onscreen for an entire long narration block.
+    shot_durations = [60.0 / len(visuals)] * len(visuals)
+
     clip_files = []
-    for index, (scene, audio, raw_duration) in enumerate(zip(scene_files, audio_files, raw_durations)):
-        update(82 + index * 2, f"Animating scene {index + 1} of {len(segments)}")
-        spoken = raw_duration / speed
-        scene_duration = spoken + (padding if index == len(segments) - 1 else 0.35)
-        atempo = f"atempo={speed:.6f}," if speed > 1.0001 else ""
+    for index, (scene, scene_duration) in enumerate(zip(scene_files, shot_durations)):
+        update(80 + int(index * 10 / len(scene_files)), f"Animating quote {index + 1} of {len(scene_files)}")
         filter_graph = (
-            f"[0:v]zoompan=z='min(zoom+0.00018,1.055)':x='iw/2-(iw/zoom/2)':"
-            f"y='ih/2-(ih/zoom/2)':d=1:s={WIDTH}x{HEIGHT}:fps={FPS},format=yuv420p[v];"
-            f"[1:a]{atempo}apad=whole_dur={scene_duration:.3f}[a]"
+            f"zoompan=z='min(zoom+0.00036,1.07)':x='iw/2-(iw/zoom/2)':"
+            f"y='ih/2-(ih/zoom/2)':d=1:s={WIDTH}x{HEIGHT}:fps={FPS},format=yuv420p"
         )
-        clip = output_dir / f"clip-{index + 1}.mp4"
+        clip = output_dir / f"visual-clip-{index + 1}.mp4"
         _run(
             [
-                "ffmpeg", "-y", "-loop", "1", "-i", scene.name, "-i", audio.name,
-                "-filter_complex", filter_graph, "-map", "[v]", "-map", "[a]", "-t", f"{scene_duration:.3f}",
-                "-c:v", "libx264", "-preset", "veryfast", "-crf", "20", "-c:a", "aac", "-b:a", "192k", clip.name,
+                "ffmpeg", "-y", "-loop", "1", "-i", scene.name,
+                "-vf", filter_graph, "-t", f"{scene_duration:.3f}", "-an",
+                "-c:v", "libx264", "-preset", "veryfast", "-crf", "20", clip.name,
             ],
             output_dir,
         )
@@ -278,15 +290,36 @@ def render_video(
 
     concat_file = output_dir / "clips.txt"
     concat_file.write_text("".join(f"file '{clip.name}'\n" for clip in clip_files), encoding="utf-8")
-    base_video = output_dir / "video-without-captions.mp4"
+    base_video = output_dir / "visual-timeline.mp4"
     _run(["ffmpeg", "-y", "-f", "concat", "-safe", "0", "-i", concat_file.name, "-c", "copy", base_video.name], output_dir)
+
+    audio_clips = []
+    for index, (audio, scene_duration) in enumerate(zip(audio_files, segment_durations)):
+        atempo = f"atempo={speed:.6f}," if speed > 1.0001 else ""
+        audio_clip = output_dir / f"audio-clip-{index + 1}.m4a"
+        _run(
+            [
+                "ffmpeg", "-y", "-i", audio.name, "-af", f"{atempo}apad=whole_dur={scene_duration:.3f}",
+                "-t", f"{scene_duration:.3f}", "-vn", "-c:a", "aac", "-b:a", "192k", audio_clip.name,
+            ],
+            output_dir,
+        )
+        audio_clips.append(audio_clip)
+    audio_concat = output_dir / "audio-clips.txt"
+    audio_concat.write_text("".join(f"file '{clip.name}'\n" for clip in audio_clips), encoding="utf-8")
+    audio_timeline = output_dir / "audio-timeline.m4a"
+    _run(["ffmpeg", "-y", "-f", "concat", "-safe", "0", "-i", audio_concat.name, "-c", "copy", audio_timeline.name], output_dir)
 
     update(94, "Adding timed captions")
     subtitles = output_dir / f"{article['slug']}-captions.ass"
     write_ass(segments, raw_durations, speed, subtitles)
     final_video = output_dir / f"{article['slug']}-tiktok.mp4"
     _run(
-        ["ffmpeg", "-y", "-i", base_video.name, "-vf", f"ass={subtitles.name}", "-c:v", "libx264", "-preset", "veryfast", "-crf", "20", "-c:a", "copy", final_video.name],
+        [
+            "ffmpeg", "-y", "-i", base_video.name, "-i", audio_timeline.name,
+            "-vf", f"ass={subtitles.name}", "-map", "0:v:0", "-map", "1:a:0", "-t", "60",
+            "-c:v", "libx264", "-preset", "veryfast", "-crf", "20", "-c:a", "copy", final_video.name,
+        ],
         output_dir,
     )
     final_duration = probe_duration(final_video)
@@ -303,7 +336,7 @@ def render_video(
     )
     project_file = output_dir / f"{article['slug']}-project.json"
     project_file.write_text(
-        json.dumps({"article": article, "segments": segments, "voice": voice}, indent=2, ensure_ascii=False),
+        json.dumps({"article": article, "segments": segments, "visuals": visuals, "voice": voice}, indent=2, ensure_ascii=False),
         encoding="utf-8",
     )
     evidence = output_dir / f"{article['slug']}-evidence.json"
@@ -322,6 +355,8 @@ def render_video(
                 "voice_profile": {"id": voice["id"], "name": voice["name"], "engine": voice["engine"]},
                 "raw_audio_durations": raw_durations,
                 "audio_speed_factor": speed,
+                "visual_shot_count": len(visuals),
+                "visual_shot_durations": shot_durations,
                 "final_video_duration": final_duration,
                 "dimensions": [WIDTH, HEIGHT],
                 "fps": FPS,

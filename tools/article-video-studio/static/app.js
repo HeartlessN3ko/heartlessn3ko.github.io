@@ -1,4 +1,4 @@
-const state = { article: null, segments: [], voices: [], currentJob: null };
+const state = { article: null, segments: [], visuals: [], voices: [], currentJob: null };
 const purposes = [
   "The line that makes someone stop scrolling.",
   "What the argument is actually about.",
@@ -32,9 +32,15 @@ function validateExport() {
     const passage = state.article?.passages?.[segment.source_index];
     return segment.narration.trim() && segment.highlight.trim() && passage && passage.text.toLowerCase().includes(segment.highlight.trim().toLowerCase());
   });
+  const validVisuals = state.visuals.length >= 8 && state.visuals.length <= 15 && state.visuals.every((visual) => {
+    const passage = state.article?.passages?.[visual.source_index];
+    return passage && visual.segment_index >= 0 && visual.segment_index < 5 && visual.highlight.trim()
+      && passage.text === visual.source_quote
+      && passage.text.toLowerCase().includes(visual.highlight.trim().toLowerCase());
+  }) && new Set(state.visuals.map((visual) => visual.segment_index)).size === 5;
   const words = state.segments.reduce((total, segment) => total + segment.narration.trim().split(/\s+/).filter(Boolean).length, 0);
   const hasVoice = Boolean($("#voice-select").value);
-  $("#export-button").disabled = !(validSegments && words >= 60 && words <= 120 && hasVoice && $("#approved").checked && !state.currentJob);
+  $("#export-button").disabled = !(validSegments && validVisuals && words >= 60 && words <= 120 && hasVoice && $("#approved").checked && !state.currentJob);
 }
 
 function renderSegments() {
@@ -82,10 +88,47 @@ function renderSegments() {
   updateMeter();
 }
 
+function renderVisuals() {
+  const container = $("#visuals");
+  $("#visual-count").textContent = `${state.visuals.length} source-faithful shots`;
+  container.innerHTML = state.visuals.map((visual, index) => {
+    const segment = state.segments[visual.segment_index];
+    const options = state.article.passages.map((passage, passageIndex) => {
+      const label = `${passage.kind.toUpperCase()} · ${passage.text.slice(0, 100)}${passage.text.length > 100 ? "…" : ""}`;
+      return `<option value="${passageIndex}" ${passageIndex === visual.source_index ? "selected" : ""}>${escapeHtml(label)}</option>`;
+    }).join("");
+    return `<article class="visual" data-index="${index}">
+      <div class="visual-meta"><span class="shot-number">SHOT ${index + 1}</span><strong>${escapeHtml(segment.kind)}</strong></div>
+      <label>Exact article passage<select data-field="source_index">${options}</select></label>
+      <blockquote>${escapeHtml(visual.source_quote)}</blockquote>
+      <label>Fast zoom + highlight<input type="text" data-field="highlight" value="${escapeHtml(visual.highlight)}"></label>
+    </article>`;
+  }).join("");
+
+  container.querySelectorAll(".visual").forEach((card) => {
+    const index = Number(card.dataset.index);
+    card.querySelector('[data-field="highlight"]').addEventListener("input", (event) => {
+      state.visuals[index].highlight = event.target.value;
+      validateExport();
+    });
+    card.querySelector('[data-field="source_index"]').addEventListener("change", (event) => {
+      const sourceIndex = Number(event.target.value);
+      const source = state.article.passages[sourceIndex].text;
+      state.visuals[index].source_index = sourceIndex;
+      state.visuals[index].source_quote = source;
+      state.visuals[index].highlight = source.split(/(?<=[.!?])\s+/)[0].slice(0, 180);
+      renderVisuals();
+      validateExport();
+    });
+  });
+  validateExport();
+}
+
 async function loadArticle(slug) {
   const payload = await api(`/api/articles/${encodeURIComponent(slug)}`);
   state.article = payload.article;
   state.segments = payload.segments;
+  state.visuals = payload.visuals;
   $("#article-link").href = state.article.canonical_url;
   $("#approved").checked = false;
   const warning = $("#warning-box");
@@ -96,6 +139,7 @@ async function loadArticle(slug) {
     warning.hidden = true;
   }
   renderSegments();
+  renderVisuals();
 }
 
 function populateVoices(payload) {
@@ -145,6 +189,7 @@ async function createExport() {
   const body = {
     slug: state.article.slug,
     segments: state.segments,
+    visuals: state.visuals,
     voice: { id: selectedVoice.id, name: selectedVoice.name, engine: selectedVoice.engine, model_size: selectedVoice.model_size },
     approved: $("#approved").checked,
   };

@@ -9,7 +9,7 @@ from PIL import Image
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 
-from studio.articles import draft_segments, list_articles
+from studio.articles import draft_segments, draft_visuals, list_articles
 from studio.render import HEIGHT, WIDTH, render_scene
 
 
@@ -50,6 +50,28 @@ class ArticleStudioTests(unittest.TestCase):
         )
         self.assertEqual(91, sum(len(segment["narration"].split()) for segment in segments))
         self.assertIn("srxnexus dot org slash blog", segments[-1]["narration"].casefold())
+
+    def test_every_visual_cut_is_source_faithful_and_covers_all_beats(self) -> None:
+        for article in self.articles:
+            segments, _warnings = draft_segments(article)
+            visuals = draft_visuals(article, segments)
+            self.assertGreaterEqual(len(visuals), 8, article.slug)
+            self.assertLessEqual(len(visuals), 15, article.slug)
+            self.assertEqual(set(range(5)), {visual["segment_index"] for visual in visuals})
+            for visual in visuals:
+                passage = article.passages[visual["source_index"]]
+                self.assertEqual(passage.text, visual["source_quote"])
+                self.assertIn(visual["highlight"].casefold(), passage.text.casefold())
+
+    def test_portland_uses_eleven_substantial_source_shots(self) -> None:
+        article = next(item for item in self.articles if item.slug == "how-i-would-fix-portland")
+        segments, _warnings = draft_segments(article)
+        visuals = draft_visuals(article, segments)
+        self.assertEqual(11, len(visuals))
+        self.assertGreaterEqual(sum(len(visual["source_quote"].split()) for visual in visuals), 450)
+        self.assertTrue(any("34.7% vacancy rate" in visual["highlight"] for visual in visuals))
+        self.assertTrue(any("10 routes" in visual["highlight"] for visual in visuals))
+        self.assertTrue(any("surviving winter" in visual["highlight"] for visual in visuals))
 
     def test_scene_is_native_nine_by_sixteen(self) -> None:
         article = next(item for item in self.articles if item.slug == "how-i-would-fix-portland")

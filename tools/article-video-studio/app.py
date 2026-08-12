@@ -7,7 +7,6 @@ import os
 import threading
 import time
 import uuid
-import webbrowser
 from datetime import datetime
 from pathlib import Path
 
@@ -17,7 +16,7 @@ from fastapi.responses import FileResponse
 from fastapi.staticfiles import StaticFiles
 from pydantic import BaseModel, Field, model_validator
 
-from studio.articles import Article, draft_segments, list_articles
+from studio.articles import Article, draft_segments, draft_visuals, list_articles
 from studio.render import RenderError, probe_duration, render_video
 from studio.voicebox import VoiceboxClient, VoiceboxError
 
@@ -43,6 +42,13 @@ class SegmentInput(BaseModel):
     highlight: str = Field(min_length=2, max_length=500)
 
 
+class VisualInput(BaseModel):
+    segment_index: int = Field(ge=0, le=4)
+    source_index: int = Field(ge=0)
+    source_quote: str = Field(min_length=2, max_length=5000)
+    highlight: str = Field(min_length=2, max_length=500)
+
+
 class VoiceInput(BaseModel):
     id: str
     name: str
@@ -53,6 +59,7 @@ class VoiceInput(BaseModel):
 class ExportRequest(BaseModel):
     slug: str = Field(pattern=r"^[a-z0-9-]+$")
     segments: list[SegmentInput] = Field(min_length=5, max_length=5)
+    visuals: list[VisualInput] = Field(min_length=8, max_length=15)
     voice: VoiceInput
     approved: bool
 
@@ -63,6 +70,11 @@ class ExportRequest(BaseModel):
         words = sum(len(segment.narration.split()) for segment in self.segments)
         if not 60 <= words <= 120:
             raise ValueError(f"Narration must be 60–120 words; this draft has {words}.")
+        covered = {visual.segment_index for visual in self.visuals}
+        if covered != set(range(5)):
+            raise ValueError("Every narration beat needs at least one visual quote.")
+        if [visual.segment_index for visual in self.visuals] != sorted(visual.segment_index for visual in self.visuals):
+            raise ValueError("Visual quotes must stay in narration order.")
         return self
 
 
@@ -179,7 +191,12 @@ def articles_api():
 def article_api(slug: str):
     article = _article(slug)
     segments, warnings = draft_segments(article)
-    return {"article": article.to_dict(), "segments": segments, "warnings": warnings}
+    return {
+        "article": article.to_dict(),
+        "segments": segments,
+        "visuals": draft_visuals(article, segments),
+        "warnings": warnings,
+    }
 
 
 @app.get("/api/voicebox")
@@ -212,6 +229,14 @@ def _validate_provenance(article: Article, request: ExportRequest) -> None:
             raise ValueError(f"{segment.kind}: source quote does not match the published article.")
         if segment.highlight.casefold() not in source.casefold():
             raise ValueError(f"{segment.kind}: highlighted words are not present in the selected source quote.")
+    for index, visual in enumerate(request.visuals, start=1):
+        if visual.source_index >= len(article.passages):
+            raise ValueError(f"Visual {index}: source passage no longer exists in the article.")
+        source = article.passages[visual.source_index].text
+        if source != visual.source_quote:
+            raise ValueError(f"Visual {index}: source quote does not match the published article.")
+        if visual.highlight.casefold() not in source.casefold():
+            raise ValueError(f"Visual {index}: highlighted words are not present in the selected source quote.")
 
 
 def _run_export(job_id: str, request: ExportRequest) -> None:
@@ -233,6 +258,7 @@ def _run_export(job_id: str, request: ExportRequest) -> None:
         jobs.update(job_id, state="running", progress=2, message="Voicebox is ready", output_dir=str(output_dir), title=article.title)
 
         segments = [segment.model_dump() for segment in request.segments]
+        visuals = [visual.model_dump() for visual in request.visuals]
         audio_files: list[Path] = []
         for index, segment in enumerate(segments):
             start_progress = 5 + index * 12
@@ -262,6 +288,7 @@ def _run_export(job_id: str, request: ExportRequest) -> None:
         files = render_video(
             article=article_data,
             segments=segments,
+            visuals=visuals,
             audio_files=audio_files,
             output_dir=output_dir,
             portrait_path=PORTRAIT_PATH,
@@ -340,11 +367,12 @@ def main() -> None:
     parser = argparse.ArgumentParser(description="Run the private Life of Skye article video studio.")
     parser.add_argument("--host", default="127.0.0.1")
     parser.add_argument("--port", type=int, default=17640)
-    parser.add_argument("--no-browser", action="store_true")
+    parser.add_argument("--open-browser", action="store_true", help="Open the studio in the default browser after starting.")
     args = parser.parse_args()
     if args.host not in {"127.0.0.1", "localhost", "::1"}:
         parser.error("The studio is private and may only bind to localhost.")
-    if not args.no_browser:
+    if args.open_browser:
+        import webbrowser
         threading.Timer(1.2, lambda: webbrowser.open(f"http://{args.host}:{args.port}/")).start()
     uvicorn.run(app, host=args.host, port=args.port, log_level="info")
 

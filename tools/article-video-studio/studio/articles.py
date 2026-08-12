@@ -226,6 +226,59 @@ def draft_segments(article: Article) -> tuple[list[dict], list[str]]:
     return segments, warnings
 
 
+def _visual(segment_index: int, source_index: int, article: Article, highlight: str | None = None) -> dict:
+    source = article.passages[source_index].text
+    return {
+        "segment_index": segment_index,
+        "source_index": source_index,
+        "source_quote": source,
+        "highlight": highlight or _first_sentence(source, 14).rstrip("…"),
+    }
+
+
+def draft_visuals(article: Article, segments: list[dict]) -> list[dict]:
+    """Build a faster cut list while keeping every shot tied to published text."""
+    if article.slug == "how-i-would-fix-portland":
+        return _portland_visuals(article)
+
+    quote_indices = [
+        index for index, passage in enumerate(article.passages)
+        if passage.kind in {"p", "blockquote"}
+    ]
+    visuals: list[dict] = []
+    used: set[int] = set()
+    for segment_index, segment in enumerate(segments):
+        primary = segment["source_index"]
+        visuals.append(_visual(segment_index, primary, article, segment.get("highlight") or None))
+        used.add(primary)
+        secondary = next((index for index in quote_indices if index > primary and index not in used), None)
+        if secondary is None:
+            secondary = next((index for index in quote_indices if index not in used), primary)
+        visuals.append(_visual(segment_index, secondary, article))
+        used.add(secondary)
+    return visuals
+
+
+def _portland_visuals(article: Article) -> list[dict]:
+    specs = [
+        (0, "It has a prioritization problem", "It has a prioritization problem."),
+        (1, "People come here for food", "food. They come here for weird little shops, queer culture, strip clubs, weed, art, bars, forests, hiking, camping"),
+        (1, "There are empty buildings everywhere", "34.7% vacancy rate in the Central Business District"),
+        (1, "There are small business districts", "getting around becomes such a pain in the ass that they stay home instead"),
+        (2, "Portland Streetcar’s published Saturday service", "ends around 11:30 p.m."),
+        (2, "Portland has late-night replacement buses", "10 routes , runs every 20 to 30 minutes, seven nights a week"),
+        (2, "I am not saying a mayor can wave a hand", "real budget limits, agency limits, state rules, neighborhood conflicts"),
+        (3, "Why are there so many spaces sitting empty", "night markets, small performance venues, cooperatives, low-cost studios, indoor winter event spaces, queer community hubs"),
+        (3, "Tourism is not automatically soulless", "businesses have a better chance of surviving winter"),
+        (4, "Then I would treat housing, transit, safety", "housing, transit, safety, tourism, nightlife, small business, nature, and public space as connected problems"),
+        (4, "What it does not seem to have", "a city government willing to put those pieces together on purpose"),
+    ]
+    return [
+        _visual(segment_index, find_passage(article, contains), article, highlight)
+        for segment_index, contains, highlight in specs
+    ]
+
+
 def _portland_segments(article: Article) -> list[dict]:
     sources = [
         find_passage(article, "It has a prioritization problem"),

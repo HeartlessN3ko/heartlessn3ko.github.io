@@ -55,6 +55,15 @@ button:disabled { cursor: not-allowed; opacity: .42; }
 .segment-fields label { display: grid; gap: 6px; color: var(--muted); font-size: 11px; font-weight: 700; }
 .source-row { display: grid; grid-template-columns: 1fr .72fr; gap: 12px; }
 .quote-preview { min-height: 85px; margin: 0; padding: 13px 14px; border-left: 3px solid var(--pink); border-radius: 0 10px 10px 0; background: var(--pink-soft); color: var(--text); font-family: Georgia, serif; font-size: 14px; line-height: 1.55; }
+.visual-heading > div:first-child { max-width: 650px; }
+.visual-heading > div:first-child > p:last-child { margin: 10px 0 0; color: var(--muted); font-size: 13px; line-height: 1.55; }
+.visuals { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; }
+.visual { display: grid; align-content: start; gap: 13px; padding: 20px; border: 1px solid var(--divider); border-radius: 17px; background: var(--surface); }
+.visual-meta { display: flex; align-items: center; justify-content: space-between; gap: 14px; }
+.visual-meta strong { color: var(--gold); font-size: 10px; letter-spacing: .08em; }
+.shot-number { color: var(--pink); font-size: 11px; font-weight: 900; letter-spacing: .1em; }
+.visual label { display: grid; gap: 6px; color: var(--muted); font-size: 11px; font-weight: 700; }
+.visual blockquote { min-height: 170px; max-height: 260px; margin: 0; padding: 14px; overflow: auto; border-left: 3px solid var(--pink); border-radius: 0 10px 10px 0; background: var(--pink-soft); color: var(--text); font-family: Georgia, serif; font-size: 14px; line-height: 1.55; }
 .export-panel { display: grid; gap: 18px; margin-top: 25px; padding: 27px; }
 .approval { display: flex; gap: 12px; align-items: flex-start; line-height: 1.5; }
 .approval input { width: 18px; height: 18px; margin-top: 2px; accent-color: var(--pink); }
@@ -78,7 +87,7 @@ button:disabled { cursor: not-allowed; opacity: .42; }
 .recent-export a { flex: 0 0 auto; padding: 8px 12px; border: 1px solid var(--pink); border-radius: 999px; color: var(--pink); font-size: 11px; font-weight: 800; text-decoration: none; }
 footer { padding: 24px; border-top: 1px solid var(--divider); color: var(--muted); text-align: center; font-size: 11px; }
 @media (max-width: 760px) {
-  .setup-panel, .segment { grid-template-columns: 1fr; }
+  .setup-panel, .segment, .visuals { grid-template-columns: 1fr; }
   .source-row { grid-template-columns: 1fr; }
   .workflow-heading { align-items: flex-start; flex-direction: column; }
   .meter { justify-items: start; }

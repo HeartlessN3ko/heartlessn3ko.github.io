@@ -5,8 +5,9 @@ an upload-ready 60-second vertical video. It never posts to TikTok.
 
 ## Normal entry point
 
-Double-click `Start Article Video Studio.cmd`. The studio opens at
-`http://127.0.0.1:17640/` and reads the real published articles from
+Double-click `Start Article Video Studio.cmd`, then deliberately open
+`http://127.0.0.1:17640/` in a browser. The studio never launches a browser or
+plays media on its own. It reads the real published articles from
 `blog/articles/*/index.html`.
 
 The normal workflow is:
@@ -14,10 +15,10 @@ The normal workflow is:
 1. Choose a published article.
 2. Review the five narration beats: hook, topic, other side, Skye's side, and
    plan/full-article link.
-3. Attach every beat to an exact published passage and choose words from that
-   passage to highlight.
+3. Review the 8–15-shot visual cut list. Every shot uses an exact published
+   passage and highlights words that actually occur in it.
 4. Select a compatible local Voicebox profile.
-5. Approve the reviewed script and generate the export.
+5. Approve the reviewed script and visual cut, then generate the export.
 6. Download the MP4, cover, TikTok caption, timed captions, project record,
    and runtime-evidence record.
 
@@ -48,7 +49,8 @@ The studio stops instead of exporting when a quotation or highlight no longer
 matches the published article, Voicebox fails, FFmpeg fails, or narration
 cannot fit the 60-second target without excessive speed-up. A completed export
 includes an evidence JSON file with source hash, loaded paths, voice profile,
-raw narration durations, final duration, resolution, and publication state.
+raw narration durations, visual-shot count and timing, final duration,
+resolution, and publication state.
 
 An exported file is **local runtime verified**, not TikTok-published. Before
 manual upload, turn on TikTok's AI-generated content label for synthetic
