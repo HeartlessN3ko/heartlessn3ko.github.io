@@ -24,6 +24,14 @@
     file_server
   }
 
+  # Public, cross-linked reading edition of the Laws of Humanity.
+  @humanityPath path /humanity
+  redir @humanityPath /humanity/
+  handle_path /humanity/* {
+    root * /srv/humanity
+    file_server
+  }
+
   # Discovery files live at the site root, where search crawlers expect them.
   @searchDiscovery path /robots.txt /sitemap.xml
   handle @searchDiscovery {
