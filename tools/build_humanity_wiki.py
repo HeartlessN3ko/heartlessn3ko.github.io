@@ -15,7 +15,7 @@ CONTENT = SITE / "content"
 
 ARTICLES = [
     ("architecture", "00-canonical-architecture.md", "The Architecture of the Codex", "Codex-wide"),
-    ("purpose-of-humanity", "02-purpose-of-humanity.md", "The Purpose of Humanity", "Placement pending"),
+    ("purpose-of-humanity", "02-purpose-of-humanity.md", "The Purpose of Humanity", "Book placement pending"),
     ("human-continuum", "03-human-continuum.md", "The Human Continuum", "Book XV"),
     ("human-sovereignty", "04-human-sovereignty.md", "Human Sovereignty", "Book XVI"),
     ("human-experience", "05-human-experience.md", "The Human Experience", "Book XVII"),
@@ -217,6 +217,18 @@ def slugify(value: str) -> str:
     return value or "section"
 
 
+def human_date(value: str) -> str:
+    months = [
+        "January", "February", "March", "April", "May", "June",
+        "July", "August", "September", "October", "November", "December",
+    ]
+    match = re.fullmatch(r"(\d{4})-(\d{2})-(\d{2})", value)
+    if not match:
+        return value
+    year, month, day = (int(part) for part in match.groups())
+    return f"{day} {months[month - 1]} {year}"
+
+
 def apply_links(text: str, current_slug: str, linked: set[str]) -> str:
     candidates: list[tuple[str, str, bool]] = []
     for term, slug in INTERNAL_LINKS.items():
@@ -346,14 +358,28 @@ def markdown_blocks(markdown: str, slug: str) -> tuple[str, list[tuple[str, str]
 
 
 def sidebar(current: str) -> str:
-    links = ['<a href="/humanity/" class="side-home">Main page</a>']
-    for slug, _, title, _ in ARTICLES:
-        active = ' aria-current="page" class="active"' if slug == current else ""
-        links.append(f'<a href="/humanity/{slug}/"{active}>{html.escape(title)}</a>')
-    links.extend([
-        '<a href="/humanity/concepts/">Index of concepts</a>',
-        '<a href="/humanity/architecture/#book-i-the-measure">Book register</a>',
-    ])
+    def nav_link(label: str, href: str, key: str, extra_class: str = "") -> str:
+        classes = [extra_class] if extra_class else []
+        if key == current:
+            classes.append("active")
+        class_attr = f' class="{" ".join(classes)}"' if classes else ""
+        current_attr = ' aria-current="page"' if key == current else ""
+        return f'<a href="{href}"{class_attr}{current_attr}>{html.escape(label)}</a>'
+
+    links = [
+        '<div class="sidebar-label">Start here</div>',
+        nav_link("Overview", "/humanity/", "home", "side-home"),
+        nav_link("The Purpose of Humanity", "/humanity/purpose-of-humanity/", "purpose-of-humanity"),
+        nav_link("How the Codex is organized", "/humanity/architecture/", "architecture"),
+        '<div class="sidebar-label secondary">Read the canon</div>',
+        nav_link("The Human Continuum", "/humanity/human-continuum/", "human-continuum"),
+        nav_link("Human Sovereignty", "/humanity/human-sovereignty/", "human-sovereignty"),
+        nav_link("The Human Experience", "/humanity/human-experience/", "human-experience"),
+        nav_link("The Human Spirit", "/humanity/human-spirit/", "human-spirit"),
+        '<div class="sidebar-label secondary">Explore</div>',
+        nav_link("Concept guide", "/humanity/concepts/", "concepts"),
+        nav_link("All 21 Books", "/humanity/#book-register", "book-register"),
+    ]
     return "\n".join(links)
 
 
@@ -380,13 +406,17 @@ def page_shell(*, title: str, description: str, current: str, body: str, page_ty
     canonical = f"https://srxnexus.org/humanity/{canonical_path}"
     schema = {
         "@context": "https://schema.org",
-        "@type": "Article" if page_type == "article" else "WebSite",
+        "@type": {"article": "Article", "index": "CollectionPage"}.get(page_type, "WebSite"),
         "name": title,
         "headline": title,
         "description": description,
         "url": canonical,
         "isPartOf": {"@type": "WebSite", "name": "The Codex of Humanity", "url": "https://srxnexus.org/humanity/"},
     }
+    social_image_meta = '''
+  <meta property="og:image" content="https://srxnexus.org/humanity/assets/og-codex.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://srxnexus.org/humanity/assets/og-codex.png">''' if page_type == "home" else ""
     return f'''<!doctype html>
 <html lang="en" data-theme="paper">
 <head>
@@ -399,11 +429,9 @@ def page_shell(*, title: str, description: str, current: str, body: str, page_ty
   <meta property="og:title" content="{html.escape(title)} — The Codex of Humanity">
   <meta property="og:description" content="{html.escape(description)}">
   <meta property="og:url" content="{canonical}">
-  <meta property="og:image" content="https://srxnexus.org/humanity/assets/og-codex.png">
-  <meta name="twitter:card" content="summary_large_image">
+{social_image_meta}
   <meta name="twitter:title" content="{html.escape(title)} — The Codex of Humanity">
   <meta name="twitter:description" content="{html.escape(description)}">
-  <meta name="twitter:image" content="https://srxnexus.org/humanity/assets/og-codex.png">
   <link rel="icon" href="/humanity/assets/codex-mark.svg" type="image/svg+xml">
   <link rel="stylesheet" href="/humanity/styles.css">
   <script type="application/ld+json">{json.dumps(schema, ensure_ascii=False)}</script>
@@ -429,7 +457,6 @@ def page_shell(*, title: str, description: str, current: str, body: str, page_ty
   </header>
   <div class="site-frame">
     <aside class="sidebar" aria-label="Codex navigation" data-sidebar>
-      <div class="sidebar-label">Explore</div>
       {sidebar(current)}
       <div class="sidebar-label secondary">About this edition</div>
       <p>Approved canonical wording is reproduced without alteration. Blue links are editorial navigation.</p>
@@ -454,36 +481,42 @@ def article_page(slug: str, filename: str, display_title: str, placement: str, i
     previous_link = ARTICLES[index - 1] if index > 0 else None
     next_link = ARTICLES[index + 1] if index + 1 < len(ARTICLES) else None
     prev_html = f'<a rel="prev" href="/humanity/{previous_link[0]}/"><span>Previous</span>{html.escape(previous_link[2])}</a>' if previous_link else '<span></span>'
-    next_html = f'<a rel="next" href="/humanity/{next_link[0]}/"><span>Next</span>{html.escape(next_link[2])}</a>' if next_link else '<a href="/humanity/concepts/"><span>Next</span>Index of concepts</a>'
+    next_html = f'<a rel="next" href="/humanity/{next_link[0]}/"><span>Next</span>{html.escape(next_link[2])}</a>' if next_link else '<a href="/humanity/concepts/"><span>Next</span>Concept guide</a>'
+    reader_placement = "Foundational canon" if "pending" in placement.lower() else placement
+    canonized = human_date(meta.get("canonized", "2026-08-28"))
+    infobox_content = f'''
+      <div class="infobox-title">Canonical record</div>
+      <dl>
+        <div><dt>ID</dt><dd>{html.escape(meta.get('codex_id', '—'))}</dd></div>
+        <div><dt>Status</dt><dd><span class="status-dot"></span>{html.escape(meta.get('status', 'canon').title())}</dd></div>
+        <div><dt>Version</dt><dd>{html.escape(meta.get('version', '—'))}</dd></div>
+        <div><dt>Placement</dt><dd>{html.escape(placement)}</dd></div>
+        <div><dt>Canonized</dt><dd>{html.escape(canonized)}</dd></div>
+      </dl>'''
     body = f'''
       <div class="article-grid">
         <article class="article">
-          <div class="eyebrow">From the Codex of Humanity</div>
+          <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/humanity/">Codex home</a><span aria-hidden="true">›</span><span>{html.escape(reader_placement)}</span></nav>
+          <div class="eyebrow">Approved canon</div>
           <h1>{html.escape(display_title)}</h1>
-          <p class="subtitle">Approved canonical text · Public reading edition</p>
+          <p class="subtitle">Canonical wording preserved exactly · Editorial links added for navigation</p>
           <div class="article-tools" aria-label="Article tools">
-            <a href="#article-start">Read</a>
+            <a href="#article-start">Jump to text</a>
             <button type="button" data-copy-link>Copy article link</button>
-            <a href="/humanity/concepts/">Browse concepts</a>
+            <a href="/humanity/concepts/">Concept guide</a>
           </div>
-          <aside class="infobox" aria-label="Canonical record">
-            <div class="infobox-title">Canonical record</div>
-            <dl>
-              <div><dt>ID</dt><dd>{html.escape(meta.get('codex_id', '—'))}</dd></div>
-              <div><dt>Status</dt><dd><span class="status-dot"></span>{html.escape(meta.get('status', 'canon').title())}</dd></div>
-              <div><dt>Version</dt><dd>{html.escape(meta.get('version', '—'))}</dd></div>
-              <div><dt>Placement</dt><dd>{html.escape(placement)}</dd></div>
-              <div><dt>Canonized</dt><dd>{html.escape(meta.get('canonized', '2026-08-28'))}</dd></div>
-            </dl>
-          </aside>
+          <aside class="infobox infobox-inline" aria-label="Canonical record">{infobox_content}</aside>
           {toc_html(toc)}
           <div id="article-start" class="article-text">{article_body}</div>
           {related_html(slug)}
           <nav class="article-pagination" aria-label="Adjacent articles">{prev_html}{next_html}</nav>
         </article>
-        <aside class="on-this-page" aria-label="On this page">
-          <div class="sidebar-label">On this page</div>
-          <ol>{''.join(f'<li><a href="#{section_id}">{html.escape(label)}</a></li>' for section_id, label in toc)}</ol>
+        <aside class="article-rail">
+          <div class="infobox infobox-rail" aria-label="Canonical record">{infobox_content}</div>
+          <nav class="on-this-page" aria-label="On this page">
+            <div class="sidebar-label">On this page</div>
+            <ol>{''.join(f'<li><a href="#{section_id}">{html.escape(label)}</a></li>' for section_id, label in toc)}</ol>
+          </nav>
         </aside>
       </div>'''
     return page_shell(title=display_title, description=description, current=slug, body=body)
@@ -492,14 +525,14 @@ def article_page(slug: str, filename: str, display_title: str, placement: str, i
 def home_page() -> str:
     article_cards = "".join(
         f'''<a class="portal-card" href="/humanity/{slug}/">
-          <span class="portal-kicker">{html.escape(placement)}</span>
+          <span class="portal-kicker">{html.escape('Foundational canon' if 'pending' in placement.lower() else placement)}</span>
           <strong>{html.escape(title)}</strong>
           <span>{summary_for(slug)}</span>
         </a>'''
         for slug, _, title, placement in ARTICLES[1:]
     )
     books_rows = "".join(
-        f'''<li class="{'available' if numeral in BOOK_LINKS else 'planned'}">
+        f'''<li class="{'available' if numeral in BOOK_LINKS else 'planned'}{' priority' if numeral in {'I', 'II', 'XV', 'XVI', 'XVII', 'XVIII'} else ''}">
           <span class="book-number">{numeral}</span>
           <span><strong>{f'<a href="/humanity/{BOOK_LINKS[numeral]}/">{html.escape(title)}</a>' if numeral in BOOK_LINKS else html.escape(title)}</strong><small>{html.escape(function)}</small></span>
           <span class="book-state">{'Read' if numeral in BOOK_LINKS else 'Planned'}</span>
@@ -513,8 +546,8 @@ def home_page() -> str:
           <h1>Welcome to the Codex of Humanity</h1>
           <p class="standfirst">A cross-linked home for the Laws of Humanity: what Humanity inherits, what it protects, how it lives, and what it still wonders about.</p>
           <div class="home-actions">
-            <a class="primary-action" href="/humanity/purpose-of-humanity/">Begin with the purpose</a>
-            <a href="/humanity/architecture/">Explore the architecture</a>
+            <a class="primary-action" href="/humanity/purpose-of-humanity/">Start with the Purpose</a>
+            <a href="/humanity/architecture/">See how the Codex is organized</a>
           </div>
         </div>
         <figure class="lead-figure">
@@ -524,16 +557,16 @@ def home_page() -> str:
       </section>
       <div class="home-columns">
         <section class="welcome-panel">
-          <div class="panel-heading"><h2>From the canon</h2><a href="/humanity/concepts/">All concepts</a></div>
+          <div class="panel-heading"><h2>Start here</h2><a href="/humanity/concepts/">Concept guide</a></div>
           <blockquote class="feature-quote"><p>“Receive the inheritance. Experience your life. Add what you can. Protect the whole. Pass it forward.”</p><cite>— The Purpose of Humanity</cite></blockquote>
           <p>The Codex is organized as Books, Chapters, and Verses. Five substantive texts and the canonical architecture are currently approved. The remaining Books are shown as planned so the public edition never mistakes a framework for finished canon.</p>
         </section>
         <section class="edition-panel">
           <div class="panel-heading"><h2>About this edition</h2></div>
           <ul class="fact-list">
-            <li><strong>6</strong><span>approved canonical records</span></li>
+            <li><strong>5</strong><span>approved core texts</span></li>
+            <li><strong>1</strong><span>canonical architecture</span></li>
             <li><strong>21</strong><span>Books in the architecture</span></li>
-            <li><strong>v2.0</strong><span>latest Purpose text</span></li>
           </ul>
           <p><span class="link-sample internal-sample">Blue links</span> move through the Codex. Links marked <span class="external-mark">↗</span> open historical or cultural context on Wikipedia.</p>
         </section>
@@ -542,8 +575,8 @@ def home_page() -> str:
         <div class="panel-heading"><h2>Read the approved canon</h2><a href="/humanity/architecture/">How the Codex works</a></div>
         <div class="portal-grid">{article_cards}</div>
       </section>
-      <section class="book-register">
-        <div class="panel-heading"><div><h2>The twenty-one Books</h2><p>Approved reading links appear where canonical text exists.</p></div><button type="button" class="text-button" data-toggle-books aria-expanded="false">Show full register</button></div>
+      <section id="book-register" class="book-register">
+        <div class="panel-heading"><div><h2>The twenty-one Books</h2><p>Highlights appear first. “Read” marks Books with approved text; “Planned” marks architecture only.</p></div><button type="button" class="text-button" data-toggle-books aria-expanded="false">Show all 21 Books</button></div>
         <ol class="book-list" data-book-list>{books_rows}</ol>
       </section>'''
     return page_shell(
@@ -584,17 +617,24 @@ def concepts_page() -> str:
         ("Spiritual truth", "Enduring questions not yet settled by evidence", "human-spirit"),
         ("Sacred uncertainty", "The principle that “we do not know” has value", "human-spirit"),
     ]
-    rows = "".join(
-        f'<li id="{slugify(term)}"><a href="/humanity/{slug}/">{html.escape(term)}</a><span>{html.escape(definition)}</span></li>'
-        for term, definition, slug in concepts
+    concepts.sort(key=lambda item: item[0].casefold())
+    grouped: dict[str, list[tuple[str, str, str]]] = {}
+    for concept in concepts:
+        grouped.setdefault(concept[0][0].upper(), []).append(concept)
+    alphabet = " ".join(f'<a href="#letter-{letter}">{letter}</a>' for letter in grouped)
+    groups = "".join(
+        f'''<section class="concept-group" id="letter-{letter}"><h2>{letter}</h2><ul class="concept-list">{
+            ''.join(f'<li id="{slugify(term)}"><a href="/humanity/{slug}/">{html.escape(term)}</a><span>{html.escape(definition)}</span></li>' for term, definition, slug in entries)
+        }</ul></section>'''
+        for letter, entries in grouped.items()
     )
     body = f'''
       <article class="article concept-index">
         <div class="eyebrow">Navigation</div>
-        <h1>Index of concepts</h1>
+        <h1>Concept guide</h1>
         <p class="standfirst">A reader's map to recurring ideas in the approved canon. Definitions below are editorial summaries; follow each link for the canonical wording.</p>
-        <div class="alphabet" aria-label="Alphabetical index">A · B · C · D · E · F · G · H · I · J · K · L · M · N · O · P · Q · R · S · T · U · V · W · X · Y · Z</div>
-        <ul class="concept-list">{rows}</ul>
+        <nav class="alphabet" aria-label="Available concept letters">{alphabet}</nav>
+        {groups}
         <section class="related">
           <h2>External reference shelf</h2>
           <p class="editorial-note">Historical and cultural references below open Wikipedia and are not part of the Laws.</p>
@@ -606,10 +646,11 @@ def concepts_page() -> str:
         </section>
       </article>'''
     return page_shell(
-        title="Index of concepts",
+        title="Concept guide",
         description="An alphabetical reader's map to the central concepts in the approved Laws of Humanity canon.",
         current="concepts",
         body=body,
+        page_type="index",
     )
 
 

@@ -181,7 +181,7 @@ a:focus-visible {
 
 .search input {
   min-width: 0;
-  height: 42px;
+  height: 44px;
   padding: 0.55rem 0.85rem;
   color: var(--ink);
   background: var(--paper);
@@ -190,7 +190,7 @@ a:focus-visible {
 }
 
 .search button {
-  height: 42px;
+  height: 44px;
   padding: 0 1rem;
   color: var(--ink);
   background: var(--wash);
@@ -263,8 +263,8 @@ a:focus-visible {
 }
 
 .icon-button {
-  width: 40px;
-  height: 40px;
+  width: 44px;
+  height: 44px;
   display: grid;
   place-items: center;
   color: var(--ink);
@@ -359,6 +359,20 @@ a:focus-visible {
   text-transform: uppercase;
 }
 
+.breadcrumb {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.45rem;
+  margin-bottom: 0.45rem;
+  color: var(--muted);
+  font-size: 0.76rem;
+}
+
+.breadcrumb span:last-child {
+  color: var(--quiet);
+}
+
 h1,
 h2,
 h3 {
@@ -428,6 +442,16 @@ h3:hover .section-link,
   border: 1px solid var(--line);
   background: var(--wash);
   font-size: 0.82rem;
+}
+
+.infobox-inline {
+  display: none;
+}
+
+.infobox-rail {
+  float: none;
+  width: 100%;
+  margin: 0 0 1.5rem;
 }
 
 .infobox-title {
@@ -526,10 +550,13 @@ blockquote {
   font-size: 1.12rem;
 }
 
-.on-this-page {
+.article-rail {
   position: sticky;
   top: 105px;
   padding-top: 4.2rem;
+}
+
+.on-this-page {
   font-size: 0.79rem;
 }
 
@@ -844,7 +871,7 @@ blockquote {
 }
 
 .book-list li {
-  display: grid;
+  display: none;
   grid-template-columns: 44px 1fr auto;
   align-items: center;
   gap: 0.7rem;
@@ -856,8 +883,8 @@ blockquote {
   border-right: 1px solid var(--line-soft);
 }
 
-.book-list li:nth-child(n + 7) {
-  display: none;
+.book-list li.priority {
+  display: grid;
 }
 
 .book-list.expanded li {
@@ -905,13 +932,33 @@ blockquote {
 }
 
 .alphabet {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
   margin: 1.5rem 0;
   padding: 0.65rem 0.85rem;
-  color: var(--quiet);
   background: var(--wash);
   border: 1px solid var(--line-soft);
-  letter-spacing: 0.16em;
-  word-spacing: 0.45em;
+}
+
+.alphabet a {
+  min-width: 2.75rem;
+  min-height: 2.75rem;
+  display: grid;
+  place-items: center;
+  border: 1px solid var(--line-soft);
+  background: var(--paper);
+  font-weight: 750;
+}
+
+.concept-group {
+  scroll-margin-top: 95px;
+}
+
+.concept-group h2 {
+  margin-top: 1.5rem;
+  color: var(--accent);
+  font-size: 1.35rem;
 }
 
 .concept-list {
@@ -971,14 +1018,24 @@ blockquote {
     display: block;
   }
 
-  .on-this-page {
+  .article-rail {
+    display: none;
+  }
+
+  .infobox-inline {
+    display: block;
+  }
+}
+
+@media (min-width: 1121px) {
+  .article-grid .contents {
     display: none;
   }
 }
 
 @media (max-width: 820px) {
   .masthead {
-    grid-template-columns: auto 1fr auto;
+    grid-template-columns: auto auto minmax(110px, 1fr) auto;
     gap: 0.65rem;
     padding: 0.55rem 0.75rem;
   }
@@ -1026,6 +1083,12 @@ blockquote {
     transform: translateX(0);
   }
 
+  .sidebar > a {
+    min-height: 44px;
+    display: flex;
+    align-items: center;
+  }
+
   .main-page-heading,
   .home-columns {
     grid-template-columns: 1fr;
@@ -1054,10 +1117,6 @@ blockquote {
 }
 
 @media (max-width: 560px) {
-  .mast-tools {
-    display: none;
-  }
-
   .infobox {
     float: none;
     width: 100%;

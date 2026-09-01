@@ -138,6 +138,6 @@
   booksButton?.addEventListener("click", function () {
     const expanded = booksList?.classList.toggle("expanded") || false;
     booksButton.setAttribute("aria-expanded", String(expanded));
-    booksButton.textContent = expanded ? "Show less" : "Show full register";
+    booksButton.textContent = expanded ? "Show highlights" : "Show all 21 Books";
   });
 })();
