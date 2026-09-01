@@ -404,6 +404,7 @@ def page_shell(*, title: str, description: str, current: str, body: str, page_ty
   <meta name="twitter:title" content="{html.escape(title)} — The Codex of Humanity">
   <meta name="twitter:description" content="{html.escape(description)}">
   <meta name="twitter:image" content="https://srxnexus.org/humanity/assets/og-codex.png">
+  <link rel="icon" href="/humanity/assets/codex-mark.svg" type="image/svg+xml">
   <link rel="stylesheet" href="/humanity/styles.css">
   <script type="application/ld+json">{json.dumps(schema, ensure_ascii=False)}</script>
 </head>
