@@ -12,6 +12,7 @@ from pathlib import Path
 REPO = Path(__file__).resolve().parents[1]
 SITE = REPO / "humanity"
 CONTENT = SITE / "content"
+ASSET_VERSION = "20260901-codex-voice-2"
 
 ARTICLES = [
     ("architecture", "00-codex-architecture.md", "The Architecture of the Codex", "Codex structure"),
@@ -331,7 +332,12 @@ def markdown_blocks(markdown: str, slug: str) -> tuple[str, list[tuple[str, str]
     toc: list[tuple[str, str]] = []
     output: list[str] = []
     seen_ids: dict[str, int] = {}
-    markers = SECTION_MARKERS.get(slug, {})
+    # Older Book sources arrived as uninterrupted essays, so the first version
+    # of the site supplied navigational headings from paragraph markers. Once a
+    # Book carries its own headings, those authored landmarks are the source of
+    # truth and generated markers would only duplicate or contradict them.
+    has_authored_sections = any(kind in ("h2", "h3") for kind, _ in blocks)
+    markers = {} if has_authored_sections else SECTION_MARKERS.get(slug, {})
     inserted_markers: set[str] = set()
 
     def heading(label: str, level: int = 2) -> None:
@@ -442,7 +448,7 @@ def page_shell(*, title: str, description: str, current: str, body: str, page_ty
   <meta name="twitter:title" content="{html.escape(title)} — The Codex of Humanity">
   <meta name="twitter:description" content="{html.escape(description)}">
   <link rel="icon" href="/humanity/assets/codex-mark.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="/humanity/styles.css">
+  <link rel="stylesheet" href="/humanity/styles.css?v={ASSET_VERSION}">
   <script type="application/ld+json">{json.dumps(schema, ensure_ascii=False)}</script>
 </head>
 <body class="route-{html.escape(current)}">
@@ -455,9 +461,9 @@ def page_shell(*, title: str, description: str, current: str, body: str, page_ty
     </a>
     <div class="search" role="search">
       <label class="sr-only" for="wiki-search">Search the Codex</label>
-      <input id="wiki-search" type="search" placeholder="Search the Codex" autocomplete="off" data-search>
+      <input id="wiki-search" type="search" placeholder="Search the Codex" autocomplete="off" aria-controls="wiki-search-results" aria-expanded="false" data-search>
       <button type="button" data-search-button>Search</button>
-      <div class="search-results" data-search-results hidden></div>
+      <div id="wiki-search-results" class="search-results" aria-label="Search results" aria-live="polite" data-search-results hidden></div>
     </div>
     <div class="mast-tools">
       <button class="text-button" type="button" data-random>Random article</button>
@@ -477,7 +483,7 @@ def page_shell(*, title: str, description: str, current: str, body: str, page_ty
     <p><strong>The Codex of Humanity</strong> · Public reading edition · Updated 1 September 2026</p>
     <p>Internal and external links are reading aids. External links provide context and are not endorsements.</p>
   </footer>
-  <script src="/humanity/wiki.js" defer></script>
+  <script src="/humanity/wiki.js?v={ASSET_VERSION}" defer></script>
 </body>
 </html>'''
 

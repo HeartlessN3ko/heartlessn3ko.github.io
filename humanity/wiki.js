@@ -19,6 +19,7 @@
   menuButton?.addEventListener("click", function () {
     const isOpen = sidebar?.classList.toggle("open") || false;
     menuButton.setAttribute("aria-expanded", String(isOpen));
+    menuButton.setAttribute("aria-label", isOpen ? "Close navigation" : "Open navigation");
   });
 
   document.addEventListener("click", function (event) {
@@ -26,6 +27,15 @@
     if (sidebar.contains(event.target) || menuButton?.contains(event.target)) return;
     sidebar.classList.remove("open");
     menuButton?.setAttribute("aria-expanded", "false");
+    menuButton?.setAttribute("aria-label", "Open navigation");
+  });
+
+  document.addEventListener("keydown", function (event) {
+    if (event.key !== "Escape" || !sidebar?.classList.contains("open")) return;
+    sidebar.classList.remove("open");
+    menuButton?.setAttribute("aria-expanded", "false");
+    menuButton?.setAttribute("aria-label", "Open navigation");
+    menuButton?.focus();
   });
 
   const articles = [
@@ -46,6 +56,11 @@
   const resultsBox = document.querySelector("[data-search-results]");
   let searchIndex = [];
 
+  function setSearchOpen(isOpen) {
+    if (resultsBox) resultsBox.hidden = !isOpen;
+    searchInput?.setAttribute("aria-expanded", String(isOpen));
+  }
+
   async function ensureIndex() {
     if (searchIndex.length) return searchIndex;
     try {
@@ -55,7 +70,7 @@
     } catch (error) {
       if (resultsBox) {
         resultsBox.innerHTML = '<div class="search-empty">Search is temporarily unavailable. Use the article list at left.</div>';
-        resultsBox.hidden = false;
+        setSearchOpen(true);
       }
     }
     return searchIndex;
@@ -78,7 +93,7 @@
   async function runSearch(navigateOnExact) {
     const query = searchInput?.value.trim() || "";
     if (!query) {
-      if (resultsBox) resultsBox.hidden = true;
+      setSearchOpen(false);
       return;
     }
     const index = await ensureIndex();
@@ -109,7 +124,7 @@
         return '<a href="' + result.item.url + '"><strong>' + escapeHtml(result.item.title) + '</strong><small>' + escapeHtml(excerpt(result.item.text, query)) + '</small></a>';
       }).join("");
     }
-    resultsBox.hidden = false;
+    setSearchOpen(true);
   }
 
   searchInput?.addEventListener("input", function () { runSearch(false); });
@@ -118,7 +133,7 @@
       event.preventDefault();
       runSearch(true);
     }
-    if (event.key === "Escape" && resultsBox) resultsBox.hidden = true;
+    if (event.key === "Escape") setSearchOpen(false);
   });
   searchButton?.addEventListener("click", function () { runSearch(true); });
 

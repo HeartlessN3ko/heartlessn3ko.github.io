@@ -1,6 +1,6 @@
 ---
 title: Human Sovereignty
-version: 1.0
+version: 1.1
 placement: Book XVI
 chapter: pending
 verse_numbers: pending
@@ -27,11 +27,13 @@ Every Human possesses a life that is their own to live.
 
 This does not mean Humans exist without obligations to one another. We participate in Humanity, depend upon Humanity, and are responsible for how our choices affect other lives. But participation does not erase ownership of the self.
 
-Human Sovereignty is the principle that a Human being should possess meaningful authority over their own body, identity, beliefs, relationships, direction, and future so long as exercising that authority does not violate the equal Humanity of others.
+Human Sovereignty means that a person should possess real authority over their own body, identity, beliefs, relationships, direction, and future—so long as using that authority does not violate the equal Humanity of somebody else.
 
 Your life is yours to live. Their life is theirs to live.
 
-Humanity has repeatedly struggled with the desire to control other Humans. Families control children. Majorities control minorities. Governments control citizens. Religions control belief. Communities control behavior. Partners control one another. Empires control peoples. Powerful groups decide which identities, relationships, cultures, bodies, or ways of living are permitted to exist.
+## Where freedom meets another life
+
+Human history is crowded with people deciding that somebody else’s life would be safer, purer, more useful, or more acceptable under their control. Families control children. Majorities control minorities. Governments control citizens. Religions control belief. Partners control one another. Empires control peoples. Powerful groups decide which identities, relationships, cultures, bodies, or ways of living are permitted to exist.
 
 Sometimes coordination requires limits. Society cannot function if every individual claims absolute freedom regardless of consequence. One person’s freedom cannot include the freedom to enslave another, assault them, steal their future, destroy their safety, or prevent them from exercising the same sovereignty.
 
@@ -47,13 +49,17 @@ Difference is not evidence of disorder.
 
 Difference is one of the forms Humanity takes.
 
-The question is therefore not whether another Human lives as you would choose to live. The question is whether their choices unnecessarily violate another person’s life, freedom, consent, safety, or ability to become.
+The question is not whether another Human lives as you would choose to live. The question is whether their choices unnecessarily violate another person’s life, freedom, consent, safety, or ability to become.
 
 This is the foundation of sovereignty.
+
+## The body and consent
 
 A Human body belongs first to the Human living inside it. Medical decisions, sexuality, reproduction, appearance, physical expression, and what happens to that body require extraordinary justification before another person or institution may override its owner.
 
 Consent follows directly from this principle. Another Human is never merely an object within your experience. Their body, attention, labor, intimacy, affection, time, and participation remain theirs to offer or withhold.
+
+## The mind and belief
 
 Sovereignty also protects the mind.
 
@@ -62,6 +68,8 @@ Humanity has always sought meaning through religion, philosophy, spirituality, s
 But belief cannot remain meaningful if it exists only through coercion.
 
 A Human should be free to believe, doubt, question, convert, leave, reinterpret, or refuse belief altogether so long as doing so does not violate the sovereignty of others.
+
+## Identity and relationship
 
 The same is true of identity.
 
@@ -87,9 +95,11 @@ Family does not eliminate sovereignty.
 
 No relationship becomes healthy merely because tradition recognizes its shape.
 
+## Communities and peoples
+
 Human Sovereignty also applies to communities and peoples.
 
-Humans do not exist only as isolated individuals. Languages, cultures, traditions, histories, communities, and collective identities can become meaningful parts of Human life. A population may therefore possess legitimate interests in preserving its culture, institutions, language, land, traditions, and ability to determine its collective future.
+Humans do not exist only as isolated individuals. Languages, cultures, traditions, histories, communities, and collective identities can become deep parts of Human life. A people may have legitimate interests in preserving its culture, institutions, language, land, traditions, and ability to determine its collective future.
 
 The same principle applies at larger scales.
 
@@ -105,6 +115,8 @@ The right to become includes the right not to become what someone else has decid
 
 This creates one of the most important limits within the Laws: to protect another’s freedom includes protecting their freedom from us.
 
+## Influence without domination
+
 Sovereignty does not mean permanent isolation. Humans influence one another constantly. We teach, persuade, argue, criticize, cooperate, compete, build cultures, create laws, raise children, and shape the environments in which other Humans develop.
 
 The goal is not to remove influence.
@@ -115,7 +127,9 @@ Persuasion leaves the other Human capable of refusal.
 
 Domination removes that possibility.
 
-This distinction becomes especially important in parenting. Children are not fully capable of exercising adult sovereignty, and those caring for them must make decisions on their behalf. But childhood authority should serve the child’s future sovereignty rather than erase it.
+## Protect the child; prepare the adult
+
+This distinction becomes especially important in parenting. Children cannot yet carry every responsibility of adult sovereignty, and the people caring for them must make decisions on their behalf. But childhood authority should serve the child’s future sovereignty rather than erase it.
 
 The purpose of raising a Human is not to manufacture a permanent extension of yourself.
 
@@ -125,11 +139,13 @@ Parents provide safety, knowledge, structure, culture, care, and guidance becaus
 
 Protect the child. Prepare the adult. Release the Human.
 
+## Authority must answer to Human need
+
 The same principle applies to institutions.
 
 Governments require authority to coordinate society, protect rights, maintain systems, resolve conflict, and prevent individuals from destroying one another’s freedom. But institutional power exists for Human purposes. Humans do not exist merely to serve institutions.
 
-Authority therefore requires justification.
+Authority requires justification.
 
 The greater the power to control another person’s life, the greater the responsibility to demonstrate why that control is necessary, proportionate, accountable, and compatible with Human dignity.
 
@@ -137,13 +153,15 @@ Sovereignty is not absolute because Humans share existence.
 
 A person may be restrained from committing violence. Communities may establish laws protecting safety and shared resources. Society may intervene when someone’s actions seriously threaten others. Humanity may defend itself against domination.
 
-But restriction should answer a Human need, not merely discomfort with difference.
+But restriction should answer a Human need, not discomfort with difference.
 
 The relevant question is always: what Humanity is being protected, from what harm, and is this restriction actually necessary to protect it?
 
 A society that restricts freedom merely because difference makes the majority uncomfortable has confused conformity with safety.
 
-Human Sovereignty is therefore closely tied to Open Destiny.
+## Open Destiny
+
+Human Sovereignty is closely tied to Open Destiny.
 
 A Human cannot meaningfully become if every important choice has already been made for them. Their future must contain room for discovery, error, growth, change, rejection, reinvention, and paths nobody around them anticipated.
 
@@ -164,6 +182,8 @@ It asks the powerful to practice restraint.
 It asks individuals to recognize the sovereignty of others as seriously as they recognize their own.
 
 It asks societies to protect enough shared order that everyone can exercise meaningful freedom within it.
+
+## Freedom must be reciprocal
 
 The principle is reciprocal.
 

@@ -3,7 +3,7 @@
   --paper-deep: #f5efe2;
   --ink: #202122;
   --muted: #54595d;
-  --quiet: #72777d;
+  --quiet: #70757a;
   --line: #a2a9b1;
   --line-soft: #c8ccd1;
   --wash: #f8f9fa;
@@ -145,8 +145,8 @@ a:focus-visible {
 }
 
 .wordmark-mark {
-  width: 42px;
-  height: 42px;
+  width: 44px;
+  height: 44px;
   display: grid;
   flex: 0 0 auto;
   place-items: center;
@@ -1145,6 +1145,21 @@ blockquote {
 
   .site-footer p + p {
     margin-top: 0.5rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
   }
 }
 

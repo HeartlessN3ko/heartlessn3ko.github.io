@@ -14,7 +14,7 @@
   <meta name="twitter:title" content="Concept guide — The Codex of Humanity">
   <meta name="twitter:description" content="An alphabetical reader&#x27;s map to the central concepts in the Laws of Humanity.">
   <link rel="icon" href="/humanity/assets/codex-mark.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="/humanity/styles.css">
+  <link rel="stylesheet" href="/humanity/styles.css?v=20260901-codex-voice-2">
   <script type="application/ld+json">{"@context": "https://schema.org", "@type": "CollectionPage", "name": "Concept guide", "headline": "Concept guide", "description": "An alphabetical reader's map to the central concepts in the Laws of Humanity.", "url": "https://srxnexus.org/humanity/concepts/", "isPartOf": {"@type": "WebSite", "name": "The Codex of Humanity", "url": "https://srxnexus.org/humanity/"}}</script>
 </head>
 <body class="route-concepts">
@@ -27,9 +27,9 @@
     </a>
     <div class="search" role="search">
       <label class="sr-only" for="wiki-search">Search the Codex</label>
-      <input id="wiki-search" type="search" placeholder="Search the Codex" autocomplete="off" data-search>
+      <input id="wiki-search" type="search" placeholder="Search the Codex" autocomplete="off" aria-controls="wiki-search-results" aria-expanded="false" data-search>
       <button type="button" data-search-button>Search</button>
-      <div class="search-results" data-search-results hidden></div>
+      <div id="wiki-search-results" class="search-results" aria-label="Search results" aria-live="polite" data-search-results hidden></div>
     </div>
     <div class="mast-tools">
       <button class="text-button" type="button" data-random>Random article</button>
@@ -77,6 +77,6 @@
     <p><strong>The Codex of Humanity</strong> · Public reading edition · Updated 1 September 2026</p>
     <p>Internal and external links are reading aids. External links provide context and are not endorsements.</p>
   </footer>
-  <script src="/humanity/wiki.js" defer></script>
+  <script src="/humanity/wiki.js?v=20260901-codex-voice-2" defer></script>
 </body>
 </html>
