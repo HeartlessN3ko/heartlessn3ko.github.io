@@ -1,13 +1,10 @@
 ---
-codex_id: CANON-03
 title: The Human Continuum
-status: canon
-canonized: 2026-08-28
 version: 1.0
 placement: Book XV
 chapter: pending
 verse_numbers: pending
-canon_text_modified: false
+updated: 2026-09-01
 editorial_links:
   - inheritance
   - ancestors
@@ -20,7 +17,7 @@ editorial_links:
   - possibility
 ---
 
-# CANON 03: The Human Continuum
+# The Human Continuum
 
 Humanity is larger than the Humans alive today.
 
@@ -137,4 +134,3 @@ Humanity does not begin with us.
 Humanity does not end with us.
 
 We are the living portion of the Human Continuum.
-

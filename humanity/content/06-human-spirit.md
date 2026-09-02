@@ -1,18 +1,14 @@
 ---
-codex_id: CANON-06
 title: The Human Spirit
-status: canon
-canonized: 2026-08-28
 version: 1.0
 placement: Book XVIII
 chapter: pending
 verse_numbers: pending
+updated: 2026-09-01
 related_laws:
   - Law 1
   - Law 4
   - Law 6
-canon_id_is_not_law_number: true
-canon_text_modified: false
 editorial_links:
   - scientific truth
   - Human truth
@@ -30,7 +26,7 @@ editorial_links:
   - Open Destiny
 ---
 
-# CANON 06: The Human Spirit
+# The Human Spirit
 
 Humanity has always tried to understand what lies beyond the limits of certainty. Across cultures and throughout history, people have developed ideas about souls, gods, spirits, ancestors, sacred places, reincarnation, life after death, unseen energies, prayer, ritual, transcendence, and realities that may exist beyond ordinary perception. These traditions often disagree with one another, sometimes profoundly, yet the questions themselves persist. That persistence makes them part of the Human inheritance and worthy of serious examination.
 
@@ -69,4 +65,3 @@ The Human Spirit preserves room for grief, hope, remembrance, and questions abou
 The Codex therefore treats wonder as part of the Human inheritance and inquiry as part of our responsibility to it. Humanity should preserve spiritual traditions, examine unusual experiences, study consciousness, compare beliefs across cultures, respect sincere attempts to find meaning, and remain willing to revise its understanding when new knowledge arrives. Mystery deserves curiosity, patience, and intellectual discipline.
 
 We do not know is a sacred answer because it keeps the door open.
-

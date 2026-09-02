@@ -1,15 +1,12 @@
 ---
-codex_id: CANON-01
 title: The Twelve Laws of Humanity
-status: canon
-canonized: 2026-09-01
 version: 0.5
 placement: Book II
 source: Laws of Humanity Foundation v0.5
-canon_text_modified: false
+updated: 2026-09-01
 ---
 
-# CANON 01: The Twelve Laws of Humanity
+# The Twelve Laws of Humanity
 
 The Twelve Laws are the core, disseminatable expression of the framework. Each is broad enough to govern a major dimension of Human life, while the Alien Test and Humanity Test provide the reasoning framework for interpretation and edge cases.
 
@@ -90,4 +87,3 @@ Capacity creates responsibility. We care because we can. Humanity’s power shou
 The Twelve Laws answer twelve different Human questions: truth, life, strength, freedom, community, difference, impact, knowledge, experience, the future, other life, and Humanity’s responsibility to existence.
 
 > They are not twelve isolated commandments. Together they describe the conditions that allow Humanity to remain Human and carry Humanity forward.
-

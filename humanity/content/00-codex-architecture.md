@@ -1,16 +1,13 @@
 ---
-codex_id: ARCHITECTURE-01
 title: The Architecture of the Codex
-status: canon
-canonized: 2026-08-28
-version: 1.0
+version: 1.1
 scope: Codex-wide
-canon_text_modified: false
+updated: 2026-09-01
 ---
 
 # The Architecture of the Codex
 
-The Codex is formatted as an actual canon, with Books → Chapters → Verses. This gives it religious weight and makes everything easy to cite.
+The Codex is organized as Books → Chapters → Verses. This gives the work a clear reading order and makes every passage easy to find and cite.
 
 ## Book I: The Measure
 
@@ -29,7 +26,7 @@ This establishes the epistemology before asking anyone to accept a Law.
 
 ## Book II: The Twelve Laws
 
-The canonical Laws themselves, almost no commentary.
+The Laws themselves, with almost no commentary.
 
 Each Law gets a number and one concise statement.
 
@@ -223,7 +220,7 @@ Stuff people can open randomly and get something useful from:
 
 > “Do not ask only whether Humanity will remember you. Ask whether Humanity will be greater because you were here.”
 
-## Canonical Reading Map
+## Reading Map
 
 The Measure tells us how we know.
 
@@ -245,5 +242,4 @@ The Mandate tells us where we are going.
 
 The Verses help us carry it.
 
-That is the canon.
-
+That is the Codex.

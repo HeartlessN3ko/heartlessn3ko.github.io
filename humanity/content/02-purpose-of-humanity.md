@@ -1,11 +1,9 @@
 ---
-codex_id: CANON-02
 title: The Purpose of Humanity
-status: canon
-canonized: 2026-08-28
 version: 2.0
-supersedes: CANON-02@1.0
-canon_text_modified: false
+previous_version: 1.0
+placement: in review
+updated: 2026-09-01
 editorial_links:
   - participation
   - Human Continuum
@@ -17,7 +15,7 @@ editorial_links:
   - future possibility
 ---
 
-# CANON 02: The Purpose of Humanity
+# The Purpose of Humanity
 
 The shared purpose of Human life is to participate in Humanity.
 
@@ -58,4 +56,3 @@ The purpose of Humanity is participation. Receive the inheritance. Experience yo
 You do not exist outside Humanity. You are one expression of it.
 
 Participate in Humanity.
-

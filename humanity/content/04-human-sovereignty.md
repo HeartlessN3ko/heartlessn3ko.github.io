@@ -1,16 +1,12 @@
 ---
-codex_id: CANON-04
 title: Human Sovereignty
-status: canon
-canonized: 2026-08-28
 version: 1.0
 placement: Book XVI
 chapter: pending
 verse_numbers: pending
+updated: 2026-09-01
 related_laws:
   - Law 4
-canon_id_is_not_law_number: true
-canon_text_modified: false
 editorial_links:
   - self-ownership
   - freedom
@@ -25,7 +21,7 @@ editorial_links:
   - reciprocal restraint
 ---
 
-# CANON 04: Human Sovereignty
+# Human Sovereignty
 
 Every Human possesses a life that is their own to live.
 
@@ -188,4 +184,3 @@ Their body is theirs. Their mind is theirs. Their identity is theirs. Their life
 Human Sovereignty is not separation from Humanity.
 
 It is the space Humanity gives each of its members to become themselves.
-

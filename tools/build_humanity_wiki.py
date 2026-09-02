@@ -14,7 +14,7 @@ SITE = REPO / "humanity"
 CONTENT = SITE / "content"
 
 ARTICLES = [
-    ("architecture", "00-canonical-architecture.md", "The Architecture of the Codex", "Codex-wide"),
+    ("architecture", "00-codex-architecture.md", "The Architecture of the Codex", "Codex structure"),
     ("twelve-laws", "01-twelve-laws.md", "The Twelve Laws of Humanity", "Book II"),
     ("purpose-of-humanity", "02-purpose-of-humanity.md", "The Purpose of Humanity", "Book placement pending"),
     ("human-continuum", "03-human-continuum.md", "The Human Continuum", "Book XV"),
@@ -25,7 +25,7 @@ ARTICLES = [
 
 BOOKS = [
     ("I", "The Measure", "How Humanity decides what belongs in the Laws"),
-    ("II", "The Twelve Laws", "The concise, canonical Laws"),
+    ("II", "The Twelve Laws", "The concise Laws"),
     ("III", "The Scripture of Truth", "Scripture of Law 1"),
     ("IV", "The Scripture of Life", "Scripture of Law 2"),
     ("V", "The Scripture of Strength", "Scripture of Law 3"),
@@ -58,7 +58,7 @@ BOOK_LINKS = {
 INTERNAL_LINKS = {
     "Codex of Humanity": "architecture",
     "Architecture of the Codex": "architecture",
-    "canonical architecture": "architecture",
+    "Codex architecture": "architecture",
     "Twelve Laws": "twelve-laws",
     "Laws of Humanity": "twelve-laws",
     "Purpose of Humanity": "purpose-of-humanity",
@@ -170,7 +170,6 @@ SECTION_MARKERS = {
 
 RELATED = {
     "architecture": [
-        ("Canon", "How cultures define authoritative bodies of work.", "https://en.wikipedia.org/wiki/Canon_(basic_principle)"),
         ("Book, chapter and verse", "The reference pattern adapted by the Codex.", "https://en.wikipedia.org/wiki/Chapters_and_verses_of_the_Bible"),
         ("Epic of Gilgamesh", "An ancient work carried across languages and generations.", "https://en.wikipedia.org/wiki/Epic_of_Gilgamesh"),
     ],
@@ -381,7 +380,7 @@ def sidebar(current: str) -> str:
         nav_link("The Twelve Laws", "/humanity/twelve-laws/", "twelve-laws"),
         nav_link("The Purpose of Humanity", "/humanity/purpose-of-humanity/", "purpose-of-humanity"),
         nav_link("How the Codex is organized", "/humanity/architecture/", "architecture"),
-        '<div class="sidebar-label secondary">Read the canon</div>',
+        '<div class="sidebar-label secondary">Read the Books</div>',
         nav_link("The Human Continuum", "/humanity/human-continuum/", "human-continuum"),
         nav_link("Human Sovereignty", "/humanity/human-sovereignty/", "human-sovereignty"),
         nav_link("The Human Experience", "/humanity/human-experience/", "human-experience"),
@@ -408,7 +407,7 @@ def related_html(slug: str) -> str:
         f'<li><a class="external" href="{url}" target="_blank" rel="noopener noreferrer">{html.escape(title)}</a><span>{html.escape(summary)}</span></li>'
         for title, summary, url in items
     )
-    return f'<section class="related"><h2>Related historical context</h2><p class="editorial-note">These editorial links open Wikipedia and are not part of the canon.</p><ul>{rendered}</ul></section>'
+    return f'<section class="related"><h2>Related historical context</h2><p class="editorial-note">These reference links open Wikipedia for further reading.</p><ul>{rendered}</ul></section>'
 
 
 def page_shell(*, title: str, description: str, current: str, body: str, page_type: str = "article") -> str:
@@ -469,14 +468,14 @@ def page_shell(*, title: str, description: str, current: str, body: str, page_ty
     <aside class="sidebar" aria-label="Codex navigation" data-sidebar>
       {sidebar(current)}
       <div class="sidebar-label secondary">About this edition</div>
-      <p>Approved canonical wording is reproduced without alteration. Blue links are editorial navigation.</p>
+      <p>Published wording is reproduced as written. Blue links are reading aids.</p>
       <p><a href="https://srxnexus.org/">Return to SRX Nexus</a></p>
     </aside>
     <main id="content" class="page page-{page_type}">{body}</main>
   </div>
   <footer class="site-footer">
-    <p><strong>The Codex of Humanity</strong> · Public reading edition · Canon snapshot dated 1 September 2026</p>
-    <p>Internal and external links are editorial aids. External links are not endorsements or canonical sources.</p>
+    <p><strong>The Codex of Humanity</strong> · Public reading edition · Updated 1 September 2026</p>
+    <p>Internal and external links are reading aids. External links provide context and are not endorsements.</p>
   </footer>
   <script src="/humanity/wiki.js" defer></script>
 </body>
@@ -492,16 +491,16 @@ def article_page(slug: str, filename: str, display_title: str, placement: str, i
     next_link = ARTICLES[index + 1] if index + 1 < len(ARTICLES) else None
     prev_html = f'<a rel="prev" href="/humanity/{previous_link[0]}/"><span>Previous</span>{html.escape(previous_link[2])}</a>' if previous_link else '<span></span>'
     next_html = f'<a rel="next" href="/humanity/{next_link[0]}/"><span>Next</span>{html.escape(next_link[2])}</a>' if next_link else '<a href="/humanity/concepts/"><span>Next</span>Concept guide</a>'
-    reader_placement = "Foundational canon" if "pending" in placement.lower() else placement
-    canonized = human_date(meta.get("canonized", "2026-08-28"))
+    reader_placement = "Placement in review" if "pending" in placement.lower() else placement
+    updated = human_date(meta.get("updated", "2026-09-01"))
+    section_count = len(toc)
     infobox_content = f'''
-      <div class="infobox-title">Canonical record</div>
+      <div class="infobox-title">In the Codex</div>
       <dl>
-        <div><dt>ID</dt><dd>{html.escape(meta.get('codex_id', '—'))}</dd></div>
-        <div><dt>Status</dt><dd><span class="status-dot"></span>{html.escape(meta.get('status', 'canon').title())}</dd></div>
+        <div><dt>Book</dt><dd>{html.escape(reader_placement)}</dd></div>
+        <div><dt>Sections</dt><dd>{section_count}</dd></div>
         <div><dt>Version</dt><dd>{html.escape(meta.get('version', '—'))}</dd></div>
-        <div><dt>Placement</dt><dd>{html.escape(placement)}</dd></div>
-        <div><dt>Canonized</dt><dd>{html.escape(canonized)}</dd></div>
+        <div><dt>Updated</dt><dd>{html.escape(updated)}</dd></div>
       </dl>'''
     authority_note = '''
           <aside class="editorial-notice"><strong>Book II is now published.</strong> This architecture text preserves its original placeholders. Read the authoritative statements on <a href="/humanity/twelve-laws/">The Twelve Laws of Humanity</a>.</aside>''' if slug == "architecture" else ""
@@ -509,15 +508,15 @@ def article_page(slug: str, filename: str, display_title: str, placement: str, i
       <div class="article-grid">
         <article class="article">
           <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/humanity/">Codex home</a><span aria-hidden="true">›</span><span>{html.escape(reader_placement)}</span></nav>
-          <div class="eyebrow">Approved canon</div>
+          <div class="eyebrow">{html.escape(reader_placement)}</div>
           <h1>{html.escape(display_title)}</h1>
-          <p class="subtitle">Canonical wording preserved exactly · Editorial links added for navigation</p>
+          <p class="subtitle">Published text · Cross-links added for navigation and context</p>
           <div class="article-tools" aria-label="Article tools">
             <a href="#article-start">Jump to text</a>
             <button type="button" data-copy-link>Copy article link</button>
             <a href="/humanity/concepts/">Concept guide</a>
           </div>
-          <aside class="infobox infobox-inline" aria-label="Canonical record">{infobox_content}</aside>
+          <aside class="infobox infobox-inline" aria-label="Book and section information">{infobox_content}</aside>
 {authority_note}
           {toc_html(toc)}
           <div id="article-start" class="article-text">{article_body}</div>
@@ -525,7 +524,7 @@ def article_page(slug: str, filename: str, display_title: str, placement: str, i
           <nav class="article-pagination" aria-label="Adjacent articles">{prev_html}{next_html}</nav>
         </article>
         <aside class="article-rail">
-          <div class="infobox infobox-rail" aria-label="Canonical record">{infobox_content}</div>
+          <div class="infobox infobox-rail" aria-label="Book and section information">{infobox_content}</div>
           <nav class="on-this-page" aria-label="On this page">
             <div class="sidebar-label">On this page</div>
             <ol>{''.join(f'<li><a href="#{section_id}">{html.escape(label)}</a></li>' for section_id, label in toc)}</ol>
@@ -538,7 +537,7 @@ def article_page(slug: str, filename: str, display_title: str, placement: str, i
 def home_page() -> str:
     article_cards = "".join(
         f'''<a class="portal-card" href="/humanity/{slug}/">
-          <span class="portal-kicker">{html.escape('Foundational canon' if 'pending' in placement.lower() else placement)}</span>
+          <span class="portal-kicker">{html.escape('Placement in review' if 'pending' in placement.lower() else placement)}</span>
           <strong>{html.escape(title)}</strong>
           <span>{summary_for(slug)}</span>
         </a>'''
@@ -572,20 +571,20 @@ def home_page() -> str:
         <section class="welcome-panel">
           <div class="panel-heading"><h2>Start here</h2><a href="/humanity/concepts/">Concept guide</a></div>
           <blockquote class="feature-quote"><p>“Receive the inheritance. Experience your life. Add what you can. Protect the whole. Pass it forward.”</p><cite>— The Purpose of Humanity</cite></blockquote>
-          <p>The Codex is organized as Books, Chapters, and Verses. Six substantive texts and the canonical architecture are currently approved. The remaining Books are shown as planned so the public edition never mistakes a framework for finished canon.</p>
+          <p>The Codex is organized as Books, Chapters, and Verses. Six core texts and the structure of the Codex are available to read now. The remaining Books are shown as planned so readers can see where the work is going without mistaking an outline for a finished Book.</p>
         </section>
         <section class="edition-panel">
           <div class="panel-heading"><h2>About this edition</h2></div>
           <ul class="fact-list">
-            <li><strong>6</strong><span>approved core texts</span></li>
-            <li><strong>1</strong><span>canonical architecture</span></li>
+            <li><strong>6</strong><span>published core texts</span></li>
+            <li><strong>1</strong><span>Codex structure</span></li>
             <li><strong>21</strong><span>Books in the architecture</span></li>
           </ul>
           <p><span class="link-sample internal-sample">Blue links</span> move through the Codex. Links marked <span class="external-mark">↗</span> open historical or cultural context on Wikipedia.</p>
         </section>
       </div>
       <section class="portal-section">
-        <div class="panel-heading"><h2>Read the approved canon</h2><a href="/humanity/architecture/">How the Codex works</a></div>
+        <div class="panel-heading"><h2>Read the Codex</h2><a href="/humanity/architecture/">How the Codex works</a></div>
         <div class="portal-grid">{article_cards}</div>
       </section>
       <section id="book-register" class="book-register">
@@ -594,7 +593,7 @@ def home_page() -> str:
       </section>'''
     return page_shell(
         title="Main Page",
-        description="The Laws of Humanity in a public, cross-linked reading edition: approved canon, concepts, history, and the twenty-one Book architecture.",
+        description="The Laws of Humanity in a public, cross-linked reading edition: Books, concepts, history, and the twenty-one-Book structure.",
         current="home",
         body=body,
         page_type="home",
@@ -609,12 +608,12 @@ def summary_for(slug: str) -> str:
         "human-sovereignty": "Meaningful authority over body, identity, belief, relationships, direction, and future.",
         "human-experience": "Connection, creation, play, nature, knowledge, ritual, grief, purpose, and wonder.",
         "human-spirit": "A disciplined home for mystery, belief, spiritual experience, and the sacred answer: we do not know.",
-    }.get(slug, "The Books, Chapters, and Verses that give the Codex its canonical structure.")
+    }.get(slug, "The Books, Chapters, and Verses that give the Codex its structure.")
 
 
 def concepts_page() -> str:
     concepts = [
-        ("Canon", "The approved body of text", "architecture"),
+        ("The Codex", "The organized body of Laws, Books, Chapters, and Verses", "architecture"),
         ("The Twelve Laws", "The concise principles at the center of the Codex", "twelve-laws"),
         ("Humanity Test", "A proposed measure for evaluating ideas and practices", "architecture"),
         ("Participation", "The shared purpose of Human life", "purpose-of-humanity"),
@@ -647,7 +646,7 @@ def concepts_page() -> str:
       <article class="article concept-index">
         <div class="eyebrow">Navigation</div>
         <h1>Concept guide</h1>
-        <p class="standfirst">A reader's map to recurring ideas in the approved canon. Definitions below are editorial summaries; follow each link for the canonical wording.</p>
+        <p class="standfirst">A reader's map to recurring ideas in the Codex. Definitions below are concise navigation summaries; follow each link to read the full text.</p>
         <nav class="alphabet" aria-label="Available concept letters">{alphabet}</nav>
         {groups}
         <section class="related">
@@ -662,7 +661,7 @@ def concepts_page() -> str:
       </article>'''
     return page_shell(
         title="Concept guide",
-        description="An alphabetical reader's map to the central concepts in the approved Laws of Humanity canon.",
+        description="An alphabetical reader's map to the central concepts in the Laws of Humanity.",
         current="concepts",
         body=body,
         page_type="index",

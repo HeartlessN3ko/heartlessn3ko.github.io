@@ -1,16 +1,12 @@
 ---
-codex_id: CANON-05
 title: The Human Experience
-status: canon
-canonized: 2026-08-28
 version: 1.0
 placement: Book XVII
 chapter: pending
 verse_numbers: pending
+updated: 2026-09-01
 related_laws:
   - Law 9
-canon_id_is_not_law_number: true
-canon_text_modified: false
 editorial_links:
   - survival
   - connection
@@ -30,7 +26,7 @@ editorial_links:
   - Seek Humanity
 ---
 
-# CANON 05: The Human Experience
+# The Human Experience
 
 There is supposed to be more to being Human than merely remaining alive.
 
@@ -177,4 +173,3 @@ We survived so that we could live.
 There is supposed to be more to being Human than merely remaining alive.
 
 Seek Humanity.
-
