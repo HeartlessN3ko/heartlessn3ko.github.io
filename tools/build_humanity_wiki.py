@@ -15,6 +15,7 @@ CONTENT = SITE / "content"
 
 ARTICLES = [
     ("architecture", "00-canonical-architecture.md", "The Architecture of the Codex", "Codex-wide"),
+    ("twelve-laws", "01-twelve-laws.md", "The Twelve Laws of Humanity", "Book II"),
     ("purpose-of-humanity", "02-purpose-of-humanity.md", "The Purpose of Humanity", "Book placement pending"),
     ("human-continuum", "03-human-continuum.md", "The Human Continuum", "Book XV"),
     ("human-sovereignty", "04-human-sovereignty.md", "Human Sovereignty", "Book XVI"),
@@ -47,6 +48,7 @@ BOOKS = [
 ]
 
 BOOK_LINKS = {
+    "II": "twelve-laws",
     "XV": "human-continuum",
     "XVI": "human-sovereignty",
     "XVII": "human-experience",
@@ -57,6 +59,8 @@ INTERNAL_LINKS = {
     "Codex of Humanity": "architecture",
     "Architecture of the Codex": "architecture",
     "canonical architecture": "architecture",
+    "Twelve Laws": "twelve-laws",
+    "Laws of Humanity": "twelve-laws",
     "Purpose of Humanity": "purpose-of-humanity",
     "participate in Humanity": "purpose-of-humanity",
     "participation": "purpose-of-humanity",
@@ -169,6 +173,11 @@ RELATED = {
         ("Canon", "How cultures define authoritative bodies of work.", "https://en.wikipedia.org/wiki/Canon_(basic_principle)"),
         ("Book, chapter and verse", "The reference pattern adapted by the Codex.", "https://en.wikipedia.org/wiki/Chapters_and_verses_of_the_Bible"),
         ("Epic of Gilgamesh", "An ancient work carried across languages and generations.", "https://en.wikipedia.org/wiki/Epic_of_Gilgamesh"),
+    ],
+    "twelve-laws": [
+        ("Golden Rule", "A widely recurring principle of reciprocal conduct.", "https://en.wikipedia.org/wiki/Golden_Rule"),
+        ("Code of Hammurabi", "An early surviving written legal code.", "https://en.wikipedia.org/wiki/Code_of_Hammurabi"),
+        ("Universal Declaration of Human Rights", "A modern international statement of Human rights and freedoms.", "https://en.wikipedia.org/wiki/Universal_Declaration_of_Human_Rights"),
     ],
     "purpose-of-humanity": [
         ("Humanism", "A family of philosophies centered on human agency and value.", "https://en.wikipedia.org/wiki/Humanism"),
@@ -369,6 +378,7 @@ def sidebar(current: str) -> str:
     links = [
         '<div class="sidebar-label">Start here</div>',
         nav_link("Overview", "/humanity/", "home", "side-home"),
+        nav_link("The Twelve Laws", "/humanity/twelve-laws/", "twelve-laws"),
         nav_link("The Purpose of Humanity", "/humanity/purpose-of-humanity/", "purpose-of-humanity"),
         nav_link("How the Codex is organized", "/humanity/architecture/", "architecture"),
         '<div class="sidebar-label secondary">Read the canon</div>',
@@ -436,7 +446,7 @@ def page_shell(*, title: str, description: str, current: str, body: str, page_ty
   <link rel="stylesheet" href="/humanity/styles.css">
   <script type="application/ld+json">{json.dumps(schema, ensure_ascii=False)}</script>
 </head>
-<body>
+<body class="route-{html.escape(current)}">
   <a class="skip-link" href="#content">Skip to content</a>
   <header class="masthead">
     <button class="icon-button menu-button" type="button" aria-label="Open navigation" aria-expanded="false" data-menu-button>☰</button>
@@ -465,7 +475,7 @@ def page_shell(*, title: str, description: str, current: str, body: str, page_ty
     <main id="content" class="page page-{page_type}">{body}</main>
   </div>
   <footer class="site-footer">
-    <p><strong>The Codex of Humanity</strong> · Public reading edition · Canon snapshot dated 28 August 2026</p>
+    <p><strong>The Codex of Humanity</strong> · Public reading edition · Canon snapshot dated 1 September 2026</p>
     <p>Internal and external links are editorial aids. External links are not endorsements or canonical sources.</p>
   </footer>
   <script src="/humanity/wiki.js" defer></script>
@@ -493,6 +503,8 @@ def article_page(slug: str, filename: str, display_title: str, placement: str, i
         <div><dt>Placement</dt><dd>{html.escape(placement)}</dd></div>
         <div><dt>Canonized</dt><dd>{html.escape(canonized)}</dd></div>
       </dl>'''
+    authority_note = '''
+          <aside class="editorial-notice"><strong>Book II is now published.</strong> This architecture text preserves its original placeholders. Read the authoritative statements on <a href="/humanity/twelve-laws/">The Twelve Laws of Humanity</a>.</aside>''' if slug == "architecture" else ""
     body = f'''
       <div class="article-grid">
         <article class="article">
@@ -506,6 +518,7 @@ def article_page(slug: str, filename: str, display_title: str, placement: str, i
             <a href="/humanity/concepts/">Concept guide</a>
           </div>
           <aside class="infobox infobox-inline" aria-label="Canonical record">{infobox_content}</aside>
+{authority_note}
           {toc_html(toc)}
           <div id="article-start" class="article-text">{article_body}</div>
           {related_html(slug)}
@@ -546,8 +559,8 @@ def home_page() -> str:
           <h1>Welcome to the Codex of Humanity</h1>
           <p class="standfirst">A cross-linked home for the Laws of Humanity: what Humanity inherits, what it protects, how it lives, and what it still wonders about.</p>
           <div class="home-actions">
-            <a class="primary-action" href="/humanity/purpose-of-humanity/">Start with the Purpose</a>
-            <a href="/humanity/architecture/">See how the Codex is organized</a>
+            <a class="primary-action" href="/humanity/twelve-laws/">Read the Twelve Laws</a>
+            <a href="/humanity/purpose-of-humanity/">Understand the Purpose</a>
           </div>
         </div>
         <figure class="lead-figure">
@@ -559,12 +572,12 @@ def home_page() -> str:
         <section class="welcome-panel">
           <div class="panel-heading"><h2>Start here</h2><a href="/humanity/concepts/">Concept guide</a></div>
           <blockquote class="feature-quote"><p>“Receive the inheritance. Experience your life. Add what you can. Protect the whole. Pass it forward.”</p><cite>— The Purpose of Humanity</cite></blockquote>
-          <p>The Codex is organized as Books, Chapters, and Verses. Five substantive texts and the canonical architecture are currently approved. The remaining Books are shown as planned so the public edition never mistakes a framework for finished canon.</p>
+          <p>The Codex is organized as Books, Chapters, and Verses. Six substantive texts and the canonical architecture are currently approved. The remaining Books are shown as planned so the public edition never mistakes a framework for finished canon.</p>
         </section>
         <section class="edition-panel">
           <div class="panel-heading"><h2>About this edition</h2></div>
           <ul class="fact-list">
-            <li><strong>5</strong><span>approved core texts</span></li>
+            <li><strong>6</strong><span>approved core texts</span></li>
             <li><strong>1</strong><span>canonical architecture</span></li>
             <li><strong>21</strong><span>Books in the architecture</span></li>
           </ul>
@@ -590,6 +603,7 @@ def home_page() -> str:
 
 def summary_for(slug: str) -> str:
     return {
+        "twelve-laws": "The twelve concise principles at the center of the Codex: truth, life, strength, freedom, community, plurality, repair, knowledge, experience, future possibility, nature, and stewardship.",
         "purpose-of-humanity": "Receive the inheritance, experience your life, add what you can, and pass it forward.",
         "human-continuum": "Humanity across generations: memory, knowledge, failure, legacy, and future possibility.",
         "human-sovereignty": "Meaningful authority over body, identity, belief, relationships, direction, and future.",
@@ -601,6 +615,7 @@ def summary_for(slug: str) -> str:
 def concepts_page() -> str:
     concepts = [
         ("Canon", "The approved body of text", "architecture"),
+        ("The Twelve Laws", "The concise principles at the center of the Codex", "twelve-laws"),
         ("Humanity Test", "A proposed measure for evaluating ideas and practices", "architecture"),
         ("Participation", "The shared purpose of Human life", "purpose-of-humanity"),
         ("Inheritance", "What Humanity receives across generations", "human-continuum"),

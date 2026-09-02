@@ -534,11 +534,43 @@ h3:hover .section-link,
 .article-text h2,
 .article-text h3 {
   font-family: var(--serif);
+  scroll-margin-top: 96px;
 }
 
 .article-text ol,
 .article-text ul {
   padding-left: 2rem;
+}
+
+.route-twelve-laws .article-text h2 {
+  margin-top: 2.25rem;
+  padding-bottom: 0.4rem;
+  border-bottom: 1px solid var(--line-soft);
+  color: var(--accent);
+  font-family: var(--sans);
+  font-size: 0.76rem;
+  font-weight: 850;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.route-twelve-laws .article-text blockquote {
+  margin: 0.65rem 0 0.9rem;
+  padding: 0.9rem 1.1rem;
+  border-left-color: var(--gold);
+  background: var(--wash);
+  color: var(--ink);
+  font-size: 1.24rem;
+  line-height: 1.48;
+}
+
+.editorial-notice {
+  margin: 1rem 0 1.5rem;
+  padding: 0.85rem 1rem;
+  border: 1px solid var(--gold);
+  background: color-mix(in srgb, var(--gold) 8%, var(--paper));
+  font-size: 0.87rem;
+  line-height: 1.5;
 }
 
 blockquote {
@@ -1125,6 +1157,11 @@ blockquote {
 
   .contents ol {
     columns: 1;
+  }
+
+  .route-twelve-laws .contents ol {
+    columns: 2;
+    column-gap: 1.5rem;
   }
 
   .article-tools {

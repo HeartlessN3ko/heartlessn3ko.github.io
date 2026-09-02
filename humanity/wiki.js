@@ -30,6 +30,7 @@
 
   const articles = [
     "/humanity/architecture/",
+    "/humanity/twelve-laws/",
     "/humanity/purpose-of-humanity/",
     "/humanity/human-continuum/",
     "/humanity/human-sovereignty/",
