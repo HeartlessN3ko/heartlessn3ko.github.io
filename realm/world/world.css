@@ -1,0 +1,103 @@
+.world-page {
+  background:
+    radial-gradient(circle at 88% 10%, rgba(109, 231, 255, 0.08), transparent 32%),
+    radial-gradient(circle at 8% 30%, rgba(134, 243, 189, 0.06), transparent 28%),
+    var(--bg);
+}
+
+.world-status-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1px;
+  background: var(--line);
+  border: 1px solid var(--line);
+  margin-top: 28px;
+}
+
+.world-status-grid div {
+  min-height: 64px;
+  padding: 12px 14px;
+  background: rgba(3, 6, 9, 0.78);
+}
+
+.world-status-grid span {
+  display: block;
+  color: var(--dim);
+  font-family: 'DM Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+}
+
+.world-status-grid strong {
+  display: block;
+  margin-top: 8px;
+  color: var(--cyan);
+  font-family: 'DM Mono', monospace;
+  font-size: 20px;
+  line-height: 1.2;
+}
+
+.world-live-dot {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--green);
+  margin-right: 8px;
+  box-shadow: 0 0 8px var(--green);
+  animation: world-pulse 2s ease-in-out infinite;
+}
+
+.world-live-dot.stale { background: var(--amber); box-shadow: 0 0 8px var(--amber); animation: none; }
+.world-live-dot.down { background: var(--red); box-shadow: 0 0 8px var(--red); animation: none; }
+
+@keyframes world-pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.35; }
+}
+
+.world-kingdom-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 14px;
+  margin-top: 24px;
+}
+
+.world-kingdom-card {
+  border: 1px solid var(--line);
+  background: var(--panel);
+  padding: 16px 18px;
+}
+
+.world-kingdom-card .badge {
+  display: inline-block;
+  font-family: 'DM Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 1.2px;
+  color: var(--dim);
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+
+.world-kingdom-card h3 {
+  margin: 0 0 6px;
+  font-size: 20px;
+  color: var(--text);
+}
+
+.world-kingdom-card p {
+  margin: 0;
+  color: var(--muted);
+  font-family: 'DM Mono', monospace;
+  font-size: 12px;
+}
+
+.world-status-line {
+  margin-top: 18px;
+  color: var(--muted);
+  font-family: 'DM Mono', monospace;
+  font-size: 12px;
+}
+
+.world-status-line.error { color: var(--red); }

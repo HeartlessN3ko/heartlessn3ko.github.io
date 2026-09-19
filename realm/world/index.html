@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Live population telemetry from Terra, relayed in real time by SRX.">
+<title>Terra Live Census — SRX</title>
+<link rel="stylesheet" href="../styles.css">
+<link rel="stylesheet" href="world.css">
+</head>
+<body class="world-page">
+<header class="site-header">
+  <a class="brand" href="../" aria-label="SRX home">
+    <span class="brand-sigil"></span>
+    <span class="brand-title brand-title-full">Shinra Robotics &amp; Xenogenetics</span>
+  </a>
+  <nav class="nav" aria-label="Realm navigation">
+    <a href="../">Home Page</a>
+    <a href="../intake/">Application</a>
+    <a href="../tactical/">Tactical Registry</a>
+    <a href="https://realm-mobile-srx-services.up.railway.app">Play Realm</a>
+    <a href="../lore/">SRX Information Archive</a>
+    <a class="active" href="./">Terra Live Census</a>
+    <a class="enter" href="../waiting/">Application Status</a>
+  </nav>
+</header>
+
+<section class="hero">
+  <div class="container">
+    <div class="hero-kicker"><span class="world-live-dot" id="world-live-dot"></span>SRX Interdimensional Relay // Live Signal</div>
+    <h1>Terra is alive right now.</h1>
+    <p class="hero-text">
+      This is not a preview or a mockup. The population figures below are relayed directly from Terra's own governance systems as they happen — people are born, age, and pass on the far side of this signal whether or not anyone is watching.
+    </p>
+    <div class="world-status-grid" id="world-status-grid">
+      <div><span>Total Population</span><strong>—</strong></div>
+      <div><span>Reporting Powers</span><strong>—</strong></div>
+      <div><span>Cycle</span><strong>—</strong></div>
+      <div><span>Signal Age</span><strong>—</strong></div>
+    </div>
+    <p class="world-status-line" id="world-status-line">Establishing relay…</p>
+  </div>
+</section>
+
+<main>
+  <section class="section">
+    <div class="container">
+      <div class="section-head">
+        <div>
+          <div class="kicker">Regional Powers</div>
+          <h2>Who governs Terra right now.</h2>
+        </div>
+        <p>Each power's population is a live count of its own governed territory, not a static lore figure.</p>
+      </div>
+      <div class="world-kingdom-grid" id="world-kingdoms"></div>
+    </div>
+  </section>
+</main>
+
+<footer class="footer"><div><span>SRX</span> // Terra Live Census</div><div>Relay refreshes automatically // 3120 CE</div></footer>
+<script src="world.js"></script>
+</body>
+</html>
