@@ -106,7 +106,7 @@ const checkRateLimit = async (request, env, action) => {
   return identity;
 };
 
-const verifyTurnstile = async (request, env, token) => {
+const verifyTurnstile = async (request, env, token, action = 'post_comment') => {
   if (!token) throw new HttpError('Complete the anti-spam check first.', 400);
   const form = new FormData();
   form.set('secret', env.TURNSTILE_SECRET);
@@ -115,7 +115,7 @@ const verifyTurnstile = async (request, env, token) => {
   if (address) form.set('remoteip', address);
   const response = await fetch(TURNSTILE_VERIFY_URL, { method: 'POST', body: form });
   const result = await response.json();
-  if (!result.success || (result.action && result.action !== 'post_comment')) {
+  if (!result.success || (result.action && result.action !== action)) {
     throw new HttpError('The anti-spam check expired or failed. Please try it again.', 403);
   }
 };
@@ -484,6 +484,15 @@ export default {
       let response;
       if (request.method === 'GET' && url.pathname === '/health') {
         response = json({ ok: true, service: 'life-of-skye-comments' });
+      } else if (request.method === 'GET' && url.pathname === '/game-jam/config') {
+        await env.DB.prepare('SELECT email FROM game_jam_signups LIMIT 0').all();
+        response = json({ ready: Boolean(env.TURNSTILE_SITE_KEY && env.TURNSTILE_SECRET && env.RATE_LIMIT_SALT), siteKey: env.TURNSTILE_SITE_KEY });
+      } else if (request.method === 'POST' && url.pathname === '/game-jam/signups') {
+        response = await createJamSignup(request, env);
+      } else if (request.method === 'GET' && url.pathname === '/admin/game-jam/signups') {
+        await requireAdmin(request, env);
+        const rows = await env.DB.prepare('SELECT email, handle, interest, created_at FROM game_jam_signups ORDER BY created_at').all();
+        response = json({ signups: rows.results });
       } else if (request.method === 'GET' && url.pathname === '/config') {
         response = getConfig(env);
       } else if (request.method === 'GET' && url.pathname === '/comments') {
@@ -523,3 +532,31 @@ export {
   serializeComment,
   validateComment
 };
+
+
+export function validateJamSignup(payload) {
+  if (!payload || typeof payload !== 'object') throw new HttpError('Enter your email address.');
+  const email = normalizeText(payload.email).toLowerCase();
+  const handle = normalizeText(payload.handle);
+  const interest = normalizeText(payload.interest);
+  if (email.length > 254 || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) throw new HttpError('Enter a valid email address.');
+  if (handle.length > 80) throw new HttpError('Keep your name or handle under 81 characters.');
+  if (!['', 'compete', 'teammates', 'follow'].includes(interest)) throw new HttpError('Choose one of the listed interests.');
+  if (normalizeText(payload.website)) throw new HttpError('The anti-spam check rejected that submission.');
+  return { email, handle, interest };
+}
+
+async function createJamSignup(request, env) {
+  if (!isAllowedOrigin(request, env)) throw new HttpError('Origin not allowed.', 403);
+  const payload = await readJson(request);
+  const signup = validateJamSignup(payload);
+  await checkRateLimit(request, env, 'game_jam_signup');
+  await verifyTurnstile(request, env, payload.turnstileToken, 'game_jam_signup');
+  const result = await env.DB.prepare(`
+    INSERT INTO game_jam_signups (email, handle, interest, created_at, consent_version)
+    VALUES (?1, ?2, ?3, ?4, 'opening-notification-v1')
+    ON CONFLICT(email) DO NOTHING
+  `).bind(signup.email, signup.handle, signup.interest, new Date().toISOString()).run();
+  if (!result.success) throw new HttpError('Your signup could not be saved. Please try again.', 503);
+  return json({ subscribed: true });
+}
