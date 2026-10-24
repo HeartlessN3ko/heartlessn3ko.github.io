@@ -4,6 +4,8 @@
 from __future__ import annotations
 
 import json
+import hashlib
+import re
 import sys
 from html.parser import HTMLParser
 from pathlib import Path
@@ -136,6 +138,10 @@ def main() -> int:
                     )
 
     laws_source = (SITE / "content" / "01-twelve-laws.md").read_text(encoding="utf-8")
+    expected_hash = "ebedfabea670938eef9a266f2e660c591c81b8c3ae4ca29e155c8ebc4d6afa63"
+    # Git may check out CRLF on Windows; normalize only line endings, not wording.
+    if hashlib.sha256(laws_source.encode("utf-8")).hexdigest() != expected_hash:
+        errors.append("Book II v0.6 source differs from the verified preserved edition.")
     for law in LAW_TEXTS:
         if f"> {law}" not in laws_source:
             errors.append(f"The exact published Law changed or is missing: {law}")
@@ -154,10 +160,26 @@ def main() -> int:
             "/humanity/human-sovereignty/",
             "/humanity/human-experience/",
             "/humanity/human-spirit/",
+            *[f"/humanity/history/#law-{i}" for i in range(1, 13)],
         }
         missing = sorted(required_urls - urls)
         if missing:
             errors.append(f"Search index is missing: {', '.join(missing)}")
+
+    history = json.loads((SITE / "content" / "historical-context.json").read_text(encoding="utf-8"))
+    if [entry.get("law") for entry in history["entries"]] != list(range(1, 13)):
+        errors.append("History companion must cover each Law exactly once in order.")
+    for entry in history["entries"]:
+        for key in ("event", "context", "illustrates", "tension", "reading", "question", "sources"):
+            if not entry.get(key):
+                errors.append(f"History Law {entry['law']} has no {key}.")
+        for key in ("context", "reading", "tension"):
+            for match in re.finditer(r"\[(\d+)(?:–(\d+))?\]", entry[key]):
+                if not 1 <= int(match.group(1)) <= int(match.group(2) or match.group(1)) <= len(entry["sources"]):
+                    errors.append(f"History Law {entry['law']} has an invalid citation.")
+        for source in entry["sources"]:
+            if not source["url"].startswith("https://"):
+                errors.append(f"History Law {entry['law']} has an insecure source URL.")
 
     if errors:
         print("Humanity wiki check failed:")

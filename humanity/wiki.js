@@ -3,7 +3,8 @@
 
   const root = document.documentElement;
   const themeButton = document.querySelector("[data-theme-button]");
-  const storedTheme = localStorage.getItem("humanity-theme");
+  let storedTheme = null;
+  try { storedTheme = localStorage.getItem("humanity-theme"); } catch (_) { /* Reading still works when storage is blocked. */ }
   if (storedTheme === "night" || storedTheme === "paper") {
     root.dataset.theme = storedTheme;
   }
@@ -11,7 +12,7 @@
   themeButton?.addEventListener("click", function () {
     const next = root.dataset.theme === "night" ? "paper" : "night";
     root.dataset.theme = next;
-    localStorage.setItem("humanity-theme", next);
+    try { localStorage.setItem("humanity-theme", next); } catch (_) { /* Theme remains usable for this visit. */ }
   });
 
   const sidebar = document.querySelector("[data-sidebar]");
@@ -64,7 +65,7 @@
   async function ensureIndex() {
     if (searchIndex.length) return searchIndex;
     try {
-      const response = await fetch("/humanity/search-index.json", { cache: "force-cache" });
+      const response = await fetch("/humanity/search-index.json?v=20261024-history-1", { cache: "force-cache" });
       if (!response.ok) throw new Error("Search index unavailable");
       searchIndex = await response.json();
     } catch (error) {
@@ -97,6 +98,7 @@
       return;
     }
     const index = await ensureIndex();
+    if (!index.length) return; // Preserve the explicit network-error message.
     const words = query.toLowerCase().split(/\s+/).filter(Boolean);
     const matches = index
       .map(function (item) {

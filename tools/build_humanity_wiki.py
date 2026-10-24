@@ -7,12 +7,13 @@ import html
 import json
 import re
 from pathlib import Path
+from humanity_history import build_history
 
 
 REPO = Path(__file__).resolve().parents[1]
 SITE = REPO / "humanity"
 CONTENT = SITE / "content"
-ASSET_VERSION = "20260901-codex-voice-2"
+ASSET_VERSION = "20261024-history-1"
 
 ARTICLES = [
     ("architecture", "00-codex-architecture.md", "The Architecture of the Codex", "Codex structure"),
@@ -392,6 +393,7 @@ def sidebar(current: str) -> str:
         nav_link("The Human Experience", "/humanity/human-experience/", "human-experience"),
         nav_link("The Human Spirit", "/humanity/human-spirit/", "human-spirit"),
         '<div class="sidebar-label secondary">Explore</div>',
+        nav_link("History and parallel reading", "/humanity/history/", "history"),
         nav_link("Concept guide", "/humanity/concepts/", "concepts"),
         nav_link("All 21 Books", "/humanity/#book-register", "book-register"),
     ]
@@ -406,6 +408,9 @@ def toc_html(items: list[tuple[str, str]]) -> str:
 
 
 def related_html(slug: str) -> str:
+    if slug == "twelve-laws":
+        links = "".join(f'<li><a href="/humanity/history/#law-{i}">Law {i}: historical case and parallel reading</a></li>' for i in range(1, 13))
+        return '<section class="related"><h2>History and parallel reading</h2><p class="editorial-note">An editorial companion with dated cases, specific reading passages, sources and limits for every Law. These comparisons do not claim direct provenance or endorsement.</p><ul>' + links + '</ul></section>'
     items = RELATED.get(slug, [])
     if not items:
         return ""
@@ -635,7 +640,7 @@ def concepts_page() -> str:
         ("Scientific truth", "Claims investigated through evidence and revision", "human-spirit"),
         ("Human truth", "Persistent patterns of Human experience and meaning", "human-spirit"),
         ("Spiritual truth", "Enduring questions not yet settled by evidence", "human-spirit"),
-        ("Sacred uncertainty", "The principle that “we do not know” has value", "human-spirit"),
+        ("Sacred uncertainty", 'The principle that "we do not know" has value', "human-spirit"),
     ]
     concepts.sort(key=lambda item: item[0].casefold())
     grouped: dict[str, list[tuple[str, str, str]]] = {}
@@ -685,6 +690,9 @@ def build() -> None:
         search_index.append({"title": title, "url": f"/humanity/{slug}/", "text": plain})
         pages.append((SITE / slug / "index.html", article_page(slug, filename, title, placement, index)))
     pages.append((SITE / "concepts" / "index.html", concepts_page()))
+    history_page, history_search = build_history(SITE, page_shell, toc_html)
+    pages.append((SITE / "history" / "index.html", history_page))
+    search_index.extend(history_search)
     for path, content in pages:
         path.parent.mkdir(parents=True, exist_ok=True)
         path.write_text(content, encoding="utf-8", newline="\n")

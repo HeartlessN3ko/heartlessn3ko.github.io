@@ -1,0 +1,173 @@
+{
+  "title": "History and parallel reading",
+  "updated": "2026-10-24",
+  "entries": [
+    {
+      "law": 1,
+      "theme": "Truth and revision",
+      "event": "London cholera investigation, 1854–1855",
+      "context": "During the 1854 Soho outbreak, John Snow investigated who drank water from the Broad Street pump, including exceptions to the apparent geographical pattern. His 1855 account also compared populations supplied by different water companies. The inquiry mattered because a persuasive explanation had to survive comparisons, not merely fit a striking map. [1]",
+      "illustrates": "The connection to Law 1 is methodological: seek evidence capable of changing an explanation, investigate inconvenient cases, and make the reasoning inspectable. This is an editorial comparison, not a claim that Snow formulated this Law.",
+      "tension": "The epidemic was already declining when the pump handle was removed. Its removal alone cannot establish the size of the intervention's effect. Snow's own caution is a better lesson than the familiar story of one heroic act instantly ending an epidemic. Historical success does not make every outsider's theory correct. [1]",
+      "reading": "John Stuart Mill, On Liberty (1859), Chapter II, Of the Liberty of Thought and Discussion: read the arguments about human fallibility and the possibility that a contested opinion contains part of the truth. The parallel is willingness to examine objections; Mill's defense of discussion is not a substitute for testing causal claims. [2]",
+      "question": "What observation would make you revise the explanation you currently favor?",
+      "sources": [
+        {"label": "John Snow, On the Mode of Communication of Cholera, second edition (1855), pp. 38–55 and the following water-supply investigation", "url": "https://johnsnow.matrix.msu.edu/documentUploads/15-78-52/15-78-52-22-1855-MCC2.pdf", "kind": "Primary text; Michigan State University archive"},
+        {"label": "John Stuart Mill, On Liberty, Chapter II", "url": "https://www.gutenberg.org/files/34901/34901-h/34901-h.htm", "kind": "Primary philosophical text; public-domain edition"}
+      ]
+    },
+    {
+      "law": 2,
+      "theme": "Protecting life",
+      "event": "Solferino, 24 June 1859; Dunant's appeal, 1862",
+      "context": "After the battle of Solferino in northern Italy, Henry Dunant witnessed wounded soldiers left without adequate care. His account describes civilian efforts to assist the wounded across the armies' divisions and ends by proposing organized voluntary relief and an international agreement. A Memory of Solferino appeared in 1862. [1]",
+      "illustrates": "Law 2 can be read here as a demand to protect vulnerable life even when political loyalties encourage indifference. The practical movement from sympathy to trained assistance matters: an intention to save life must become capacity to help.",
+      "tension": "Treating the wounded does not establish that the war itself was necessary or justified. Humanitarian protection and the justification for using lethal force are separate questions. This case therefore illuminates the protection clause more directly than the Law's difficult necessity clause.",
+      "reading": "Henry Dunant, A Memory of Solferino (1862): read the account of care at Castiglione and the concluding proposals for relief societies and a convention. Pair the witness's account with historian François Bugnion's From Solferino to the Birth of Contemporary International Humanitarian Law (2009), especially its discussion of how the proposals became institutions. [1–2]",
+      "question": "Who remains entitled to care when their side is called the enemy?",
+      "sources": [
+        {"label": "Henry Dunant, A Memory of Solferino", "url": "https://www.icrc.org/sites/default/files/external/doc/en/assets/files/publications/icrc-002-0361.pdf", "kind": "Primary eyewitness account; ICRC edition"},
+        {"label": "François Bugnion, From Solferino to the birth of contemporary international humanitarian law (2009)", "url": "https://www.icrc.org/sites/default/files/external/doc/en/assets/files/other/solferino-bugnion-icrc.pdf", "kind": "Historical study; International Review of the Red Cross"}
+      ]
+    },
+    {
+      "law": 3,
+      "theme": "Strength used for protection",
+      "event": "Rescue of Danish Jews, autumn 1943",
+      "context": "When Nazi persecution threatened Denmark's Jewish population with deportation, Jewish families, neighbors, resistance members and fishermen organized concealment and escape to neutral Sweden. More than 7,000 Jews reached safety. Boats, local knowledge, networks and Sweden's willingness to receive refugees became forms of protective power. [1]",
+      "illustrates": "The case broadens strength beyond weapons: control of transport, information and institutions can shelter people whom a more powerful state targets. The moral comparison is between capacity used to dominate and capacity used to make escape possible.",
+      "tension": "The rescue was not universal; hundreds were deported. Geography, warning and a receiving country helped make this operation possible, so it is misleading to use Denmark as a simple test of other populations' courage. Refugees' own decisions and agency also belong in the story. [1]",
+      "reading": "Immanuel Kant, Toward Perpetual Peace (1795), Third Definitive Article: examine the limited cosmopolitan right of hospitality and his criticism of hostile treatment of visitors. It offers a parallel vocabulary for protection across borders, but Kant's right of visitation is narrower than modern asylum or a general right to settle. [2]",
+      "question": "What resources under your control could make a threatened person's escape or safety possible?",
+      "sources": [
+        {"label": "United States Holocaust Memorial Museum, Denmark", "url": "https://encyclopedia.ushmm.org/content/en/article/denmark", "kind": "Research museum historical account"},
+        {"label": "Immanuel Kant, Perpetual Peace, Third Definitive Article", "url": "https://www.gutenberg.org/files/50922/50922-h/50922-h.htm", "kind": "Primary philosophical text; English translation"}
+      ]
+    },
+    {
+      "law": 4,
+      "theme": "Freedom to become",
+      "event": "United States abolition and the Thirteenth Amendment, 1865",
+      "context": "Congress passed the Thirteenth Amendment on 31 January 1865; ratification followed on 6 December. Its prohibition of slavery and involuntary servitude changed the constitutional conditions under which people could claim control over their lives. Its text also retained an exception for punishment after conviction. [1]",
+      "illustrates": "Law 4 concerns more than permission to choose within an imposed role. Abolition demonstrates why the institutions that assign ownership and restrict movement, learning and family life must themselves be challenged. The comparison is about opening possible lives, not describing emancipation as a gift from one leader.",
+      "tension": "The punishment exception is visible in the amendment itself. Legal abolition also does not logically guarantee material independence, equal treatment or safety. Treating a constitutional milestone as a completed liberation would confuse a necessary structural change with all the conditions needed to exercise freedom.",
+      "reading": "Frederick Douglass, Narrative of the Life of Frederick Douglass (1845), Chapters VI–VII: his account of learning to read shows how enslavers restricted knowledge and how literacy expanded his understanding while intensifying his anguish. Read his voice alongside the later legal text; neither should be flattened into a cheerful story of inevitable progress. [2]",
+      "question": "Which barriers prevent a formal freedom from becoming a usable freedom?",
+      "sources": [
+        {"label": "National Archives, Thirteenth Amendment: transcript and historical context", "url": "https://www.archives.gov/milestone-documents/13th-amendment", "kind": "Primary constitutional text and archival introduction"},
+        {"label": "Frederick Douglass, Narrative (1845), Chapters VI–VII", "url": "https://docsouth.unc.edu/neh/douglass/douglass.html", "kind": "Primary autobiography; University of North Carolina digital edition"}
+      ]
+    },
+    {
+      "law": 5,
+      "theme": "Community and belonging",
+      "event": "Hull-House, Chicago, from 1889",
+      "context": "Jane Addams and Ellen Gates Starr established Hull-House in 1889. Addams's later account describes a settlement whose neighbors participated in educational, social and cultural activities amid urban poverty and immigration. The project joined everyday encounters to questions of labor, sanitation and public responsibility. [1]",
+      "illustrates": "Law 5's bonds become concrete through recurring places and practices of meeting, learning and care. Hospitality is more durable when people can participate and contribute, rather than appearing only as recipients of another person's charity.",
+      "tension": "Addams was a participant writing a retrospective account, not a neutral observer. Read her descriptions for both insight and the power imbalance between educated reformers and neighbors. Belonging can become paternalism when helpers decide what a good life should look like without sharing authority.",
+      "reading": "Jane Addams, Twenty Years at Hull-House (1910), Chapters V–VII on the settlement's beginnings and purposes, and XI, Immigrants and Their Children. Ask where the narrator learns from neighbors and where she interprets their needs for them. This is an intellectual parallel, not evidence that the Codex derives directly from Addams. [1]",
+      "question": "Do the people a community serves have real authority in shaping it?",
+      "sources": [
+        {"label": "Jane Addams, Twenty Years at Hull-House, Chapters V–VII and XI", "url": "https://www.gutenberg.org/cache/epub/1325/pg1325-images.html", "kind": "Primary participant memoir; public-domain edition"}
+      ]
+    },
+    {
+      "law": 6,
+      "theme": "Plurality and its limits",
+      "event": "Virginia Statute for Religious Freedom, 16 January 1786",
+      "context": "Virginia adopted a statute rejecting compulsory religious support and protecting the profession of religious opinions without loss of civil capacity. The legislative text offers a specific historical example of limiting government's power to punish belief. [1]",
+      "illustrates": "The parallel to Law 6 is protection of difference without requiring agreement. A community can restrain coercion while allowing incompatible views of ultimate meaning to coexist. Religious liberty is one part of plurality, not the whole of the Law's treatment of love, creativity and ways of life.",
+      "tension": "A statute about religion does not by itself secure every form of equality. The parallel reading also exposes a sharp contradiction: Locke defended toleration but excluded atheists from it. His argument should be examined critically, not presented as a complete earlier statement of universal pluralism. [2]",
+      "reading": "John Locke, A Letter Concerning Toleration (1689), passages distinguishing the commonwealth's civil interests from care of souls, followed by the closing exclusions, including atheists. The unnumbered letter is best located by those topics rather than invented chapter numbers. Read both the defense and the boundary it draws. [2]",
+      "question": "Does your defense of difference still hold when you encounter a belief you strongly reject?",
+      "sources": [
+        {"label": "Library of Virginia, Act for Establishing Religious Freedom", "url": "https://www.lva.virginia.gov/collections/educator-resources/dbva/items/show/180", "kind": "Primary legislative document and archival context"},
+        {"label": "John Locke, A Letter Concerning Toleration, edited by Mark Goldie", "url": "https://oll.libertyfund.org/titles/goldie-a-letter-concerning-toleration-and-other-writings", "kind": "Scholarly edition of primary philosophical writings"}
+      ]
+    },
+    {
+      "law": 7,
+      "theme": "Responsibility and repair",
+      "event": "South Africa's Truth and Reconciliation Commission, 1995–1998 report cycle",
+      "context": "South Africa's transition from apartheid included a commission investigating gross human-rights violations, hearing victims, considering conditional amnesty and recommending reparation. Its five-volume report was presented on 29 October 1998; later reporting supplemented it. Volume V, Chapter 5 sets out reparation and rehabilitation policy. [1–2]",
+      "illustrates": "The connection to Law 7 is the insistence that acknowledging harm should lead toward practical obligations to those harmed. Public testimony, material assistance, institutional change and accountability answer different needs; one cannot simply be renamed as all the others.",
+      "tension": "Amnesty can conflict with victims' claims to prosecution and civil remedies. Recommendations are evidence of proposed repair, not proof that repair was delivered. Reconciliation must not be used to demand forgiveness from victims or declare structural injustice finished. The report itself discusses these tensions. [1–2]",
+      "reading": "Read Desmond Tutu's Chairperson's Foreword in Volume I, then Volume V, Chapter 5, Reparation and Rehabilitation Policy, and Chapter 9, Reconciliation. The foreword supplies an influential ethical argument; the policy chapters make it possible to test inspiring language against concrete duties. [2]",
+      "question": "What would repair require from the responsible institution, and who gets to judge its adequacy?",
+      "sources": [
+        {"label": "TRC Final Report: official summary and guide to contents", "url": "https://www.justice.gov.za/trc/report/execsum.htm", "kind": "Primary institutional summary"},
+        {"label": "South African Department of Justice, TRC report volumes", "url": "https://www.justice.gov.za/trc/report/index.htm", "kind": "Primary commission report; Volumes I and V"}
+      ]
+    },
+    {
+      "law": 8,
+      "theme": "Knowledge as an inheritance",
+      "event": "Evacuation of Timbuktu manuscripts, 2012; preservation discussions, 2015",
+      "context": "During the 2012 crisis in northern Mali, manuscripts were moved from Timbuktu to Bamako. UNESCO's January 2015 conference reporting emphasized both community safeguarding and the urgent need to improve storage conditions after evacuation. Saving a collection from immediate destruction was only the beginning of preservation. [1]",
+      "illustrates": "Law 8 joins preservation to transmission. Manuscripts need custodians, conditions that prevent decay, and ways for future readers to find and understand them. The case makes local communities visible as knowledge keepers, rather than treating preservation as something outsiders confer.",
+      "tension": "Rescue, conservation and public access can pull in different directions. A fragile text may need restricted handling; its owners may have legitimate claims over digitization and use. Sharing knowledge should not mean erasing custodianship. The 2015 source describes that stage of the work, not the collection's current location.",
+      "reading": "Francis Bacon, The Advancement of Learning (1605), Book I, concluding discussion of the durability and transmission of learning; Book II, opening survey of institutions, libraries and deficiencies in learning. Compare his institutional ambitions with the practical work of preservation. His royal and European frame is not a universal account of whose knowledge matters. [2]",
+      "question": "What must be preserved besides the words for a future reader to understand them responsibly?",
+      "sources": [
+        {"label": "UNESCO, Bamako conference urges emergency action to safeguard ancient manuscripts (2015)", "url": "https://whc.unesco.org/en/news/1228", "kind": "Institutional record of preservation needs"},
+        {"label": "Francis Bacon, The Advancement of Learning, Books I–II", "url": "https://www.gutenberg.org/files/5500/old/5500-h.2014-11-04.htm", "kind": "Primary philosophical text; public-domain edition"}
+      ]
+    },
+    {
+      "law": 9,
+      "theme": "Living beyond subsistence",
+      "event": "United States Federal Theatre Project, 1935–1939",
+      "context": "During the Great Depression, the Federal Theatre Project employed theater professionals and organized performances. The Library of Congress preserves production records, playbills and administrative documents from 1935–1939. These materials make it possible to study cultural participation as part of public relief rather than treating art as an optional decoration after economic recovery. [1]",
+      "illustrates": "Law 9 can be explored through the relationship between livelihood, creation and shared experience. A performance can be work for its makers, play or discovery for its audience, and a place where a community recognizes or argues with itself.",
+      "tension": "Public provision raises questions about who selects the repertoire, which communities are represented and whether funding creates political leverage over expression. The existence of performances does not demonstrate equal access or establish that every production served its audience well. The archive should be used to investigate those questions.",
+      "reading": "John Dewey, Democracy and Education (1916), Chapter XV, Play and Work in the Curriculum, especially section 3, Work and Play; also Chapter XIX, Labor and Leisure. Dewey challenges rigid divisions between purposeful activity and enjoyment. His discussion concerns education, so extending it to adult cultural policy is an interpretation. [2]",
+      "question": "Who is excluded from creation, wonder or play by the way time and resources are distributed?",
+      "sources": [
+        {"label": "Library of Congress, Federal Theatre Project, 1935 to 1939: collection and primary records", "url": "https://www.loc.gov/collections/federal-theatre-project-1935-to-1939/about-this-collection/", "kind": "Primary archival collection with curatorial introduction"},
+        {"label": "John Dewey, Democracy and Education, Chapters XV and XIX", "url": "https://www.gutenberg.org/files/852/852-h/852-h.htm", "kind": "Primary philosophical text; public-domain edition"}
+      ]
+    },
+    {
+      "law": 10,
+      "theme": "Future possibility",
+      "event": "Our Common Future, 1987",
+      "context": "The World Commission on Environment and Development, chaired by Gro Harlem Brundtland, published Our Common Future in 1987. The report placed present needs and future generations' ability to meet their own needs in the same framework, connecting environmental limits with development and poverty. [1]",
+      "illustrates": "The connection to Law 10 is an obligation to consider people who cannot participate in today's decisions. A future inheritance includes ecological conditions and institutions, not simply accumulated goods. Protecting options can be more useful than attempting to prescribe descendants' preferred way of life.",
+      "tension": "The report's protection of future needs is not identical to the Law's stronger aspiration to leave more possibility. Nor can an appeal to future people automatically override the urgent needs of people alive now. The report expressly places priority on essential needs, especially those of the poor. [1]",
+      "reading": "Gro Harlem Brundtland's Chairperson's Foreword and the commission's Chapter 2, Towards Sustainable Development, especially section I, The Concept of Sustainable Development, and section II, Equity and the Common Interest. Attribute the chapter to the commission collectively, not to Brundtland alone. Read it as a policy argument whose tradeoffs require judgment. [1]",
+      "question": "Does a proposed benefit for the future depend on making already vulnerable people bear the costs today?",
+      "sources": [
+        {"label": "United Nations Digital Library, Our Common Future, A/42/427 (1987), full report", "url": "https://digitallibrary.un.org/record/139811?ln=en", "kind": "Primary international commission report"}
+      ]
+    },
+    {
+      "law": 11,
+      "theme": "Respect for sustaining systems",
+      "event": "The Dust Bowl and United States soil conservation, 1930s",
+      "context": "Drought, economic pressures and land-use practices contributed to severe Great Plains erosion during the Dust Bowl. The Soil Conservation Act of 27 April 1935 established a federal response through the Soil Conservation Service. The disaster connects ecological damage with agricultural livelihoods and public institutions. [1–2]",
+      "illustrates": "Law 11 asks what sustains an activity before asking how much can be extracted from it. Soil is not merely an input that can be consumed without consequence. The historical comparison is the need to keep the living basis of production capable of continuing.",
+      "tension": "Drought was not simply the result of individual farmers' moral failings, and conservation cannot be reduced to telling poor producers to take less. Prices, debt, policy and climatic conditions shape choices. Respect for nature must be translated into workable institutions and livelihoods, rather than blame alone. [2]",
+      "reading": "Aldo Leopold, A Sand County Almanac (1949), The Land Ethic, especially The Community Concept and The Ecological Conscience. His enlargement of moral community to soils, waters, plants and animals parallels this Law while challenging a purely human-centered account of nature. The foundation's explanation introduces the essay; consult the complete essay for its argument. [3]",
+      "question": "What apparently productive activity is consuming the conditions that make it possible?",
+      "sources": [
+        {"label": "USDA Natural Resources Conservation Service, agency history", "url": "https://www.nrcs.usda.gov/about/history/brief-history-nrcs", "kind": "Institutional historical account"},
+        {"label": "University of Nebraska–Lincoln, National Drought Mitigation Center, The Dust Bowl", "url": "https://drought.unl.edu/dustbowl/", "kind": "Academic historical and environmental synthesis"},
+        {"label": "Aldo Leopold Foundation, Understanding the Land Ethic", "url": "https://www.aldoleopold.org/blogs/understanding-the-land-ethic", "kind": "Author's foundation introduction to the named primary essay"}
+      ]
+    },
+    {
+      "law": 12,
+      "theme": "Power as stewardship",
+      "event": "Montreal Protocol, agreed 1987; entered into force 1989",
+      "context": "The Montreal Protocol established an international framework to phase out production and consumption of ozone-depleting substances. Its scientific assessments, differentiated obligations and financial arrangements make stewardship an organized practice extending across borders and decades. [1]",
+      "illustrates": "Law 12's power is collective as well as personal. Technical knowledge, regulatory authority, financing and industrial capacity can be coordinated to reduce a harm that no single affected person can repair. Responsibility includes maintaining the institutions that make action possible.",
+      "tension": "A treaty's adoption is not equivalent to completed environmental recovery. Implementation, monitoring and revision remain necessary. Success in ozone protection also does not prove that the same arrangement will automatically solve other environmental problems with different actors, incentives and technologies.",
+      "reading": "Elinor Ostrom, Beyond Markets and States: Polycentric Governance of Complex Economic Systems, Nobel lecture (2009), published in American Economic Review 100(3), 641–672 (2010). Read the sections on common-pool-resource institutions and the discussion of design principles: stewardship depends on rules, monitoring and accountable cooperation. Her research is a parallel lens, not a claim that local commons and the ozone regime are identical. [2]",
+      "question": "Who monitors a stewardship commitment, who can challenge failure, and who pays for repair?",
+      "sources": [
+        {"label": "UNEP Ozone Secretariat, Montreal Protocol and treaty text", "url": "https://ozone.unep.org/treaties/montreal-protocol", "kind": "Primary treaty and responsible institution's explanation"},
+        {"label": "Elinor Ostrom, Beyond Markets and States (2010), especially pp. 652–653; DOI 10.1257/aer.100.3.641", "url": "https://web.pdx.edu/~nwallace/EHP/OstromPolyGov.pdf", "kind": "Primary academic article; freely accessible Portland State University copy"}
+      ]
+    }
+  ]
+}
